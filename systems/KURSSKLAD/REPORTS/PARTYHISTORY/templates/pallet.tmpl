@@ -1,0 +1,29 @@
+#encoding cp1251
+#extends main
+#def phData
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+    ##Scripts
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script> 
+    <script type="text/javascript" src="$sp_js/pallet.js"></script>
+    
+    <form class="buttons" action="search">
+        ##<img src="$eng_img/actions/barcode.png" />&nbsp;
+        Номер или ШК поддона&nbsp;
+        <input type=text id="barcode" name="barcode">&nbsp;<input title="Актуальные паллеты" type="checkbox" name="chkflag" checked>&nbsp;
+        <button type=submit>
+        <img src="$eng_img/arrows/arrow_right.png" /></button>
+    </form>
+    <div id="dvTabs" style="text-align:left;">
+        <ul>
+            <li><a href="#party"><span>Партии</span></a></li>
+            <li><a href="#history"><span>История перемещений</span></a></li>
+            <li><a href="#characteristics"><span>Характеристики</span></a></li>
+            ##<li><a href="#search"><span>Поиск поддона</span></a></li>
+        </ul>
+        <div id="party"></div>
+        <div id="history"></div>
+        <div id="characteristics"></div>
+        ##<div id="search"></div>
+    </div>
+#end def

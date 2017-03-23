@@ -1,0 +1,44 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>$TONAME</br>
+    <b><u>($wcode)</u></b>$wname<br>
+    Заказ: <b><u>#filter Quantity$QO#end filter#</u></b>$MUCODE
+    <hr>
+    #if $varExists('$TWPALLETNUM') and $TWPALLETNUM
+        <b>$TWPALLETNUM</b>($SITENAME)
+    #else
+        <b>$SITENAME</b>
+    #end if
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PDATE#end filter#</td>
+                    <td>$viewQuantity($item.PAMOUNT,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)
+                      #if $VUCODE                    
+                        (<b><u>#filter Quantity$item.PAMOUNT#end filter#</u></b>)
+                      #end if
+                    </td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #end if
+    <hr>    
+    <form action="taskFWaresWeight">
+        <input type="hidden" name="twid" value="$TWID">
+        Вес: <input type="text" name="weight" id="::float" size="6" value="$weight">
+        <button type="submit">Ok</button>
+	</form>
+#end def

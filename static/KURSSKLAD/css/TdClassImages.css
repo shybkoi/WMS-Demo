@@ -1,0 +1,53 @@
+
+.DocStatusImg0{background: url(/KURS/images/status/doc/forming.png) center center no-repeat;}
+.DocStatusImg1{background: url(/KURS/images/status/doc/formed.png) center center no-repeat;}
+.DocStatusImg2{background: url(/KURS/images/status/doc/selected.png) center center no-repeat;}
+.DocStatusImgc{background: url(/KURS/images/status/doc/coming.png) center center no-repeat;}
+.DocStatusImge{background: url(/KURS/images/status/doc/closed.png) center center no-repeat;}
+.DocStatusImgg{background: url(/KURS/images/status/doc/selecting.png) center center no-repeat;}
+.DocStatusImgi{background: url(/KURS/images/status/doc/importing.png) center center no-repeat;}
+.DocStatusImgs{background: url(/KURS/images/status/doc/sent.png) center center no-repeat;}
+.DocStatusImgx{background: url(/KURS/images/status/doc/exporting.png) center center no-repeat;}
+.DocStatusImgv{background: url(/KURS/images/status/doc/checked.png) center center no-repeat;}
+.DocStatusImgw{background: url(/KURS/images/status/doc/came.png) center center no-repeat;}
+.DocStatusImgE{background: url(/KURS/images/status/doc/deleted.png) center center no-repeat;} 
+.DocStatusImgK{background: url(/KURS/images/status/doc/korrecting.png) center center no-repeat;} 
+.DocStatusImg¿{background: url(/KURS/images/status/doc/aorder.png) center center no-repeat;} 
+.DocStatusImg”{background: url(/KURS/images/status/doc/deleted.png) center center no-repeat;} 
+
+.TWStatusImg0{background: url(/KURS/images/status/task/0.png) center center no-repeat;}
+.TWStatusImg1{background: url(/KURS/images/status/task/1.png) center center no-repeat;}
+.TWStatusImg2{background: url(/KURS/images/status/task/2.png) center center no-repeat;}
+.TWStatusImgE{background: url(/KURS/images/status/task/3.png) center center no-repeat;}
+
+.red{background: url(/KURS/images/flags/red.png) center center no-repeat;}
+.yellow{background: url(/KURS/images/flags/yellow.png) center center no-repeat;}
+.blue{background: url(/KURS/images/flags/blue.png) center center no-repeat;}
+.green{background: url(/KURS/images/flags/green.png) center center no-repeat;}
+.greener{background: url(/KURS/images/flags/greener.png) center center no-repeat;}
+.white{background: url(/KURS/images/flags/inactive.png) center center no-repeat;}
+
+.WaresSetStatus0{background: url(/KURS/images/status/task/0.png) center center no-repeat;}
+.WaresSetStatus1{background: url(/KURS/images/status/task/1.png) center center no-repeat;}
+.WaresSetStatus2{background: url(/KURS/images/status/task/2.png) center center no-repeat;}
+
+.WaresInSetStatus0{background: url(/KURS/images/status/wares/1.png) center center no-repeat;}
+.WaresInSetStatus1{background: url(/KURS/images/status/task/1.png) center center no-repeat;}
+.WaresInSetStatus2{background: url(/KURS/images/status/wares/0.png) center center no-repeat;}
+
+.StatusWares0{background: url(/KURS/images/status/wares/0.png) center center no-repeat;}
+.StatusWares1{background: url(/KURS/images/status/wares/1.png) center center no-repeat;}
+.StatusWaresI{background: url(/KURS/images/status/wares/I.png) center center no-repeat;}
+.StatusWaresO{background: url(/KURS/images/status/wares/O.png) center center no-repeat;}
+
+.Restrict1{background: url(/KURS/images/cancel.png) center center no-repeat;}
+.Restrict0{background: url(/KURS/images/accept.png) center center no-repeat;}
+
+.ObjectStatus0{background: url(/ENGINE/images/actions/cancel.png) center center no-repeat;}
+.ObjectStatus1{background: url(/ENGINE/images/actions/accept.png) center center no-repeat;}
+.Main0{background: url(/KURS/images/cancel.png) center center no-repeat;}
+.Main1{background: url(/KURS/images/accept.png) center center no-repeat;}
+
+.HasShedule1{background: url(/KURS/images/calendar.png) center center no-repeat;}
+
+.ImageDelete{background: url(/ENGINE/images/actions/delete.png) center center no-repeat; width:16px; cursor:pointer;}

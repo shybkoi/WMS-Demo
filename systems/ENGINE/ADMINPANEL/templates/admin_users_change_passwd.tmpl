@@ -1,0 +1,37 @@
+#encoding cp1251
+
+<form id="dlgchangepasswd_form" class="full_height">
+
+ <table class="vertical_top">
+   <tr><th colspan='2'>$_('Изменение пароля')</th></tr>
+   <tr><td>ФИО</td><td><span id='fio_txt'></span></td></tr>
+   <tr><td>ID</td><td><span id='id_txt'></span></td></tr>
+
+   #include '../systems/ENGINE/PROFILE/templates/passwd_verify.tmpl'
+
+   <tr><td colspan='2'>&nbsp;</td></tr>
+   <tr><td colspan='2'><input id="show_passwd_chk" type='checkbox' value='show_passwd'><label for="show_passwd_chk">$_('Отображать пароль')</label></td></tr>
+   <tr><td colspan='2'><input id="send_mail_chk" type='checkbox' unchecked value='send_mail'><label for="send_mail_chk">$_('Уведомить по e-mail')</label></td></tr>
+   <!--tr><td colspan='2'><input id="send_sms_chk" type='checkbox' disabled value='send_sms'><label for="send_sms_chk">$_('Послать SMS')</label></td></tr-->
+ </table>
+</form>
+
+
+<div class="buttons footer_btns">
+    <span class="left_aligned_btns">
+        <button type="button" id="dlgchangepasswd_generate_btn"><img src="/ENGINE/images/actions/key_go.png"/>&nbsp;$_('Генерировать пароль')</button>
+        <button type="button" id="dlgchangepasswd_list_bc_btn"><img src="/ENGINE/images/actions/key_go.png"/>&nbsp;$_('Список ШК')</button>
+    </span>
+
+    <span class="right_aligned_btns">
+        <button type="button" id="dlgchangepasswd_save_btn"><img src="/ENGINE/images/actions/accept.png"/>&nbsp;$_('OK')</button>&nbsp;
+        <button type="button" id="dlgchangepasswd_cancel_btn"><img src="/ENGINE/images/actions/cancel.png"/>&nbsp;$_('Отмена')</button>
+    </span>
+</div>
+
+##Dialog List Barcodes
+<div id="dlglistBC" class="dialog flora" align="center"></div>
+
+<script>
+  var PWD_MIN_LEN = $PWD_MIN_LEN;
+</script>

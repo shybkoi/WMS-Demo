@@ -1,0 +1,209 @@
+tr.trTreeView td{
+    padding:0px;
+    line-height: 0.9;   
+}
+
+td.tdStatus0{
+    width: 16px;
+    background-image: url('/ENGINE/images/actions/delete.png');
+    background-repeat:no-repeat;
+}
+
+td.tdStatus1{
+    width: 16px;
+    background-image: url('/ENGINE/images/actions/add.png');
+    background-repeat:no-repeat; 
+}
+
+td.tdStatus2{
+    width: 16px;
+    background-image: url('/KURSSKLAD/images/bin_empty.png');
+    background-repeat:no-repeat; 
+}
+
+td.tdAlign{
+    vertical-align:middle;
+    #line-height: 0;
+}
+
+div.dvLeft{
+    float:left;
+    height:100%;
+    line-height:1.4;
+}
+
+td.paddingLeft{
+    padding-left:3px !important;
+}
+
+img.imgButton{
+    border: 1px solid RGB(255,20,20);
+    padding-left: 3px;     
+    padding-right: 3px;
+    margin-left: 10px;    
+    margin-right: 10px;    
+    background-color: url("/ENGINE/themes/blacknwhite/images/bg-header.jpg");
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+
+img.imgButton:hover{
+    border: 1px solid RGB(20,240,20);
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+
+div.dvMes{
+    width:100%;
+    font-weight:800;
+    line-height:1.5;
+    text-align:center;
+}
+
+input.inpAmount{
+    width:80px;
+}
+
+div.dvFloatMin{
+    float:left;
+    width:30%;
+    height:0.8cm;
+    line-height:0.6cm;
+    border-bottom:1px solid black;
+    margin-bottom:3px;
+    padding-top:10px;
+}
+
+
+div.dvFloatMax{
+    float:left;
+    width:70%;
+    height:0.8cm;
+    line-height:0.6cm;
+    border-bottom:1px solid black;
+    margin-bottom:3px;
+    padding-top:10px;
+}
+
+.widthTeg{
+    width:120px;
+}
+
+.widthBig{
+    width:200px;
+}
+
+
+div.dvText{
+    text-align:left;
+    font-weight:800;
+}
+
+div.dvHalf{
+    height:0.8cm;
+    line-height:0.8cm;
+    float:left;
+    width:50%;
+}
+
+.tLeft{
+    text-align:left;
+}
+
+input.inpInt{
+    width:40px;
+}
+
+div.dvNumTempM{
+    background-color: #00C90D !important;
+    border: 2px solid #008209 !important;
+    width:30px;  
+}
+
+div.dvNumTempB{
+    background-color: #00C90D !important;
+    border: 2px solid #008209 !important;
+    width:40px;
+}
+
+div.dvNumTempS{
+    background-color: #00C90D !important;
+    border: 2px solid #008209 !important;
+    width:20px;
+}
+
+
+div.dvTextTemp{
+    background-color: #057D9F !important;
+    border: 2px solid #025167 !important;
+    width:20px;
+}
+
+div.dvTemp{
+    padding-left:2px;
+    padding-right:2px;
+    float:left;
+    height:0.4cm;
+    line-height:0.4cm;  
+    border-radius: 3px 3px 3px 3px;
+    margin-left:3px;
+    background-color: #CBCBCB;
+    border: 2px solid #4A4A4A;
+    color:black;
+    font-size:8pt;
+    font-family:arial !important;    
+}
+
+input.multiSelect {
+    background-color: RGB(255,255,255) !important;
+}
+
+div.dvMaxWidth{
+    float:left;
+    width:100%;
+    height:1cm;
+    line-height:0.8cm;
+}
+
+div.dvMidWidth{
+    float:left;
+    width:50%;
+    height:1cm;
+    font-weight:700;
+    line-height:0.8cm;
+}
+
+input.inpSInfo{
+    width:60px;
+}
+
+
+div.dvChange{
+    text-decoration: underline;
+    color:RGB(200,50,50);
+    font-weight:800;
+}
+
+.prettyform .buttons {
+    bottom: 0;
+}
+
+.prettyform ul {
+    padding-bottom: 5px;
+}
+
+.prettyform ul li {
+    text-align: left;
+    padding-bottom: 3px;
+}
+
+.prettyform ul li span {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+
+.prettyform ul li select{
+    width: 140px;
+}
+.prettyform ul li input{
+    margin-left: 0;
+}

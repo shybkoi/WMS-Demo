@@ -1,0 +1,79 @@
+div.HealthData {
+width:350px;
+font-family: sans-serif,arial,verdana,tahoma,trebuchet MS;
+}
+div#graph canvas, p.aSlicePie{cursor:pointer;}
+p.aSlicePie{
+padding:0;
+margin:0;
+border:0px;
+text-decoration:none;
+color: #E3EFF4;
+font-size: 14px;}
+p.aSlicePie :hover{
+color:#343a3c;
+}
+a:link, a:visited, a:active, a:hover  { text-decoration: none; } 
+div#graph-detail {
+width:350px;
+}
+div#graph-detail div{
+margin-bottom:5px;
+}
+div.DivGraph{
+width:350px;
+height:350px;
+position: absolute; 
+}
+div#graph {
+width:350px;
+height:350px;
+float:top;
+border:0;
+}
+div.row table th,div.row table td {
+color: #E3EFF4;
+padding: 2px;
+border: 1px solid #828282;
+}
+div.row table {
+width:100%;
+font-size:10pt;
+background-color: #303030;
+}
+div.row img.logo {
+float:left;
+}
+div.row a.refresh,div.row a.detail,div.row a.transfer {
+float:right;
+}
+.StrokeColor {
+background-color:#858585;
+width:1px;
+}
+.GreenSlice {
+background-color:#296e2b;
+}
+.RedSlice {
+background-color:#7f0000;
+}
+td.AllTasks,td.AllTasks:hover,tr:hover td.AllTasks {
+background-color:#2d97c3;
+}
+td.OffTasks,td.OffTasks:hover,tr:hover td.OffTasks,tr:hover td.HealthGood,td.HealthGood,td.HealthGood:hover {
+background-color:#296e2b;
+}
+td.OnTasks,td.HealthBad,tr:hover td.HealthBad,tr:hover td.OnTasks,td.OnTasks:hover,td.HealthBad:hover {
+background-color:#7f0000;
+}
+td.ErrTasks,td.ErrTasks:hover{
+background-color:#F1B215;
+}
+input.transferCnt{width:78px;}
+td.left5{padding-left:5px !important;text-align:left;}
+input.transferBtn,input.transferCls{
+border:1px solid black;
+cursor:pointer;
+}
+td.AllTasks,td.OffTasks,td.OnTasks,td.ErrTasks{width:25%;}
+td.LastDate{text-align:center;}

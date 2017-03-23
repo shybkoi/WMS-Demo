@@ -1,0 +1,18 @@
+/* dlgchangepasswd */
+
+#dlgchangepasswd_form table tr.rowHover td, tr:hover td {
+    background-color: transparent !important;
+}
+
+#dlgchangepasswd_generate_btn{
+    margin-left: 0px;
+}
+
+#dlgchangepasswd_generate_bc_btn{
+    margin-left: 5px;
+}
+
+#fio_txt, #id_txt{
+    font-weight: bold;
+    font-size: 120%;
+}

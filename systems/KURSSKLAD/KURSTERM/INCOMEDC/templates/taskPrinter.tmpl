@@ -1,0 +1,35 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <b><u>$ALIAS</u></b><br><br>
+    <hr>
+    #if $datalist and len($datalist) > 0
+        <form action=taskPrinter id=frm>
+            <input type="hidden" name="prid" value="$printerid">
+            <input type="hidden" name="tid" value="$tid">
+            <input type=submit value="$_('Печать')"><br><br>
+            $_('Кол-во каждой этикетки'): <input type=text id="globalq:focus:int" value=1 onchange="globalSetQ()" size=2>
+            <br><br>
+        #for $item in $datalist
+            <b>$item.CLIENTNAME</b><br>
+            #filter DateFilter2
+                $item.CLIENTDATE
+            #end filter#
+            #set $name = 'q_' + str($item.CLIENTID) + '_'
+            : <input type=text id='::int' name="$name#filter DateFilter2$item.CLIENTDATE#end filter#" value=1 size=2><br>
+        #end for
+        </form>
+
+        <script>
+            function globalSetQ(){
+                var val = document.getElementById('globalq:focus:int').value;
+                var inputs = document.getElementById('frm').getElementsByTagName('input');
+                for (var i = 0; i < inputs.length; i++)
+                    if (inputs[i].name.indexOf('q_')>-1) inputs[i].value = val;
+            }
+
+            globalSetQ();
+        </script>
+    #end if
+#end def

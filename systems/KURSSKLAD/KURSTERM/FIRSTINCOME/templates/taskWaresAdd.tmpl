@@ -1,0 +1,44 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData            
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>(<u>$WCODE</u>)</b> $WNAME<br>    
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b><br>
+    #end if
+    
+    #if $WSITENAME
+        $_('МО'): <b><u>$WSITENAME</u></b><br>
+    #end if
+    <hr>
+    #set $selected = ''
+    #if $varExists('$wuid') and $wuid and $wuid == $MWUID
+        #set $selected = ' selected'
+    #else 
+        #set $selected = ''
+    #end if
+    #if $prdate and $prdate != '__.__.__'
+        #set $dateid = 'id="::date"'
+        #set $amountid = 'id=":focus:float"'
+    #else
+        #set $dateid = 'id=":focus:date"'
+        #set $amountid = 'id="::float"'
+    #end if
+    <form action=taskWaresAdd>
+        <input type=hidden name=tid value=$tid>
+        <input type=hidden name=wid value=$wid>
+        $_('Производство'): <input type=text size=6 $dateid name=prdate value="$prdate" autocomplete=false><br>
+        <select name=wuid>
+            #if $WTYPE=='U' and $VWUID
+                <option value=$VWUID>$VWUCODE</option>
+            #end if
+                <option$selected value=$MWUID>$MWUCODE</option>
+        </select> :
+		<input type=text name=amount $amountid value="#filter Quantity$amount#end filter#" size="6"><br><br>
+        $_('ШК Поддона'): <input type=text size=7 id="barcode:scan:text" name=barcode>
+        <button type="submit">OK</button>
+	</form>     
+
+#end def

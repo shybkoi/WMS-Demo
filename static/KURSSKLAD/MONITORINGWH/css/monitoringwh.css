@@ -1,0 +1,222 @@
+.transp {
+  -moz-border-image: url("/KURSSKLAD/MONITORINGWH/images/transparent.png") 1 round round;
+  border-image: url("/KURSSKLAD/MONITORINGWH/images/transparent.png") 1 round round;
+  -webkit-border-image: url("/KURSSKLAD/MONITORINGWH/images/transparent.png") 1 round round;
+}
+
+div.aktivSite {
+  border: 3px solid #DCDCDC !important;
+  -moz-box-shadow: 0 0 10px rgba(200, 200, 200, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(200, 200, 200, 0.5);
+  box-shadow: 0 0 10px rgba(200, 200, 200, 0.5);
+}
+
+img.imgButton {
+  border: 1px solid RGB(255, 20, 20);
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: url("/ENGINE/themes/blacknwhite/images/bg-header.jpg");
+  -moz-border-radius: 4px 4px 4px 4px;
+}
+
+img.imgButton:hover {
+  border: 1px solid RGB(20, 240, 20);
+  -moz-border-radius: 4px 4px 4px 4px;
+}
+
+div.dvMes {
+  width: 100%;
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+}
+
+input.inpAmount {
+  width: 80px;
+}
+
+.virtual {
+  border-style: dotted !important;
+  background-color: transparent !important;
+}
+
+.conveyor {
+  border: 1px dotted black !important;
+  background-color: #f0f0f0 !important;
+}
+
+.conveyor span.name {
+  font-size: 150%;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.air {
+  border-style: dashed !important;
+  background-color: #f0f0f0 !important;
+  opacity: 0.4;
+}
+
+.shalving {
+  background-color: #f0f0f0;
+  opacity: 0.4;
+}
+
+.blue {
+  background-color: #5486c5 !important;
+  opacity: 0.4;
+}
+
+.green {
+  background-color: #9bc782 !important;
+  opacity: 0.4;
+}
+
+.contextMenu {
+  width: 200px;
+}
+
+#caption {
+  width: 100%;
+  font-size: 20px;
+}
+
+#badWaresBtn {
+  float: left;
+  margin-left: 10px;
+}
+
+div.errorBW {
+  background-color: lightcoral;
+  opacity: 0.5 !important;
+}
+
+div.warningBW {
+  background-color: khaki;
+  opacity: 0.5 !important;
+}
+
+#dvSlots > div.error {
+  background-color: lightcoral;
+}
+
+#dvSlots > div.warning {
+  background-color: khaki;
+}
+
+.shadow {
+  -moz-box-shadow: 0 0 10px rgba(255, 0, 0, 0.8) !important;
+  -webkit-box-shadow: 0 0 10px rgba(255, 0, 0, 0.8) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8) !important;
+}
+
+.row {
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+  /*border-style: solid;*/
+}
+
+.row span.name {
+  font-size: 200%;
+  text-align: center;
+  font-weight: 800;
+
+}
+
+.storeplace {
+  font-size: 90%;
+  text-align: center;
+  font-weight: 800;
+  vertical-align: middle;
+  display: block;
+}
+
+#dvDetail .virtual {
+  color: #c9c9c9;
+}
+
+.font400 {
+  font-size: 380% !important;
+}
+
+.big-storeplace {
+  font-size: 150% !important;
+}
+
+.storeplace-1 {
+  font-size: 45%;
+  text-align: center;
+  font-weight: 800;
+  vertical-align: middle;
+  display: block;
+}
+
+.noborder {
+  border-width: 0px !important;
+  margin: 1px;
+  border-style: solid;
+}
+
+.cam {
+  text-align: center !important;
+  font-size: 280% !important;
+  border: 1px solid black !important;
+}
+
+.sector {
+  border: 1px dashed black !important;
+}
+
+.expedition {
+  border: 1px dashed black !important;
+  font-size: 250%;
+  font-weight: 700;
+  text-align: center;
+}
+
+.gate {
+  border: 1px dashed black !important;
+  font-size: 200%;
+  font-weight: 700;
+  text-align: center;
+}
+
+.egate {
+  border: 1px dashed black !important;
+  font-size: 80%;
+  font-weight: 700;
+  text-align: center;
+}
+
+div.errorBW {
+  background-color: #AE1E1E;
+  border: 1px solid #551717;
+  opacity: 0.6 !important;
+}
+
+div.warningBW {
+  background-color: #C0B825;
+  border: 1px solid #958F24;
+  opacity: 0.6 !important;
+}
+
+div.waresCont {
+  background-image: -moz-linear-gradient(bottom, rgb(41, 110, 24) 0%, rgb(27, 219, 39) 100%);
+}
+
+div.rotate {
+  -webkit-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+  -moz-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+  -o-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+}
+
+.thisZoneMul {
+  background-color: #C0B825 !important;
+}
+
+.thisZone {
+  background-color: #00C90D !important;
+}

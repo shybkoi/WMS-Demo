@@ -1,0 +1,31 @@
+/*-----------------------------------------
+[Theme Generic context menu Stylesheet]
+Theme name:   ATW
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    14:06 10.08.2009
+Author:	    Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+
+.contextMenu {
+	border: solid 1px #586571;
+	background: #EEE;
+    text-align: left;
+}
+.contextMenu A {
+	color: #333;
+}
+.contextMenu LI.hover A {
+	color: black;
+	background-color: #ACBECA;
+}
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+.contextMenu LI.separator {
+	border-top: solid 1px #CCC;
+}

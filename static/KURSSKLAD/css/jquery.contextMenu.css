@@ -1,0 +1,40 @@
+/* Generic context menu styles */
+.contextMenu {
+    width: 220px;
+}
+
+.contextMenu LI.add A { background-image: url(/ENGINE/images/actions/add.png); }
+.contextMenu LI.edit A { background-image: url(/ENGINE/images/actions/edit.png); }
+.contextMenu LI.multiedit A { background-image: url(/ENGINE/images/actions/page_copy.png); }
+.contextMenu LI.delete A { background-image: url(/ENGINE/images/actions/delete.png); }
+.contextMenu LI.delete-group A { background-image: url(/ENGINE/images/actions/delete-group.png); }
+.contextMenu LI.refresh A { background-image: url(/ENGINE/images/actions/refresh.png); }
+.contextMenu LI.save A { background-image: url(/ENGINE/images/actions/save.png); }
+.contextMenu LI.save-as A { background-image: url(/ENGINE/images/apps/excel.png); }
+.contextMenu LI.getfile A { background-image: url(/ENGINE/images/actions/getfile.png); }
+.contextMenu LI.export A { background-image: url(/ENGINE/images/apps/excel.png); }
+.contextMenu LI.package-add A { background-image: url(/ENGINE/images/actions/package-add.png); }
+.contextMenu LI.cut A { background-image: url(/ENGINE/images/actions/cut.png); }
+.contextMenu LI.copy A { background-image: url(/ENGINE/images/actions/copy.png); }
+.contextMenu LI.paste A { background-image: url(/ENGINE/images/actions/paste.png); }
+.contextMenu LI.quit A { background-image: url(/ENGINE/images/actions/door.png); }
+.contextMenu LI.print A { background-image: url(/ENGINE/images/actions/printer.png); }
+.contextMenu LI.detail A { background-image: url(/ENGINE/images/actions/application_view_detail.png);}
+.contextMenu LI.fasten A { background-image: url(/ENGINE/images/actions/chain_y.png);}
+.contextMenu LI.unfasten A { background-image: url(/ENGINE/images/actions/chain_n.png);}
+.contextMenu LI.accept A { background-image: url(/ENGINE/images/actions/accept.png);}
+.contextMenu LI.cancel A { background-image: url(/ENGINE/images/actions/cancel.png);}
+.contextMenu LI.time A { background-image: url(/ENGINE/images/actions/time.png);}
+.contextMenu LI.house A { background-image: url(/ENGINE/images/actions/house.png);}
+.contextMenu LI.barcode A { background-image: url(/ENGINE/images/actions/barcode.png); }
+
+.menu-item {
+    border: 1px solid black!important;
+    font-size: 80px;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0 20px 0;
+    padding: 7px;
+    background-color: #c0c0c0;
+}

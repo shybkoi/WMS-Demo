@@ -1,0 +1,15 @@
+#encoding cp1251
+<form id="dlgbcgen_form" class="full_height">
+  <table class="vertical_top">
+    <tr>
+        <th>“ип</th>
+        <td>
+            <select name='dlgbcgen_type_cmb' id='dlgbcgen_type_cmb'>
+            #for $item in $datalist
+                <option value="$item.ID_TYPE">$item.TYPE_NAME</option>
+            #end for
+            </select>
+        </td>
+    </tr>
+  </table>
+</form>

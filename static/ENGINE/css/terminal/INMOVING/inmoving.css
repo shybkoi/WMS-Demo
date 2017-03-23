@@ -1,0 +1,7 @@
+div #dvDocs, #dvWares{
+    height: inherit;
+}
+input.inQUANTITY{
+    width: 75px;
+    text-align: right;
+}

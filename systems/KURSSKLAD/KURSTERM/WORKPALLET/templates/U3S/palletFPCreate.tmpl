@@ -1,0 +1,32 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b>($WCODE)</b> $WNAME
+    <br><br>
+    $_('На паллете'): $viewQuantity($WQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<b><u>#filter Quantity$WQ#end filter#</u></b>)<br>
+    $TimeStampToDate($PRODUCTDATE) - $TimeStampToDate($BESTBEFOREDATE)
+    <hr>
+
+    #if $varExists('$FeatureId')
+        #if $varExists('$PFID')
+            <form action="uvPalletFPCreate" id=frm>
+                <input type="hidden" name="barcode1" value="$barcode">
+                <input type="hidden" name="dt" value="$dbCurrentTimestamp()">
+                <input type="hidden" name="featureid" value="$PFID">
+                <a href="wpMain?barcode=$barcode">$PFNAME</a><br>
+                $_('Количество'): <input type=text id="::int" size=4 name=q value="#filter Quantity$WQ#end filter#"/><b>$MWUCODE</b><br>
+                $_('ШК паллета для создания'): <input type="text" id=":scan:text" name="barcode2" value=""><br>
+                <button type="submit">OK</button>
+            </form>
+        #elif $varExists('$datalist')
+            #for $item in $datalist
+                <a href="wpMain?barcode=$barcode&featureid=$item.PFID">$item.PFNAME</a><br><br>
+            #end for
+        #end if
+    #end if
+
+#end def

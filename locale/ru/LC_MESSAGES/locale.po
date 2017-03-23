@@ -1,0 +1,2085 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Макмай\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-09 10:36+0200\n"
+"PO-Revision-Date: 2011-11-09 10:36+0200\n"
+"Last-Translator: Алексей Чернявский <che.alexey@gmail.com>\n"
+"Language-Team:  <support@rbsrrandl.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: c:\\MAGNIT\\\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: cp1251\n"
+"X-Poedit-SearchPath-0: systems\n"
+
+msgid "Registration"
+msgstr "Регистрация"
+
+msgid "Choose reestr type!"
+msgstr "Выберите тип реестра"
+
+msgid "There is no information for a view"
+msgstr "Нет информации для отображения"
+
+msgid "Status"
+msgstr "Статус "
+
+msgid "Lacks to the new document"
+msgstr "Остатки - в новый документ"
+
+msgid "Left"
+msgstr "Влево"
+
+msgid "New Order"
+msgstr "Новый заказ"
+
+msgid "Qualifications"
+msgstr ""
+
+msgid "Selected tasks"
+msgstr "Выбранные задания"
+
+msgid "Scan site of tare"
+msgstr "Отсканируйте МП тары"
+
+msgid "Scan wares barcode"
+msgstr "Отсканируйте ШК товара"
+
+msgid "Down pallet with"
+msgstr "Опустить паллет с"
+
+msgid "Use"
+msgstr "Использовать"
+
+msgid "Selected"
+msgstr "Выбрано"
+
+msgid "Position:"
+msgstr "Позиция:"
+
+msgid "Scan slot"
+msgstr "Отсканируйте МО"
+
+msgid "Choose task type from list"
+msgstr "Выберите тип задания из списка"
+
+msgid "Tasks"
+msgstr "Задания"
+
+msgid "Positions amount"
+msgstr "Кол-во позиций"
+
+msgid "weight netto"
+msgstr "вес нетто"
+
+msgid "no need to up"
+msgstr "отсутствует задание на подъем"
+
+msgid "Stick label to pallet and scan his barcode"
+msgstr "Наклейте этикетку на паллет и отсканируйте ШК"
+
+msgid "Rows"
+msgstr "Ряды"
+
+msgid "Wares lock"
+msgstr "Запрещенные товары"
+
+msgid "Unit"
+msgstr "Ед. изм."
+
+msgid "Type operation"
+msgstr "Тип операции"
+
+msgid "From whom"
+msgstr "От кого"
+
+msgid "Product date"
+msgstr "Дата производства"
+
+msgid "Name"
+msgstr "Наименование"
+
+msgid "Contractors"
+msgstr "Контрагенты"
+
+msgid "Over "
+msgstr "по "
+
+msgid "Number"
+msgstr "Номер"
+
+msgid "Pl."
+msgstr "Пал."
+
+msgid "Error cost input"
+msgstr "Ошибка ввода стоимости"
+
+msgid "Shop"
+msgstr "Магазин"
+
+msgid "Task type"
+msgstr "Тип задания"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "You can not delete non zero positions!"
+msgstr "Нельзя удалять ненулевые позиции!"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Positions of the task are processed all"
+msgstr "Обработаны все позиции задания"
+
+msgid "Wares group"
+msgstr "Группы товаров"
+
+msgid "Palletsite"
+msgstr "Место паллета"
+
+msgid "Errors list"
+msgstr "Список ошибок"
+
+msgid "To set"
+msgstr "Установить"
+
+msgid "New free select task"
+msgstr "Новая свободная задача"
+
+msgid "Count"
+msgstr "Кол-во"
+
+msgid "Write off"
+msgstr "АКТ О СПИСАНИИ ТОВАРА "
+
+msgid "Check weighting wares"
+msgstr "Отметить весовой товар"
+
+msgid "Without filter"
+msgstr "Без фильтра"
+
+msgid "Term selection"
+msgstr "Условие отбора"
+
+msgid "Up pallet number"
+msgstr "Поднять номер паллета"
+
+msgid "Worker"
+msgstr "Сотрудник"
+
+msgid "Finish converting"
+msgstr "Завершить пересчет"
+
+msgid "Are U shure?"
+msgstr "Вы уверены?"
+
+msgid "on position "
+msgstr "на позиции"
+
+msgid "Quantity"
+msgstr "Количество"
+
+msgid "Send to archive"
+msgstr "Отправить в архив"
+
+msgid "Select unit:"
+msgstr "Выберите ед. изм."
+
+msgid "scan pallet barcode"
+msgstr "Отсканируйте ШК паллета"
+
+msgid "In total names"
+msgstr "Всего наименований"
+
+msgid "Filter"
+msgstr "Фильтровать"
+
+msgid "Price NDS"
+msgstr "Цена с НДС"
+
+msgid "product date"
+msgstr "дата продукта"
+
+msgid "Defect"
+msgstr "Списание товара"
+
+msgid "Note"
+msgstr "Описание"
+
+msgid "Change"
+msgstr "Изменить"
+
+msgid "Free set"
+msgstr "Произвольный набор"
+
+msgid "Rest on begin is zero"
+msgstr "Нулевой остаток на начало"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Scan gate barcode for assign"
+msgstr "Отсканируйте ШК ворот для назначения"
+
+msgid "No sale wares"
+msgstr "Непродаваемые товары"
+
+msgid "No object"
+msgstr "Без объекта"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Create lot"
+msgstr "Создать партию"
+
+msgid "Current price"
+msgstr "Актуальная цена"
+
+msgid "Write-off"
+msgstr "списание"
+
+msgid "Weigth"
+msgstr "Вес"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Pallet is empty"
+msgstr "Паллет пуст"
+
+msgid "For downtake select task from list"
+msgstr "Для спуска выберите задание из списка"
+
+msgid "new party"
+msgstr "новая партия"
+
+msgid "amount"
+msgstr "количество"
+
+msgid "Do not choose params on filter!"
+msgstr "Выберите поставщика или группу!"
+
+msgid "employee is insufficiently qualified"
+msgstr ""
+
+msgid "Income"
+msgstr "Приход"
+
+msgid "Right"
+msgstr "Вправо"
+
+msgid "Other income"
+msgstr "Прочий приход"
+
+msgid "Unassign"
+msgstr "Отвязать"
+
+msgid "without NDS"
+msgstr "без НДС"
+
+msgid "Position"
+msgstr "Позиция"
+
+msgid "Active"
+msgstr "Активна"
+
+msgid "is downed"
+msgstr "снят"
+
+msgid "Taskes"
+msgstr "Задания"
+
+msgid "Price kind"
+msgstr "Вид цены"
+
+msgid "Wrong pallet on buffer"
+msgstr "Неправильный паллет в баффере"
+
+msgid "Rest on end negative!"
+msgstr "Отрицательный остаток на конец периода"
+
+msgid "Organization"
+msgstr "Организация"
+
+msgid "Task:"
+msgstr "Задание:"
+
+msgid "Count absent fact"
+msgstr "Кол-во непревез."
+
+msgid "Basis for drawing up certificate"
+msgstr "Основание для составления акта"
+
+msgid "Selected capacity"
+msgstr "Отобранный объем"
+
+msgid "Return supplier"
+msgstr "Возврат поставщику"
+
+msgid "Link/Unlink gates"
+msgstr "Привязать/Отвязать ворота"
+
+msgid "Scan site barcode"
+msgstr "Отсканируйте ШК МП"
+
+msgid "by all zones"
+msgstr "по всем зонам"
+
+msgid "Are you sure"
+msgstr "Вы уверены?"
+
+msgid "You can not leed document without positions!"
+msgstr "Нельзя провести документ без позиций!"
+
+msgid "Current sites"
+msgstr "Текущее МП"
+
+msgid "Delete position"
+msgstr "Удалить позицию"
+
+msgid "select type of document for print:"
+msgstr "выберите тип документа для печати:"
+
+msgid "Input rest of article on slot"
+msgstr "Введите остатки артикулов на слоте"
+
+msgid "logout code"
+msgstr "код завершения смены"
+
+msgid " Login/Logout/Block"
+msgstr "Вход/Выход/Блокировка"
+
+msgid "Scan object barcode"
+msgstr "Отсканируйте ШК объекта"
+
+msgid "Select type of car"
+msgstr "Выберите тип автомобиля"
+
+msgid "Configuration"
+msgstr "Настройка"
+
+msgid "Name Inspector"
+msgstr "ФИО проверяющего"
+
+msgid "Pallet or slot not found"
+msgstr "Паллет или слот не найдены"
+
+msgid "There is"
+msgstr "Это"
+
+msgid "Choose method from list"
+msgstr "Выберите метод из списка"
+
+msgid "Pallet number"
+msgstr "Номер паллета"
+
+msgid "Task not found!"
+msgstr "Задание не найдено!"
+
+msgid "Commission chairman"
+msgstr "Председатель комиссии"
+
+msgid "Show all taskes"
+msgstr "Показать все задания"
+
+msgid "Calculation of the document"
+msgstr "Расч.док."
+
+msgid "Recalc all positions by fact cost"
+msgstr "Пересчитать все позиции по фактической стоимости"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "quant"
+msgstr "кол-во"
+
+msgid "Count divergence"
+msgstr "Кол-во разноглас."
+
+msgid "Accepted"
+msgstr "Принятые"
+
+msgid "On the basis of the given certificate the waybill on internal moving is created"
+msgstr "На основании данного Акта создана накладная на внутреннее перемещение"
+
+msgid "amount/weight"
+msgstr "кол-во(вес)"
+
+msgid "Change date"
+msgstr "Сменить дату"
+
+msgid "Input number of boxes on pallet"
+msgstr "Ввести число коробок на паллете"
+
+msgid "Choose zone"
+msgstr "Выберите зону"
+
+msgid "tasks yet!"
+msgstr "еще задания"
+
+msgid "Scan people barcode"
+msgstr "Отсканируйте ШК сотрудника"
+
+msgid "Control:"
+msgstr "Контроль:"
+
+msgid "Criterion selection"
+msgstr "Критерии отбора"
+
+msgid "with NDS"
+msgstr "с НДС"
+
+msgid "Document number"
+msgstr "Номер документа"
+
+msgid "num"
+msgstr "№"
+
+msgid "The list of commodity positions"
+msgstr "Список товарных позиций"
+
+msgid "Up status"
+msgstr "Поднять статус"
+
+msgid "By rows"
+msgstr "По строкам"
+
+msgid "Createtime"
+msgstr "Дата создания"
+
+msgid "Wares Lot is Active?"
+msgstr "Партия товаров активна?"
+
+msgid "Print"
+msgstr "Печать"
+
+msgid "Contractor"
+msgstr "Контрагент"
+
+msgid "Certificates"
+msgstr "Сертификаты"
+
+msgid "Worked"
+msgstr "Отработано"
+
+msgid "Forcibly"
+msgstr "принудительно"
+
+msgid "For the sum"
+msgstr "на сумму"
+
+msgid "Place"
+msgstr "Место"
+
+msgid "Set checkes for all identical users"
+msgstr "Отметить все записи с совпадающей пользователем"
+
+msgid "Clear count"
+msgstr "Чистые"
+
+msgid "row"
+msgstr "ряд"
+
+msgid "Difference price"
+msgstr "Разница"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Prepared"
+msgstr "Подготовил"
+
+msgid "brcode"
+msgstr "ШК"
+
+msgid "If you agree, scan gate barcode"
+msgstr "Если согласны, отсканируйте ШК ворот"
+
+msgid "Including NDS"
+msgstr "В т.ч. НДС"
+
+msgid "Has shipped"
+msgstr "Отгрузил(а)"
+
+msgid "No enough quantity"
+msgstr "Нет товара в таком количестве"
+
+msgid "No active"
+msgstr "Не активна"
+
+msgid "Type of the price-list"
+msgstr "Типы ценников"
+
+msgid "Zone"
+msgstr "Зона"
+
+msgid "Scan car barcode"
+msgstr "Отсканируйте ШК автомобиля"
+
+msgid "Enter quantity and scan party barcode"
+msgstr "Введите количество или отсканируйте ШК партии"
+
+msgid "Count Documents"
+msgstr "Количество Документов"
+
+msgid "INN"
+msgstr "ИНН"
+
+msgid "There is no terminal number"
+msgstr "Не найден номер терминала"
+
+msgid "List of empty tasks"
+msgstr "Список шаблонов заданий"
+
+msgid "Scan your card"
+msgstr "Отсканируйте Вашу карту"
+
+msgid "Track"
+msgstr "Путь"
+
+msgid "Sender"
+msgstr "Отправитель"
+
+msgid "Scan site barcode in zone"
+msgstr "Отсканируйте ШК МП в зоне"
+
+msgid "Document on the control"
+msgstr "Документ на контроль"
+
+msgid "The certificate about detection of surpluses of the goods"
+msgstr "Акт об обнаружении излишков товара"
+
+msgid "Group contractors"
+msgstr "Группа контрагентов"
+
+msgid "History of:"
+msgstr "История: "
+
+msgid "or"
+msgstr "или"
+
+msgid "The certificate about detection of shortage of the goods"
+msgstr "Акт об обнаружении недостачи товара"
+
+msgid "The certificate about detection of surpluses/shortage of the goods"
+msgstr "Акт об обнаружении недостачи/излишков товара"
+
+msgid "Weight"
+msgstr "Вес"
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "Expense"
+msgstr "Расход"
+
+msgid "Finish Task"
+msgstr "Завершить задание"
+
+msgid "Invalid label barcode"
+msgstr "Неверный ШК этикетки"
+
+msgid "from"
+msgstr "от"
+
+msgid "Prices control"
+msgstr "Контроль цен"
+
+msgid "Rest on begin"
+msgstr "Остаток на начало"
+
+msgid "by status"
+msgstr "по статусу"
+
+msgid "Recipient"
+msgstr "Получатель"
+
+msgid "All users"
+msgstr "Все пользователи"
+
+msgid "Selected positions"
+msgstr "Выбранные позиции"
+
+msgid "Tasks statistic"
+msgstr "Статистика задания"
+
+msgid "Do you want create task for filling slot"
+msgstr "Вы хотите создать задание для пополнения слота?"
+
+msgid "Require"
+msgstr "Требование"
+
+msgid "T"
+msgstr "Т"
+
+msgid "Scan pallet, site or wares barcode"
+msgstr "Отсканируйте ШК паллета, МП или товара"
+
+msgid "Site"
+msgstr "МП"
+
+msgid "price"
+msgstr "цена"
+
+msgid "Interface"
+msgstr "Отображение"
+
+msgid "Purchase"
+msgstr "Закупка"
+
+msgid "pallet"
+msgstr "паллет"
+
+msgid "unitname"
+msgstr "единица измерения"
+
+msgid "Task"
+msgstr "Задание"
+
+msgid "No space on pallet"
+msgstr "Нет места на паллете"
+
+msgid "Actual"
+msgstr "Сейчас"
+
+msgid "place near slot"
+msgstr "поместите возле МО"
+
+msgid "pallet or art barcode"
+msgstr "ШК паллета или товара"
+
+msgid "Car"
+msgstr "Автомобиль"
+
+msgid "positions"
+msgstr "позиции"
+
+msgid "Enter wares amount"
+msgstr "Введите количество товара"
+
+msgid "Name wares"
+msgstr "Наименование товара"
+
+msgid "Adress"
+msgstr "Адрес"
+
+msgid "Create Box"
+msgstr "Создать ШК коробок"
+
+msgid "Move pallet"
+msgstr "Переместить паллет"
+
+msgid "P."
+msgstr "П."
+
+msgid "P"
+msgstr "П"
+
+msgid "Scan pallet or gate barcode"
+msgstr "Отсканируйте паллет или ШК ворот"
+
+msgid "F.I.O."
+msgstr "Ф.И.О."
+
+msgid "Leed"
+msgstr "Провести"
+
+msgid "Document deleting"
+msgstr "Удаление документа"
+
+msgid "Purchase price"
+msgstr "Цена закупки"
+
+msgid "Stat."
+msgstr "Стат."
+
+msgid "number_pos"
+msgstr "номер"
+
+msgid "forward"
+msgstr "вперед"
+
+msgid "Track and trailer"
+msgstr "Путь и прицеп"
+
+msgid " - documents for accountant"
+msgstr "- документы для бухгалтера"
+
+msgid "un.name"
+msgstr "Ед.изм."
+
+msgid "submit"
+msgstr "подтвердить"
+
+msgid "post"
+msgstr "должность"
+
+msgid "No valid level"
+msgstr "Нет заданного уровня"
+
+msgid "Decoding of the signature"
+msgstr "ФИО"
+
+msgid "New tasks"
+msgstr "Новые задания"
+
+msgid "Unlink all rows"
+msgstr "Отвязать все ряды"
+
+msgid "Method undefined!"
+msgstr "Метод обработки ссылки не определен!"
+
+msgid "For move scan site barcode"
+msgstr "Для перемещения отсканируйте ШК МП"
+
+msgid "Nobody not work now"
+msgstr "Отсканируйте ШК сотрудника"
+
+msgid "width"
+msgstr "ширина"
+
+msgid "quantity"
+msgstr "количество"
+
+msgid "VAT"
+msgstr "НДС"
+
+msgid "Invalid site barcode"
+msgstr "Неверный ШК МП"
+
+msgid "Period"
+msgstr "Период"
+
+msgid "From"
+msgstr "От"
+
+msgid "Scan pallet barcode"
+msgstr "Отсканируйте ШК паллета"
+
+msgid "Select count"
+msgstr "Запросов"
+
+msgid "Wares barcode"
+msgstr "ШК товара"
+
+msgid "Current zone"
+msgstr "Текущая зона"
+
+msgid "Task List"
+msgstr "Список заданий"
+
+msgid "Quantity of wares (unit)"
+msgstr "Кол-во товара (шт)"
+
+msgid "Change zone"
+msgstr "Сменить зону"
+
+msgid "Page"
+msgstr "Стр."
+
+msgid "Set checkes for all identical groups"
+msgstr "Отметить все записи с совпадающей группой"
+
+msgid "Row"
+msgstr "Ряд"
+
+msgid "Task wares count"
+msgstr "Кол-во позиций"
+
+msgid "New lot"
+msgstr "Новая партия"
+
+msgid "Date send"
+msgstr "Дата отправки"
+
+msgid "Move force"
+msgstr "Переместить принудительно"
+
+msgid "Scan sitebarcode"
+msgstr "Отсканируйте ШК участка"
+
+msgid "Retail price"
+msgstr "Цена продажи"
+
+msgid "Show finished task"
+msgstr "Показывать завершенные задания"
+
+msgid "Show list"
+msgstr "Показать список"
+
+msgid "Supplier"
+msgstr "Поставщик"
+
+msgid "Clear selected"
+msgstr "Очистить выделенные"
+
+msgid "Accept to CO"
+msgstr "Принять в ЦО"
+
+msgid "Cost NDS"
+msgstr "Стоимость с НДС"
+
+msgid "Locate wares by name"
+msgstr "Поиск товара по имени"
+
+msgid "Input (scan) number of pallet"
+msgstr "Введите (отсканируйте) номер паллета"
+
+msgid "No zone"
+msgstr "Нет зоны"
+
+msgid "Sub Groops"
+msgstr "Подгруппа"
+
+msgid "Razrub"
+msgstr "Разруб"
+
+msgid "Wares without remainder"
+msgstr "Товары без остатка"
+
+msgid "You not have tasks now"
+msgstr "В данный момент Вам не назначены задания"
+
+msgid "% NDS"
+msgstr "%НДС"
+
+msgid "require"
+msgstr "требуется"
+
+msgid "New reestr"
+msgstr "Новый реестр"
+
+msgid "Type Operation"
+msgstr "Тип операции"
+
+msgid "Document Sum"
+msgstr "Сумма по документу"
+
+msgid "adding"
+msgstr "прибавить"
+
+msgid "Scan wares for info, slot for query or pallet for slot in"
+msgstr "Отсканируйте товары для информации, слот для запроса либо паллет..."
+
+msgid "Input or scan quantity"
+msgstr "Введите или отсканируйте количество"
+
+msgid "Reestr do not send"
+msgstr "Реестр формируется"
+
+msgid "Allow move"
+msgstr "Разрешить передвижение"
+
+msgid "Pallet is deform"
+msgstr "Паллет деформирован"
+
+msgid "Base price"
+msgstr "Цена в базе"
+
+msgid "Pallet or Site not found"
+msgstr "Паллет или МП не найдено"
+
+msgid "Material owner"
+msgstr "Материально ответственное лицо"
+
+msgid "Status Up"
+msgstr "Проверено"
+
+msgid "edit"
+msgstr "изменить"
+
+msgid "Reestr Type"
+msgstr "Тип реестра"
+
+msgid "First and second gate barcodes is different"
+msgstr "Первый и второй ШК ворот различны"
+
+msgid "Create vicherk"
+msgstr "Создать вычерк"
+
+msgid "Link/unlink row"
+msgstr "Привязать/Отвязать ряд"
+
+msgid "Add wares position"
+msgstr "Добавить товар"
+
+msgid "To whom"
+msgstr "Кому"
+
+msgid "Lot activity"
+msgstr "Активность партии"
+
+msgid "Scan gate barcode"
+msgstr "Отсканируйте ШК  ворот"
+
+msgid "Continue"
+msgstr "продолжить"
+
+msgid "Current Tasks"
+msgstr "Текущие задания"
+
+msgid "Identify wares"
+msgstr "Идентифицируйте товар"
+
+msgid "Invalid task barcode"
+msgstr "Неверный ШК задания"
+
+msgid "Divergences"
+msgstr "Расхождения"
+
+msgid "Task list"
+msgstr "Список заданий"
+
+msgid "pal."
+msgstr "пал."
+
+msgid "Inputted barcode is not working"
+msgstr "Введенный штрих-код не обрабатывается"
+
+msgid "Terminal"
+msgstr "Терминал"
+
+msgid "Next"
+msgstr "Следующий"
+
+msgid "Amount"
+msgstr "Количество"
+
+msgid "use EndTime"
+msgstr "исп. время окончания"
+
+msgid "article"
+msgstr "товар"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Slot"
+msgstr "Слот"
+
+msgid "Number of documents positions is not filled!"
+msgstr "Количество позиций по документу не заполнено!"
+
+msgid "Downtake"
+msgstr "Снять"
+
+msgid "Add position"
+msgstr "Добавить позицию"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Task date"
+msgstr "Дата задания"
+
+msgid "barcode"
+msgstr "ШК"
+
+msgid "Prices"
+msgstr "Цены"
+
+msgid "Storage zone's"
+msgstr "зоны хранения"
+
+msgid "Order"
+msgstr "Заказ"
+
+msgid "Selected weight"
+msgstr "Отобранный вес"
+
+msgid "Move pallet as near as possible to"
+msgstr "Передвиньте паллет как можно ближе к"
+
+msgid "Errors control"
+msgstr "Контроль ошибок"
+
+msgid "Ok"
+msgstr "Ок"
+
+msgid "Period from "
+msgstr "Период с"
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "Responsible work"
+msgstr "Ответственный"
+
+msgid "quant."
+msgstr "Кол-во"
+
+msgid "Without filter of status"
+msgstr "Не фильтровать статус"
+
+msgid "Set checkes for all identical shops"
+msgstr "Отметить все записи с совпадающим магазином"
+
+msgid "Without a waybill"
+msgstr "без НН"
+
+msgid "Consistency"
+msgstr "Состав"
+
+msgid "Document Date"
+msgstr "Дата документа"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Invalid controller barcode"
+msgstr "Неверный ШК контроллера"
+
+msgid "Edit position information"
+msgstr "Единицы измерения"
+
+msgid "Replace"
+msgstr "Изменения"
+
+msgid "Wares not found"
+msgstr "Товар не найден"
+
+msgid "Storage zone"
+msgstr "Зона хранения"
+
+msgid "Shop price"
+msgstr "Цена реализации"
+
+msgid "Put wares to slot"
+msgstr "Поместить товар на МО"
+
+msgid "weight"
+msgstr "вес"
+
+msgid "date"
+msgstr "дата"
+
+msgid "height"
+msgstr "высота"
+
+msgid "Add unit to wares"
+msgstr "Добавить товару ед.изм. "
+
+msgid "Worked count"
+msgstr "отработанных"
+
+msgid "Reestr accepted"
+msgstr "Принятые реестры"
+
+msgid "The deviation of the sum exceeds admissible"
+msgstr "Отклонение суммы превышает допустимое!"
+
+msgid "Has sender"
+msgstr "Отпустил(а)"
+
+msgid "Doc and task create on one day"
+msgstr "Документ и задание созданы в один день или даты начала приемки и задания совпадают."
+
+msgid "New party"
+msgstr "Новая партия"
+
+msgid "Invalid quantity"
+msgstr "Неверное количество"
+
+msgid "Move anyway"
+msgstr "Принудительно переместить"
+
+msgid "You must fill both fields: document sum and document amount!"
+msgstr "В каждой строке, если цена закупки не нулевая, сумма и количество по документу либо должны быть оба заполнены, либо оба не заполнены."
+
+msgid "Code for scales"
+msgstr "Код для весов"
+
+msgid "exit"
+msgstr "выход"
+
+msgid " - documents for acceptance inspector"
+msgstr "- документы для приемщика"
+
+msgid "Scan price-list barcode"
+msgstr "Отсканируйте ШК ценника"
+
+msgid "Doc."
+msgstr "Док."
+
+msgid "Calc"
+msgstr "Расчет"
+
+msgid "Invalid Wares"
+msgstr "Неверный товар"
+
+msgid "Scan barcode on unit of selection"
+msgstr "Отсканируйте ШК единицы выборки"
+
+msgid "Info"
+msgstr "Инфо"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Save change"
+msgstr "Сохранять изменения"
+
+msgid "Pallet is missing"
+msgstr "Паллет не найден"
+
+msgid "Operation type"
+msgstr "Тип операции"
+
+msgid "Copy price to checked input place"
+msgstr "Копировать цену во все отмеченные поля ввода"
+
+msgid "Help"
+msgstr "Помошь"
+
+msgid "Positions"
+msgstr "Позиций"
+
+msgid "Sum string"
+msgstr "Сумма прописью"
+
+msgid "EndTime"
+msgstr "Окончание"
+
+msgid "Summa between"
+msgstr "Сумма между"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Scan waresbarcode, taskbarcode or sitebarcode "
+msgstr "Отсканируйте ШК товара, задания или местоположения"
+
+msgid "Detail"
+msgstr "Детально"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Groops"
+msgstr "Группы"
+
+msgid "Pallet "
+msgstr "Паллет "
+
+msgid "TEST STRING"
+msgstr "ТЕСТОВАЯ ПОЛОСКА"
+
+msgid "Whithout"
+msgstr "Без"
+
+msgid "Inventory"
+msgstr "Инвентаризация"
+
+msgid "Task map"
+msgstr "Карта заданий"
+
+msgid "For end load scan gate barcode"
+msgstr "Для окончания загрузки отсканируйте ШК ворот"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Document date"
+msgstr "Дата документа"
+
+msgid "to site"
+msgstr "К МП"
+
+msgid "netweight"
+msgstr "Вес нетто"
+
+msgid "Specification price"
+msgstr "Цена в спецификации"
+
+msgid "Contractor barcode"
+msgstr "ШК контрагента"
+
+msgid "Fact"
+msgstr "Факт"
+
+msgid "Scan stack"
+msgstr "Отсканируйте стеллаж"
+
+msgid "Choose year"
+msgstr ""
+
+msgid "Other expense"
+msgstr "Прочий расход"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Move wares to "
+msgstr "Передвинуть товар в"
+
+msgid "From all"
+msgstr "из"
+
+msgid "Motion"
+msgstr "Движение"
+
+msgid "Scan task barcode"
+msgstr "Отсканируйте ШК задания"
+
+msgid "The bookkeeper of shop:"
+msgstr "Бухгалтер магазина:"
+
+msgid "Add wares by name"
+msgstr "Добавить товар по имени"
+
+msgid "Begin date"
+msgstr "Дата начала"
+
+msgid "Scan order barcode"
+msgstr "Отсканируйте ШК заказа"
+
+msgid "Show only automatic taskes"
+msgstr "Показать только автоматически-сформированные задания"
+
+msgid "Scan Task barcode"
+msgstr "Отсканируйте ШК задания"
+
+msgid "Select unit to add"
+msgstr "Выберите ед.изм. для добавления"
+
+msgid "First and second gates barcodes is different"
+msgstr "Первый и второй ШК ворот различны"
+
+msgid "Copy price to input place"
+msgstr "Копировать цену в поле ввода"
+
+msgid "Create new document"
+msgstr "Создать новый документ"
+
+msgid "Scan pallet or site barcode"
+msgstr "Отсканируйте паллет или ШК МП"
+
+msgid "Scan method"
+msgstr "Просчет сканером"
+
+msgid "Manual method"
+msgstr "Ручной просчет"
+
+msgid "Confirm select by scaning barcode"
+msgstr "Подтвердите, отсканировав ШК"
+
+msgid "order1"
+msgstr "приказ"
+
+msgid "use BeginTime"
+msgstr "исп. время начала"
+
+msgid "Attach to worker"
+msgstr "Назначить на сотрудника"
+
+msgid "Next Position"
+msgstr "Следующая позиция"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "List of available error types"
+msgstr "Список доступных типов ошибок"
+
+msgid "Strength"
+msgstr "Сила"
+
+msgid "factor"
+msgstr "соотношение"
+
+msgid "With NDS"
+msgstr "с НДС"
+
+msgid "in"
+msgstr "в"
+
+msgid "Manual print"
+msgstr "Печать ценников по запросу"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Locate"
+msgstr "Искать"
+
+msgid "Scan document barcode"
+msgstr "Отсканируйте ШК документа"
+
+msgid "Doc Date"
+msgstr "Дата документа"
+
+msgid "Task count"
+msgstr "Заданий"
+
+msgid "CO"
+msgstr "ЦО"
+
+msgid "Pal."
+msgstr "Пал."
+
+msgid "Scan posit barcode"
+msgstr "Отсканируйте ШК позиции"
+
+msgid "Begintime"
+msgstr "Начало"
+
+msgid "Total"
+msgstr "Итого"
+
+msgid "Change mode of view"
+msgstr "Изменить тип отображения"
+
+msgid "Doc control"
+msgstr "Контроль документа"
+
+msgid "Manually"
+msgstr "Вручную"
+
+msgid "The list of arrivals on a position"
+msgstr "Список приходов по позиции"
+
+msgid "dt from"
+msgstr "дата от"
+
+msgid "Unlink all sites"
+msgstr "Отвязать все МП"
+
+msgid "Object"
+msgstr "Объект"
+
+msgid "Sit."
+msgstr "МП"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Reestr on this type already exists! Create do not care?"
+msgstr "Реестр такого типа за текущую дату уже существует. Создать все равно?"
+
+msgid "XMLHTTP request did not create!"
+msgstr "Запрос не создан"
+
+msgid "You are not have assigned gates"
+msgstr "К вам не привязаны ворота"
+
+msgid "Control"
+msgstr "Контроль"
+
+msgid "Reestr append"
+msgstr "Реестр принят"
+
+msgid "FIO"
+msgstr "ФИО"
+
+msgid "Uprise pallet"
+msgstr "Поднять паллет"
+
+msgid "from buffer"
+msgstr "из МХ"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "End date"
+msgstr "Дата конца"
+
+msgid "Qualification"
+msgstr ""
+
+msgid "Come to printer and scan his barcode"
+msgstr "Подойдите к принтеру и отсканируйте ШК"
+
+msgid "Document price"
+msgstr "Цена в документе"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Date expire"
+msgstr "Срок годности"
+
+msgid "Exists position with zero summ! Do you want to continue?"
+msgstr "Найдены позиции с нулевым количеством! Хотите продолжить?"
+
+msgid "Ploblem with request!"
+msgstr "Проблема с запросом"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "Down status"
+msgstr "Понизить статус"
+
+msgid "Taking"
+msgstr "Принял"
+
+msgid "Del position"
+msgstr "Удалить позицию"
+
+msgid "Barcode"
+msgstr "ШК"
+
+msgid "The commodity researcher:"
+msgstr "Товаровед:"
+
+msgid "Inside moving"
+msgstr "Накладная на внутреннее перемещение"
+
+msgid "Income last more one day"
+msgstr "Приемка длилась дольше одного дня"
+
+msgid "Assigntime"
+msgstr "Привязано"
+
+msgid "Reason for drawing up"
+msgstr "Вышеуказанный товар подлежит списанию в связи с потерей товарного вида"
+
+msgid "Uprise"
+msgstr "Поднять"
+
+msgid "boxes"
+msgstr "коробки"
+
+msgid "stat"
+msgstr "стат."
+
+msgid "Pallet"
+msgstr "Паллет"
+
+msgid "Finish task"
+msgstr "Завершить задание"
+
+msgid "Quant."
+msgstr "Кол-во"
+
+msgid "Overtop quantity"
+msgstr "Превышено количество"
+
+msgid "Current object for load"
+msgstr "Текущий объект для загрузки"
+
+msgid "Input amount error"
+msgstr "Ошибка ввода количества"
+
+msgid "Show finished task wares"
+msgstr "Показывать проверенные позиции"
+
+msgid "Version for print"
+msgstr "Версия для печати"
+
+msgid "Quantities control"
+msgstr "Контроль кол-ва"
+
+msgid "Confirm select by scaning site barcode"
+msgstr "Подтвердите выбор, отсканировав ШК МП"
+
+msgid "Statistic"
+msgstr "Статистика"
+
+msgid "Current tasks"
+msgstr "Текущие задания"
+
+msgid "Type of task"
+msgstr "Тип задания"
+
+msgid "Employee"
+msgstr "Сотрудник"
+
+msgid "Format"
+msgstr "Формат"
+
+msgid "Errors of the formatting"
+msgstr "Ошибки оформления"
+
+msgid "Number of a tax waybill is not filled!"
+msgstr "Номер налоговой накладной не заполнен!"
+
+msgid "party"
+msgstr "партия"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Finish task?"
+msgstr "Завершить задание?"
+
+msgid "Fixing"
+msgstr "Обрабатывается"
+
+msgid "Load status"
+msgstr "Статус загрузки"
+
+msgid "unit"
+msgstr "единица"
+
+msgid "Without NDS"
+msgstr "Без НДС"
+
+msgid "Delete query?"
+msgstr "Удалить запрос?"
+
+msgid "Internal Moving"
+msgstr "ВП"
+
+msgid "For uprise input (scan) number of pallet"
+msgstr "Для поднятия введите (отсканируйте) номер паллета"
+
+msgid "Number of a tax waybill"
+msgstr "Номер НН"
+
+msgid "Select reason"
+msgstr "Выберите причину"
+
+msgid "Save before leed?"
+msgstr "Сохранить перед проведением?"
+
+msgid "Action cannot be finished!"
+msgstr "Действие не может быть завершено!"
+
+msgid "On the control and lacks to the new document"
+msgstr "На контроль и остатки в нов.документ"
+
+msgid "NDS"
+msgstr "НДС"
+
+msgid "Edit unit information"
+msgstr "Редактирование информации упаковки"
+
+msgid "Invalid barcode"
+msgstr "Неверный ШК"
+
+msgid "Link with a task template"
+msgstr "Связать с шаблоном задания"
+
+msgid "Wares card"
+msgstr "Карта товара"
+
+msgid "Count order"
+msgstr "Кол-во позиций"
+
+msgid "Negative rest"
+msgstr "С отрицательным остатком"
+
+msgid "Commission members"
+msgstr "Члены комиссии"
+
+msgid "Querys"
+msgstr "Запрос"
+
+msgid "Input weight"
+msgstr "Введите вес"
+
+msgid "Finish without processing"
+msgstr "Завершить без обработки"
+
+msgid "Set first price"
+msgstr "Установить первоначальную цену"
+
+msgid "Show actual data"
+msgstr "Показать актуальные данные"
+
+msgid "Doc Num"
+msgstr "№ док."
+
+msgid "signature"
+msgstr "подпись"
+
+msgid "Before task end it is necessary to unpack the report. After end the report will be inaccessible. To finish the task?"
+msgstr "Перед завершением задания следует распечатать документ. После завершения - отчет будет недоступен. Завершить?"
+
+msgid "Return"
+msgstr "Возврат"
+
+msgid "Or select task from lisk"
+msgstr "Или выберите задание из списка"
+
+msgid "Waybill on income"
+msgstr "Приходная накладная"
+
+msgid "Has received"
+msgstr "Получил(а)"
+
+msgid "Include today income"
+msgstr "Вместе с сегодняшним приходом"
+
+msgid "Not status up"
+msgstr "Не проверено"
+
+msgid "To"
+msgstr "В"
+
+msgid "Variants of end of the task:"
+msgstr "Варианты окончания задания:"
+
+msgid "Task for wares verify is not exists!"
+msgstr "Не существует задания для сверки товаров "
+
+msgid "Wares"
+msgstr "Товар"
+
+msgid "Show lines"
+msgstr "Показывать позиции"
+
+msgid "Cnt vicherkov"
+msgstr "Вычерков"
+
+msgid "Confirm document status down"
+msgstr "Подтвердите понижение статуса документа"
+
+msgid "St."
+msgstr "Ст."
+
+msgid "Local Barcode"
+msgstr "Шк лок.кода"
+
+msgid "by task type"
+msgstr "по типу задания"
+
+msgid "New Invoice"
+msgstr "Новый документ"
+
+msgid "cost."
+msgstr "Ст-сть"
+
+msgid "Group/Subgroup"
+msgstr "Группа/Подгруппа"
+
+msgid "Locate wares"
+msgstr "Поиск товара"
+
+msgid "UserInfo"
+msgstr "Информация о пользователе"
+
+msgid "New wares lot"
+msgstr "Новая партия товара"
+
+msgid "lot"
+msgstr "партия"
+
+msgid "Come to controller and scan his barcode"
+msgstr "Подойдите к контролеру и отсканируйте его ШК"
+
+msgid "and"
+msgstr "и"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Wares lot"
+msgstr "Партия товара"
+
+msgid "Set checkes for all identical dates"
+msgstr "Отметить все записи с совпадающей датой"
+
+msgid "Choose month"
+msgstr ""
+
+msgid "Capacity"
+msgstr "Объем"
+
+msgid "Status "
+msgstr "Статус "
+
+msgid "Test"
+msgstr "Тест"
+
+msgid "K"
+msgstr "К"
+
+msgid "On a waybill"
+msgstr "По накладной"
+
+msgid "The list of the goods of the supplier"
+msgstr "Список товаров поставщика"
+
+msgid "Create new pallet"
+msgstr "Создать новый паллет"
+
+msgid "Refresh"
+msgstr "Обновить"
+
+msgid "Del lot"
+msgstr "Удалить партию"
+
+msgid "Undo vicherk"
+msgstr "Отменить вычерк"
+
+msgid "There are positions with the future date!"
+msgstr "Имеются позиции с будущей датой!"
+
+msgid "Document type"
+msgstr "Тип документа"
+
+msgid "Count fact"
+msgstr "Кол-во выполн."
+
+msgid "OKPO"
+msgstr "ЕГРПОУ"
+
+msgid "Under construction"
+msgstr "В стадии разработки"
+
+msgid "Forward"
+msgstr "Вперед"
+
+msgid "Input rest on pallet"
+msgstr "Введите остаток на паллете"
+
+msgid "Warning for comission of drawing up"
+msgstr "Все члены комиссии предупреждены об ответсвенности за подписывание акта, содержащего данные, не соответсвуюшие действительности"
+
+msgid "Are you sure?"
+msgstr "Подтвердите выполнение"
+
+msgid "Pallet:"
+msgstr "Паллет:"
+
+msgid "Session lost"
+msgstr "Сессия утеряна"
+
+msgid "No task in this category"
+msgstr "Нет задания в этой категории"
+
+msgid "GTDNumber"
+msgstr "ГТД Номер"
+
+msgid "Set first prices (price control only)"
+msgstr "Установить первоначальные цены (только после контроля цен)"
+
+msgid "Locate group"
+msgstr "Поиск группы"
+
+msgid "And scan site barcode"
+msgstr "и отсканируйте ШК МП"
+
+msgid "SAVE"
+msgstr "Принять"
+
+msgid "site"
+msgstr "МП"
+
+msgid "Code wares"
+msgstr "Код товара"
+
+msgid "with certificates of disagreements"
+msgstr "с актами разногласия"
+
+msgid "Hide list"
+msgstr "Скрыть список"
+
+msgid "APPROVE"
+msgstr "УТВЕРЖДАЮ"
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "Scaning"
+msgstr "Сканирование"
+
+msgid "task"
+msgstr "задание"
+
+msgid "All rows"
+msgstr "Все ряды"
+
+msgid "Period "
+msgstr "Период "
+
+msgid "Plan"
+msgstr "План"
+
+msgid "Order and fact differ"
+msgstr "Заказ выполнен с расхождениями"
+
+msgid "End task"
+msgstr "Конец задания"
+
+msgid "Price control"
+msgstr "Контроль цен"
+
+msgid "Change type work"
+msgstr ""
+
+msgid "Create date"
+msgstr "Дата создания"
+
+msgid "code"
+msgstr "Kод"
+
+msgid "Fixed count"
+msgstr "В обработке"
+
+msgid "Set price"
+msgstr "Установить цену"
+
+msgid "Wares code"
+msgstr "Код товара"
+
+msgid "parties"
+msgstr "партии"
+
+msgid "netcapacity"
+msgstr "Объем"
+
+msgid "Check piece wares"
+msgstr "Отметить штучный товар"
+
+msgid "Trailer"
+msgstr "Прицеп"
+
+msgid "fact"
+msgstr "факт"
+
+msgid "y."
+msgstr "г."
+
+msgid "There are no data for a view"
+msgstr "Нет информации для отображения"
+
+msgid "Realization"
+msgstr "Продажа"
+
+msgid "T-P"
+msgstr "Т-Р"
+
+msgid "by employee"
+msgstr "по сотруднику"
+
+msgid "Print lot barcode"
+msgstr "Распечатайте ШК партии"
+
+msgid "End load"
+msgstr "Конец загрузки"
+
+msgid "Organic number"
+msgstr ""
+
+msgid "GTDDate"
+msgstr "ГТД Дата"
+
+msgid "Actually"
+msgstr "Фактически"
+
+msgid "Cnt docs"
+msgstr "Кол-во док-тов"
+
+msgid "plan"
+msgstr "план"
+
+msgid "Report"
+msgstr "Отчет"
+
+msgid "ATTENTION! Moving pallet without task is possible in special case. If you not sure, press"
+msgstr "Внимание! Принудительное перемещение паллета допускается только с разрешения старшего"
+
+msgid "Enter cell"
+msgstr "Введите номер МП"
+
+msgid "Shift"
+msgstr "Смена"
+
+msgid "Date Last Realization "
+msgstr "Дата последней реализации"
+
+msgid "Commit"
+msgstr "Передать"
+
+msgid "Price-list"
+msgstr "Ценники"
+
+msgid "Total:"
+msgstr "Итого:"
+
+msgid "Query"
+msgstr "Запрос"
+
+msgid "Unprinted price lists"
+msgstr "Ценники для печати"
+
+msgid "Calculation"
+msgstr "Расчет"
+
+msgid "Documents control"
+msgstr "Контроль документов"
+
+msgid "Waybill on return"
+msgstr "Накладная на возврат"
+
+msgid "capacity netto"
+msgstr "вместимость нетто"
+
+msgid "Lots"
+msgstr "Партии"
+
+msgid "Invalid date"
+msgstr "Неварная дата"
+
+msgid "and input (scan) pallet barcode"
+msgstr "и введите (отсканируйте) ШК паллета"
+
+msgid "New task"
+msgstr "Новое задание"
+
+msgid "Income last one day"
+msgstr "Приемка осуществилась в течении суток"
+
+msgid "Cost"
+msgstr "Стоимость"
+
+msgid "Date from "
+msgstr "Дата с "
+
+msgid "Summa"
+msgstr "Сумма"
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "Scan article barcode"
+msgstr "Отсканируйте ШК"
+
+msgid "Addition of a document"
+msgstr "Добавление документа"
+
+msgid "Finish wares verify"
+msgstr "Закончить сверку товаров"
+
+msgid "by zone"
+msgstr "по зоне"
+
+msgid "Reestr"
+msgstr "Реестр"
+
+msgid "None"
+msgstr "не"
+
+msgid "Reestr send"
+msgstr "Реестр отправлен"
+
+msgid "Doc"
+msgstr "Документ"
+
+msgid "Comments"
+msgstr "Комментарий"
+
+msgid "length"
+msgstr "Длина"
+
+msgid "All"
+msgstr "Все"
+
+msgid "History"
+msgstr "История"
+
+msgid "Assigned gates:"
+msgstr "Назначенные ворота:"
+
+msgid "Transference"
+msgstr "Перемещ."
+
+msgid "Scan printer barcode"
+msgstr "Отсканируйте ШК принтера"
+
+msgid "Choose region"
+msgstr "Выберите регион"
+
+msgid "Input cost error"
+msgstr "Ошибка ввода стоимости"
+
+msgid "pieces"
+msgstr "части"
+
+msgid "Number of certificate"
+msgstr "№ свидет."
+
+msgid "Records on page"
+msgstr "Записей на странице"
+
+msgid "Barcode by letters"
+msgstr "ШК строкой"
+
+msgid "Founded records without price"
+msgstr "Найдены записи без цены!"
+
+msgid "Archive"
+msgstr "Архив"
+
+msgid "To reject"
+msgstr "Отклонить"
+
+msgid "Not valid barcode"
+msgstr "Неверный ШК"
+
+msgid "Allow move pallets"
+msgstr "Разрешить передвинуть паллет"
+
+msgid "Scan site barcode for link or unlink row"
+msgstr "Отсканируйте ШК МП для привязки или отвязки ряда"
+
+msgid "Income from supplier"
+msgstr "Приход от поставщика"
+
+msgid "Exit"
+msgstr "Выход"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Fac."
+msgstr "Фак."
+
+msgid "Pallet not found"
+msgstr "Паллет не нейден"
+
+msgid "Scan barcode"
+msgstr "Отсканируйте ШК"
+
+msgid "To confirm"
+msgstr "Подтвердить"
+
+msgid "Show all"
+msgstr "Все"
+
+msgid "Income reestr"
+msgstr "Входной реестр"
+
+msgid "Show only difference"
+msgstr "Расхождения"
+
+msgid "Document"
+msgstr "Документ"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Document Number"
+msgstr "Номер документа"
+
+msgid "Rest on end"
+msgstr "Остаток на конец"
+
+msgid "Box"
+msgstr "Коробка"
+
+msgid "Unlink zone"
+msgstr "Непривязанная зона"
+
+msgid "as near as possible to slot"
+msgstr "как можно ближе к МО"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Lots:"
+msgstr "Партии:"
+
+msgid "Selected wares in task"
+msgstr "Отобранные товары в задании"
+

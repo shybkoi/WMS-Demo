@@ -1,0 +1,70 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+<h3>Отправка сообщений</h3>
+<div>
+  <div border=1 class="container" style="position:relative; float:left">
+    <form name="send_msg_form" id="send_msg_form">
+      <fieldset>
+        <legend align="center"><h5>Параметры</h5></legend>
+        <br/>
+          <p>
+          <label style="display: -moz-inline-box;" for="systems_cmb"><span style="display: block; width: 200px;">Система-получатель</span></label>
+          <select id="systems_cmb" name="systems_cmb" style="width: 400px">
+          <optgroup label="Выберите систему...">
+              <option value="--ALL--SYSTEMS--">ВСЕ СИСТЕМЫ</option>
+              #for $system in $datalist_systems
+                  <option value="$system.ID_SYSTEM">${system.spaces}$system.SHOW_NAME</option>
+              #end for
+          </optgroup>
+          </select>
+          </p>
+
+          <br/>
+
+          <p align="left">
+          <label style="display: -moz-inline-box;" for="expired_time_edt"><span style="display: block; width: 200px; text-align: center">Слать по (время)</span></label>
+          <input size=5 id="expired_time_edt" name="expired_time_edt" type="text" value="" ></input>
+          </p>
+
+          <br/>
+
+          <p>
+          <label style="display: -moz-inline-box;" for="upd_file"><span style="display: block; width: 200px">Сообщение</span></label>
+          <textarea style="width: 400px;" rows="5" name="content_txt" id="content_txt"></textarea>
+          <br/>
+          <br/>
+          <div class="buttons">
+            <button id='send_btn' type="button"><img src="$eng_img/actions/send.png"/>&nbsp;Послать</button>
+          </div>
+          </p>
+      </fieldset>
+
+    </form>
+  </div>
+
+  <div border=1 class="container" style="position:relative; float:left">
+  <h5>Конструктор сообщений<h5>
+      <br/>
+      <div class="buttons">
+        <button id='server_disabled_btn' type="button"><img src="$eng_img/actions/edit2.png"/>&nbsp;Сервер недоступен</button>
+        <select style="display: inline" id="time_disabled" style="width: 100px">
+            <option value="5">5 мин</option>
+            <option value="10">10 мин</option>
+            <option value="15">15 мин</option>
+            <option value="60">60 мин</option>
+        </select>
+        <br/>
+        <br/>
+        <button id='last_msg_btn' type="button"><img src="$eng_img/actions/edit2.png"/>&nbsp;Последнее сообщение</button>
+      </div>
+  </div>
+</div>
+<div id="status_div" border=1 class="container" style="clear: both">
+</div>
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_send_msg.js"></script>
+<script type="text/javascript" src="$eng_js/utils.datetime.js"></script>
+
+#end def

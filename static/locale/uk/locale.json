@@ -1,0 +1,11 @@
+{
+ "": "Project-Id-Version: Магнит\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2011-11-09 10:36+0200\nPO-Revision-Date: 2011-11-09 10:36+0200\nLast-Translator: Алексей Чернявский <che.alexey@gmail.com>\nLanguage-Team:  <support@rbsrrandl.com>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=WINDOWS-1251\nContent-Transfer-Encoding: 8bit\nX-Poedit-KeywordsList: _;gettext;gettext_noop\nX-Poedit-Basepath: c:\\MAGNIT\\\nX-Poedit-Language: Ukrainian\nX-Poedit-Country: UKRAINE\nX-Poedit-SourceCharset: cp1251\nX-Poedit-SearchPath-0: systems\n",
+ "Пароль": "Пароль",
+ "Вход": "Вхід",
+ "Забыли?": "Зубули?",
+ "Vyhod": "Вихід",
+ "Menyu": "Меню",
+ "Добро пожаловать": "Ласкаво просимо",
+ "Регистрация": "Реєстрація",
+ "Логин": "Логін"
+}

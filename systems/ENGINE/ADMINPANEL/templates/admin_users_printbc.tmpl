@@ -1,0 +1,88 @@
+#encoding cp1251
+
+<html>
+<head>
+    <title>$_('Карта доступа')</title>
+    <style type="text/css">
+        #caption {
+            font-family: arial;
+            font-size: 12pt;
+            color: #000;
+            margin: 0 auto 10px;
+            width: 10cm;
+            text-align: justify;
+            font-weight: bold;
+        }
+        #description {
+            font-family: serif;
+            font-size: 12pt;
+            color: #000;
+            margin: 0 auto 20px;
+            width: 16cm;
+            text-align: justify;
+        }
+        #printBC {
+            color: #000;
+            background-color: #fff;
+            border:2px dashed black;
+            margin: 0 auto;
+            width: 9cm;
+            height: 5.5cm;
+        }
+        #group_bc {
+            width: 9cm;
+            margin: 30px auto 0px;
+        }
+        #datetime {
+            font-family: Impact;
+            font-size: 8pt;
+            line-height: 12pt;
+            text-align: right;
+            padding-right: 14px;
+        }
+        #bc {
+            /*font: 200% "Free 3 of 9 Extended";*/
+            font-size: 260%;
+            font-family:"Free 3 of 9 Extended","Free 3 of 9";
+            /*font-size: 26pt;
+            line-height: 26pt;*/
+            text-align: center;
+        }
+        #f {
+            font-family: Impact;
+            font-size: 20pt;
+            line-height: 24pt;
+            text-align: center;
+            margin-top: 15px;
+        }
+        #io {
+            font-family: Impact;
+            font-size: 22pt;
+            line-height: 30pt;
+            text-align: center;
+        }
+        #scissors {
+            position: relative;
+            width: 41px;
+            height: 59px;
+            margin: 0 auto;
+            display: block;
+            left: -5.1cm;
+            top: -59px;
+        }
+    </style>
+</head>
+<body>
+    <div id='caption'>Карта доступа к терминальным интерфейсам</div>
+    <div id='description'>Это Ваша личная карта доступа к терминальным интерфейсам <span id='owner'>$OWNER</span>.
+    В случае утери карты следует распечатать её из своего профиля или запросить у администратора.</div>
+    <div id="printBC">
+        <div id='group_bc'>
+            <div id="bc">*$BC*</div>
+            <div id="datetime">$DATETIME</div>
+        </div>
+        <div id="f">$F</div>
+        <div id="io">$IO</div>
+    </div>
+</body>
+</html>

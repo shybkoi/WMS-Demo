@@ -1,0 +1,25 @@
+#encoding cp1251
+<table id="tbl_master">
+    <thead>
+        <tr>
+            <th>N</th>
+            <th>IP</th>
+            <th>Кто</th>
+            <th>Последнее соединение</th>
+            <th>Количество</th>
+        </tr>
+    </thead>
+    <tbody id='tbl_master_tbody'>
+        #set $N = 0
+        #for $item in $datalist
+            #set $N = N+1
+            <tr id="$item.IP">
+                <td class="har">$N</td>
+                <td class="hal ip">$item.IP</td>
+                <td class="hal whos">$item.WHOS</td>
+                <td class="hac">#filter LongDateTimeFilter $item.LAST_ACCESS #end filter</td>
+                <td class="har">$item.CNT</td>
+            </tr>
+        #end for
+    </tbody>
+</table>

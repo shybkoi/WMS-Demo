@@ -1,0 +1,127 @@
+<div class='insertForm'>
+    <div class='leftContent'>
+        <table width='100%' border='0'>
+            <tr>
+                <td width='20%'>Система</td>
+                <td>
+                    <select id='ins_systems_cmb'>
+                        <optgroup class='systemsgrp' label='Выберите систему'></optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Тип</td>
+                <td>
+                    <select id='ins_type_cmb'>
+                        <optgroup class='typesgrp' label='Выберите тип'></optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Номер задачи трэкера</td>
+                <td><input type='text' class='ins_issuetrackerurl' id='ins_issuetrackerurl' value='' /></td>
+            </tr>
+        </table>
+    </div>
+    <div class='rightContent'>
+        Подробности:<br/>
+        <textarea class='ins_description'></textarea>
+    </div>
+    <div class='buttons2'>
+        <center>
+            <button class='ins_add'><img src='/ENGINE/images/actions/statusDown.png' />Добавить</button>
+        </center>
+    </div>
+
+</div>
+
+<style type='text/css'>
+    div.insertForm {
+        height: 320px !important;
+        overflow: hidden;
+    }
+    div.insertForm div.leftContent, div.insertForm div.rightContent {
+        height: 280px !important;
+        overflow: hidden;
+
+        border: 0px solid #808080;
+    }
+    div.insertForm div.leftContent {
+        width: 30%;
+        float: left;
+
+        padding-top: 5px;
+    }
+
+    div.insertForm div.leftContent table {
+        border: none;
+        width: 100%;
+    }
+
+
+    div.insertForm div.leftContent table tr {
+        margin: 25px !important;
+    }
+
+    div.insertForm div.leftContent table tr td {
+        font-size: 14px;
+        font-weight: 800;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        text-align: left !important;
+        border: none;
+
+    }
+
+
+    div.insertForm div.leftContent table:hover,div.insertForm div.leftContent table tr td:hover  {
+        background: transparent !important;
+    }
+
+
+    div.insertForm div.leftContent table tr td select {
+        width: 98% !important;
+    }
+
+
+    div.insertForm div.leftContent table tr td select option {
+        font-size: 11px;
+        padding: 0px 0px 0px 0px;
+
+    }
+
+    div.insertForm div.leftContent table tr td input {
+        color: blue;
+        width: 95%;
+    }
+
+    div.insertForm div.rightContent {
+        margin-top: 5px;
+    }
+
+    div.insertForm div.rightContent textarea {
+        font-size: 11px;
+        width: 100% !important;
+        height: 95% !important;
+    }
+
+    div.insertForm div.buttons2 {
+        height: 25px !important;
+        clear: both;
+        padding-top: 5px;
+
+    }
+
+    div.insertForm div.buttons2 button {
+        font-size: 11px;
+        background: #ffffff;
+        border: 1px solid #808080;
+
+        margin-right: 5px;
+    }
+
+    div.insertForm div.buttons2 button:hover {
+        background: lightblue;
+    }
+
+</style>

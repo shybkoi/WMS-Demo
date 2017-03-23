@@ -1,0 +1,23 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    #set $flag = True
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #set $flag = False
+            <b><u>$item.clientname</u></b><br>
+            #if $item.tstat == '0'
+                #set $status = '-'
+            #else
+                #set $status = '&nbsp;'
+            #end if            
+                $status <a href="task?id=$item.tid">#filter DateFilter2$item.RDOCDATE#end filter# № $item.DOCNUM</a><br><br>
+        #end for
+    #end if
+
+    #if $flag
+        <a href="taskGet">$_('Получить задание')</a>
+    #end if
+#end def    
+

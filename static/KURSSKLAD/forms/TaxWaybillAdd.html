@@ -1,0 +1,25 @@
+<link href="/KURSSKLAD/css/TaxWaybillAdd.css" rel="stylesheet" type="text/css" media="screen"/>
+<form action="setTaxWaybill" onsubmit="return false;">
+    <div class="taxwaybill-data">
+        <input type="hidden" name="docid" value=""/>
+        <input  type="hidden" name="tdocid" value=""/>
+        <div class="label panel">От Кого</div><div class="longinput"><input type='text' readonly id="twadd-fromobj" class="longinput FromObj"/></div>
+        <div class="label bold">Юр. Адрес</div><div class="longinput"><input type='text' readonly class="longinput FromObjAddress"/></div>
+        <div class="label bold">ИНН</div><div class="input"><input type='text' readonly class="input FromObjINN"/></div>
+        <div class="label bold" title="Номер свидетельства плательщика НДС">№ св-ва плат. НДС</div><div class="input"><input type='text' readonly class="input FromObjKPP"/></div>
+        <div class="label panel">Кому</div><div class="longinput"><input type='text' readonly id="twadd-toobj" class="longinput ToObj"/></div>
+        <div class="label bold">Юр. Адрес</div><div class="longinput"><input type='text' readonly class="longinput ToObjAddress"/></div>
+        <div class="label bold">ИНН</div><div class="input"><input type='text' readonly class="input ToObjINN"/></div>
+        <div class="label bold" title="Номер свидетельства плательщика НДС">№ св-ва плат. НДС</div><div class="input ToObjKPP"><input type='text' readonly class="input ToObjKPP"/></div>
+        <div class="label panel">Дата НН</div><div class="input"><input type='text' name="docdate" class="Date"/></div>
+        <div class="label panel">Номер НН</div><div class="input"><input type='text' maxlength="20" name="docnum" class="Number"/></div>
+        <div class="label panel">Сумма</div><div class="input"><input type='text' maxlength="10" name="amount" class="Amount"/></div>
+        <div class="label panel">Сумма НДС</div><div class="input"><input type='text' maxlength="10" name="nds" class="NDS"/></div>
+        <div class="labellong panel">Сумма без НДС</div><div class="input"><input type='text' maxlength="10" name="ndsfree" class="NDSFree"/></div>
+        <div class="inputlong" ><span><input type="checkbox" id="docToControl"/> Контроль оформления</span></div>
+    </div>
+    <br>
+    <div class="buttons">
+        <button class="save" type="submit">Сохранить</button> 
+    </div>
+</form>

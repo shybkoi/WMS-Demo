@@ -1,0 +1,14 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    $NAME
+    <br>
+    <br>
+
+    <form action="taskAPalletAdd" method="post">
+        <input type="hidden" value="$tid" name="tid" />
+        <input type="hidden" value="$siteid" name="sid" />
+        $_('ШК'): <input type=text id=":scan:text" name=barcode value="" title="$_('Поддон')"><br>
+    </form>
+#end def

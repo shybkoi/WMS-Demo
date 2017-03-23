@@ -1,0 +1,1119 @@
+/*-----------------------------------------
+[Theme Structure Stylesheet]
+Theme name:   Dreamr
+Project:      FirePy Engine
+Version:      0.9 beta
+Last change:  04.01.2010
+Author:	      Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+body {
+  color:#444444;
+  background-color: #fff;
+}
+.container{
+  border-color: #EBEBDF;
+  background-color: #fff;
+}
+/* FF 3.0.3 flashing border bug fix */
+@-moz-document url-prefix(){
+div.container{
+  border-color: #EBEBDF;
+  background-color:#fff;}
+}
+/*== Links ======================================================================================================================================*/
+a:link, a:visited { outline: none; color: #38789a; text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+/*rounded blocks fixes moved to ie6.css only */
+#container-head{
+background-color:#F2F2EA;
+ /*background: url(/ENGINE/themes/dreamr/images/dream_bg.gif) repeat-x;*/
+}
+#container-footer{
+    border-color: #BCD5D9;
+    background-color: #FBFBFB;
+
+}
+
+#container-content{
+ border: none;
+}
+
+#container-user-bar-accordion{
+  background-color:#fff;
+  border: none;
+}
+
+/*==ALAX loader=====================================================================================================================================*/
+#container-busy
+{ background: url(/ENGINE/themes/dreamr/images/ajax-loader.gif);
+  background-repeat: no-repeat;
+  top: 15px;
+  left:6px;
+  width: 30px;
+  height: 20px;
+  z-index: 10000000;
+ }
+
+#sys-name{
+  color:#709E3D;
+  font: bold 25px "Century Gothic", Verdana, Arial, Helvetica, sans-serif;
+  text-align:left;
+  margin-top:-20px;
+  margin-bottom:10px;
+  margin-left:35px;
+  padding-bottom:0px;
+  text-transform:uppercase;
+}
+#addinfo{
+  color:#4C6D7F;
+  margin-left:35px;
+}
+/*== System define menu ======================================================================================================================================*/
+#sysmenu {
+
+}
+#sysmenu ul {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 4px;
+  text-align: center;
+  background: url(/ENGINE/themes/dreamr/images/menu.png) repeat-x;
+}
+#sysmenu ul li {
+  margin-left: -4px;
+  background-image: none;
+}
+#sysmenu ul li a {
+  border:none;
+  color:#FFFFFF;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size:14px;
+  text-decoration:none;
+  letter-spacing:normal;
+  background: none;
+  padding: 5px;
+}
+#sysmenu ul li a:hover
+ {
+  background-color: #FEFEFC;
+  -moz-border-radius:8px;
+  color:#4C6D7F;
+  font-size:14px;
+  padding: 5px;
+  letter-spacing:normal;
+  border-color:#CDCBBA;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size:14px;
+}
+
+ul li{
+  background:transparent url(/ENGINE/themes/dreamr/images/s_bullet.gif) no-repeat scroll 0 2px;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+}
+#container-user-data {
+  color: #9FAE8C;
+}
+
+
+#container-user-data ul li a {
+font-family:arial,sans-serif;
+font-size:16px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+letter-spacing:0.1em;
+line-height:normal;
+padding-bottom:0;
+padding-left:0px;
+padding-top:0;
+}
+
+/*== User data ======================================================================================================================================*/
+#container-user-data ul li a{
+   margin-left:16px;
+}
+
+
+/*==Error notifier===================================================================================================================================*/
+#container-error{
+ border-color: #E6E6E6;
+}
+/*==USER-BAR-ACCORDEON=========================================================================================================================*/
+ul.user-bar-accordion {
+    border-color:#D4D1BE;
+	background-color:#FFFFFF;
+}
+ul.user-bar-accordion a.head {
+    border-color: #B8B8B8;
+	background-color:#B8B8B8;
+    background: url(/ENGINE/themes/dreamr/images/s_title-green_bg.gif) no-repeat;
+    color: #fff;
+    font-family:	Helvetica,Arial,sans-serif;
+    font-size:	13px;
+    font-weight:	bold;
+    font-style:	normal;
+    text-transform: none;
+    color	#FFFFFF;
+}
+ul.user-bar-accordion a.head:hover {
+	color:#E7F1D3;
+}
+ul.user-bar-accordion a.selected {
+	background: url(/ENGINE/themes/dreamr/images/s_title-green_bg.gif) no-repeat;
+}
+ul.user-bar-accordion a.current {
+	background-color:#0C353F;
+}
+ul.user-bar-accordion li.accord li a {
+	color:#000000;
+}
+ul.user-bar-accordion li.accord li a:hover,
+ul.user-bar-accordion li.accord li span:hover{
+	background-color:#EEF8E0;
+	color:#202020;
+}
+#systems-tree.treeview ul {
+	background-color: white;
+}
+.navigation a:link,
+.navigation a:visited,
+.navigation a:hover,
+.navigation a:active {
+  color: #636363;
+  background:#F9F9F9;
+  border-color:#202020;
+  }
+.navigation a:hover {
+  background:#A2BACB;
+  border-color:#E6E6E6;
+  }
+.navigation span {background:#E8EFFD;border-color:#E6E6E6;color:#FF0000;}
+
+div.gallery {border-color: #909090;}
+
+/*==TABLES========================================================================================================================================*/
+table
+    {
+        border:4px solid #EBEBDF;
+        border-collapse: collapse;
+    }
+th
+    {
+      background:#FFFFFF url(/ENGINE/themes/dreamr/images/m_title_bg.gif) repeat-x scroll left bottom;
+      border-bottom, border-right: 1px solid;
+      border-bottom-color:#D4D1BE;
+      border-right-color:#D4D1BE;
+      border-left-color:#D4D1BE;
+      border-top-color:#D4D1BE;
+      letter-spacing: normal;
+      margin:-12px 0 12px -12px;
+      overflow:hidden;
+      padding:0 12px;
+      font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+      padding: 2px 1px 2px 1px;
+      vertical-align:middle;
+      color:#4C6D7F;
+      font-size:14px;
+      text-transform: none;
+    }
+/*table tr:first-child th {
+     background: url(/ENGINE/themes/dreamr/images/dream_bg_foot.gif) repeat-x;
+}
+*/
+tfoot th {
+    background: url(/ENGINE/themes/dreamr/images/dream_bg_foot.gif) repeat-x;
+}
+
+
+td
+    {
+        border-color:#D4D1BE;
+        padding: 2px;
+    }
+
+.panel
+{
+        border: 1px solid;
+        color: #4C6D7F;
+        border-color:#D4D1BE;
+        background:#FFFFFF url(/ENGINE/themes/dreamr/images/m_title_bg.gif) repeat-x scroll left bottom;
+}
+.panel span{color:#FFF;}
+.box
+{
+ border-color: #898989;
+}
+
+/* Alternate row style */
+tr.alt
+        {
+        background: #B8B8B8;
+        color: #898989;
+        }
+/* The current cell */
+table tbody tr td.currentCell,
+table tbody tr td:hover,
+table tbody tr.alt td:hover
+        {
+        background-color:#EEF8E0;
+        }
+/* Normal row hover styles */
+table tr.rowHover td,  /* Internet Explorer < 7 (and 7 in quirks mode) requires a specific class */
+tr:hover td     /* All others can use the :hover pseudo */
+        {
+        background-color:#E7F1D3;
+        }
+/* Alternate row hover styles */
+tr.alt:hover td
+        {
+        background-color:#E7F1D3;
+        }
+/* Column "cell" highlighting */
+table tr td.rowHover
+        {
+        background-color:#D7D7D7;
+        }
+/* Header highlighting */
+table tr th.rowHover
+        {
+        color:#fff;
+        }
+tr.rowSelect{
+        background-color:#EEF8E0;
+        color: #fff;
+}      
+/* Warning styles */
+th.warning
+        {
+         background: #90B2D9 url(/ENGINE/images/errors/information.png) no-repeat;
+
+        }
+th.error
+        {
+         background: #FBBCA8 url(/ENGINE/images/errors/exclamation.png) no-repeat;
+
+        }
+th a:hover{
+    color:#fff;
+}
+th a:link{
+    color:#fff;
+}
+/*==Focused row style======================================================================================================================================*/
+.rf-focused{background-color:#EEF8E0;}
+/*==BUTTONS======================================================================================================================================*/
+.buttons a, .buttons button{
+    background-color:#F8FCF1;
+    border-color:#CDCBBA;
+    color:#c92925;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-size:100%;
+    -moz-border-radius:5px;
+    cursor: pointer;
+}
+button:hover, .buttons a:hover{
+    border-color:#B0AE9F;
+}
+.buttons a:active{
+    background-color:#D7D7D7;
+    border-color:#3F3F3F;
+    color:#3F3F3F;
+}
+
+.buttons button[type] {
+    padding:6px;
+}
+
+.buttons button img, .buttons a img{
+    margin:0 0 -2px 0 !important;
+    padding-right:2px;
+    border:none;
+    width:16px;
+    height:16px;
+}
+/*Search bar=============================================================================*/
+#search-wrap {
+}
+#search-content, .search-area {
+	background: #D8D6D6;
+}
+.search-header {
+	background-image: url(/ENGINE/themes/dreamr/images/dropdown-search.gif);
+}
+.search-btn {
+	color: #6F6F6F !important;
+}
+
+
+td.error
+        {
+        color: #ff0000;
+    }   
+	
+	
+
+
+
+/*-----bidding STYLE----------*/
+#tenderData{
+clear:both;
+}
+.bidding{
+
+	margin-bottom: 20px;
+	position: relative;
+    top: 15px;
+	clear:both;
+}
+.bidding-block {
+    border: 1px solid #6C9ABB;
+	width: 768px;
+	height: 85px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/tend_block_bg.png) left top repeat-x #9bc7e2;
+	-webkit-box-shadow: 0px 2px 3px 0px #939393;
+	-moz-box-shadow: 0px 2px 3px 0px #939393;
+	box-shadow: 0px 2px 3px 0px #939393; 	
+}
+
+.bidding-block-number{
+	background: url("../images/bidding/tend_block_nmbr_act.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    font-size: 10px;
+    height: 32px;
+    margin-left: -15px;
+    padding-top: 11px;
+    position: absolute;
+    text-align: center;
+    top: -15px;
+    vertical-align: middle;
+    width: 32px;
+	font-family:sans-serif,"Trebuchet MS",Arial,Helvetica;
+	font-weight:bold;
+}
+
+.inactive div.bidding-block-number{
+	background: url("../images/bidding/tend_block_nmbr_inact.png") no-repeat scroll left top transparent;
+}
+
+.bidding-date{
+	width:39%;
+	border-right:1px solid #ddf1fc;
+	border-top: 1px solid #ddf1fc;
+	height:100%;
+	float:left;
+
+}
+.bidding-type{
+	width:23%;
+	border-right:1px solid #ddf1fc;
+	border-left: 1px solid #6C9ABB;
+	border-top: 1px solid #ddf1fc;
+	height:100%;
+	float:left;
+	text-align:center;
+	font-size:10px;
+	margin-right:-6px;
+}
+
+.bidding-item-type{
+	padding-top:3px;
+}
+.bidding-type-img-div{
+	border-bottom: 1px solid #6C9ABB;
+	
+}
+.bidding-item-ctegory{
+	border-top: 1px solid #ddf1fc;
+	padding-top:8px;
+	font-size: 11px;
+    font-weight: bold;
+}
+.bidding-type-img{
+	position:relative;
+}
+
+.bidding-details{
+	width:38%;
+	border-left: 1px solid #6C9ABB;
+/*	border-top: 1px solid #ddf1fc;*/
+	height:100%;
+	float:right;
+	background: url(../images/bidding/tend_det_bg.png) left top repeat-x #ebf4fb;
+}
+.bidding-datails-text{
+	height:65%;
+	width:79.5%;
+	border-bottom: 1px solid #b5c8d9;
+	border-top: 1px solid #ddf1fc;
+	border-right:1px solid #b5c8d9;
+	float:left;
+	font-size:11px;
+	text-align:center;
+}
+.bidding-datails-status{
+	height:65%;
+	width:20%;
+	border-top: 1px solid #ddf1fc;
+ 	border-bottom: 1px solid #b5c8d9;
+	float:left;
+}
+.bidding-item-status{
+	position: absolute;
+    width: 60px;
+	font-size:10px;
+	color: #FFFFFF;
+	top: 1px;	
+}
+.bidding-details-panel{
+	width:79.5%;
+	height:32%;
+	border-top:1px solid #ffffff;
+	float:left;
+	border-right:1px solid #b5c8d9;
+}
+.bidding-processed{
+	margin-left: -15px;
+}
+
+.bidding-detail-button{
+	width:20%;
+	height:32%;
+	float:left;
+}
+.bidding-detail-button{
+	width:20%;
+	height:32%;
+	float:left;
+}
+.detail-button{
+	height:100%;
+	width:102%;
+	cursor:pointer;
+	background:  url(../images/bidding/detail_btn.png) left top repeat-x #ebf4fb;
+	border:0px;
+}
+.detail-button:hover{
+	background:  url(../images/bidding/detail_btn_hover.png) left top repeat-x #ebf4fb !important;
+}
+.bidding-status-img{
+	height:100%;
+	width:100%;
+	border:1px solid #808e9b;
+	padding:0px;
+    margin-top: -1px;
+	border-right:1px solid #6C9ABB;
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+.asbutton{
+	cursor:pointer;
+}
+
+.bidding-details-my{
+ margin-left:-6px;
+}
+
+.bidding-date-table{
+	width:100%;
+	height:100%;
+	border:0px;
+	text-align:center;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	border-collapse: separate;
+}
+
+.bidding-details-table{
+	width:100%;
+	height:100%;
+	border:0px;
+	text-align:center;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	vertical-align:middle;	
+}
+
+.bidding-date-table tbody,
+.bidding-date-table tr td:hover,
+.bidding-date-table tr td, 
+.bidding-date-table tr, 
+.bidding-date-table tr:hover,
+.bidding-time-left tr,
+.bidding-time-left td,
+.bidding-time-left tr:hover,
+.bidding-time-left td:hover,
+.bidding-details-table tbody,
+.bidding-details-buttons,
+.bidding-details-buttons:hover,
+.bidding-details-buttons td:hover,
+.bidding-details-buttons tr:hover,
+.bidding-details-table tr,
+.bidding-details-table td{
+	background:none;
+	background-color:transparent !important;
+	border:0px;
+}
+.bidding-details-table tbody tr.bidding-details-buttons:hover{
+
+	
+}
+
+.bidding-date-ddmmyy, .bidding-date-ddmmyy td{
+	font-size:20px;
+	color:#FFFFFF;
+	vertical-align:bottom;
+	font-weight:bold;
+}
+.bidding-time, .bidding-time td {
+	font-size:14px;
+	color:#383838;
+	vertical-align:middle;
+	font-weight:bold;
+	border-bottom: 1px solid #6C9ABB !important;
+}
+.bidding-time-left td{
+	height: 34.4%;
+	font-size:14px;
+	color:#383838;
+	vertical-align:middle;
+	font-weight:bold;
+	border-top: 1px solid #DDF1FC !important;
+
+}
+
+
+/*----detailed description block*/
+.bidding-details-block{
+	width: 768px;
+	margin-bottom: 20px;
+	position: relative;
+	clear:both;
+	top:-1px;
+	border: 1px solid #afb0b2;
+	background-color:#f8f8f8;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	border-top-color:#333;
+
+}
+.bidding-details-head, .bidding-myvote-head, .bidding-members-header, .voting-referee-header{
+    border: 1px solid #afb0b2;
+	width: 100%;
+    height: 23px;
+    padding-top: 6px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/bidding_det_header.png) left top repeat-x #e4e4e4;
+	-webkit-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	-moz-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	box-shadow: 0px 2px 3px 0px #bfbfbf; 
+	text-align:center;
+	font-size:13px;
+	color:#0e0e0e;
+	margin-bottom:10px;
+	font-weight:bold;
+	clear:both;
+}
+
+
+.bidding-members-header{
+    left: -4px;
+    position: relative;
+    width: 101%;
+}
+
+.block-details-controls, .block-member-controls, .block-referee-controls, .block-mybid-controls, .block-myvote-controls{
+    position: relative;
+	float:right;
+	width: 80px;
+	margin-left: -70px;
+}
+.block-details-controls{
+	left:-2px;
+}
+.block-details-controls img, .block-member-controls img, .block-mybid-controls img, .block-myvote-controls img{
+	width: 16px;
+	height:16px;
+	display: inline-block;
+}
+.block-myvote-controls{
+	left:-12px;
+}
+
+.bidding-up{
+	background: url(/ENGINE/images/bidding/block_up.png) no-repeat scroll transparent;
+}
+.bidding-up:hover{
+	background: url(/ENGINE/images/bidding/block_up_hover.png) no-repeat scroll transparent;
+}
+
+.bidding-refresh{
+	background: url(/ENGINE/images/bidding/block_refresh.png) no-repeat scroll transparent;
+}
+.bidding-refresh:hover{
+	background: url(/ENGINE/images/bidding/block_refresh_hover.png) no-repeat scroll transparent;
+}
+.bidding-refresh-anim{
+	background: url(/ENGINE/images/bidding/block_refresh_anim.gif) no-repeat scroll transparent;
+}
+.bidding-min{
+	background: url(/ENGINE/images/bidding/block_minimize.png) no-repeat scroll transparent;
+	
+}
+.bidding-min:hover{
+	background: url(/ENGINE/images/bidding/block_minimize_hover.png) no-repeat scroll transparent;
+	
+}
+.bidding-max{
+	background: url(/ENGINE/images/bidding/block_maximize.png) no-repeat scroll transparent;
+}
+
+.bidding-max:hover{
+	background: url(/ENGINE/images/bidding/block_maximize_hover.png) no-repeat scroll transparent;
+}
+.block-member-controls{
+ 	left: -12px;
+}
+.bidding-expand{
+	background: url(/ENGINE/images/bidding/block_expand.png) no-repeat scroll transparent;
+}
+.bidding-expand:hover{
+	background: url(/ENGINE/images/bidding/block_expand_hover.png) no-repeat scroll transparent;
+}
+.bidding-collapse{
+	background: url(/ENGINE/images/bidding/block_collapse.png) no-repeat scroll transparent;
+}
+.bidding-collapse:hover{
+	background: url(/ENGINE/images/bidding/block_collapse_hover.png) no-repeat scroll transparent;
+}
+
+.bidding-details-description{
+	min-height:90px;
+	height: 100px !important;
+	width:760px;
+	border:0px;
+	color: #5f5f5f;
+	margin-bottom:10px;
+	background-color:transparent;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	font-size:13px;
+}
+
+.bidding-details-all textarea.bidding-details-description{
+	height:100px;
+}
+.bidding-owner-attachments{
+    color: #3366CC;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+ .bidding-owner-attachments a {
+     color: #3366CC;
+ }
+.bidding-members{
+	clear:both;
+	width:99%;
+	margin-bottom:20px;
+}
+.bidding-members-table, .bidding-members-table tbody, .voting-referee-table, .voting-referee-table tbody{
+	width:99%;
+	background:none repeat scroll 0 0 transparent !important;
+	border-collapse:separate;
+	border-left:0px;
+	border-right:0px;
+	border-top: 1px solid #C5C5C5;
+	border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.members-table-div, .referee-table-div{
+    max-height: 246px;
+    overflow-y: auto;
+}
+
+.bidding-members-table tr, .bidding-members-table tr td,
+.bidding-members-table tr:hover, .bidding-members-table tr td:hover,
+.voting-referee-table tr, .voting-referee-table tr td,
+.voting-referee-table tr:hover, .voting-referee-table tr td:hover{
+	background:none repeat scroll 0 0 transparent;
+	text-align:left;
+	font-size:14px;
+	border-top:1px solid #ffffff;
+	border-bottom:1px solid #c5c5c5;
+	border-left:0px;
+	border-right:0px;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	padding-top:3px;
+	padding-bottom:3px;
+	vertical-align:middle;
+}
+.row-detail, .row-detail td{
+	background:#d9d9d9 !important;
+	border-top: 1px solid #2d83c1 !important;
+	border-bottom:0 !important;
+}
+.bidding-member-votes{
+    color: #F1BF26;
+    font-family: arial !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    padding-right: 10px;
+    text-shadow: 0 -1px 0 #7A4521, 0 1px 0 #FFFFFF;
+}
+.row-detail td.bidding-member-position, .row-detail td.voting-referee-position{
+	border-left: 1px solid #2d83c1 !important;	
+}
+
+.row-detail td.bidding-member-detailsbutton, .row-detail td.voting-referee-detailsbutton{
+	border-right: 1px solid #2d83c1 !important;
+}
+
+.bidding-member-details tr, .bidding-member-details td, .voting-referee-details tr, .voting-referee-details td{
+	background:#d9d9d9 !important;
+	border-top: 0 !important;
+	border-bottom: 1px solid #2d83c1 !important;
+	border-left: 1px solid #2d83c1 !important;
+	border-right: 1px solid #2d83c1 !important;
+}
+.member-details{
+	padding-bottom:5px;
+	vertical-align:middle;
+}
+
+.member-details-button, .referee-details-button{
+
+	border:0; 
+	background-image:url(../../../images/bidding/member_detail.png) !important;
+	background-color:transparent !important; 
+	cursor:pointer;	
+	height:16px;
+	width:27px;
+}
+
+.member-details-button:hover, .referee-details-button:hover{
+	background-image:url(../../../images/bidding/member_detail_hover.png) !important;
+	background-color:transparent !important;  
+}
+
+
+.bidding-member-position, .voting-referee-position{
+	width:35px;
+	
+}
+.bidding-member-name{
+	width:150px;	
+}
+.bidding-member-my{
+	width:16px;
+}
+.bidding-member-bid{
+	width:493px;
+}
+.bidding-member-havedetails, .voting-referee-havedetails, .bidding-member-haveattach{
+	width:16px;
+}
+.bidding-member-detailsbutton, .voting-referee-detailsbutton{
+	width:27px;
+}
+
+.member-details-text, .referee-details-text{
+	width:100%;
+	border:1px solid #bcbdbe;
+	color: #5f5f5f;
+	margin-bottom:10px;
+	background-color:#F8F8F8;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	font-size:13px;
+	height:80px;
+	margin-left:-1px;
+	padding:0px;
+}
+
+.biddign-block-mybid{
+	background-color:#9dc3e0;
+	border:1px solid #6c9abb;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.bidding-mybid-head{
+	border-top:1px solid #ddeffb;
+	height: 23px;
+}
+.bidding-mybid-head, .bidding-mybid-footer{
+	width: 100%;
+    padding-top: 6px;
+	text-align:center;
+	font-size:13px;
+	color:#FFFFFF;
+	font-weight:bold;
+	clear:both;
+}
+.bidding-mybid-footer{
+		height: 0px;
+}
+.bidding-mybid{
+	text-align:left;
+    color: #5F5F5F;
+    margin-bottom: 10px;
+    width: 750px;
+	background-color:#f8f8f8;
+    padding-left: 4px;
+    padding-right: 6px;
+    padding-top: 5px;	
+	border:1px solid #6C9ABB;
+	-webkit-box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+	-moz-box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+	box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+}
+
+.bidding-myvote{
+	text-align:left;
+}
+
+.bidding-mybid-description{
+	border: 1px solid #BCBDBE;
+    color: #5F5F5F;
+    min-height: 90px;
+	height: 100px;
+    width: 100%;
+	margin-top:5px;
+	background-color:#FCFCFC;
+}
+
+.bidding-mybid-attachments{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.bidding-mybid-footer{
+	margin-bottom:0px;
+}
+.bidding-mybid-buttons, .bidding-myvote-buttons{
+    width: 100%;
+	text-align:center;
+}
+.bidding-mybid button, .bidding-myvote-buttons button{
+    border: 1px solid #BCBDBE;
+	background:url("../images/bidding/bidding_det_header.png") repeat-x scroll left top #E4E4E4;
+    color: #45474e;
+    cursor: pointer;
+    font-family: sans-serif,Lucida Grande,Tahoma,Arial,Verdana;
+    font-size: 14px;
+    height: 26px;
+    margin-bottom: 5px;
+    position: relative;
+    width: 130px;
+	margin-top:10;
+	
+}
+
+/*------------------------------*/
+
+
+
+/* ----inactive block*--------*/
+.inactive, div.inactive div.bidding-details{
+	background: url(../images/bidding/tend_block_inact_bg.png) left top repeat-x #d3d3d3;
+	border-color:#808e99;	
+	color: #6e6e6e;
+}
+div.inactive .detail-button{
+	background:  url(../images/bidding/detail_inact_btn.png) left top repeat-x #ebf4fb;
+	border-left:1px solid #808e99; 
+}
+
+div.inactive .detail-button:hover{
+	background:  url(../images/bidding/detail_inact_btn_hover.png) left top repeat-x #ebf4fb !important;
+	border-left:1px solid #808e99; 
+}
+div.inactive .bidding-time,  div.inactive .bidding-time td {
+    border-bottom: 1px solid #808e99 !important;
+    color: #6e6e6e;
+}
+.inactive div.bidding-type{
+    border-left: 1px solid #808e99;	
+	color: #6e6e6e;
+}
+.inactive div.bidding-type-img-div {
+    border-bottom: 1px solid #808e99;
+}
+.inactive div.bidding-datails-text {
+    border-bottom: 1px solid #808e99;
+}
+div.inactive .bidding-time-left td {
+    color: #6e6e6e;
+}
+/*---------------------------*/
+
+
+
+/*tender manage interface*/
+
+#ui-datepicker-div{z-index:99999;}
+.hasDatepicker{z-index:99999;}
+div.ui-dialog-overlay{z-index:5002 !important;}
+div.ui-dialog{z-index:5003 !important;}
+.hide{display:none;}
+
+div.table table{ width: 100%;}
+div.div-create-tender{
+    width: 700px;
+}
+
+
+
+div.div-create-tender div.title{
+    border: 1px solid #afb0b2;
+    height: 12px;
+    padding-top: 6px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/bidding_det_header.png) left top repeat-x #e4e4e4;
+	-webkit-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	-moz-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	box-shadow: 0px 2px 3px 0px #bfbfbf; 
+	text-align:center;
+	font-size:13px;
+	color:#0e0e0e;
+	margin-bottom:10px;
+	font-weight:bold;
+	clear:both;	
+	left: -40px;
+    position: relative;
+    top: -20px;
+    width: 113%;
+}
+div.div-create-tender div.bottomline{
+	padding-bottom:10px;
+}
+
+div.div-create-tender div.row{
+    padding: 5px 0px 5px 0px;
+}
+div.div-create-tender div.block{
+    background-color: #f2f2f2;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 20px;
+	border:1px solid #d5d5d5;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-box-shadow: 0px 2px 2px 0px #d5d5d53;
+	-moz-box-shadow: 0px 2px 2px 0px #d5d5d5;
+	box-shadow: 0px 2px 2px 0px #d5d5d5; 	
+
+
+}
+
+.div-t_anonymity div.title{
+	height:22px !important;
+}
+
+
+div.div-create-tender div.label{
+    width: 100px;
+    position: relative;
+    float: left;
+    text-align: left;
+    padding-right: 30px;
+}
+div.div-create-tender div.block table{width: 100%;}
+div.div-create-tender div.field-bottom-lable{
+	width: 100%; 
+	padding-left:110px;
+	color: #969696;
+	font-size:10px;
+}
+div.div-create-tender div.validation-error{width: 100%; padding-left:100px;color: red;}
+div.div-create-tender textarea{width: 450px; height:150px;}
+div.div-create-tender div.field{
+    text-align: left;
+    padding-left: 20px;
+}
+div.div-create-tender div.label-row, div.div-create-tender div.field-row{
+    width: 100%;
+    text-align: left;
+	padding-bottom:10px;
+}
+
+.t_anonymity-P{
+	padding-bottom:5px;
+	border-bottom:1px solid #d5d5d5;
+}
+
+.t_anonymity-C{
+	padding-bottom:5px;
+	padding-top:5px;
+	border-bottom:1px solid #d5d5d5;
+	border-top:1px solid #ffffff;
+}
+.t_anonymity-F{
+	padding-top:5px;
+	border-top:1px solid #ffffff;
+}
+
+div.div-create-tender div.actions{
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+div.buttons{
+    text-align: center;
+}
+div.cm_t_tender_status_block{
+    width: 20px;
+    height: 20px;
+}
+div.cm_t_tender_status_name{
+    color: #FFFFFF;
+    font-size: 10px;
+    top: 1px;
+    width: 60px;
+    text-align: center;
+    margin-top: -63px;
+}
+img.cm_t_tender_status_img{
+    border-color: #808E9B #82231D #808E9B #808E9B;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 0px;
+    width: 60px;
+    height: 59px;
+    padding: 0;
+}
+
+#frm_profile_select.profile_select div.buttons{
+	margin-top:26px
+}
+
+#cancel-tender{
+    padding-top: 1px;
+	padding-bottom: 2px;
+}
+.validation-error {
+	color:#f91d13;
+}
+
+.bidding-myvote-head{
+	text-align:center;
+	color:#000000;
+	font-weight:bold;
+}
+.bidding-myvote-description{
+
+    font-family: sans-serif,"Trebuchet MS",Arial,Helvetica;
+    font-size: 13px;
+    height: 100px;
+    margin-bottom: 10px;
+    min-height: 90px;
+    width: 760px;
+}
+/*-----------------------*/

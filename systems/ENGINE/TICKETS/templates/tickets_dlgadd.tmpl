@@ -1,0 +1,49 @@
+#encoding cp1251
+<form id="dlgadd_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>Разработчик</th><td>
+        <select id='dlgadd_develId_cmb' title='Разработчик'>
+            #if $varExists('$datalist')
+                #if $datalist
+                    #for $item in $datalist
+                        #* #if str($develId) == str($item.DEVEL_ID)
+                            #set $selected = ' selected = "selected" '
+                        #else
+                            #set $selected = ' '
+                        #end if
+                        <option $selected value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+                        *#
+                        <option value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+                    #end for
+                #end if
+            #end if
+        </select>
+    </td></tr>
+    <tr><th>БД</th><td>
+        <select id='dlgadd_idBase_cmb' title='БД'>
+            #if $varExists('$dbs')
+                #if $dbs
+                    #for $item in $dbs
+                        <option value= '$item.ID_BASE'>$item.DB_NAME</option>
+                    #end for
+                #end if
+            #end if
+        </select>
+    </td></tr>
+    <tr><th>Причина</th><td><input id="dlgadd_reason_edt" name="dlgadd_reason_edt" type="text" style='width: 100%' value=""></td></tr>
+    <tr><th>Перманентный</th><td>
+        <input type='checkbox' id='dlgadd_perm_chk' name='dlgadd_perm_chk' title='Перманентный' value='1'/>
+    </td></tr>
+  </table>
+  <br>
+Разрешить доступ со следующих ip-адресов разработчика
+  <div id="div_ips">
+  </div>
+  <br>
+А также разрешить следующие ip-адреса (разделитель ,)
+  <input type='text' id='dlgadd_custom_ips_edt' name='dlgadd_custom_ips_edt' style='width: 100%' title='Дополнительно разрешённые ip-адреса' value=''/>
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgadd_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;Сохранить</button>&nbsp;
+    <button type="button" id="dlgadd_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;Отмена</button>
+</div>

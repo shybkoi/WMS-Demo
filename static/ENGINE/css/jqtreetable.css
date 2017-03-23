@@ -1,0 +1,4 @@
+.collapsed { display: none; }
+.treetable td {padding: 0px; }
+.adeimg, .ttimage, .parimg, .preimg { border: none; margin: 0px; padding: 0px; vertical-align: bottom; width: 16px; height: 16px; }
+.adeimg, .parimg {cursor: pointer; }

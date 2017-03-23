@@ -1,0 +1,22 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>$TONAME</br>
+    <b><u>($wcode)</u></b>$wname<br>
+    $viewQuantity($QO,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$QO#end filter#</u></b>)    
+    <br>
+    #if $varExists('$TWPALLETNUM') and $TWPALLETNUM
+        <b>$TWPALLETNUM</b>($SITENAME)
+    #else
+        <b>$SITENAME</b>
+    #end if
+    <br><br>
+    <a href='$backurl'>Вернуться назад</a><br>
+    <hr>
+    <a href='taskFWaresEnd?twid=$TWID&pc=1'>Доотбирать</a><br><br>
+    <a href='taskFWaresEnd?twid=$TWID&pc=2'>Завершить</a>
+#end def    
+

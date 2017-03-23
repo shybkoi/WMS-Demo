@@ -1,0 +1,83 @@
+html{
+	height:100%;
+	margin-bottom:1px;
+	}
+body{
+	color:#666;
+	text-align:left;
+	font:13px Tahoma, Helvetica, Geneva, sans-serif;
+	background:url(../images/back_change_browser.jpg) repeat-y left #fff;
+	}
+a {
+	color:#005987;
+	font:13px Tahoma, Helvetica, Geneva, sans-serif;
+	outline:0;
+	}
+a:hover{
+	text-decoration:none;
+	}
+p{
+	line-height:1.5em;
+	margin:0 10px 1em 20px;
+	text-indent:0;
+	}
+h1,h2,h3,span{
+	color:#1499D1;
+	font-weight:normal;
+	}
+h1,h2{
+	font-size:24px;
+	line-height:1.8em;
+	margin:0 0 0.5em 20px;
+	}
+h2{
+	margin-top:-120px;
+	}
+h3{
+	font-size:18px;
+	}
+.wrap{
+	margin:0 auto;
+	width:1000px;
+	}
+.header,.main,.footer{
+	clear:both;
+	}
+.logo-header{
+	background:url(../images/logo_small.png) center no-repeat;	
+	height:76px;
+}
+.brows{
+	width:100%;
+	margin-bottom:20px;
+	background-color:#fff;
+	border:1px solid #EFEFEF;
+	padding-top:60px;
+	padding-bottom:60px;
+	text-align:center;
+}
+.brows td{
+	padding-bottom:0px;
+	text-align:center;
+	}
+.brows td a{
+	font-size:17px;
+	color:#fff;
+	}	
+.brows_name td a, a.brows_name{
+	color:#06F !important;	
+	}
+tr.brows_name td {
+	text-align:center;
+	}
+
+.main{
+	position:relative;
+	}
+
+.qtcontent{
+	position:absolute;
+	width:94%;
+	margin:0 30px;
+	padding:20px 0;
+	}

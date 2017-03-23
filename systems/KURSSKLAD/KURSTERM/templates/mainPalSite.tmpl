@@ -1,0 +1,35 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    #if $varExists('$PAL_NUM') and $PAL_NUM
+		<b><u>$PAL_NUM</u></b>($PAL_SNAME)
+	#else 
+		<b>$PAL_SNAME</b>
+	#end if
+    <br><br>
+    
+    $_('МП паллета'): <br><br>
+    
+    #if $varExists('$datalist')    
+        #for $item in $datalist
+            #if $item.CANSELECT == '1'
+                <a href="palSiteSet?id=$PAL_ID&sid=$item.SID&dt=$CURRENTDATETIME">$item.SNAME</a>
+            #else
+                <font class="inactive">$item.SNAME</font>
+            #end if
+            :
+            #if $item.PALLETS
+                $item.PALLETS
+            #else
+                ______
+            #end if
+            <br><br>
+        #end for
+    #end if
+    
+    #if $varExists('$SITEPALLETID') and $SITEPALLETID
+        <hr><br>
+            $_('Работать с'): <a href="pal?id=$SITEPALLETID">$SITENAME</a>
+    #end if
+#end def

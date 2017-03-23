@@ -1,0 +1,35 @@
+/*width*/
+.Num, .CheckBox{width:20px;}
+.SupplName,.WaresName{width:auto;}
+.DocNumber, .DocNum{width:60px;}
+.Date,.DocDate{width:60px;}
+.DateTime,.CreateTime,.BeginTime,.EndTime{width:60px;}
+.Count, .NDS{width:40px;}
+.ShopName, .DocType{width:100px !important;}
+.Name{width:auto;}
+.Code,.BarCode{width:40px;}
+.UnitName{width:20px;}
+.Price{width:40px;}
+.Summa, .NDSFree, .DocSum, .BuyPrice,.SalePrice,.MinQuant,.MinRest, 
+.SumDifferent,.CntDocs .SumDocs, .SumIncome, .SumRet, .incomecheck,.retcheck,.retnotcheck,.incomenotcheck{width:40px;}
+.Image, .SmallInt{width:20px;}
+/*align*/
+.Num,.Code,.BarCode,.DocNumber, .DocNum,.UnitName,.Date,.DocDate,.DateTime,.CreateTime,.BeginTime,.EndTime,.DocType,.CheckBox{text-align:center;}
+td.Name, td.SupplName, td.WaresName,td.ShopName{text-align:left;}
+td.Price,td.Count,td.NDS,td.NDSFree,td.Summa, td.DocSum, td.BuyPrice,td.SalePrice,td.MinQuant,td.MinRest, 
+td.SumDifferent,td.CntDocs td.SumDocs, td.SumIncome, td.SumRet, td.incomecheck,td.retcheck,td.retnotcheck,td.incomenotcheck{text-align:right !important;}
+
+
+
+
+.width160{width:160px;}
+.widthfull{width:100%;}
+
+
+
+
+.Red{color:red;}
+
+
+
+.aligncenter{text-align:center;}

@@ -1,0 +1,39 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def systemNavigation
+    <form id="frmFilter" method="get" action="locate" class="buttons">
+        <b>$_('Склад'):</b> <select id="whid" name=whid style="width:100px;"></select> &nbsp;&nbsp;&nbsp;
+		$_('Продажи за период'): <input id="bdate" type="text" size="8" />&nbsp;<input id="edate" type="text" size="8" />&nbsp;
+		<button style="button" type="submit" id="go"><img src="$eng_img/arrows/arrow_right.png"></button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="btnPrint" type="button" title="Печать списка"><img src="$eng_img/actions/printer.png"></button>
+    </form>
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>        
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sp_js/restWaresSale.js"></script>
+
+    <div id="dvWH" style="float:left;position:relative;width:100%;"></div>
+#end def

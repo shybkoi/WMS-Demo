@@ -1,0 +1,69 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <style>
+        div.w100 { width: 100%; height: 20px; position: relative; }
+        div.w50 { width: 50%; height: 100%; display: block; float: left; }
+        .r { text-align: right; }
+        .l { text-align: left; }
+        a { text-decoration: none; }
+    </style>
+
+
+    $ZONENAME</br>
+    <b>№$TID</b>($ALGORITHM)
+    <br>
+    <br>
+
+    #set $sid = False
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <div class="w100">
+            #if not $sid or $item.SITEID != $sid
+                <div class="w50 r">
+                    #if $item.PTYPE != '1'
+                        <a href="taskAPalletAdd?tid=$tid&sid=$item.SITEID" title="$_('Добавить паллет')">+</a>
+                    #end if
+                    <b>$item.SNAME:</b>
+                </div>
+                #set $sid = $item.SITEID
+            #else
+                <div class="w50 r"></div>
+            #end if
+            <div class="w50">
+                #if $item.PALLETID
+                    <a href="taskAPallet?tid=$tid&pid=$item.PALLETID">
+                    #if $item.PTYPE == '1'
+                        $_('__МО__')
+                    #else
+                        $item.PNUMBER
+                    #end if
+                    </a>
+                    &nbsp;
+                    #if $item.TPSTATUS == 'w'
+                        <span>~</span>
+                    #elif $item.TPSTATUS == '1'
+                        <span>v</span>
+                    #else
+                        <span>-</span>
+                    #end if
+                #else
+
+                #end if
+
+            </div>
+            </div>
+        #end for
+    #end if
+	<form action="taskAScanPallet">
+        <input type=hidden name=tid value=$TID>
+        $_('ШК'): <input type=text id=":scan:text" name=barcode value="" title="$_('Поддон')"><br>
+	</form>
+    <br>
+    <br>
+    <a href="taskAPalletDelete?tid=$tid&sid=$hsid">$_('Нет паллета')</a><br>
+    <a href="taskAEndSite?tid=$tid&sid=$hsid">$_('Завершить МП')</a><br>
+    $username
+
+#end def

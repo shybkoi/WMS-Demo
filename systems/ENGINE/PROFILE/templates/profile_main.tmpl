@@ -1,0 +1,18 @@
+#encoding cp1251
+#extends systems.engine_main
+#def systemNavigation
+      <ul>
+        <li><a href="theme">$_('Темы оформления')</a></li>
+        <li><a href="passwd">$_('Пароль')</a></li>
+        #if $varExists('profileaddon') and $profileaddon == 1
+            <li><a href="info">$_('Учетные данные')</a></li>
+        #end if
+      </ul>
+#end def
+#def engineData
+    <div id = "profileData">
+        #block profileData
+            $_('Редактирование профиля пользователя. Выберите пункт меню.')
+        #end block profileData
+    </div>
+#end def

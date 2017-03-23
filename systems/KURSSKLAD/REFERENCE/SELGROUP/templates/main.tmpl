@@ -1,0 +1,39 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$sp_css/selgroup.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$eng_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="screen"/>
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/ui.droppable.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>   
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectAutoComplete.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.helpers.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sp_js/selgroup.js"></script>
+
+    #block adminData      
+        <div id="dvTbl" style="float:left;position:relative;width:100%;"></div>
+    #end block
+
+#end def

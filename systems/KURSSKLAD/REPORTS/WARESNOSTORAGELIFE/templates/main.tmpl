@@ -1,0 +1,28 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def systemNavigation
+	
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+	
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+	<script type="text/javascript" src="$sp_js/WaresNoStorageLife.js"></script>
+	
+	<form id="frmFilter" class="buttons">
+		Объект 	<select id="selectZone"></select>
+		<button type="submit"><img src="$eng_img/arrows/arrow_right.png"></button>&nbsp;&nbsp;&nbsp;
+		<button type="button" id="btnPrint"><img src="$eng_img/actions/printer.png"></button>
+	</form>
+#end def
+
+#def engineData
+    <div id="dvMain" style="width:100%;float:left;position:relative;"></div> 
+#end def

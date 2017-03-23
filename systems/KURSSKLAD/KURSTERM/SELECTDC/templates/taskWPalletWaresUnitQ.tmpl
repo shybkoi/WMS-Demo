@@ -1,0 +1,25 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$PNUM</u></b>($SNAME)<br>
+    $TOOBJNAME<br>    
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    <b><u>$DOCNUM / #filter DateFilter2$DOCDATE#end filter#</u></b><br>
+    <hr>
+    <br>
+    Заказ: <b>$QTASKSTR</b> <br>    
+    На поддоне: $QPALLETSTR <br>
+    <hr>
+    
+    <form action="taskWPalletWaresUnitQ">
+        <input type="hidden" name="twid" value="$TWID">
+        <select name=wuid>#if $VUID
+                            <option value=$VUID>$VWUCODE</option>
+                          #end if
+                            <option value=$MUID>$MWUCODE</option>
+        </select> <input type=text name=q id=":focus:float" size=6><br>
+        ШК этикетки: <input type="text" id=":scan:text" name="barcode" value="">
+        <button type=submit>Ok</button>
+	</form>
+#end def

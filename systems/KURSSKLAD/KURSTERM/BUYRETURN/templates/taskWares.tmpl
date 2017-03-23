@@ -1,0 +1,30 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData        
+    <b>$FROMNAME</b><br>
+    <b>$TONAME</b><br>
+    <b><u>#filter DateFilter$DOCDATE#end filter#</u></b> №<b><u>$DOCNUM</b></u> <br>
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    
+    
+    #if $varExists('$datalist')
+        #set $PID = 0
+        #set $q = 0
+        #set $q2 = 0
+        #set $type = '';
+        #for $item in $datalist
+            #if $type != $item.STYPE
+                <br><b> 
+                #set $type = $item.SNAME
+                $item.SNAME
+                </b><br>
+            #end if 
+                <a href="taskWaresEdit?pid=$item.PID&wid=$WID&tid=$TID&pdate=#filter DateFilter2$item.PDATE#end filter#">#filter DateFilter2$item.PDATE#end filter#</a>: $viewQuantity($item.Q,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<b>#filter Quantity$item.Q#end filter#</b>)<br>
+                       
+        #end for
+    #end if
+    <hr>
+    <a href="taskWaresLotAdd?tid=$TID&waresid=$WID">$_('Добавить')</a>
+#end def

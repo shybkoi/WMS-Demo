@@ -1,0 +1,35 @@
+#encoding cp1251
+
+<div id="dlgtarhistory_caption"></div>
+
+<table id="tbl_dlgtarhistory" class="full_height">
+  <thead>
+    <tr>
+      <th>$_('Отключен')</th>
+      <th>$_('Название')</th>
+      <th>$_('Дата тарифа')</th>
+      <th>$_('Изменено')</th>
+    </tr>
+  </thead>
+  <tbody id="tbl_dlgtarhistory_tbody">
+        #for $tarif in $tarhistory
+            <tr id="th_$tarif.ID_TAR_HISTORY">
+                <td class="hac disabled"><input type="checkbox"
+                    #if $tarif.DISABLED is not None and $tarif.DISABLED != 0
+                        checked
+                    #end if
+                    ></td>
+                <td class="tar_name" id_tar="$tarif.ID_TAR">$tarif.TAR_NAME</td>
+                <td class="date_from hac">#filter DateFilter $tarif.DATE_FROM #end filter</td>
+                <td class="lastdate hac">#filter LongDateTimeFilter $tarif.LASTDATE #end filter</td>
+            </tr>
+        #end for
+  </tbody>
+</table>
+
+<div class="buttons save footer_btns">
+  <button type="button" id="dlgtarhistory_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+</div>
+
+##Dialog Add/Edit tarif
+<div id="dlgedittarhistory" class="dialog flora" align="center"></div>

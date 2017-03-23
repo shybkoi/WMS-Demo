@@ -1,0 +1,43 @@
+#encoding cp1251
+#extends wtmain
+
+#def wtData
+    ##Scripts	
+    <script type="text/javascript" src="$sp_js/worktaskbyempl.js"></script>
+	<script>
+       var useTaskWares = $useTaskWares
+       var usePosCount = $usePosCount
+	</script>
+	<form id="dvFilter" class="buttons">
+		<button type="button" title="Интерфейсы" id="btnSystems" users=""><img src="$eng_img/actions/application.png" alt=""></button>
+		Период поиска: 
+		<input type="text" id="dvFilterDateBeg" size="8">
+		<input id="dvFilterTimeBeg" size=5 value="00:00">
+		#*
+		<select id="dvFilterTimeBeg">
+			<option selected value="08">08:00</option>
+			<option value="20">20:00</option>
+		</select>
+		*#
+		 - 
+		<input type="text" id="dvFilterDateEnd" size="8">
+		<input id="dvFilterTimeEnd" size=5 value="23:59">
+		#*
+		<select id="dvFilterTimeEnd">
+			<option value="08">08:00</option>
+			<option selected value="20">20:00</option>
+		</select>
+		*#
+		&nbsp;&nbsp;&nbsp;
+		<span class="dvFilterTT" style="display:none;"> По типу задания:</span>
+		<select id="dvFilterTaskType" class="dvFilterTT" style="display:none;">
+			<option value="0">Без фильтра</option>
+		</select>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" id="dvFilterBtnLocate"><img src="$eng_img/actions/magnifier.png" border="0"></button>
+        <button type="button" id="btnTimer"><img src="$sp_img/timer.png"></button>&nbsp;
+	</form>
+
+	<div id="dvScreen"></div>
+#end def

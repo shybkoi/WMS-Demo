@@ -1,0 +1,37 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <form action=rfsMain>
+        ШК: <input type=text name=barcode id=':scan' title="$_('Row')">
+    </form>
+    
+    #if $varExists('$datalist') and $datalist
+      <br>
+      <table>
+          <tr>
+            <th>$_('Ряд')</th>
+            <th>$_('Всего')</th>
+            <th>$_('Важно')</th>
+          </tr>  
+        #for $item in $datalist
+          <tr>
+            <td>
+              #if $item.cnttask!=0
+                <a href="rfsRow?id=$item.rowid">$item.rowname</a>
+              #else 
+                $item.rowname
+              #end if
+            </td>
+            <td>$item.cnttask</td>
+            #if $item.cntactual > 0 
+                <td class="red">$item.cntactual</td>
+            #else
+                <td>$item.cntactual</td>
+            #end if
+          </tr>  
+        #end for
+      </table>
+    #end if
+#end def
+

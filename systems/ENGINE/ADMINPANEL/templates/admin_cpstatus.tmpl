@@ -1,0 +1,54 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+<script type="text/javascript" src="$eng_js/jquery.timer.min.js"></script>
+
+#if $is_linux
+  <h3>Статус процесса сервера CherryPy</h3>  
+  <br>
+  <table id="tbl_process">
+    <thead>
+      <tr><th>USER</th><th>PID</th><th>%CPU</th><th>%MEM</th><th>VSZ</th><th>RSS</th><th>TTY</th><th>STAT</th><th>START</th><th>TIME</th><th>COMMAND</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>$ps.USER</td><td class="har">$ps.PID</td><td class="har">$ps.CPU</td><td class="har">$ps.MEM</td><td class="har">$ps.VSZ</td>
+      <td class="har">$ps.RSS</td><td>$ps.TTY</td><td>$ps.STAT</td><td>$ps.START</td><td>$ps.TIME</td><td>$ps.COMMAND</td>
+      </tr>
+    </tbody>
+  </table>
+#end if
+
+<br>
+<h3>Статус потоков сервера CherryPy</h3>
+<h3>Автообновление страницы каждые: 
+<select id='refresh_time' style='width: 80px;'>
+    <optgroup label='Выберите интервал обновления'>
+        <option value='n'>Не обновлять</option>
+        <option value='1'>1 сек</option>
+        <option value='5'>5 сек</option>
+        <option value='10'>10 сек</option>
+        <option value='30'>30 сек</option>
+        <option value='60'>60 сек</option>
+    </optgroup>
+</select>
+</h3>
+<br/>
+
+Всего: $thactivecount активных из $thcount потоков
+<br/>
+<table id="tbl_threads">
+<thead>
+  <tr style="cursor: pointer"><th>Номер</th><th>ID</th><th>Простой(сек)</th><th>Последний запрос(сек)</th><th>URL</th></tr>
+</thead>
+<tbody>
+  #for $th in $datalist
+    <tr><th>$th.number</th><td>$th.id</td><td class="har">$th.idle_time</td><td class="har">$th.last_req_time</td><td>$th.url</td></tr>
+  #end for
+</tbody>
+</table>
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_cpstatus.js"></script>
+
+#end def

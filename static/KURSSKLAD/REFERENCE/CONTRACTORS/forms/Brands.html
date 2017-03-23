@@ -1,0 +1,40 @@
+<div class="Body BrandsBody">
+    <div class="actions">        
+        <a href="#" class="add"><img src="/KURS/images/add.png" alt="Добавить"/></a>
+        <a href="#" class="edit"><img src="/KURS/images/edit.png" alt="Изменить"/></a>
+        <a href="#" class="delete"><img src="/KURS/images/delete.png" alt="Удалить"/></a>
+    </div>
+    <div class="table"></div>
+    <div class="form-edit">
+        <div><span>Контрагент</span><select class="Contractor"></select></div>
+        <div><span>Наименование</span><input class="Name"/> </div>
+        <div><span>Основная торговая марка</span><select class="Higher"/> 
+        <div class="buttons">
+            <button class="save">Сохранить</button> 
+            <button class="cancel">Отмена</button>
+        </div>
+    </div>
+</div>
+<style>
+    div.BrandsBody div{float:left;padding-top: 5px;}
+    div.BrandsBody div.table{width: 100%;}
+    div.BrandsBody div select.Contractor{width: 478px;}
+    div.BrandsBody div input.Name{width: 200px;}
+    div.BrandsBody div select.Higher{width: 480px;}
+    span{font-weight:bold;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

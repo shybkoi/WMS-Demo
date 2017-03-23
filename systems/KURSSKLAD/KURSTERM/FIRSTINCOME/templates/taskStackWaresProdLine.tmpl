@@ -1,0 +1,29 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>$S_NAME</b>
+    <hr>
+    <b><u>($WCODE)</u></b> $WNAME<br>
+    #if $varExists('$STACKMODELID')
+        <b>$STACKMODELNAME</b><br>
+        <hr>
+    #else
+        <br>
+    #end if
+    
+    $_('Выберите линию производства')<br>
+    #if $varExists('$datalist') and $datalist
+        #if $varExists('$STACKMODELID')
+            #for $item in $datalist
+                <a href="taskStackWaresProducer?tid=$TID&sid=$S_ID&wid=$WID&mid=$STACKMODELID&lid=$item.ID_PRODLINE">$item.NUMBER - $item.NAME</a><br>
+            #end for
+        #else
+            #for $item in $datalist
+                <a href="taskStackWaresProducer?tid=$TID&sid=$S_ID&wid=$WID&lid=$item.ID_PRODLINE">$item.NUMBER - $item.NAME</a><br>
+            #end for        
+        #end if
+    #end if
+#end def

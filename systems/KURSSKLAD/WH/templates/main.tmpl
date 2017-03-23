@@ -1,0 +1,68 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def systemNavigation
+#end def
+
+#def engineData
+
+##Styles
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progress.css"/>
+    <link href="$sps_css.MONITORINGWH/monitoringwh.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sp_css/wh.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/x3dom.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    
+##Scripts
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>  
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>        
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script> 
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progress.js"></script>   
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>   
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.time.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/d3.v3.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/x3dom-full.js"></script>
+
+    <script type="text/javascript" src="$sp_js/wh.js"></script>
+    <script type="text/javascript" src="$sp_js/whDraw3d.js"></script>
+
+    #block adminData
+        <div id="place">
+			<canvas id="grid"> </canvas>
+		</div>
+		<div id="items">
+			<span title="Размер">Р</span> <input type=text id="size" value="10"/><br>
+			<hr>
+			<a href="#" title="Типы местоположений"><img src="$sp_img/site.png"/></a>
+			<hr>
+			<a href="#" title="Зоны"><img src="$sp_img/zone.png"/></a><br>
+			<hr>
+			<a href="#" title="Сохранить"><img src="$sp_img/save.png"/></a><br>
+			<hr>
+			<img title="Корзина" id="trash" src="$sp_img/trash.png"/>
+            <hr>
+            <a href="#" title="Типы местоположений"><img src="$sp_img/site.png"/></a>
+		</div>
+    #end blockz
+#end def

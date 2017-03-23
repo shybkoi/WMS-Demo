@@ -1,0 +1,22 @@
+#encoding cp1251
+
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    <u> $SNAME </u><br>    
+    <b>$INFONAME</b><br>
+	#filter DateTimeFilter $plandt #end filter#<br>
+	
+	<form action="taskPriority">
+		<input type="hidden" name="tid" value="$TID">
+        Приоритет: <input type="text" id="::int" name="priority" value="$TPRIORITY" size="3">
+		<button type="submit">OK</button>
+	</form>
+	<hr>
+	$_('Сортировка по приоритету от меньшего к большему: 1,2,3...')<br>
+	$_('Для сброса введите 0')
+#end def
+
+

@@ -1,0 +1,88 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   <b><u>$FROMNAME</u></b><br>
+   <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+   <hr>
+    <form action='taskBL' name=frm>
+    <input type=hidden name=tid value=$TID>
+      <table>
+        <thead>
+            <tr>
+                <th>$_('Код')</th>
+                <th>%</th>
+                <th>$_('Док')</th>
+                <th>+</th>
+            </tr>
+        </thead>
+        <tbody>
+        #for $item in $datalist
+            #if $item.QFACT
+              #set $qFact = float($item.QFACT)
+            #else
+              #set $qFact = 0.0000
+            #end if
+            
+            #if $item.PERCENTBL
+              #set $qDoc = $qFact - $qFact * float($item.PERCENTBL) / 100.000
+            #else
+              #set $qDoc = $qFact
+            #end if
+            #set qAdd = $qFact - $qDoc
+            <tr id=tr$item.WID>
+                <td><b>$item.WCODE</b></td>
+                <td><input title="$item.WNAME.replace('"',"'")" type=text id="w$item.WID::float" name=w$item.WID value="$item.PERCENTBL" size=2 onchange="chgPercent($item.WID);"></td>
+                <td>#filter Quantity$qDoc#end filter#</td>
+                <td>#filter Quantity$qAdd#end filter#</td>
+            </tr>
+        #end for
+        </tbody>    
+      </table>
+      #if len($datalist)>0
+        <hr>
+        <a href="javascript: if (confirm('$_('Вы  уверены?')')) document.frm.submit();">$_('Сохранить')</a>
+      #end if
+    </form>  
+
+    <script language="javascript" src="$sps_js.KURSTERM/term.formats.js"></script>
+    
+    <script language="javascript">
+        function tdFromTr(tr,tdIndex){
+            var childNodes = tr.childNodes;
+            var ind = 0;
+            for (var i=0; i<childNodes.length; i++){   
+                var nodeI = childNodes[i];
+                if (nodeI.nodeName == 'TD'){
+                    if (ind==tdIndex) return nodeI;                        
+                    ind++;
+                }
+            }        
+        }
+        
+        function qDoc(tr,val){
+            var td = tdFromTr(tr,2);
+            if (val || typeof val != 'undefined') td.innerHTML = (val ? val : '0');
+            return td.innerHTML;
+        }
+        
+        function qAdd(tr,val){
+            var td = tdFromTr(tr,3);
+            if (val || typeof val != 'undefined') td.innerHTML = (val ? val : '0');
+            return td.innerHTML;
+        }
+        
+        function chgPercent(wid){
+            var tr = document.getElementById('tr'+wid);
+            var per = kFloat(document.getElementById('w'+wid+'::float').value);
+            var qfact = kFloat(qDoc(tr)) + kFloat(qAdd(tr));
+            var qdoc = qfact - qfact*per/100.000;
+            var qadd = qfact - qdoc;
+            qDoc(tr,kNumber(qdoc));
+            qAdd(tr,kNumber(qadd));
+        }
+    </script>
+#end def    
+

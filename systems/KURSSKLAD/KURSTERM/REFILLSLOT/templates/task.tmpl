@@ -1,0 +1,60 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+
+#def mainData
+    <form action='rfsTask'>
+        <input type=hidden name=id value=$TID>
+        ШК: <input type=text name=barcode id=':scan' title="$_('Wares')">
+    </form>
+    
+    <br><b><u>$sitename</u></b><br><br>
+
+    #set $flagEnd = True
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Wares')</th>
+                    <th>$_('Count')</th>
+                    <th>$_('Pallet')</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                  #if $item.TWSTAT == '2'
+                    <td><a href="#" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                    <td>$viewQuantity($item.QNEED,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)(<b><u>#filter Quantity$item.QNEED#end filter#</u></b>)</td>
+                    <td>=====</td>
+                  #else
+                    #set $flagEnd = False
+                    <td>
+                      #if $item.PID
+                        <a href="rfsTaskWares?tid=$TID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a>
+                      #else
+                        <a href="rfsTaskWaresPallet?tid=$TID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a>
+                      #end if
+                    </td>
+                    <td>$viewQuantity($item.QNEED,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)(<b><u>#filter Quantity$item.QNEED#end filter#</u></b>)</td>
+                    <td>
+                      #if $item.PID
+                        <a href="rfsTaskWaresPallet?tid=$TID&wid=$item.WID" title="$item.PSNAME.replace('"',"'")">$coalesceValue($item.PNUM,$item.PSNAME)</a>
+                      #else
+                        $coalesceValue($item.PNUM)
+                      #end if
+                    </td>
+                  #end if
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #end if 
+
+    #if $flagEnd
+        <a href="rfsTaskEnd?id=$tid">Завершить задание</a>
+    #end if
+#end def
+

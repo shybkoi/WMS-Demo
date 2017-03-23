@@ -1,0 +1,14 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    #if $hide=='0'
+        <form action="scanMain">  
+            $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+        </form>
+        <hr>
+        <a href="infoManyPallets">$_('Несколько поддонов на МП')</a>
+    #end if
+#end def
+
+

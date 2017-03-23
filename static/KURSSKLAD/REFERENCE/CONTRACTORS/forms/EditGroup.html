@@ -1,0 +1,34 @@
+<div class="Body EGBody">
+    <div><span>Наименование:</span> <input class="Name"/></div>
+    <div><span>Код:</span> <input class="Code"/></div>
+    <div><span>Входит в состав:</span><select class="Higher"></select></div>
+    <div><span>Типы контрагентов:</span><select multiple="multiple" class="ObjTypes"/> </div>
+    <div><input type="checkbox" class="ForOwner"/><span>Владелец</span></div>
+    <div class="buttons">
+        <button class="save">Сохранить</button> 
+        <button class="cancel">Отмена</button>
+    </div>
+</div>
+<style>
+    div.EGBody div{float:left;padding-top: 5px;}
+    div.EGBody div input.Name{width: 367px;}
+    div.EGBody div input.Code{width: 100px;}
+    div.EGBody div select.Higher{width: 370px;}
+    div.EGBody div select.ObjTypes{width: 225px;}
+    span{font-weight:bold;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

@@ -1,0 +1,21 @@
+#encoding cp1251
+<table id="tbl_systems_views">
+  <thead>
+  <tr>
+    <th>№</th>
+    <th>Представление</th>
+    <th>Выбор</th>
+  </tr>
+  </thead>
+  <tbody>
+        #set $N=1
+        #for $item in $views
+            <tr>
+                <td class="har">$N</td>
+                <td>$item.NAME</td>
+                <td class="hac"><input type="radio" name="sel_view" value="$item.ID"/></td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

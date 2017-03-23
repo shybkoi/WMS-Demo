@@ -1,0 +1,27 @@
+#encoding cp1251
+#from layers import layersIsUse
+<div class="full_height">
+  <div id="dlgrights_caption"></div>
+  <br/>
+  <table id="dlgrights_rights_tbl">
+    <thead>
+      <tr>
+        <th>$_('Система')</th>
+        <th>$_('Право')</th>
+        <th>$_('Изменено')</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+  <div class="buttons save footer_btns">
+#if layersIsUse()
+     <input id='cbShowAll' type="checkbox"
+        #if $show_all is not None and $show_all != 0
+            checked
+        #end if
+    /><label for ='cbShowAll'>$_('Показать все')</label>
+#end if
+    <button type="button" id="dlgrights_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;OK</button>&nbsp;
+  </div>

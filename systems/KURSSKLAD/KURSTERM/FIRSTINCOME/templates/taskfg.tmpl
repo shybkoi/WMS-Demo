@@ -1,0 +1,14 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> ╧<b>$DOCNUM</b>
+    <form action="task">
+        <input type="hidden" name="tid" value="$TID">
+        $_('ло'): <input type='text' name='barcode' id='barcode:scan'>
+    </form>   
+#end def    
+

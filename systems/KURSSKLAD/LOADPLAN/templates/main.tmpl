@@ -1,0 +1,69 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def engineData
+    <link href="$sp_css/main.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+    <script type="text/javascript" src="$eng_js/jquery/2.1.1/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+    var jQuery_2_1_1 = $.noConflict(true);
+    </script>
+
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script> 
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.helpers.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery-barcode.min.js"></script>
+    <script type="text/javascript" src="$sp_js/loadplan.js"></script>
+    
+    <div id="dvMain" style="width:100%;position:relative;float:left;">
+        <div style="height:100%;float:left;">
+            <div id="dvCars" style="width:40%;height:100%;position:relative;float:left;"></div>
+            <div style="height:100%;width:60%;float:left;">
+                <div id="dvCarsTasks" style="width:100%;height:50%;position:relative;float:left;"></div>
+                <div id="dvCarsDocs" style="width:100%;height:50%;position:relative;float:left;"></div>
+            </div>
+        </div>
+        <form style="height:100%;"><div id="dvDocs" style="width:400px;height:100%;position:relative;float:left;">
+            <table class="buttons">
+                <thead>
+                    <tr><th colspan=4>Дата <input type=text name=date size=8 /> <button type=submit><img src="$eng_img/arrows/arrow_right.png"></button></th></tr>
+                    <tr><th></th><th>Номер</th><th>От</th><th>Кому</th></tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot><tr><th colspan=4 class="cnt"></th></tr></tfoot>
+            </table>
+        </div></form>
+    </div>
+
+    <div class="hidden">
+        <div class="gates-load">
+            <table>
+                <thead>
+                    <tr>
+                        <th ksort="text">Ворота
+                        <th ksort="text" title="Наименование авто">Авто
+                        <th ksort="DateTime" title="Время постановки">Начало
+                        <th ksort="loadPercent" title="Процент выполнения">%
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+#end def

@@ -1,0 +1,10 @@
+div.helper {
+    position: absolute;
+    z-index: 2000;
+    font-weight: 800;
+}
+
+.leftrel {
+    float:left;
+    position:relative;
+}

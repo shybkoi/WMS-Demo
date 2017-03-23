@@ -1,0 +1,46 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+
+	<script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.datepicker.min.js" ></script>
+	<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script> 
+	<script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script> 
+	<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="$eng_js/kTblScroll.js"></script> 
+	 
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+	 
+	<script type="text/javascript" src="$sp_js/turnwh.js"></script> 
+ 
+ 	<form class="buttons">
+		Остаток <select id="typeRest">
+			<option selected value="p">Партионный</option>
+			<option value="d">Документальный</option>
+		</select>
+		Объект <select id="fromobj"></select>
+		Период: С <input id="dbeg" type="text" size="8" />
+		По <input id="dend" type="text" size="8" />
+		<label for="sdppm_min" title="Среднедневные продажи позиции по магазинам">СДППМ</label> <input type="text" size="4" id="sdppm_min"/>&nbsp;<input type="text" size="4" id="sdppm_max"/>
+		<label for="sdppm_min" title="Оборачиваемость в днях">ОД</label> <input type="text" size="4" id="ovdd_min"/>&nbsp;<input type="text" size="4" id="ovdd_max"/>
+		 
+		<button type="submit"><img src="$eng_img/arrows/arrow_right.png"></button>
+		<button type="button" title="Печать" id="btnPrint"><img src="$eng_img/actions/printer.png"></button>
+	</form> 
+#end def
+
+#def engineData
+	<div id="dvMain" style="width:100%;float:left;position:relative;"></div>	
+#end def

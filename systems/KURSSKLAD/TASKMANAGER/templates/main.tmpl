@@ -1,0 +1,95 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+
+  ##Styles    
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$sps_css.KURSSKLAD/contextMenuStatus.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$sp_css/main.css" rel="stylesheet" type="text/css" media="screen"/>    
+    
+    <style>
+        .ui-progressbar-indicator{
+            line-height:40px;
+            position:absolute;
+            text-indent:-20px;
+            left:50%;
+            border: 1px solid black;
+        }
+    </style>    
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.js"></script>          
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>   
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>          
+    ##<script type="text/javascript" src="$sps_js.KURSSKLAD/taskView.js"></script>          
+    <script type="text/javascript" src="$sp_js/TaskManagerView.js"></script>          
+    <script type="text/javascript" src="$sp_js/TaskManager.js"></script>
+
+
+
+    #block adminData
+        <script>
+            var useviewunit = $viewunit;
+        </script>
+
+        <div id="divFilter" style="float:left;position:relative;">
+			<form id="frmScan">
+                <table>
+                    <tr><th>ШК</th></tr>
+                    <tr><td><input type="text" name="barcode" size="8" value=""></tr>
+                </table>
+            </form>
+            <br>
+            <form id="frmFilter">
+                <table>
+					<input type="hidden" id="" name="taskid" value="null">
+                    <tr><th>Тип задания</th></tr>
+                    <tr><td><select name='tasktype' id='tasktype'></select></td></tr>
+                    <tr><th>Метод</th></tr>
+                    <tr><td><select name='taskmethod' id='taskmethod'></select></td></tr>
+                    <tr><th>Сотрудник</th></tr>
+                    <tr><td><input type="text" name='employee' id='employee'/></td></tr>
+                    <tr><th>Период</th></tr>
+                    <tr><td><input type="text" id="dbeg" name="dbeg" size="8" value="">&nbsp;<input type="text" id="tbeg" name="tbeg" size="2" value=""><br>
+                            <input type="text" id="dend" name="dend" size="8" value="">&nbsp;<input type="text" id="tend" name="tend" size="2" value=""></td></tr>
+                    <tr><th>Статус</th></tr>
+                    <tr><td><select name='status' id='status'></select></td></tr>
+					<tr><th>Зона</th></tr>
+                    <tr><td><select name='zone' id='zone'><option value="null">Без фильтра</option></select></td></tr>
+                    <tr><td style="text-align:right;" class="buttons"><button type='submit' id='submit'><img src="$eng_img/actions/magnifier.png"></button></td></tr>
+                </table>
+            </form>
+        </div>
+        
+        <div id="divTblData" style="float:left;position:relative;">
+            <div id="divTblMaster" style="float:left;position:relative;"></div>
+            <div id="divTblDetail" style="float:left;position:relative;"></div>
+        </div>
+		
+    #end block
+
+#end def

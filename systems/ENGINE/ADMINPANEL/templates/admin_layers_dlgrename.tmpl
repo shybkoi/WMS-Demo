@@ -1,0 +1,20 @@
+#encoding cp1251
+<form id="dlgrename_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('ID')</th><td  style='width: 60%'>
+        <span id='dlgrename_id'></span>
+    </td></tr>
+
+    <tr><th>$_('Код клиента и префикс баз данных')</th><td>
+        <span id='dlgrename_code'></span>
+    </td></tr>
+
+    <tr><th>$_('Организация')</th><td>
+        <input type='text' id='dlgrename_organization' name='dlgrename_organization' style='width: 100%' value='' maxlength='80'/>
+    </td></tr>
+  </table>
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgrename_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgrename_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

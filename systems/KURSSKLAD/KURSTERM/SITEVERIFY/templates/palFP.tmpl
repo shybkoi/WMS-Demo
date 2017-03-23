@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.mainPalFP
+
+#def palBefore
+	<form action="palScan">
+        <input type=hidden name=id value=$PAL_ID>
+        $_('ШК'): <input type=text id=":scan:text" name=barcode value="" title="$_('МП'), $_('Паллет'), $_('Товар')"><br>
+	</form>
+    <br>
+#end def
+
+#def palFooter
+    #if $PAL_SPCODE == 'STACK'
+        <hr>
+        $_('Выверка:') <a href="stack?siteid=$PAL_SID">$PAL_SNAME</a>
+    #end if
+#end def

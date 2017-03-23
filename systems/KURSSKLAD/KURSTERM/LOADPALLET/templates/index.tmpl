@@ -1,0 +1,34 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#def mainData 
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <b>$item.CLIENTNAME</b><br>
+            #filter DateFilter2 $item.DDATE #end filter# $_('№') $item.DNUM<br>
+            <a href="task?id=$item.TID"><b><u>$item.TNUMBER</u></b></a>($item.TSNAME)<br>
+            <font class="yellow">$item.WHNAME</font><br>
+            #if $item.TUID
+                <b><u>$item.TUNAME</u></b>
+            #end if
+            
+        #end for
+	#else
+		<div class="NoData">$_('Доступное задание на погрузку не найдено')</div>
+	#end if
+    <hr>    
+    #if $varExists('$dl_gates') and $dl_gates
+		#for $item in $dl_gates
+			##<a href="joinGateAuto?id=$item.TID">$item.GNAME</a>
+			#if $item.TPRIORITY
+				#filter Quantity$item.TPRIORITY#end filter#: 	
+			#end if
+			<a href="#">$item.GNAME</a>			
+			<br>
+			$item.ANAME<br><br>			
+		#end for
+	#end if
+#end def

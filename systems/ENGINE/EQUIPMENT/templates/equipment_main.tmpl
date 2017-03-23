@@ -1,0 +1,73 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+
+##Styles
+<link rel="stylesheet" href="$sp_css/tables.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/align.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/equipment.css" />
+
+##Scripts
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type='text/javascript' src="$eng_js/jquery.contextMenu.min.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+<script type="text/javascript" src="$sp_js/equipment.js"></script>
+
+<div id="content">
+</div>
+
+<ul style="display: none; width: 320px" id="menuEquip" class="contextMenu">
+    <li class="add">
+        <a href="#addEquip">$_('Добавить')</a>
+    </li>
+    <li class="edit">
+        <a href="#editEquip">$_('Редактировать')</a>
+    </li>
+    <li class="delete">
+        <a href="#delEquip">$_('Удалить')</a>
+    </li>
+    <li class="deactivate">
+        <a href="#deactivateEquip">$_('Деактивировать')</a>
+    </li>
+    <li class="refresh">
+        <a href="#refreshEquip">$_('Обновить список')</a>
+    </li>
+    <li class="separator">
+    </li>
+    <li class="quit">
+        <a href="#closeSession">$_('Принудительно закрыть сессию')</a>
+    </li>
+</ul>
+
+<ul style="display: none; width: 200px" id="menuTypes" class="contextMenu">
+    <li class="add">
+        <a href="#addType">$_('Добавить')</a>
+    </li>
+    <li class="edit">
+        <a href="#editType">$_('Редактировать')</a>
+    </li>
+    <li class="delete">
+        <a href="#delType">$_('Удалить')</a>
+    </li>
+    <li class="refresh">
+        <a href="#refreshType">$_('Обновить список')</a>
+    </li>
+</ul>
+
+##Dialogs
+<div id="dlgadd" class="dialog flora" align="center"></div>
+<div id="dlgTypes" class="dialog flora" align="center"></div>
+<div id="dlgaddType" class="dialog flora" align="center"></div>
+
+#end def

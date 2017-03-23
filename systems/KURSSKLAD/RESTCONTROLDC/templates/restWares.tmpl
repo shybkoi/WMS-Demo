@@ -1,0 +1,20 @@
+#encoding cp1251
+#extends rcmain
+#def $system_help = True
+#end def
+
+#def rcFilter
+ 	<form class="buttons">
+		Объект: <select id="selObj"></select>
+		Зона МП: <select id="selZone"></select>
+        &nbsp;&nbsp;&nbsp;
+        <button type=button id=btnRefresh><img src="$eng_img/actions/refresh.png"></button>
+        <button type=button id=btnPrint><img src="$eng_img/actions/printer.png"></button>
+	</form> 
+#end def
+
+#def rcData
+    
+    ##Scripts
+    <script type="text/javascript" src="$sp_js/restWares.js"></script>
+#end def

@@ -1,0 +1,49 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+
+<ul>
+ #for $item in $tabs
+	<li><a href="$item" class="$item">$tabs[$item]</a></li>
+ #end for
+</ul>
+
+#end def
+
+#def engineData
+
+##Scripts
+<script language="javascript">
+	var pathname = window.location.pathname;
+	pathname = pathname.split('/')
+	pathname = pathname[pathname.length-1]
+	var a = document.getElementById('sysmenu').getElementsByTagName('a');
+	if (!pathname)
+		a[0].style.borderWidth = '2px medium';
+	else
+	for (var i=0;i<a.length;i++)
+		if (a[i].className == pathname) a[i].style.borderWidth = '2px medium';
+</script>
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+
+
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>   
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    
+#block phData
+   нет информации для отображения
+#end block phData
+
+#end def

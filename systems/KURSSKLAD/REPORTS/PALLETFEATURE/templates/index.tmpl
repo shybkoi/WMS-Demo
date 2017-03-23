@@ -1,0 +1,34 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation      
+	##<link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/jquery.contextMenu.css"/>
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    ##<script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+	##<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    ##<script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    ##<script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sp_js/palletFeature.js"></script>
+    
+	<form class="buttons">
+		 Период: С <input id="bdate" type="text" size="8" />&nbsp;
+		 По <input id="edate" type="text" size="8" />&nbsp;
+		 <button style="button" type="submit" id="go"><img src="$eng_img/arrows/arrow_right.png"></button>
+	</form> 
+#end def
+#def engineData
+    <div id="dvMain" style="width:100%;"></div>
+#end def

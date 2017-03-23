@@ -1,0 +1,80 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+    № <b>$docnum</b> от <b>#filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    #if $varExists('$TONAME') and $TONAME
+        <br>$TONAME<br>
+    #end if
+    <b><u>$INFONAME</u></b>
+    <hr>
+    <form action="taskMWares">
+        <input type="hidden" name="taskid" value="$TID">
+        <input type="hidden" name="waresid" value="$WID">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('Товар')"><br>
+    </form>
+    <hr>
+
+    <b><u>($WCODE)</u></b>$WNAME
+    #if $varExists('$ARTICUL') and $ARTICUL
+    	<b>(<u>$ARTICUL</u>)</b>
+    #end if
+    <br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b><br>
+    #end if
+    <br>
+
+    #if $varExists('$datalist') and $datalist and len($datalist)>0
+        #set $wuamount = 0
+        #set $amount = 0
+    <form action=taskMWaresSave method=post>
+        <input type=hidden name=waresid value=$wid>
+        <input type=hidden name=taskid value=$tid>
+        <input type=hidden name=dbeg value="$dbeg">
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>
+                        <select name=wuid id=":focus:">
+                            <option value=$MWUID selected>$MWUCODE</option>
+                          #if $VWUID:
+                            <option value=$VWUID>$VWUCODE</option>
+                          #end if
+                        </select>
+                    </th>
+                    <th>$_('Кол-во')</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                #if $item.canedit == '0'
+                    #set $trClass = 'class="inactive"'
+                #else
+                    #set $trClass = ''
+                #end if
+                <tr $trClass>
+                    <td>#filter DateFilter2$item.productdate#end filter#</td>
+                  #if $item.canedit == '1'
+                    <td><input type="text" name="WL_$item.WLOTID" id="::float" title="$item.WLNUMBER" value="#filter Quantity$item.AMOUNT#end filter#" size="4"></td>
+                  #else
+                    <td><a href='#' title="$item.WLNUMBER">#filter Quantity$item.AMOUNT#end filter#</a></td>
+                  #end if
+                    <td>$viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$item.AMOUNT#end filter#</u></b>)</td>
+                </tr>
+                #set $amount += float($item.AMOUNT)
+            #end for
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>$_('Итого'):</th>
+                    <th colspan=2>$viewQuantity($amount,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$amount#end filter#</u></b>)</th>
+                </tr>
+            </tfoot>
+        </table>
+        <input type="submit" value="$_('Сохранить')">
+    </form>
+    #end if
+#end def

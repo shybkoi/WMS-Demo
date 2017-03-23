@@ -1,0 +1,35 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+
+#def mainData    
+	#if $varExists('$PNUM') and $PNUM
+		<b><u>$PNUM</u></b>($SNAME)<br><br>
+	#else 
+		<b>$SNAME</b>
+	#end if
+    
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Товар')</th>
+                    <th>$_('Кол-во')</th>
+                    <th>$_('МО')</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td><a href="#" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                    <td>$viewQuantity($item.AMOUNT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)(<b><u>#filter Quantity$item.AMOUNT#end filter#</u></b>)</td>
+                    <td>$coalesceValue($item.WSITENAME)</td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+        <br>
+    #end if 
+#end def

@@ -1,0 +1,76 @@
+.logheader {
+display: block;
+font-size: 12px !important;
+padding: 5px;
+margin-bottom: 3px;
+-moz-border-radius: 10px;
+
+text-align: center;
+}
+
+.logheader input[type=text] {
+font-size: 12px !important;
+-moz-border-radius: 3px;
+border: 1px solid peru;
+}
+
+.logheader table {
+-moz-border-radius: 4px;
+}
+
+span.params {
+display: block;
+padding-left: 3px;
+font-size: 14px;
+text-align: left;
+}
+span.params b {
+color: green;
+}
+
+span.noresultdata {
+color: red;
+font-size: 16px;
+font-weight: 900;
+font-style: italic;
+margin-top: 5px;
+margin-left: 25px;
+}
+
+span.resultdata {
+color: green;
+font-size: 16px;
+
+font-weight: 900;
+font-style: italic;
+margin-top: 5px;
+margin-left: 10px;
+}
+
+span.erroruser {
+    color: red;
+    font-weight: 900;    
+}
+span.waiter {
+color: green;
+font-size: 14px;
+font-style: italic;
+
+font-weight: 900;
+}
+
+button.button {      
+background: #ffffff !important;
+border: 1px solid #000000;
+cursor: pointer;
+margin-left: 5px;
+}
+button.button:hover {
+background: lightgrey !important;
+}
+.barcode_td {
+width: 30% !important;
+height: auto;
+}
+        
+

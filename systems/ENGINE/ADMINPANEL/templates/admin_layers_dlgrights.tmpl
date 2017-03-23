@@ -1,0 +1,21 @@
+#encoding cp1251
+<div id="dlgrights_caption">Тариф $tar_name</div>
+<table id="dlgrights_rights_tbl" class="full_height">
+  <thead>
+    <tr>
+      <th>$_('Система')</th>
+      <th>$_('Назначено')</th>
+    </tr>
+  </thead>
+  <tbody>
+    #for $right in $rights
+      <tr id="dlgrights_${right.ID_SYSTEM}" higher="$right.HIGHER_OUT">
+        <td id="dlgrights_show_name_${right.ID_SYSTEM}" class="hal">${right.SPACES}${right.SHOW_NAME}</td>
+        <td id="dlgrights_lastdate_${right.ID_SYSTEM}">$right.LASTDATE</td>
+      </tr>
+    #end for
+  </tbody>
+</table>
+<div class="buttons save footer_btns">
+  <button type="button" id="dlgrights_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+</div>

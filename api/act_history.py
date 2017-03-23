@@ -1,0 +1,67 @@
+# -*- coding: cp1251 -*-
+import simplejson as json
+
+import db
+import py_utils as pu
+
+def hisGet(object_name, action, datetime_from=None, datetime_to=None, format_lastdate=None):
+    """ѕолучить историю действий по объекту и действию за период:
+
+    ѕринимает:
+    object_name - им€ объекта (таблицы или виртуального объекта)
+    action - код действи€: 'i' - insert, 'u' - update, 'd' - delete
+    datetime_from - дата/врем€ начала запрашиваемого периода (None - бесконечное прошлое) в cтроковом формате '%d.%m.%Y %H:%M:%S' или '%Y-%m-%d %H:%M:%S' или в mxDteTime
+    datetime_to - дата/врем€ конца запрашиваемого периода (None - бесконечное будущее)
+    format_lastdate - формат пол€ LASTDATE (None - поле не форматируетс€ в строку, а возвращаетс€ типа mxDateTime)
+
+    ¬озвращает:
+    Cписок записей в истории, отсортированный по LASTDATE, содержащий словари вида:
+      {'ID_HISTORY': ID_HISTORY, 'DATA': DATA, 'LASTDATE': LASTDATE}, где
+    ID_HISTORY - ID записи таблицы истории,
+    DATA - строка в json-формате '{"olds": {"FIELD1": val1, "FIELD2": val2, ...}, "news": {"FIELD1": val1, "FIELD2": val2, ...}}',
+        где "olds" - старые значени€ полей (применимо дл€ a in ('d','u')), "news" - новые значени€ полей (применимо дл€ a in ('i','u'))
+    LASTDATE - дата/врем€ записи в истории
+    """
+    res = db.dbExec(sql='select * from HIS_GET(?,?,?,?)',
+        params=[object_name, action, datetime_from, datetime_to],
+        fetch='all',
+        id_system=-1)
+
+    if format_lastdate:
+        return pu.kbToPy(res, formats={'LASTDATE': format_lastdate})
+    else:
+        return pu.kbToPy(res)
+
+def hisParseParams(data_str):
+    """ѕарсинг параметров, хр€н€щихс€ в строке data_str в json-формате, полученных процедурой hisGet.
+    ѕринимает:
+    data_str - строка в json-формате '{"olds": {"FIELD1": val1, "FIELD2": val2, ...}, "news": {"FIELD1": val1, "FIELD2": val2, ...}}',
+        где "olds" - старые значени€ полей (применимо дл€ a in ('d','u')), "news" - новые значени€ полей (применимо дл€ a in ('i','u'))
+
+    ¬озвращает:
+    —ловарик python, полученный преобразованием строки data_str из json-формата
+    """
+    return pu.format(obj=json.loads(data_str, encoding='cp1251')) #format for decoding each component from unicode, returned by json.loads
+
+def hisInsert(object_name, action, data=None):
+    """—охранить данные в истории действий по объекту и действию.
+
+    ѕринимает:
+    object_name - им€ объекта (таблицы или виртуального объекта)
+    action - код действи€: 'i' - insert, 'u' - update, 'd' - delete
+    data - сохран€емый сериализуемый объект. ƒл€ возможности однотипной обработки рекомендуетс€ придерживатьс€ формата словар€:
+        {"olds": {"FIELD1": val1, "FIELD2": val2, ...}, "news": {"FIELD1": val1, "FIELD2": val2, ...}},
+            где словарик "olds" - старые значени€ полей (применимо дл€ a in ('d','u')), "news" - новые значени€ полей (применимо дл€ a in ('i','u'))
+
+    ¬озвращает словарь вида:
+      {'ID_HISTORY': ID_HISTORY, 'LASTDATE': LASTDATE}, где
+    ID_HISTORY - ID записи в таблице истории,
+    LASTDATE - дата/врем€ добавленной записи
+    """
+
+    res = db.dbExec(sql='execute procedure HIS_INSERT(?,?,?)',
+        params=[object_name, action, pu.decodeUStr(json.dumps(data, encoding="cp1251"))],
+        fetch='none',
+        id_system=-1)
+
+    return pu.kbToPy(res)

@@ -1,0 +1,260 @@
+#encoding cp1251
+#from datetime_utils import formatMxDateTime
+#set $dateformat = '%d.%m.%Y %H:%M:%S'
+#set $refresh=$eng_img+"/actions/refresh.png"
+#set $statt="Статистика"
+#set $calct="Расчет"
+#set $taskst="Заданий"
+#set $lastdatet="Дата последнего выполненного задания"
+#set $allt="всего"
+#set $offt="посчитано"
+#set $ont="осталось"
+#set $activet="активно"
+#set $errt="ошибки"
+#set $processort="Процессор"
+#set $ramt="ОЗУ"
+#set $hddt="Жесткий диск"
+#set $servertimet="Время"
+#set $serverauserst="Пользователей"
+#set $transt="Транзакций"
+#set $threadst="Потоки"
+
+#if $refresh_block == 'PYTHON'
+    <div class="row PYTHON">
+        #if $is_linux
+            #set $Class_Health = 'HealthGood'
+            #if float($PYTHON_CPU)>30
+                #set $Class_Health = 'HealthBad'
+            #end if
+            #if $PYTHON_THREADS>$PYTHON_ACTIVE_THREADS
+                #set $Class_Health = 'HealthBad'
+            #end if
+            <table>
+                <tr><td rowspan="7" class="logo $Class_Health"></td><th colspan="3" rowspan="1">Процессор</th></tr>
+                <tr>
+                    <td title="$allt" class="$Class_Health">$PYTHON_CPU%</td>
+                    <td class="Label">$ramt</td>
+                    <td title="$ont" class="Label">$PYTHON_RAM%</td>
+                </tr>
+                <tr><th colspan="3" rowspan="1">Сервер</th></tr>
+        #else
+            #set $Class_Health = 'HealthGood'
+            #if $PYTHON_THREADS>$PYTHON_ACTIVE_THREADS
+                #set $Class_Health = 'HealthBad'
+            #end if        
+            <table>
+            <tr><td rowspan="5" class="logo $Class_Health"></td><th colspan="3" rowspan="1">Сервер</th></tr>
+        #end if
+            <tr>
+                <td class="Left $Class_Health">$threadst:</td>
+                <td title="$allt" class="AllTasks">$PYTHON_THREADS</td>
+                <td title="$activet" class="$Class_Health AlignRight">$PYTHON_ACTIVE_THREADS</td>
+            </tr>
+            <tr>
+                <td class="Left">$serverauserst:</td>
+                <td title="$allt" class="AlignRight">$PYTHON_COUNT_USERS</td>
+                <td title="$activet" class="AlignRight">$PYTHON_COUNT_ACTIVE_USERS</td>
+            </tr>
+            #set $Class_Health = 'HealthGood'
+                #if $PYTHON_ACTIVE_TRANS>10
+                    #set $Class_Health = 'HealthBad'
+                #end if
+            <tr>
+                <td class="Left $Class_Health">$transt:</td>
+                <td title="$allt" class="AllTasks">$PYTHON_TRANS</td>
+                <td title="$activet" class="$Class_Health AlignRight">$PYTHON_ACTIVE_TRANS</td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1" class="Left">$servertimet:</td>
+                <td colspan="2" rowspan="1" class="Label">$PYTHON_SERVER_TIME</td>
+            </tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'SALE'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_SALE_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row SALE">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Онлайн продажи</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_SALE_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_SALE_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_SALE_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_SALE_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_SALE_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'PACKET'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_PACKET_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row PACKET">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Выгрузка пакетов</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_PACKET_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_PACKET_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_PACKET_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_PACKET_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_PACKET_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'AORDERSTAT'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_AORDERSTAT_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row AORDERSTAT">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Статистика автозаказа</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_AORDERSTAT_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_AORDERSTAT_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_AORDERSTAT_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_AORDERSTAT_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_AORDERSTAT_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'AORDER'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_AORDER_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row AORDER">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Расчет автозаказа</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_AORDER_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_AORDER_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_AORDER_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_AORDER_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_AORDER_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'RORDER'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_RORDER_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row RORDER">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Роспись</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_RORDER_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_RORDER_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_RORDER_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_RORDER_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_RORDER_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'PRICING'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_PRICING_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row PRICING">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Ценообразование</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_PRICING_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_PRICING_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_PRICING_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_PRICING_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_PRICING_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'WSETPRLIST'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_WSETPRLIST_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row WSETPRLIST">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Прайс-листы</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_WSETPRLIST_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_WSETPRLIST_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_WSETPRLIST_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_WSETPRLIST_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_WSETPRLIST_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'SHARE'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_SHARE_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row SHARE">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Акции</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_SHARE_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_SHARE_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_SHARE_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_SHARE_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_SHARE_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'MAINSUPPLIERS'
+    #set $Class_Health = 'HealthGood'
+    #if $CNT_MAINSUPPLIERS_TASKS_ON > 0
+        #set $Class_Health = 'HealthBad'
+    #end if
+    <div class="row MAINSUPPLIERS">
+        <table>
+            <tr><td rowspan="3" class="logo $Class_Health"></td><th colspan="4" rowspan="1">Основной поставщик</th></tr>
+            <tr>
+                <td title="$allt" class="AllTasks">$CNT_MAINSUPPLIERS_TASKS</td>
+                <td title="$offt" class="OffTasks">$CNT_MAINSUPPLIERS_TASKS_OFF</td>
+                <td title="$errt" class="ErrTasks">$CNT_MAINSUPPLIERS_TASKS_ERR</td>
+                <td title="$ont" class="OnTasks">$CNT_MAINSUPPLIERS_TASKS_ON</td>
+            </tr>
+            <tr><td colspan="4" rowspan="1" class="$Class_Health" title="$lastdatet">$formatMxDateTime($LD_MAINSUPPLIERS_TASKS_OFF,$dateformat)</td></tr>
+        </table>
+    </div>
+#end if
+#if $refresh_block == 'ROBOTS'
+    <div class="row ROBOTS">
+        <table> 
+            #set $Class_Health = 'HealthGood'
+            #if $health > 0
+                #set $Class_Health = 'HealthBad'
+            #end if
+            <tr><td rowspan="7" class="logo $Class_Health"></td><th colspan="5" rowspan="1">Роботы переоценки</th></tr>
+              #for $item in $datalist
+                  #set $Class_Health = 'HealthGood'
+                  #if $item.CNT_ROBOT_TASKS_ON > 0
+                      #set $Class_Health = 'HealthBad'
+                  #end if
+                  <tr>
+                      <td class="Label $Class_Health" title="IP робота" colspan="1" rowspan="2">$item.IP_ROBOT</td>
+                      <td title="$allt" class="AllTasks">$item.CNT_ROBOT_TASKS</td>
+                      <td title="$offt" class="OffTasks">$item.CNT_ROBOT_TASKS_OFF</td>
+                      <td title="$errt" class="ErrTasks">$item.CNT_ROBOT_TASKS_ERR</td>
+                      <td title="$ont" class="OnTasks">$item.CNT_ROBOT_TASKS_ON</td>
+                  </tr>
+                  <tr><td class="$Class_Health" title="$lastdatet" colspan="4" rowspan="1">$formatMxDateTime($item.LD_ROBOT_TASKS_OFF,$dateformat)</td></tr>
+            #end for
+        </table>
+    </div>
+#end if

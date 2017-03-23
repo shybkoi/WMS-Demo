@@ -1,0 +1,83 @@
+<div class="Body">
+    <div><span>Наименование</span> <input class="Name"/></div>
+    <div><span>Код</span> <input class="Code"/></div>
+    <div><span>Юридический адрес</span><input readonly class="Address"/>
+        <a href="#" class="delete"><img src="/ENGINE/images/actions/delete.png" alt="Очистить"/></a>
+        <a href="#" class="edit"><img src="/ENGINE/images/actions/edit.png" alt="Изменить"/></a>
+        <a href="#" class="copy"><img src="/ENGINE/images/arrows/arrow_down.gif" title="Скопировать юридический адрес на фактический"/></a>
+    </div>
+    <div><span>Фактический адрес</span><input readonly class="RealAddress"/>
+        <a href="#" class="delete"><img src="/ENGINE/images/actions/delete.png" alt="Очистить"/></a>
+        <a href="#" class="edit"><img src="/ENGINE/images/actions/edit.png" alt="Изменить"/></a>
+        <a href="#" class="copy"><img src="/ENGINE/images/arrows/arrow_up.gif" title="Скопировать фактический адрес на юридический"/></a>
+    </div>
+    <div><span title="Идентификационный номер налогоплательщика">ИНН</span><input class="INN"/><input type="checkbox" class="INNONE"/>Уникальный</div>
+    <div><span title="ОКПО - общеукраинский классификатор предприятий и организаций">Код ОКПО</span><input class="OKPO"/><input type="checkbox" class="OKPOONE"/>Уникальный</div>
+    <div><span title="№ свидетельства налогоплательщика">СН</span><input class="KPP"/></div>
+    <div><span>Банк</span><input type="checkbox" class="Bank"/></div>
+    <div class="BIK" title="Банковский идентификационный код"><span>БИК</span><input class="BIK"/><input type="checkbox" class="BIKONE"/>Уникальный</div>
+    <div><span>Руководитель</span><input class="Chief"/></div>
+    <div><span>Телефон</span><input class="PhoneChief"/></div>
+    <div><span>Главный бухгалтер</span><input class="MainAcc"/></div>
+    <div><span>Телефон</span><input class="PhoneMA"/></div>
+    <div><span title="Основной государственный регистрационный номер">ОГРН</span><input class="OGRP"/><input type="checkbox" class="OGRPONE"/>Уникальный</div>
+    <div><span>Дата регистрации</span><input class="RegDate"/></div>
+    <div><span>Статус</span><select class="Status"/></div>
+    <form>
+        <div><span>Вышестоящая организация</span><input type=text class="Higher"/></div>
+    </form>
+    <div><span>Примечания</span><textarea class="Descript"/></div>    
+    <div class="addbuttons">
+        <!--<button class="accounts">Счета...</button>
+        <button class="groups">Группы...</button>
+        <button class="brands">Марки...</button>-->  
+        <button class="typeactivity">Виды деят-ти...</button>
+    </div>  
+    <div><span>C</span><input class="Date1"/></div>    
+    <div><span>По</span><input class="Date2"/></div>    
+    <div class="buttons">
+        <button class="save">Сохранить</button> 
+        <button class="cancel">Отмена</button>
+    </div>
+</div>
+<style>
+    div.Body div{float:left;padding-top: 5px;}
+    div.Body div input.Name{width: 500px;}
+    div.Body div input.Code{width: 100px;}
+    div.Body div input.Address{width: 554px;}
+    div.Body div input.RealAddress{width: 560px;}
+    div.Body div input.INN{width: 110px;}
+    div.Body div input.OKPO{width: 110px;}
+    div.Body div input.KPP{width: 110px;}
+    div.Body div input.BIK{width: 110px;}
+    div.Body div input.OGRP{width: 110px;}
+    div.Body div input.Chief{width: 436px;}
+    div.Body div input.PhoneChief{width: 150px;}
+    div.Body div input.MainAcc{width: 400px;}
+    div.Body div input.PhoneMA{width: 150px;}
+    div.Body div input.RegDate{width: 70px;}
+    div.Body div select.Status{width: 100px;}
+    div.Body div select.Higher{width: 500px;}
+    div.Body div textarea.Descript{width: 530px; height:88px;}
+    div.Body div span{padding-left: 5px; padding-right: 5px;}
+    div.Body div.BIK{padding-right: 500px;}
+    div.Body div.addbuttons{width: 130px;}
+    span{font-weight:bold;}
+    input.supplier, input.buyer{width: 200px;}
+    div.Body input.contractdate,  div.Body input.Date1, div.Body input.Date2{width: 70px;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/ENGINE/images/actions/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/ENGINE/images/actions/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

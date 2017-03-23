@@ -1,0 +1,24 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main#def mainData
+    <b><u> $GNAME </u></b><br>
+    <b><u> $ANAME </u></b><br>
+    <hr>
+    #if $varExists('$datalist') and $datalist
+        <table>
+            <tbody>
+                #for $item in $datalist
+                <tr>
+                    <td>$item.N</td>
+                    <td>#filter Quantity $item.Q #end filter #</td>
+                </tr>
+                #end for                
+            </tbody>
+        </table>
+        <a href='gateTaskEnd?tid=$TID&conf=1'>$_('Завершить')</a>
+    #end if    
+    
+	
+#end def
+
+

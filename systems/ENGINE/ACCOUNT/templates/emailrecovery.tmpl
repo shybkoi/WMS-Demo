@@ -1,0 +1,24 @@
+#encoding cp1251
+#extends systems.ENGINE.ACCOUNT.templates.account_main
+#def accountData
+    <h1>Сообщение с информацией о восстановлении отправлено по электронной почте</h1>
+    <div class="register-block">
+        <table>
+            <tbody>
+                <tr><td>    
+                    <p>Чтобы восстановить доступ к своему аккаунту, следуйте инструкциям в сообщении, отправленном по следующему адресу электронной почты: 
+                        <strong><span>$mailto</span></strong>.
+                    </p>
+                </td></tr>
+                <tr><td>    
+                    <p>
+                        <div class="footnote">Не получили сообщение со ссылкой для изменения пароля? Убедитесь, что сообщение от
+                            <strong>$mailfrom</strong>  не попало в папку со спамом. 
+                            Если его там нет,  <a href="/ACCOUNT/recovery">повторите попытку</a>.
+                        </div>
+                    </p>
+                </td></tr>
+            </tbody>         
+        </table>
+    </div>
+#end def

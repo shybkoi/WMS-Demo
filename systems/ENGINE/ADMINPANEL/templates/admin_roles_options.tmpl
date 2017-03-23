@@ -1,0 +1,34 @@
+#encoding cp1251
+<div class="full_height">
+    <div id="dlgroleoptions_caption"></div>
+    <br/>
+    <table id="dlgroleoptions_tbl">
+      <thead>
+      <tr>
+        <th>$_('Тип')</th>
+        <th>$_('Объект')</th>
+        <th>$_('Опция')</th>
+        <th>$_('Атрибуты')</th>
+        <th><a id="dlgroleoptions_clear_all_options" title="$_('Удалить все опции')" href="#"><img src="$eng_img/actions/delete.png"/></a></th>
+      </tr>
+      </thead>
+      <tbody>
+            #for $item in $options
+                <tr id="exr_role_id_$item.EXR_ROLE_ID">
+                    <td class="type">${item.TYPE_NAME} ($item.TYPE_ID)</td>
+                    <td class="obj">${item.OBJ_NAME} ($item.OBJ_ID)</td>
+                    <td class="opt">${item.OPT_NAME} ($item.OPT_ID)</td>
+                    <td class="attrs">${item.ATTRS}</td>
+                    <td class="hac"><a class="dlgroleoptions_del_opt" title="$_('Удалить опцию и её атрибуты')" href="#"><img src="$eng_img/actions/delete.png"/></a></td>
+                </tr>
+            #end for
+      </tbody>
+    </table>
+</div>
+<div class="buttons save footer_btns">
+    <span class="right_aligned_btns">
+        <button title=$_('Добавить опцию') type="button" id="dlgroleoptions_add_opt_btn"><img src="/ENGINE/images/actions/add.png"/>&nbsp;$_('Добавить опцию')</button>
+        <button title=$_('Обновить список опций') type="button" id="dlgroleoptions_refresh_btn"><img src="/ENGINE/images/actions/refresh.png"/>&nbsp;$_('Обновить')</button>
+        <button type="button" id="dlgroleoptions_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+    </span>
+</div>

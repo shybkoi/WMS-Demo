@@ -1,0 +1,44 @@
+/*Ths file skins buttons
+ Chernyavsky A.E.*/
+    .buttons a, .buttons button{
+        margin:0 0 0 0;
+        background-color:#f5f5f5;
+        border:1px solid #D24E6A;
+        border-top:1px solid #D24E6A;
+        border-left:1px solid #D24E6A;
+        font-family:Lucida Grande, Tahoma, Arial, Verdana, sans-serif;
+        font-size:80%;
+        line-height:100%;
+        text-decoration:none;
+        font-weight:bold;
+        color:#565656;
+        cursor:pointer;
+        padding:1px 1px 1px 1px; /* Links */
+    }
+    .buttons button{
+        width:auto;
+        overflow:visible;
+    }
+    .buttons button[type]{
+        padding:0px 3px 3px 3px; /* Firefox */
+    }
+    .buttons button img, .buttons a img{
+        margin:0 0 -2px 0 !important;
+        padding:0;
+        border:none;
+        width:16px;
+        height:16px;
+    }
+
+/* STANDARD */
+
+button:hover, .buttons a:hover{
+    background-color:#EFD9E1;
+    border:1px solid #D24E6A;
+    color:black;
+}
+.buttons a:active{
+    background-color:#6299c5;
+    border:1px solid #6299c5;
+    color:#fff;
+}

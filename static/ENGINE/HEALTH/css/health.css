@@ -1,0 +1,16 @@
+div.HealthData{
+  width:400px;
+}
+div#graph-detail{
+    width:320px;}
+div#graph{
+    width: 350px;
+    height: 350px;
+    float: top;
+}
+div.row table{width:100%;}
+div.row img.logo{float:left;}
+div.row a.refresh{float:right;}
+td.AllTasks, td.AllTasks:hover, tr:hover td.AllTasks{background-color:#8094d4;}
+td.OffTasks, td.OffTasks:hover, tr:hover td.OffTasks, tr:hover td.HealthGood, td.HealthGood, td.HealthGood:hover{background-color:#68db68;}
+td.OnTasks, td.HealthBad, tr:hover td.HealthBad, tr:hover td.OnTasks, td.OnTasks:hover, td.HealthBad:hover{background-color:#e95252;}

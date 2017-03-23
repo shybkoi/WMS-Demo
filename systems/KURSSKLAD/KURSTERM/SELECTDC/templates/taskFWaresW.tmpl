@@ -1,0 +1,56 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>$TONAME</br>
+    <b><u>($wcode)</u></b>$wname<br>
+    Заказ: <b><u>#filter Quantity$QO#end filter#</u></b>$MUCODE
+    <hr>
+    #if $varExists('$TWPALLETNUM') and $TWPALLETNUM
+        <b>$TWPALLETNUM</b>($SITENAME)
+    #else
+        <b>$SITENAME</b>
+    #end if
+    #set $QSite = 0
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PDATE#end filter#</td>
+                    <td>$viewQuantity($item.PAMOUNT,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)
+                      #if $VUCODE                    
+                        (<b><u>#filter Quantity$item.PAMOUNT#end filter#</u></b>)
+                      #end if
+                    </td>
+                </tr>
+                #set $QSite += $item.PAMOUNT
+            #end for
+            </tbody>
+        </table>
+    #end if
+    <hr>
+    #if $varExists('$QS') and $QS
+        Отобрано: <a href="taskFWaresWClear?twid=$TWID" title="$_('Очистить')" onClick="return confirm('Вы действительно хотите начать заново?')">#filter Quantity$QS#end filter#$MUCODE</a>
+    #else
+        <a href="taskFWaresWeight?twid=$TWID">Ввести вес вручную</a>
+    #end if    
+    <br><br>
+    <form action="taskFWares">
+        <input type="hidden" name="twid" value="$TWID">
+        ШК: <input type="text" id=":scan:text" name="barcode" title="Паллет, Весовой ШК" value="">
+	</form>
+    
+    <a href="taskFWaresEnd?twid=$TWID&pc=12">Нет товара на поддоне</a><br>
+    #if not $varExists('$QS') or not $QS
+        <a href='qTaskFWaresNoPlace?twid=$TWID' onClick="return confirm('$_('Нет места на поддоне')\n---------------------------------\n$_('Вы уверены?')')">$_('Нет места на поддоне')</a>
+    #end if
+#end def

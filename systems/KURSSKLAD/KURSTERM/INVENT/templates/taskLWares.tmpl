@@ -1,0 +1,73 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+    $ZONENAME</br>
+    <b>№$TID</b>($ALGORITHM)
+
+    <br><b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b><br>
+    #end if
+    #if $TRASHREST
+        <b>$trashname</b>: $viewQuantity($TRASHREST,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)<br>
+    #end if
+    <br>
+        #set $focus = ":focus:"
+        <a id="#if $view=='all' then $focus else ''#" href="taskLWares?tid=$tid&wid=$wid&view=all">Все</a>&nbsp;
+        <a id="#if $view!='all' then $focus else ''#" href="taskLWares?tid=$tid&wid=$wid&view=diff">Не завершенные</a></br>
+    <a href="javascript: if (confirm('$_('Вы  уверены?')')) location.href='taskLEndWares?tid=$tid&wid=$wid'">Завершить товар</a>
+    <br>
+    <br>
+    <form action="taskLWares">
+        <input type="hidden" name="tid" value="$tid">
+        <input type="hidden" name="wid" value="$wid">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('Поддон')"/><br>
+    </form><br>
+
+
+
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #if $view != 'all' and $item.IS_INVENT != 1
+                <a href="taskLPallet?tid=$tid&pid=$item.PALLETID&wid=$wid">
+                     #if $item.PNUMBER:
+                        $item.PNUMBER
+                     #else
+                       $_('МО')
+                     #end if
+
+                     ($item.SNAME)
+                </a>
+                     &nbsp;
+                     #if $item.IS_INVENT == 1:
+                       +
+                     #else
+                       -
+                     #end if
+                <br>
+            #else if $view == 'all'
+                <a href="taskLPallet?tid=$tid&pid=$item.PALLETID&wid=$wid">
+                     #if $item.PNUMBER:
+                        $item.PNUMBER
+                     #else
+                       $_('МО')
+                     #end if
+
+                     ($item.SNAME)
+                </a>
+                     &nbsp;
+                     #if $item.IS_INVENT == 1:
+                       +
+                     #else
+                       -
+                     #end if
+                <br>
+            #end if
+        #end for
+
+    #else
+        $_('Паллеты не найдены')
+    #end if
+#end def

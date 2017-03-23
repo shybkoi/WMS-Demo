@@ -1,0 +1,59 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData
+
+    № <b>$docnum</b> от <b>#filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    #if $varExists('$TONAME') and $TONAME
+        <br>$TONAME<br>
+    #end if
+    <b><u>$INFONAME</u></b>
+    <hr>
+    <form action="taskM">
+        <input type="hidden" name="id" value="$TID">
+        $_('Отсканируйте ШК паллета для подтверждения или ШК товара для выверки:') <input type="text" id=":scan:text" name="barcode" value="">
+	</form>
+    <hr>
+    #if $varExists('$datalist') and $datalist
+        <table>
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Заказ</th>
+                    <th>Факт</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                #if $item.QFACT
+                  #set $qFact = float($item.QFACT)
+                #else
+                  #set $qFact = 0.0000
+                #end if
+                #if $item.QPLAN
+                  #set $qPlan = float($item.QPLAN)
+                #else
+                  #set $qPlan = 0.0000
+                #end if
+                <tr>
+                    <td><a href="taskMWares?tid=$tid&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                    <td>$viewQuantity($item.QPLAN,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                  #if $qFact < 0.00001
+                    <td style="background-color:yellow;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                  #elif $qFact - $qPlan > 0.0001
+                    <td style="background-color:tomato;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                  #elif $qPlan - $qFact > 0.0001
+                    <td style="background-color:tomato;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                  #else
+                    <td style="background-color:limegreen;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                  #end if
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #else
+        <div class="NoData">Ничего не найдено</div>
+    #end if
+#end def
+

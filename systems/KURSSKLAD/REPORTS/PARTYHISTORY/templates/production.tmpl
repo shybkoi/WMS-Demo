@@ -1,0 +1,28 @@
+#encoding cp1251
+#extends main
+#def phData
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+    ##Scripts
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>
+	<script type="text/javascript" src="$sp_js/waresprod.js"></script>
+    <script type="text/javascript" src="$sp_js/production.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+    
+    <form class="buttons">
+        Товар&nbsp;<input type=text id="wares">&nbsp;
+        С&nbsp;<input type=text id="bdate" size=8 >&nbsp;
+        По&nbsp;<input type=text id="edate" size=8 >&nbsp;
+        Зона&nbsp;<select id="zone"></select>&nbsp;
+        <input type="hidden" value="null" id="waresid" />
+        <button type=submit><img src="$eng_img/arrows/arrow_right.png" /></button>
+    </form>
+    <div id="result" style="text-align:left;"></div>
+#end def

@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	#*<form action="main">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('Документ'), $_('Принтер')">
+	</form>  
+    <br>*#
+  #if $varExists('$datalist')
+    #for $item in $datalist
+        #if $item.WSGNAME
+            <u><b>$item.WSGNAME</b></u><br>
+        #end if
+        <a href="task?tid=$item.taskid" title="#filter DateFilter$item.DOCDATE#end filter# №$item.NUMBER">$item.objname</a><br><br>
+    #end for
+  #end if
+#end def

@@ -1,0 +1,98 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+    <link rel='stylesheet' href='$sp_css/admin_systems.css' type='text/css' />
+
+    <script type="text/javascript" src="$eng_js/k.UpDown.js"></script>
+
+    <h2 id="submenu_title" style="font: bold 14pt sans-serif; color: gray">$_('Управление системами')</h2>
+    <h3 id="step_title" style="display: none; font: bold 12pt sans-serif; color: gray"></h3>
+    <div id="step_content">
+    </div>
+    <div id="step_descript" style="display: none; font: 9pt sans-serif; color: gray"></div>
+    <div id="step_buttons" class="buttons" style="display: none; text-align: center">
+        <button id="prev_btn" type="button"><img src="$eng_img/arrows/arrow_left.png" style="vertical-align: middle" />&nbsp;$_('К системам')</button>
+        <button id="next_btn" type="button"><img src="$eng_img/arrows/arrow_right.png" style="vertical-align: middle" />&nbsp;$_('К опциям')</button>
+        &nbsp;&nbsp;<button id="exit_btn" type="button"><img src="$eng_img/actions/exit.png" style="vertical-align: middle" />&nbsp;$_('Выход')</button>&nbsp;
+    </div>
+
+    <ul id='tblCnMenu' class='contextMenu'>
+        <li class='add'><a href='\#add_sys'>$_('Добавить')</a></li>
+        <li class='edit'><a href='\#edit_sys'>$_('Редактировать')</a></li>
+        <li class='delete'><a href='\#delete_sys'>$_('Удалить')</a></li>
+    </ul>
+
+    <div id='dlg-systems' class='flora' style='display: none;'>
+        <form name='sys-edit-frm' id='sys-edit-frm'>
+            <table class='clear' style='width: 100%'>
+                <tbody>
+                    <tr>
+                        <th width='20%'>$_('Имя'):</th><td width='30%'><input type='text' class='sysinfo' name='show_name' id='sys-edit-show_name'/></td>
+                        <th width='20%'>$_('Отключена'):</th><td width='30%'><input type='checkbox' name='disabled' id='sys-edit-disabled' /></td>
+                    </tr>
+                    <tr>
+                        <th>$_('Ссылка'):</th><td><input type='text' class='sysinfo' name='ref_name' id='sys-edit-ref_name'/></td>
+                        <th>$_('Слать ошибки'):</th><td>
+                            <select name='send_bug_mail' id='sys-edit-send_bug_mail'>
+                                <option value='1'>$_('Да')</option>
+                                <option value='0'>$_('Нет')</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>$_('Папка'):</th><td><input type='text' class='sysinfo' name='folder_name' id='sys-edit-folder_name' /></td>
+                        <th>$_('Email'):</th><td><select name='id_mail' id='sys-edit-id_mail'><optgroup label='Выберите email'></optgroup></select></td>
+                    </tr>
+                    <tr>
+                        <th>$_('Класс'):</th><td><input type='text' class='sysinfo' name='class_name' id='sys-edit-class_name' /></td>
+                        <th>$_('Формат Д/В'):</th><td>
+                            <span class='relative'>
+                                <input type='text' class='sysinfo' name='date_time_format' id='sys-edit-date_time_format' />
+                                <button class="defaultbtn datetime buttons" type='button' title="Подставить значение по умолчанию">def</button>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>$_('Модуль'):</th><td><input type='text' class='sysinfo' name='module_name' id='sys-edit-module_name' /></td>
+                        <th>$_('Формат В'):</th><td class='relative'>
+                            <span class='relative'>
+
+                                <input type='text' class='sysinfo' name='time_format' id='sys-edit-time_format' />
+                                <button class='defaultbtn time buttons' type='button' title='Подставить значение по умолчанию'>def</button>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>$_('База'):</th><td><select name='id_base' id='sys-edit-id_base'><optgroup label='Быберите базу'></optgroup></td>
+                        <th>$_('HIGHER'):</th><td><select name='higher_val' id='sys-edit-higher_val'><optgroup label='Выберите родительскую систему'></optgroup></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <div class='buttons'>
+            <button class='btnsave buttons'><img src='$eng_img/actions/save.png' />$_('Сохранить')</button>
+            <button class='btnclose buttons'><img src='$eng_img/actions/cancel.png' />$_('Закрыть')</button>
+        </div>
+
+    </div>
+
+    ##Deleting all options box for
+    <div id='options_mass_delete_dlg' class='flora' title='Массовое удаление опций' style='display: none;'></div>
+
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_systems.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+<script type="text/javascript" src="$eng_js/jqtreetable.min.js" ></script>
+<script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js" ></script>
+<script type="text/javascript" src="$eng_js/jquery.multiSelect.js"></script>
+
+
+
+##CSS
+<link rel="stylesheet" href="$eng_css/jqtreetable.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="$eng_css/jquery.multiSelect.css" type="text/css" media="screen"/>
+
+#end def

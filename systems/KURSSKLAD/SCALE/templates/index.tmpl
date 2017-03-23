@@ -1,0 +1,139 @@
+#encoding cp1251
+#extends systems.engine_main
+#def engineData    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_name.KURSSKLAD/REPORTS/js/k.quickhelper.js"></script>  
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sp_js/scale.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="$sp_css/jquery.contextMenu.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sp_css/scale.css"/>
+    <script>
+        userid='$userid';
+    </script>
+    <div id="ms-Filter">
+        <div class="Row panel">Магазин</div>
+        <div class="Row" id="div-shop">
+
+                <select name="shopid" id="shopid" class="Select">                                            
+                    #for $i in $datalist_store
+                        <option value="$i.OBJID"> $i.NAME</option>
+                    #end for
+                </select>
+
+        </div>
+        <div class="Row panel">Весы</div>
+        <div class="Row" id="div-scale"><select name="scaleid" id="scaleid" class="Select">           
+                    </select>                        
+        </div>
+        <div class="Row" id="div-actions">
+            <div id = "admin-actions"  class="panel">
+                Админ. панель
+                <a href="#" id='addwares'><img src="$eng_img/actions/add.png" title='Добавить' alt='Добавить весы' /></a>                    
+                ##<a href="#" id='loadallwares'><img src="$sps_img.KURSSKLAD/go.png" title="Добавить на весы все товары с остатками" alt="Добавить на весы все товары с остатками" /></a>                    
+            </div>
+            <div id = "user-actions"  class="panel">
+                ##<a href="#" id='editbuttons'><img src="$sps_img.KURSSKLAD/cog_edit.png" title="Сконфигурировать быстрые клавиши" alt="Сконфигурировать быстрые клавиши" /></a>                    
+                <a href="#" id='loadwares'><img src="$sps_img.KURSSKLAD/go.png" title="Показать состав весов" alt="Показать состав весов" /></a>                    
+                <a href="#" id='loadfile'><img src="$eng_img/apps/excel.png" title="Загрузить файл" alt="Загрузить файл" /></a>                    
+                <a href="#" id='printwares'><img src="$sps_img.KURSSKLAD/printer.png" title="Печать товаров" alt="Печать товаров" /></a>                    
+                <a href="#" id='refreshscale'><img src="$eng_img/actions/refresh.png" title='Обновить' alt='Обновить' /></a>    
+                <a href="#" id='addwinsetid'><img src="$eng_img/actions/add.png" title='Добавить товар на весы' alt='Добавить товар на весы' /></a>     
+            </div>
+        </div> 
+        <div id="user-message" class="Row" >      
+        ##    Если вы добавили товар, а он не выгружается в файл, проверьте, чтобы он был весовой и цена его была больше нуля!
+        </div>
+    </div>
+    <div id="ms-Body">
+        <div id="master" style="display: none;">
+            <table id="tmaster">
+                <thead>
+                    <tr>
+                        <th colspan='6'>Состав набора</th>
+                    </tr> 
+                    <tr>
+                        <th class='num'>№</th>
+                        <th class='Name'>Товар</th>
+                        <th class='Code'>Код</th>
+                        <th class='Unit'>Ед. изм.</th>
+                        <th class='GroupNameMaster'>Группа</th>
+                        ##<th class='ProducerNameMaster'>Набор</th>
+                        <th class='Checkbox'><input type="checkbox" /></th>
+                    </tr>    
+                </thead>
+                <tbody id='tmaster-body'>                       
+                </tbody>
+                <tfoot>                
+                </tfoot>      
+            </table>
+        </div>
+        <div id="ss-master" style="display: none;">
+            <table id="ss-tmaster">
+                <thead>
+                    <tr>
+                        <th class='num'>№</th>
+                        <th class='Name'>Наименование</th>
+                        <th class='Code'>Код товара</th>
+                        <th class='ProducerName'>Производитель</th>
+                        <th class='GroupName'>Группа</th>
+                        <th class='SubGroupName'>Подгруппа</th>
+                        <th class='SalePrice'>Цена продажи</th>
+                    </tr>    
+                </thead>
+                <tbody id='ss-tmaster-body'>                       
+                </tbody>
+                <tfoot>                
+                </tfoot>      
+            </table>
+        </div>
+        <div id="detail">
+            <table id="tdetail">
+                <thead>
+                    <tr>
+                        <th colspan='6'>Товары позиции набора</th>
+                    </tr>
+                    <tr>
+                        <th class='num'>№</th>
+                        <th class='Name'>Наименование</th>
+                        <th class='Code'>Код товара</th>
+                        <th class='ProducerName'>Производитель</th>
+                        <th class='GroupName'>Подгруппа</th>
+                        <th class='SalePrice'>Цена продажи</th>
+                    </tr>    
+                </thead>
+                <tbody id='tdetail-body'>                       
+                </tbody>
+                <tfoot>                
+                </tfoot>      
+            </table>
+        </div>       
+    </div>
+    ##context menu    
+    <ul id="cm-master" class="contextMenu">
+       <li class="add"><a href="#add">Добавить</a></li>
+       <li class="delete"><a href="#delete">Удалить</a></li>
+       <li class="multidelete"><a href="#multidelete">Удалить отмеченные</a></li>
+       <li class="detail"><a href="#showdetail">Показать товары</a></li>
+       <li class="print"><a href="#priceprint">Печать прайс-листа</a></li>
+       <li class="getfile"><a href="#export">Загрузить файл</a></li>
+    </ul>
+    <ul id="cm-waresonbutton" class="contextMenu">
+       <li class="edit"><a href="#edit">Изменить</a></li>
+       <li class="delete"><a href="#clean">Очистить</a></li>
+       <li class="getfile"><a href="#export">Загрузить файл</a></li>
+       <li class="print"><a href="#print">Печать ценников</a></li>
+       <li class="print"><a href="#printbtn">Печать этикеток</a></li>
+    </ul>
+    <ul id="cm-detail" class="contextMenu">
+       <li class="refresh"><a href="#drefresh">Обновить</a></li>
+    </ul>
+#end def

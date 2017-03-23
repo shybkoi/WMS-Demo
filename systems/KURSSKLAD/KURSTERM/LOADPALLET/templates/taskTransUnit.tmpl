@@ -1,0 +1,24 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <b>$CLIENTNAME</b><br>
+    #filter DateFilter2 $DDATE #end filter# $_('№') $DNUM<br>
+    <b><u>$TNUMBER</u></b>($TSNAME)<br>
+    <font class="yellow">$WHNAME</font><br>
+    <b><u>$TUNAME</u></b>
+    <hr>
+    #if not $ptuid
+        <form action='taskTransUnit'>
+            <input type=hidden name=tid value=$TID_LOADPALLET>
+            $_('Отсканируйте ШК единицы транспортировки') <input type="text" id="barcode:scan:text" name="barcode">
+        </form>    
+    #else
+        <form action='taskTransUnit'>
+            <input type=hidden name=tid value=$TID_LOADPALLET>
+            <input type=hidden name=tuid value=$ptuid>
+            $_('Отсканируйте ШК автомобиля') <input type="text" id="barcode:scan:text" name="barcode">
+        </form>    
+    #end if        
+#end def    
+

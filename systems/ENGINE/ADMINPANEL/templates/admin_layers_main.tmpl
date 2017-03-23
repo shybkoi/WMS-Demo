@@ -1,0 +1,83 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+##Styles
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/admin_layers.css" />
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_layers.js"></script>
+<script type="text/javascript">
+#if $varExists('$focused_id')
+  #if $focused_id!=''
+    focused_id=$focused_id
+  #end if
+#end if
+</script>
+
+<span style="font: bold 14pt sans-serif; color: gray">$_('Управление клиентами')</span>
+
+<div id="content">
+</div>
+
+<br>
+<div class="buttons save">
+    <span class="bordered"><img src="$eng_img/circular/eye.png"/>&nbsp;<input id='cbShowDisabled' type="checkbox"/><label for ='cbShowDisabled'>$_('Показать отключенные')</label></span>
+    <button id="brefresh" type="button"><img src="$eng_img/actions/refresh.png"/>&nbsp;$_('Обновить клиентов')</button>
+</div>
+
+##Context menu
+<ul style="display: none; width: 380px" id="menuLayer" class="contextMenu">
+    <li class="editLayer">
+        <a href="#editLayer"><img src="$eng_img/actions/edit.png" alt=""/>&nbsp;$_('Редактировать')</a>
+    </li>
+    <li class="delLayer">
+        <a href="#delLayer"><img src="$eng_img/actions/delete.png" alt=""/>&nbsp;$_('Удалить')</a>
+    </li>
+    <li class="disableLayer">
+        <a href="#disableLayer"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;<span>$_('Отключить')</span></a>
+    </li>
+    <li class="renameCodeAndDb">
+        <a href="#renameCodeAndDb"><img src="$eng_img/circular/edit.png" alt=""/>&nbsp;<span>$_('Переименовать организацию, код клиента и БД')</span></a>
+    </li>
+    <li class="setTarif">
+        <a href="#setTarif"><img src="$eng_img/money/money_dollar.png" alt=""/>&nbsp;$_('Сменить тариф')</a>
+    </li>
+    <li class="tarHistory">
+        <a href="#tarHistory"><img src="$eng_img/actions/application_view_detail.png" alt=""/>&nbsp;$_('История тарифов')</a>
+    </li>
+    <li class="rights">
+        <a href="#rights"><img src="$eng_img/actions/rights.gif" alt=""/>&nbsp;$_('Права согласно тарифа')</a>
+    </li>
+</ul>
+
+
+##Context menu
+<ul style="display: none; width: 300px" id="menuTarHistory" class="contextMenu">
+    <li class="addTarHistory">
+        <a href="#addTarHistory"><img src="$eng_img/actions/add.png" alt=""/>&nbsp;$_('Добавить')</a>
+    </li>
+    <li class="editTarHistory">
+        <a href="#editTarHistory"><img src="$eng_img/actions/edit.png" alt=""/>&nbsp;$_('Редактировать')</a>
+    </li>
+    <li class="delTarHistory">
+        <a href="#delTarHistory"><img src="$eng_img/actions/delete.png" alt=""/>&nbsp;$_('Удалить')</a>
+    </li>
+</ul>
+
+##Dialog Add/Edit layer
+<div id="dlgedit" class="dialog flora" title="Изменение параметров клиента" align="center"></div>
+
+##Dialog Edit Organization, Code and DB
+<div id="dlgrename" class="dialog flora" title="Переименовать организацию, код клиента и БД" align="center"></div>
+
+##Dialog Set Tarif
+<div id="dlgsettarif" class="dialog flora" title="Сменить/продлить тариф" align="center"></div>
+
+##Dialog tarif Rights
+<div id="dlgrights" class="dialog flora" title="Права клиента согласно тарифа" align="center"></div>
+
+##Dialog tar History
+<div id="dlgtarhistory" class="dialog flora" title="История тарифов клиента" align="center"></div>
+
+#end def

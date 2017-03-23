@@ -1,0 +1,28 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <b><u>$GNAME</u></b><br>
+    <font class="yellow">$ANAME</font><hr>
+    $CLIENTNAME<br>
+    #filter DateFilter2 $DDATE #end filter# $_('№') <b>$DNUM</b><br>
+    <b><u>$TNUMBER</u></b>($TSNAME)<br>
+    <font class="yellow">$WHNAME</font><br>
+    #if $TUID
+        <b><u>$TUNAME</u></b><br>
+    #end if
+    <hr>
+    #if not $tid
+        <form action='task'>
+            <input type=hidden name=id value=$TID_LOADPALLET>
+            $_('Отсканируйте ШК этикетки') <input type="text" id="barcode:scan:text" name="barcode">
+        </form>    
+    #else
+        <form action='task'>
+            <input type=hidden name=id value=$TID_LOADPALLET>
+            <input type=hidden name=tid value=$tid>
+            $_('Отсканируйте ШК автомобиля') <input type="text" id="barcode:scan:text" name="barcode">
+        </form>    
+    #end if  
+#end def    
+

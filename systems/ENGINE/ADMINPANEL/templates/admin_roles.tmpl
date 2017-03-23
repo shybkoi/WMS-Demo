@@ -1,0 +1,85 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+  ##Table of roles
+    <span style="font: bold 14pt sans-serif; color: gray">Управление ролями</span>
+          <table id="tbl_roles" style="border: 2px ridge #FFE4E1; border-spacing: 2px">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>ID</th>
+                <th>$_('Название')</th>
+                <th>$_('Код')</th>
+                <th>$_('Изменён')</th>
+                <th>$_('Комментарий')</th>
+              </tr>
+            </thead>
+            <tbody id="tbl_roles_tbody">
+            #for $role in $datalist
+            <tr id="${role.ID_ROLE}">
+               <td class="hac"><a title="$_('Редактировать роль')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/edit.png" /></a></td>
+               <td class="hac"><a title="$_('Права роли')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/rights.gif" /></a></td>
+               <td class="hac"><a title="$_('Удалить роль')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/delete.png" /></a></td>
+               <td class="hac"><a title="$_('Пользователи роли')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/group.png" /></a></td>
+               <td id="id_${role.ID_ROLE}" class="har">$role.ID_ROLE</td>
+               <td id="name_${role.ID_ROLE}">$role.ROLE_NAME</td>
+               <td id="code_${role.ID_ROLE}">$role.ROLE_CODE</td>
+               <td id="lastdate_${role.ID_ROLE}">#filter DateTimeWSecFilter $role.LASTDATE #end filter</td>
+               <td id="comments_${role.ID_ROLE}">$role.COMMENTS</td>
+            </tr>
+            #end for
+            </tbody>
+            <tfoot>
+              <tr><td colspan=12 align="left">
+                  <br/>
+                  <span class="buttons" style="text-align: left">
+                      <button class="role_add_btn" type="button" onclick="javascript: void(0);"><img src="$eng_img/actions/add.png" style="vertical-align: middle" />&nbsp;Добавить роль</button>
+                  </span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+
+##Dialog Add/Edit role
+<div id="dlgroleedit" class="dialog flora" title="$_('Изменение параметров роли')" align="center"></div>
+
+##Dialog role Rights
+<div id="dlgrolerights" class="dialog flora" title="$_('Права роли')" align="center"></div>
+
+
+
+##Dialog role Options
+<div id="dlgroleoptions" class="dialog flora" title="$_('Опции роли')" align="center"></div>
+
+##Dialog Add/Edit Option
+<div id="dlgoptedit" class="dialog flora" align="center"></div>
+
+##Dialog role Options Roles (from dlgokcancel)
+<div id="dlgoptroles" class="dialog flora"  title="$_('Роли')" align="center"></div>
+
+##Dialog option objects by types (from dlgokcancel)
+<div id="dlgoptobjbytype" class="dialog flora" title="$_('Объекты')" align="center"></div>
+
+##Dialog options Dict (from dlgokcancel)
+<div id="dlgoptdict" class="dialog flora" title="$_('Опции')" align="center"></div>
+
+##Dialog options Attributes List embedded
+##Dialog dlgokcancel
+<div id="dlgokcancel" class="dialog flora" align="center"></div>
+
+##Dialog options Attributes Add From Existing By Option (from dlgokcancel)
+<div id="dlgoptattrs" class="dialog flora" title="$_('Атрибуты')" align="center"></div>
+
+
+##Dialog role Users
+<div id="dlgroleusers" class="dialog flora" title="$_('Пользователи роли')" align="center"></div>
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_roles.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+
+#end def

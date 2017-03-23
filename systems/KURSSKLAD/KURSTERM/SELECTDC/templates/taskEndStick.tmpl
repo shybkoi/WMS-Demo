@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   <b> № $docnum от #filter DateFilter $docdate #end filter # </b>
+   <br> № $TID
+   <br>
+
+   1. $_('Наклейте этикетку на поддон') <br><br>
+   2. $_('Отсканируйте ШК этикетки')<br><br>
+   <form action='taskEndStick'>
+      <input type=hidden name=tid value=$TID>
+      <input type=text name=barcode id='barcode:scan'>
+   </form>
+    <br><br>
+    <hr>
+    <a href="taskEndPrint?tid=$TID">$_('Перепечатать этикетку')</a>
+#end def    

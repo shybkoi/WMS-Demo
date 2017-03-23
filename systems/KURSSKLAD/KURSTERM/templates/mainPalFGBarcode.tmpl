@@ -1,0 +1,42 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+  #block palBefore
+  #end block palBefore
+
+  #block palInfo
+	#if $clientConf.palletFeatures and $varExists('$PFID') and $PFID
+        ##<a href="palCreateFP?barcode=$PAL_BARCODE&dt=$ctm">$PFNAME</a>
+        <u>$PFNAME</u>
+        <br>
+	#end if
+
+    <b><u>$PAL_NUM</u></b>
+	<br>
+  #end block palInfo
+
+  #block palWares
+    <b>($WCODE)</b> $WNAME<br><br>
+    <form action="palCreateFP">
+        <input type="hidden" name="barcode" value="$PAL_BARCODE">
+        <input type="hidden" name="dt" value="$ctm">
+        #if $varExists('$PFID')
+            <input type="hidden" name="featureid" value="$PFID">
+        #end if
+        <b>$PAL_PRODLINENAME</b><br>
+        $_('Произведен'): <u><b>#filter DateFilter2$PRODUCTDATE#end filter#</b></u><br>
+        $_('Годен до'): <b>#filter DateFilter2$BESTBEFOREDATE#end filter#</b><br>
+        $_('Кол-во'): <input size="4" type="text" id="::float" name="quantity" value="#filter Quantity$QUANTITY#end filter#"><br>
+
+        <br>
+        $_('Отсканируйте ШК паллета для создания'):
+        <input type="text" id=":scan:text" name="barcodeconf">
+        <input type=submit value="$_('Ок')">
+    </form>
+  #end block palWares
+
+  #block palFooter
+  #end block palFooter
+
+#end def

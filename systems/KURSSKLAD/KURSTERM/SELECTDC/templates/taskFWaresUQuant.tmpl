@@ -1,0 +1,50 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>
+    <b><u>($wcode)</u></b>$wname<br>
+    $viewQuantity($QO,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$QO#end filter#</u></b>)    
+    <hr>
+    #if $varExists('$TWPALLETNUM') and $TWPALLETNUM
+        <b>$TWPALLETNUM</b>($SITENAME)
+    #else
+        <b>$SITENAME</b>
+    #end if
+    #set $QSite = 0
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PDATE#end filter#</td>
+                    <td>$viewQuantity($item.PAMOUNT,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$item.PAMOUNT#end filter#</u></b>)</td>
+                </tr>
+                #set $QSite += $item.PAMOUNT
+            #end for
+            </tbody>
+        </table>
+    #end if
+    <hr>    
+    <form action=taskFWaresUQuant>
+        <input type=hidden name=twid value=$TWID>
+        <select name=wuid>#if $VUID
+                            <option value=$VUID>$VUCODE</option>
+                          #end if
+                            <option value=$MUID>$MUCODE</option>
+        </select> <input type=text name=q id=":focus:float" size=6><br>
+        Отсканируйте поддон: <br> <input type=text name=barcode id="barcode:scan">
+        <button type=submit value=Ok></button>
+    </form>        
+	<br>
+	<a href='qTaskFWaresNo?twid=$TWID' onClick="return confirm('Подтвердите невозможность отборки позиции')">$_('Не могу отобрать!')</a>	
+#end def    
+

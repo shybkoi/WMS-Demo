@@ -1,0 +1,15 @@
+input.Date{width: 70px !important;}
+select.Doctype{width: 180px !important;}
+select.SelectContractor{width: 200px;}
+option.OptionColor{background-color: yellow;}
+option.OptionColor1{background-color: white;}
+option.OptionColor0{background-color: #E8E8E8;}
+input.Date{width: 70px;}
+input.numeric{width: 20px;}
+.inactive{background-color: #E8E8E8}
+div.period{padding-top:5px;}
+button.Filter{
+    background: url(/KURS/images/magnifier.png) left center no-repeat;
+    padding-left: 16px;
+    cursor:pointer;
+}

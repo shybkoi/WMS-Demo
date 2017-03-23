@@ -1,0 +1,79 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+   $_('От'): <b><u>$FROMNAME</u></b><br>
+   #if $varExists('$THROUGHNAME') and $THROUGHNAME
+    $_('Через'): <b>$THROUGHNAME</b><br>
+   #end if
+   #if $TONAME
+    $_('Кому'): $TONAME<br>
+   #end if
+    <b>$TimeStampToDate($DOCDATE)</b> №<b>$DOCNUM</b>
+	#if $varExists('$ALGORITHM') and $ALGORITHM
+		<u>($ALGORITHM)</u>
+	#end if	
+	<br>
+    <b>(<u>$WCODE</u>)</b> $WNAME <br>
+    #if $VWUID
+        <b>$VWUCODE = $Quantity($VWUFACTOR) $MWUCODE </b>
+    #end if
+    <br>
+    #if $varExists('$qdoc')
+        $_('План'): $viewQuantity($qdoc,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>$Quantity($qdoc)</u>)</b>
+        <br>
+    #end if
+    #if $varExists('$qfact') and $qfact
+        $_('Факт'): $viewQuantity($qfact,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) 
+        (<a title="$_('Изменение')" href="dfsTaskWaresEdit?tid=$TID&wid=$WID">$Quantity($qfact)</a>)
+        <br>
+    #end if
+    
+    <form action="dfsTaskWaresScan">
+        <input type="hidden" name="tid" value="$tid">
+        <input type="hidden" name="wid" value="$wid">
+    	ШК: <input type="text" id="barcode:scan:text" name="barcode" title="$_('Товар'), $_('Поддон')">
+	</form>
+
+    #block waresRest
+        <hr>
+        #if $varExists('$datalist') and $datalist
+            <table>
+                <thead>
+                    <tr>
+                        <th>$_('Поддон')</th>
+                        <th>$_('Кол-во')</th>
+                    </tr>
+                </thead>
+                #set $q = 0
+                <tbody>
+                #for $item in $datalist
+                    #set $q += $item.AMOUNT
+                    <tr>
+                        #if $item.STAT == '1'
+                         #if $item.PNUM
+                            <td><a href="dfsTaskWaresPallet?tid=$tid&wid=$wid&pid=$item.PID" title="$item.sname">$item.pnum</a></td>
+                         #else
+                            <td><a href="dfsTaskWaresPallet?tid=$tid&wid=$wid&pid=$item.PID">$item.sname</a></td>
+                         #end if
+                         <td>$viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>$Quantity($item.amount)</u>)</b></td>
+                        #else
+                         <td><a href="#" title="$item.sname">$item.pnum</a></td>
+                         <td><font class="red">$viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>$Quantity($item.amount)</u>)</b></font></td>
+                        #end if
+                    </tr>
+                #end for
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan=2>$viewQuantity($q,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>$Quantity($q)</u>)</b></th>
+                    </tr>
+                </tfoot>
+            </table>
+        #end if
+    #end block waresRest
+#end def

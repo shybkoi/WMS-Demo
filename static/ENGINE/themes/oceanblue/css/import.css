@@ -1,0 +1,12 @@
+/*-----------------------------------------
+[Theme Import Stylesheet]
+Theme name:   OceanBlue
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    13:52 10.08.2009
+Author:	    Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+@import "/ENGINE/themes/oceanblue/css/structure.css";
+@import "/ENGINE/themes/oceanblue/css/jquery.treeview.css";
+@import "/ENGINE/themes/oceanblue/css/dialog.css";
+@import "/ENGINE/themes/oceanblue/css/contextMenu.css";

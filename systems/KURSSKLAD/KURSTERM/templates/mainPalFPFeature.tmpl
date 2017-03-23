@@ -1,0 +1,47 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+  #block palBefore
+  #end block palBefore
+
+  #block palInfo
+	#if $varExists('$PAL_FEATUREID') and $PAL_FEATUREID
+        <b>$PAL_FEATURENAME</b>
+        <br>
+	#end if
+
+	#if $varExists('$PAL_NUM') and $PAL_NUM
+		<b><u>$PAL_NUM</u></b><br>
+		#if $PAL_SPCODE == 'STACK'
+		    №$PAL_N  <b>$PAL_SNAME</b>($PAL_SCURCNT / $PAL_SMAXCNT)
+		#else
+		    <b>$PAL_SNAME</b>
+		#end if
+	#else
+	    <b>$PAL_SNAME</b>
+	#end if
+	#if $varExists('$REC_SNAME') and $REC_SNAME
+	    --> <b><u>$REC_SNAME</u></b>
+	#end if
+
+	<br>
+    <b>($WCODE)</b> $WNAME
+    #if $varExists('$WSNAME') and $WSNAME
+        <br>$_('МО'): $WSNAME
+    #end if
+    <br><br>
+    $_('На паллете'): $viewQuantity($WQ,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE) (<b><u>#filter Quantity$WQ#end filter#</u></b>)<br>
+    $TimeStampToDate($PRODUCTDATE) - $TimeStampToDate($BESTBEFOREDATE)
+  #end block palInfo
+
+  #block palFooter
+    <hr>
+    #for $item in $datalist
+        <a href="palFPFeature?id=$PAL_ID&featureid=$item.PFID">$item.PFNAME</a><br><br>
+    #end for
+  #end block palFooter
+#end def

@@ -1,0 +1,127 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData            
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>(<u>$WCODE</u>)</b> $WNAME
+    #if $varExists('$ARTICUL') and $ARTICUL
+    	<b>(<u>$ARTICUL</u>)</b>
+    #end if
+    <br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b>
+    #end if
+    #if $varExists('$ZID') and $ZID
+        <font color="gray">($ZNAME)</font>
+    #end if
+    <br>
+    #if $WSITENAME
+        $_('МО'): <b><u>$WSITENAME</u></b><br>
+    #end if
+    <hr>
+
+    #set $selected = ''
+    #set $selectedMW = ''
+    #set $selectedVW = ''
+    #if $varExists('$wuid') and $wuid
+        #if $wuid == $MWUID
+            #set $selectedMW = ' selected'
+        #elif $wuid == $VWUID
+            #set $selectedVW = ''
+        #else
+            #set $selected = ' selected'
+        #end if
+    #end if
+
+    #if $prdate and $prdate != '__.__.__'
+        #set $dateid = '::date'
+        #set $amountid = ':focus:float'
+    #else
+        #set $dateid = ':focus:date'
+        #set $amountid = '::float'
+    #end if
+    <form action=taskWaresAdd>
+        <input type=hidden name=tid value=$tid>
+        <input type=hidden name=wid value=$wid>
+        $_('Производство'): <input type=text size=6 id="$dateid" name=prdate value="$prdate" autocomplete=false onblur="chgDate();">
+            > <font id="minDateIncome"></font>
+        <br>
+        <select name=wuid>
+            #if $WTYPE=='U' and $VWUID
+                <option$selectedVW value=$VWUID>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE</option>
+            #end if
+                <option$selectedMW value=$MWUID>$MWUCODE</option>
+            #if $varExists('$WUID') and $WUID and $WUID!=$VWUID and $WUID!=$MWUID
+                <option$selected value=$WUID>$WUCODE = #filter Quantity$WUFACTOR#end filter# $MWUCODE</option>
+            #end if
+        </select> :
+		<input type=text name=amount id="$amountid" value="#filter Quantity$amount#end filter#" size="6"><br><br>
+        $_('ШК Поддона'): <input type=text size=7 id="barcode:scan:text" name=barcode>
+        <button type="submit">OK</button>
+	</form>     
+
+    #if not $WITDAYS
+        #set $WITDAYS = 0
+    #end if
+    <script language="javascript">
+        var mind = new Date();
+      #if $WITDAYS
+        mind = new Date(mind.valueOf()-$WITDAYS*24*60*60*1000);
+      #end if
+        mind = new Date(mind.getFullYear(), mind.getMonth(), mind.getDate());
+        document.getElementById('minDateIncome').innerHTML = ( (mind.getDate()>9) ? mind.getDate() : '0'+mind.getDate() ) +
+           '.' +  ( (mind.getMonth()>8) ? (mind.getMonth()+1) : '0' + (mind.getMonth()+1) ) +
+           '.' +  ( (mind.getFullYear()-2000 > 9) ? mind.getFullYear()-2000 : '0' + mind.getFullYear()-2000 );
+
+        function chgDate(){
+            var spl = document.getElementById('$dateid').value.split('.');
+            var d = new Date('20'+spl[2],spl[1]-1,spl[0]);
+            document.getElementById('minDateIncome').style.color = d.valueOf() <= mind.valueOf() ? 'red' : 'green';
+            //document.getElementById('$dateid').style.backgroundColor = d.valueOf() < mind.valueOf() ? 'red' : '';
+        }
+        chgDate();
+    </script>
+
+    #if $varExists('$extDL') and $extDL and len($extDL)>0
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Клиент')</th>
+                    <th>$_('План')</th>
+                    <th>$_('Факт')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $extDL
+                #if $item.QFACT
+                  #set $qFact = float($item.QFACT)
+                #else
+                  #set $qFact = 0.0000
+                #end if
+                #if $item.QPLAN
+                  #set $qPlan = float($item.QPLAN)
+                #else
+                  #set $qPlan = 0.0000
+                #end if
+                <tr>
+                    <td id="nojsalign">$item.CLIENTNAME #filter DateFilter2$item.CLIENTDATE#end filter#</td>
+                    <td><a href="#">$viewQuantity($item.QPLAN,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</a></td>
+                  #if $qFact < 0.00001
+                    <td style="background-color:yellow;">$viewQuantity($item.QFACT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</td>
+                  #elif $qFact - $qPlan > 0.0001
+                    <td style="background-color:tomato;">$viewQuantity($item.QFACT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</td>
+                  #elif $qPlan - $qFact > 0.0001
+                    <td style="background-color:tomato;">$viewQuantity($item.QFACT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</td>
+                  #else
+                    <td style="background-color:limegreen;">$viewQuantity($item.QFACT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</td>
+                  #end if
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #end if
+#end def

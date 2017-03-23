@@ -1,0 +1,62 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+	<form action="rfsSlot">
+	    <input type=hidden name="id" value="$SITEID">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('МО'), $_('Товар')"><br>
+	</form><br>
+    
+    <b><u>$SITENAME</u></b><br>
+    #if $ROWID
+        $_('К ряду'): <a href="rfsRow?id=$ROWID&orderby=$ORDERBY">$ROWNAME</a><br>
+    #end if
+    <br>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>$_('Товар')</th>
+                <th>$_('Кол-во')</th>
+                <th>$_('Итого')</th>
+            <tr>
+        </thead>
+    #if $varExists('$datalist') and $datalist and len($datalist)>0
+        #set $id = 'id=":focus:"'
+        <tbody>
+        #for $item in $datalist
+            #set $cl = ''
+            #if $item.actualid and $item.actualid > 0
+                #set $cl = 'class=red'
+            #elif $item.TID and $item.TID > 0
+                #set $cl = 'class=yellow'
+            #end if
+
+            <tr>
+                <td>
+                  #if $item.WSTAT==1
+                    +
+                  #elif $item.WSTAT==0
+                    -
+                  #else
+                    &nbsp;
+                  #end if
+                </td>
+              #if $item.TID and $item.TSTAT == '1'
+                <td><a $id href="#" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+              #elif $item.TID
+                <td><a $id href="rfsTaskWares?tid=$item.TID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+              #else
+                <td><a $id href="rfsWares?id=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+              #end if
+                <td>$viewQuantity($item.WQ,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                <td $cl>#filter Quantity$item.WQ#end filter#</td>
+            </tr>
+            #set $id = ''
+        #end for
+        </tbody>
+    #end if        
+    </table>
+#end def

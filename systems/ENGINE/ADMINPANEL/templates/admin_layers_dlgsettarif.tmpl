@@ -1,0 +1,54 @@
+#encoding cp1251
+<form id="dlgsettarif_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('ID')</th><td  style='width: 60%'>
+        <span id='dlgsettarif_id'></span>
+    </td></tr>
+
+    <tr><th>$_('Организация')</th><td>
+        <span id='dlgsettarif_organization'/></span>
+    </td></tr>
+
+    <tr><th>$_('Тариф')</th><td>
+        <select id='dlgsettarif_tarif_cmb'>
+            #set $old_disabled = 'undefined' ##некое не None и не int
+            #for $tarif in $tarifs
+                #if $old_disabled != $tarif.DISABLED
+                    #if $old_disabled != 'undefined'
+                        </optgroup>
+                    #end if
+
+                    #set $old_disabled = $tarif.DISABLED
+                    <optgroup label=
+                    #if $tarif.DISABLED is None or $tarif.DISABLED == 0
+                        "Включенные"
+                    #else
+                        "Отключенные"
+                    #end if
+                    >
+                #end if
+
+                #if str($id_tar) == str($tarif.ID_TAR)
+                    #set $selected = ' selected = "selected" '
+                #else
+                    #set $selected = ' '
+                #end if
+                <option $selected value='$tarif.ID_TAR'>$tarif.TAR_NAME</option>
+
+            #end for
+            #if $old_disabled != 'undefined'
+                </optgroup>
+            #end if
+        </select>
+    </td></tr>
+
+    <tr><th>$_('Дата установки тарифа')</th><td>
+        <input type="text" name="dlgsettarif_date_from" id="dlgsettarif_date_from" align="center" size=8 title="Дата установки тарифа"/>
+    </td></tr>
+  </table>
+
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgsettarif_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgsettarif_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

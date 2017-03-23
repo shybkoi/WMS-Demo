@@ -1,0 +1,18 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>$S_NAME</b>
+    <hr>
+    <b><u>($WCODE)</u></b> $WNAME
+    <hr>
+    $_('Выберите модель штабеля')<br>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <a href="taskStackWaresProdLine?tid=$TID&sid=$S_ID&wid=$WID&mid=$item.MODELID">$item.MODELNAME</a><br>
+        #end for
+        </form>
+    #end if
+#end def

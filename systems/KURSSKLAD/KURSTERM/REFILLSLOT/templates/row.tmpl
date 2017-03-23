@@ -1,0 +1,44 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData
+    <form action=rfsRow>
+        <input type=hidden name=id value="$siteid">
+        ШК МО: <input type=text name=barcode id=':scan'>
+    </form>
+    
+    <br><b><u>$sitename</u></b><br><br>
+    #if $varExists('$datalist') and $datalist
+      <table>
+          <tr>
+            <th>$_('МО')</th>
+            <th>$_('Товар')</th>
+            <th>$_('Ост МО')</th>
+          </tr>  
+        #for $item in $datalist
+          <tr>
+          #if $item.actualid and $item.actualid > 0
+            <td class=red>$item.slotname</td>
+          #else
+            <td>$item.slotname</td>
+          #end if
+          #if $item.WNAME
+            <td><a href='rfsTaskWares?tid=$item.taskid&wid=$item.wid' title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+          #else
+            <td><a href='rfsTaskWares?tid=$item.taskid&wid=$item.wid'>$item.WCODE</a></td>
+          #end if
+          #if $item.REST and $item.REST > 0.0001
+            <td>$viewQuantity($item.REST,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)
+                (<b><u>#filter Quantity$item.REST#end filter#</u></b>)
+            </td>
+          #else
+            <td class="yellow">&nbsp;</td>
+          #end if
+          </tr>  
+        #end for
+      </table>
+    #end if
+#end def
+

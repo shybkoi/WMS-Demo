@@ -1,0 +1,58 @@
+.row-container {
+    display: block;
+    clear: both;
+    width: 100%;
+    padding: 3px 0 3px 0;
+}
+
+.l {
+    width: 135px;
+    text-align: right;
+    padding: 5px 15px 3px 0;
+    float: left;
+}
+
+.r {
+    width: 344px;
+    text-align: left;
+    padding-left: 3px;
+    float: left;
+}
+
+#dvAddBond .r {
+    width: 200px;
+    text-align: left;
+    padding-left: 3px;
+    float: left;
+}
+
+#dvAddBond .l {
+    width: 129px;
+    text-align: right;
+    padding: 5px 15px 3px 0;
+    float: left;
+}
+
+#dvLastCargoPrice input {
+    width: 70px;
+}
+
+#dvImgAdd input[type=text]{
+    width: 300px;
+}
+#dvImgAdd input[type=file], #dvImgAdd select{
+    width: 304px;
+}
+
+.dvImgPlace {
+    position: relative;
+}
+
+.dvImgPlace img{
+    position:absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0
+}

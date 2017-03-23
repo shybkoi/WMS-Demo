@@ -1,0 +1,51 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	#if $TID_GATEAUTO
+		<u>$GNAME</u><br>
+		<font class="yellow">$ANAME</font><br>
+		#filter DateTimeFilter$PLANDATETIME #end filter#
+		<hr>
+	#end if
+	
+    $CLIENTNAME<br>
+    #filter DateFilter2 $DDATE #end filter# $_('№') <b>$DNUM</b><br>
+	<b>$PNUMBER</b>($SNAME)<br>
+    #if $TUID
+        <b><u>$TUNAME</u></b><br>
+    #end if
+    #if $TSTAT_LOADPALLET == '2'
+        <font class="green">$_('Выполнено')</font>
+        ##<hr>
+        ##<a href = 'palletCancel?id=$TID_SELECT'>$_('Отменить')</a>
+    #else
+        <font class="red">$_('Не выполнено')</font>
+    #end if
+	
+	<br><br>
+	#if $TID_SELECT
+		$_('Отборка') №<b>$TID_SELECT</b><br>
+		#if $MANSELECT
+			$MANSELECT<br>
+		#end if
+		<br>
+	#end if
+	
+	#if $TID_LOADPALLET
+		$_('Погрузка') №<b>$TID_LOADPALLET</b><br>
+		#if $MANLOAD
+			$MANLOAD<br>
+		#end if
+		<br>
+	#end if	
+	
+	#if $TID_LOADDOC
+		$_('Документ') №<b>$TID_LOADDOC</b><br>
+		#if $MANLOADDOC
+			$MANLOADDOC<br>
+		#end if
+		<br>
+	#end if		
+#end def    
+

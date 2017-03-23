@@ -1,0 +1,11 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.mainPalS
+
+#def palFooter
+	<hr>
+    <form action="palletRePrint">
+        <input type="hidden" name="pid" value="$PAL_ID">
+        $_('Отсканируйте ШК принтера для печати копии этикетки'): <br>
+		<input type="text" id=":scan:text" name="barcode" value="">
+    </form>
+#end def

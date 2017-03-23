@@ -1,0 +1,95 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    #if $varExists('$use_wlnumber') and $use_wlnumber
+        <script language="javascript" src="$sps_js.KURSTERM/request.js"></script>
+        <script language="javascript" src="$sps_js.KURSTERM/wlnumber.js"></script>
+    #end if
+    
+   <b>$FROMNAME</b><br>
+   <b>$TONAME</b><br>
+   <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>(<u>$WCODE</u>) </b> $WNAME
+    #if $varExists('$last') and $last is not None
+        <br><b>$last</b>
+    #end if
+    #if $varExists('$twid')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('План')</th>
+                    <th>$_('Факт')</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    #if $qDoc  is None
+                        #set $qDoc = 0.000
+                    #end if
+                    #if $qFact  is None
+                        #set $qFact = 0.000
+                    #end if                
+                    <td>$viewQuantity($qDoc,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<b><u>#filter Quantity$qDoc#end filter#</u></b>)</td>
+                    <td>$viewQuantity($qFact,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<b><u>#filter Quantity$qFact#end filter#</u></b>)</td>
+            </tbody>    
+        </table>
+
+        <br>
+    #end if
+    
+    #if $varExists('$use_wlnumber') and $use_wlnumber
+        #set $onsubmit = 'onsubmit="javascript: return frmSubmit();"'
+        #set $onblur = 'onblur="chgDate();"'
+    #else
+        #set $onsubmit = ''
+        #set $onblur = ''
+    #end if  
+    
+    <form action="taskWaresLotAdd" name="frm" $onsubmit>
+        <input type="hidden" name="tid" value="$TID">
+        <input type="hidden" name="waresid" value="$WID">
+        ##<input type="hidden" name="wuid" value="$WUID">
+        Дата: <input type="text" name="productdate" id="::date" value="$productdate" size="6" $onblur></br>
+        <select name="wuid">
+            #for $item in $unit
+                <option value="$item.WUID">$item.WUCODE</option>
+            #end for
+        </select>
+            <input type="text" name="q" id=":focus:float" value="#filter Quantity$q#end filter#" size="6"><br>
+		#if $varExists('$use_wlnumber') and $use_wlnumber            
+            <br>№ <select name="wlnumber"></select><br>
+        #end if
+        <br>
+        $_('ШК'): <input type="text" id="barcode:scan:text" name="barcode" class="scanBarcode" title="$_('МП')">
+        <button type="submit">OK</button>
+    </form>
+    
+    #if $varExists('$use_wlnumber') and $use_wlnumber
+    <script>
+        #if $varExists('$wlnumber') and $wlnumber
+            defaultWLNumber = '$wlnumber';
+        #end if
+        
+        function frmSubmit(){
+            if (document.frm.wlnumber.disabled){
+                alert('Номер партии не установлен, ожидайте окончания заполнения списка для выбора!');
+                document.frm.sbarcode.value = '';
+                return false;
+            }
+            else if (!document.frm.wlnumber.value){
+                    alert('Номер партии не установлен!');
+                    return false;
+                }
+            else
+                return true;
+        }
+        
+        function chgDate(){
+            reqWLNumbers($wid,'12');
+        }
+               
+        chgDate();
+    </script>
+    #end if    
+#end def

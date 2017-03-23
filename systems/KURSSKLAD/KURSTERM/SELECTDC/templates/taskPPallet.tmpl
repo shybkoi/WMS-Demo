@@ -1,0 +1,42 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    #if $varExists('$CANSELECT') and $CANSELECT == '0'
+        <font class="red">$_('Характеристика паллета запрещает его отборку этому клиенту')</font>
+        <br>
+    #end if
+    № <b>$docnum</b> от <b>#filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    #if $varExists('$TONAME') and $TONAME
+        <br>$TONAME
+    #end if
+    <br>
+    <b>$PNUMBER</b>
+    <hr>
+    <form action="taskPPallet">
+        <input type="hidden" name="tid" value="$TID">
+        $_('Отсканируйте ШК паллета для подтверждения отборки:') <input type="text" id=":scan:text" name="barcode" value="">
+	</form>
+    <hr>
+    (<a href="taskPWares?tid=$tid&wid=$WID" title="$WNAME.replace('"',"'")">$WCODE</a>) $WNAME
+    <br><br>
+    $_('Заказ'): $viewQuantity($QPLAN,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE) (<u><b>$Quantity($QPLAN)</b></u>)<br>
+    $_('На паллете'): $viewQuantity($QPALLET,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE) (<u><b>$Quantity($QPALLET)</b></u>)<br>
+
+    #if $PALPRODUCTDATE
+        $TimeStampToDate($PALPRODUCTDATE)
+        #if $PALBESTBEFOREDATE
+            - $TimeStampToDate($PALBESTBEFOREDATE)
+        #end if
+    #elif $PALBESTBEFOREDATE
+        $TimeStampToDate($PALBESTBEFOREDATE)
+    #end if
+
+    <hr>
+    <a href="taskPReNew?tid=$TID&trash=0">$_('Новое МП')</a><br>
+    <a href="taskPReNew?tid=$TID&trash=1">$_('Паллет не найден')</a>
+#end def
+

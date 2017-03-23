@@ -1,0 +1,217 @@
+#encoding cp1251
+<script type="text/javascript">
+jQuery(
+  function(){
+    function showRepeatVerdict(){
+        //Если что-то введено
+        if (jQuery('#passwd2').val().length != 0) {
+            jQuery('#passwd2').closest('td').find('div.errormsg').remove();
+            //Показываем контейнер с текстовым пояснением к повтору пароля
+            jQuery('#repeat-text').css('display', 'block');
+            jQuery('#verdict_passwd2').css('display', 'inline');
+
+            var w = jQuery("#passwd2").width()-2;
+            jQuery("#repeat-text").width(w);
+            var l = jQuery('#passwd2').position().left-jQuery('#passwd2').parent().position().left
+                - jQuery("#createaccount-form").width() / 2 + w / 2 + 12;
+            jQuery("#repeat-text").css('left', l);
+
+            //Значок вердикта
+            jQuery('#repeat-text').get(0).className = '';
+            if (jQuery('#passwd').val() == jQuery('#passwd2').val()) {
+                jQuery('#verdict_passwd2').get(0).className = 'verdict verdict_yes';
+                jQuery('#repeat-text').text('Пароли совпадают').addClass('pc-green');
+            }
+            else {
+                jQuery('#verdict_passwd2').get(0).className = 'verdict verdict_no';
+                jQuery('#repeat-text').text('Пароли не совпадают').addClass('pc-critical');
+            }
+        }
+        else {
+            //В противном случае, скрываем
+            jQuery('#repeat-text').hide();
+            jQuery('#verdict_passwd2').hide();
+        }
+    }
+    jQuery('#passwd').die('keyup').live('keyup', function(){
+        jQuery.getJSON('get_pwd_complexity_status', {password: jQuery('#passwd').val()},
+            function(JSON){
+                jQuery('#passwd').closest('td').find('div.errormsg').remove();
+                //console.log(JSON);
+                //Если что-то введено
+                if (jQuery('#passwd').val().length != 0) {
+                    //Показываем контейнер с элементами
+                    jQuery('#pc-container').show();
+                    jQuery('#verdict_passwd').show().css('display', 'inline');
+
+                    //jQuery("#pc-container").css('left', 0);
+                    //jQuery("#pc-indicator").css('left', 0);
+                    var w = jQuery("#passwd").width()+2;
+                    jQuery("#pc-indicator").width(w);
+                    /*var l = jQuery('#passwd').position().left-jQuery('#passwd').parent().position().left
+                        -(jQuery('#pc-container').position().left-jQuery('#pc-container').parent().position().left);
+                    jQuery("#pc-indicator").css('left', l);*/
+                    jQuery("#pc-indicator-text").width(w);
+                    //jQuery("#pc-indicator-text").css('left', l);
+
+                    //Значок вердикта
+                    if (JSON.ext_data.VERDICT) {
+                        jQuery('#verdict_passwd').get(0).className = 'verdict verdict_yes';
+                    }
+                    else {
+                        jQuery('#verdict_passwd').get(0).className = 'verdict verdict_no';
+                    }
+                    jQuery('#pc-indicator-text').get(0).className = '';
+                    jQuery('#pc-indicator-inline').get(0).className = '';
+
+                    var perc = Math.min(parseFloat(JSON.ext_data.COMPLEXITY)*100, 100);
+                    jQuery("#pc-indicator-inline").width(perc == 100 ? w-4 : perc >= 97 ? w-7 : perc.toFixed(0)+'%');
+                    jQuery('#pc-indicator-text').text(JSON.ext_data.STATUS);
+
+                    if (JSON.ext_data.STATUS == 'Лёгкий пароль' || JSON.ext_data.STATUS == 'Слишком короткий') {
+                        jQuery('#pc-indicator-text').addClass('pc-critical');
+                        jQuery("#pc-indicator-inline").get(0).className = "pc-i-critical";
+                    }
+
+                    else if (JSON.ext_data.STATUS == 'Средней сложности') {
+                        jQuery('#pc-indicator-text').addClass('pc-yellow');
+                        jQuery("#pc-indicator-inline").get(0).className = "pc-i-yellow";
+                    }
+
+                    //'Оптимальный'
+                    else {
+                        jQuery('#pc-indicator-text').addClass('pc-green');
+                        jQuery("#pc-indicator-inline").get(0).className = "pc-i-green";
+                    }
+                }
+                else {
+                    //В противном случае, скрываем
+                    jQuery('#pc-container').hide();
+                    jQuery("#pc-indicator-inline").width(0);
+                    jQuery('#verdict_passwd').hide();
+                }
+                showRepeatVerdict();
+            }
+        );
+    });
+
+    jQuery('#passwd2').die('keyup').live('keyup', function(){
+        showRepeatVerdict();
+    });
+  }
+)
+</script>
+<style type="text/css">
+/* Расположение контейнеров и индикаторов */
+
+#pc-container
+{
+    height: 30px;
+}
+
+#pc-indicator
+{
+    padding: 1px;
+    margin: 5px 0px 0px 0px;
+    border: solid 1px #bbb;
+    font-size:0px;
+    position: relative;
+    height: 5px;
+    display: block;
+}
+
+#pc-indicator-inline
+{
+    float: left;
+    padding: 2px;
+    /*background-color: #c00;*/
+    /*width:25%;*/
+    overflow: hidden;
+    height: 1px;
+}
+
+#pc-indicator-text
+{
+    font-family: arial,sans-serif;
+    font-size: 	13px;
+    display: block;
+    text-align: left;
+}
+
+#repeat-text
+{
+    font-family: arial,sans-serif;
+    font-size: 	13px;
+    display: block;
+    text-align: left;
+}
+
+/* Состояния текстового индикатора */
+
+.pc-critical
+{
+    color: #f00;
+}
+
+.pc-yellow
+{
+    color: #888000;
+}
+
+.pc-green
+{
+    color: #0b0;
+}
+
+/* Состояния визуального индикатора */
+
+.pc-i-critical
+{
+    background-color: #c00;
+}
+
+.pc-i-yellow
+{
+    background-color:  #aaa444; /*#ccc444;*/
+}
+
+.pc-i-green
+{
+    background-color: #82CE76; /*#0f0;*/
+}
+
+/* Вердикты */
+
+.verdict {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.verdict_yes {
+    background:transparent url(/ENGINE/images/actions/accept.png) no-repeat scroll center center;
+}
+
+.verdict_no {
+    background:transparent url(/ENGINE/images/actions/exclamation.png) no-repeat scroll center center;
+}
+</style>
+  <tr>              
+    <td>Новый пароль:</td>
+    <td>
+        <input type="password" value="" size="30" id="passwd" name="passwd">
+        <span id="verdict_passwd" style="display: none;"></span>
+        <span id="pc-container" style="display: none;">
+            <span id="pc-indicator"><span id="pc-indicator-inline"></span></span>
+            <span id="pc-indicator-text"></span>
+        </span>
+    </td>
+  </tr>              
+  <tr>
+    <td>Введите пароль еще раз:</td>
+    <td><input type="password" value="" size="30" id="passwd2" name="passwd2">
+        <span id="verdict_passwd2" style="display: none;"></span>
+        <span id="repeat-text" style="display: none;"></span>
+    </td>
+  </tr>

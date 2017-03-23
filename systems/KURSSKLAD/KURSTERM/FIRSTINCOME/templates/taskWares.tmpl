@@ -1,0 +1,40 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>(<u>$WCODE</u>)</b> $WNAME<br>
+    
+    #if $varExists('$datalist') and $datalist
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Поддон')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PRDATE#end filter#</td>
+                    <td><a href="taskWaresLot?tid=$tid&wid=$wid&wlotid=$item.WLOTID&palletid=$item.PALLETID" title="$item.sname">$item.pnum</a></td>
+                    ##<td><a href="#" title="$item.sname">$item.pnum</a></td>
+                    <td>$viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)</td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #end if	
+    <a href = "taskWaresAdd?tid=$tid&wid=$wid">$_('Добавить')</a></br>
+    
+    <form action="taskWaresScan">
+        <input type="hidden" name="tid" value="$tid">
+        <input type="hidden" name="wid" value="$wid">
+    	ШК: <input type="text" id="barcode:scan:text" name="barcode" title="$_('Товар'), $_('Поддон')" class="scanBarcode"><br>
+	</form>  
+
+#end def

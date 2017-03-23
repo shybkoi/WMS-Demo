@@ -1,0 +1,20 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    ШК: <b><u>$barcode</u></b><br>
+    
+    <br><br>
+        <u><b>Выберите товар:</b></u>    
+    <hr>    
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <b>(<u><a href='taskWares?tid=$TID&wid=$item.WID'>$item.WCODE</a></u>)</b> $item.WNAME<br><br>
+        #end for
+    #end if	
+    
+#end def

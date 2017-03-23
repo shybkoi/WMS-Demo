@@ -1,0 +1,103 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData
+    <form action='scanMain'>
+        $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+    </form>  
+    <hr>
+
+  #set $isExpedition = True
+  #if $varExists('$datalist') and $datalist    
+    <form action='siteSave'>
+        <input type="hidden" name="siteid" value="$siteid">
+        <input type="hidden" name="begdtime" value="$begdtime">
+          #for $siteid in $sites
+                #set $PALLETS = $sdata[$siteid]['PALLETS'].keys()
+                #set $readOnly = ''
+                #if len($PALLETS)==1 and not $sdata[$siteid]['PALLETS'][$PALLETS[0]]['PNUM']
+                    <br>
+                #end if
+                #if $sdata[$siteid]['FS'] == '1'
+                    <b>$sdata[$siteid]['SNAME']</b>                    
+                #else
+                    <font class="inactive"><b>$sdata[$siteid]['SNAME']</b></font>
+                    #set $readOnly = 'readonly'
+                #end if
+                #if $sdata[$siteid]['SPCODE']=='E'
+                    <hr>
+                    #for $palletid in $PALLETS
+                        $sdata[$siteid]['PALLETS'][$palletid]['PNUM']<br>
+                    #end for
+                    <hr>
+                #else
+                    #set $isExpedition = False
+                    #if len($PALLETS)==1 and not $sdata[$siteid]['PALLETS'][$PALLETS[0]]['PNUM']
+                        #if $sdata[$siteid]['FS'] == '1'
+                            <a href="pal?id=$PALLETS[0]">&nbsp;&nbsp;&nbsp;&nbsp;$_('Поддон')&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        #else
+                            <u>&nbsp;&nbsp;&nbsp;&nbsp;$_('Поддон')&nbsp;&nbsp;&nbsp;&nbsp;</u>
+                        #end if
+                    #else
+                        #set $strPallets = ''
+                        #set $strPallets1 = ''
+                        #set $strPallets2 = ''
+                        #for $palletid in $PALLETS
+                            #set $strPallets = $strPallets + '*' +$sdata[$siteid]['PALLETS'][$palletid]['PNUM']
+                            #if $sdata[$siteid]['PALLETS'][$palletid]['FP'] == '1'
+                                #set $strPallets1 = $strPallets1 + '*' +$sdata[$siteid]['PALLETS'][$palletid]['PNUM']
+                            #else
+                                #set $strPallets2 = $strPallets2 + ',' +$sdata[$siteid]['PALLETS'][$palletid]['PNUM']
+                            #end if
+                        #end for
+                        #if $strPallets2 != ''
+                            #set $readOnly = 'readonly'
+                        #end if
+                        <input type="text" name="site_$siteid" size="14" maxlength="24" $readOnly value="$strPallets1[1:]">
+                        #if $strPallets2 <> ''
+                            <br><font class='inactive'>$strPallets2[1:]</font>
+                        #end if
+                        <input type="hidden" name="oP_$siteid" size="14" maxlength="24" $readOnly value="$strPallets[1:]">
+                        <input type="hidden" name="rP_$siteid" size="14" maxlength="24" $readOnly value="$strPallets2[1:]">
+                        #if $waresShow=='1'
+                            #for $palletid in $PALLETS
+                                #for $wares in $sdata[$siteid]['PALLETS'][$palletid]['WARES']
+                                    <br>
+                                    #if $wares.WNAME
+                                        #set $title = 'title="'+$wares.WNAME.replace('"',"'")+'"'
+                                    #else
+                                        #set $title = ''
+                                    #end if
+                                    <a href="pal?id=$palletid" $title>
+                                        #if $sdata[$siteid]['PALLETS'][$palletid]['PNUM']
+                                            $sdata[$siteid]['PALLETS'][$palletid]['PNUM']
+                                        #else
+                                            ======
+                                        #end if
+                                    </a>
+                                    |
+                                    $wares.WCODE
+                                    |
+                                    $viewQuantity($wares.WQ,$wares.VWUFACTOR,$wares.VWUCODE,$wares.MWUFACTOR,$wares.MWUCODE)
+                                #end for
+                            #end for
+                        #end if
+                    #end if
+                #end if
+                <br>
+          #end for
+        #if not $isExpedition
+            <input type="submit" id=":focus:" value="$_('Сохранить')">
+        #end if
+    </form>
+  #end if  
+  #if not $isExpedition
+    #if $waresShow=='1'
+        <a href="site?siteid=$siteid&waresShow=0">$_('Скрыть товары')</a>
+    #else
+        <a href="site?siteid=$siteid&waresShow=1">$_('Показать товары')</a>
+    #end if  
+  #end if
+  
+#end def

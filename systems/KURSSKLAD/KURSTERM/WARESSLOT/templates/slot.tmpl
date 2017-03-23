@@ -1,0 +1,44 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+	<form action="main">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('МО'), $_('Товар')"><br>
+	</form><br>
+    
+    <b><u>$SITENAME</u></b><br><br>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>$_('Товар')</th>
+                <th>$_('Кол-во')</th>
+                <th>$_('Итого')</th>
+            <tr>
+        </thead>
+    #if $varExists('$datalist') and $datalist and len($datalist)>0
+        #set $id = 'id=":focus:"'
+        <tbody>
+        #for $item in $datalist
+            <tr>
+                <td>
+                  #if $item.WSTAT==1
+                    +
+                  #elif $item.WSTAT==0
+                    -
+                  #else
+                    &nbsp;
+                  #end if
+                </td>
+                <td><a $id href="wares?id=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                <td>$viewQuantity($item.WQ,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                <td>#filter Quantity $item.WQ #end filter#</td>
+            </tr>
+            #set $id = ''
+        #end for
+        </tbody>
+    #end if        
+    </table>
+#end def

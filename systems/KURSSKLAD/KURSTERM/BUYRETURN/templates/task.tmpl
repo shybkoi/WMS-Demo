@@ -1,0 +1,59 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   ##<b><u>$TID</u></b><br>
+   <b>$FROMNAME</b><br>
+   <b>$TONAME</b><br>
+   <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+    <form action="taskScan">
+        <input type="hidden" name="tid" value="$TID">
+        $_('ШК'): <input type='text' name='barcode' id='barcode:scan' title="$_('Документ'), $_('Товар')">
+    </form>
+   
+   #if $varExists('$datalist')
+    <table>
+        <thead>
+            <tr>
+                <th>$_('Товар')</th>
+                <th>$_('План')</th>
+                <th>$_('Факт')</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+        #for $item in $datalist
+            <tr>
+                <td><a href="taskWares?tid=$TID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                <td>$viewQuantity($item.QDOC,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE) (<b><u>#filter Quantity$item.QDOC#end filter#</u></b>)</td>
+                <td>$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE) (<b><u>#filter Quantity$item.QFACT#end filter#</u></b>)</td>
+              #if $item.QFACT
+                #set $qFact = float($item.QFACT)
+              #else
+                #set $qFact = 0.0000
+              #end if
+              #if $item.QDOC
+                #set $qDoc = float($item.QDOC)
+              #else
+                #set $qDoc = 0.0000
+              #end if
+              #if $qFact > $qDoc
+                <td style="color:red;"><b>+</b></td>
+              #elif $qDoc > $qFact 
+                <td style="color:red;"><b>-</b></td>
+              #else
+                <td style="color:green;">v</td>
+              #end if
+            </tr>
+        #end for
+        </tbody>    
+    </table>
+   #else   
+    <br>
+   #end if
+   <a href="javascript: if (confirm('$_('Вы  уверены?')')) location.href='taskEnd?tid=$TID'">$_('Завершить')</a>
+#end def    
+

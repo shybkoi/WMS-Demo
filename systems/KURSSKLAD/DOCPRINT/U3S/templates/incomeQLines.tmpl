@@ -1,0 +1,118 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+##<script type="text/javascript" src="/ENGINE/js/jquery-1.3.2.min.js"></script>
+##<script type="text/javascript" src="/KURSSKLAD/js/k.formats.js"></script>
+
+<div align="left">
+<table>  
+  #if $doc.fromObjName
+    <tr><td class="footer" valign="top" width="20%">Производитель</td><td class="footer" width="80%"><b> $doc.fromObjName </b></td></tr>
+  #end if
+ 
+  #if $doc.toObjName  
+    <tr><td class="footer" valign="top" width="20%">Склад</td><td class="footer" width="80%"><b> $doc.toObjName </b></td></tr>
+  #end if
+</table>
+</div>
+
+#set $W = {}
+#set $L = {}
+
+#for $item in $wares	
+	#set $WCODE = str($item.WCODE)
+	#if not $W.has_key($WCODE)
+		#set $W[$WCODE] = {'WNAME': $item.WNAME, 'WEXTERNALCODE': $item.WEXTERNALCODE, 'PRODUCTDATES': {}, 'PUF': $item.PUF}
+	#end if
+	
+	#set $prDate = $TimeStampToDate($item.PRODUCTDATE)		
+	#if not $W[$WCODE]['PRODUCTDATES'].has_key($prDate)
+		#set $W[$WCODE]['PRODUCTDATES'][$prDate] = {}
+	#end if	
+		
+	#set $LINENUM = int($item.LINENUM)
+	#if not $W[$WCODE]['PRODUCTDATES'][$prDate].has_key($LINENUM)
+		#set $W[$WCODE]['PRODUCTDATES'][$prDate][$LINENUM] = {'Q': float($item.Q), 'QP': int($item.QP), 'QM': float($item.QM)}
+	#else 
+		#set $W[$WCODE]['PRODUCTDATES'][$prDate][$LINENUM]['Q'] += float($item.Q)
+		#set $W[$WCODE]['PRODUCTDATES'][$prDate][$LINENUM]['QP'] += int($item.QP)
+		#set $W[$WCODE]['PRODUCTDATES'][$prDate][$LINENUM]['QM'] += float($item.QM)
+		
+	#end if		
+	
+	#if not $L.has_key($LINENUM)
+		#set $L[$LINENUM] = {'NAME': $item.LINENAME, 'Q': float($item.Q), 'QP': int($item.QP), 'QM': float($item.QM)} 
+	#else
+		#set $L[$LINENUM]['Q'] += float($item.Q)
+		#set $L[$LINENUM]['QP'] += int($item.QP)
+		#set $L[$LINENUM]['QM'] += float($item.QM)
+	#end if
+#end for
+
+#set $S = $L.keys()
+$S.sort()
+<br>
+<div align="center"><font size="4">$doc.DTPRINTNAME</font><br>№ $doc.DocNUM от $TimeStampToDate($doc.DocDate)</div>
+  <table width="100%" border="1" cellspacing="0">
+	<thead>
+		<tr>
+			<th rowspan="2">Код</th>
+			<th rowspan="2">Наименование</th>
+			<th rowspan="2">Внешний<br>код</th>
+			<th rowspan="2">Полный<br>паллет</th>
+			<th rowspan="2">Дата<br>производства</th>
+		  #for $item in $S
+			<th colspan="3">$L[$item]['NAME']</th>
+		  #end for
+		</tr>
+		<tr>
+		  #for $item in $S
+			<th>Полные</th>
+			<th>Часть</th>
+			<th>Всего</th>
+		  #end for
+		</tr>		
+	</thead>
+	<tbody>  
+	  #set $cntWares = 0
+	  #set $cntDates = 0
+	  #for $w in $W
+		#set $cntWares += 1
+		#for $prDate in $W[$w]['PRODUCTDATES']
+		  #set $cntDates += 1
+		<tr>
+			<td style="text-align:right">$w</td>
+			<td style="text-align:left">$W[$w].WNAME</td>
+			<td style="text-align:center">$W[$w].WEXTERNALCODE</td>
+			<td style="text-align:center">$Quantity($W[$w].PUF)</td>
+			<td style="text-align:center">$prDate</td>		
+		  #for $l in $S
+			#if $W[$w]['PRODUCTDATES'][$prDate].has_key($l)
+				<td style="text-align:right">$Quantity($W[$w]['PRODUCTDATES'][$prDate][$l]['QP'])</td>
+				<td style="text-align:right">$Quantity($W[$w]['PRODUCTDATES'][$prDate][$l]['QM'])</td>
+				<td style="text-align:right">$Quantity($W[$w]['PRODUCTDATES'][$prDate][$l]['Q'])</td>
+			#else
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			#end if
+		  #end for
+		</tr>
+		#end for
+	  #end for
+	</tbody>
+    <tfoot>
+        <tr>
+			<th style="text-align:right">$cntWares</th>
+			<th style="text-align:center" colspan="3">Итого</th>
+			<th style="text-align:right">$cntDates</th>
+		  #for $l in $S
+			<td style="text-align:right">$Quantity($L[$l]['QP'])</td>
+			<td style="text-align:right">$Quantity($L[$l]['QM'])</td>
+			<td style="text-align:right">$Quantity($L[$l]['Q'])</td>
+		  #end for			
+        </tr>
+    </tfoot>
+</table>
+<br>

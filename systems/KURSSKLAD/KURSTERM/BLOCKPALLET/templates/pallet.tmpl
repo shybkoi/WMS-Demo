@@ -1,0 +1,56 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+
+#def mainData    
+    #if $PCANEDIT!='1'
+        #if $varExists('$PNUM') and $PNUM		
+            <font class="red"><b><u>$PNUM</u></b>($SNAME)</font>
+        #else 
+            <font class="red"><b>$SNAME</b></font>
+        #end if            
+        <br><br>
+        <a href="bpPalletBlock?id=$PID&noblock=1">$_('Работа запрещена')</a>
+    #else
+        #if $varExists('$PNUM') and $PNUM		
+            <font class="green"><b><u>$PNUM</u></b>($SNAME)</font>
+        #else 
+            <font class="green"><b>$SNAME</b></font>
+        #end if    
+        <br><br>
+        <a href="bpPalletBlock?id=$PID&noblock=0">$_('Работа разрешена')</a>
+    #end if    
+    <br>
+    <hr>
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Товар')</th>
+                    <th>$_('Кол-во')</th>
+                    <th>$_('МО')</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                  #if $PCANEDIT == '1'
+                    <td><a href="wpPalletWares?pid=$PID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                  #else
+                    <td><a href="#" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                  #end if
+                    <td>$viewQuantity($item.AMOUNT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)(<b><u>#filter Quantity$item.AMOUNT#end filter#</u></b>)</td>
+                    <td>$coalesceValue($item.WSITENAME)</td>
+                </tr>
+            #end for
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan=3>$cntWares</th>
+                </tr>
+            </tfoot>            
+        </table>
+    #end if 
+#end def

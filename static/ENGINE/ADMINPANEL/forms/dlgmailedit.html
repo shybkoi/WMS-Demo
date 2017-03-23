@@ -1,0 +1,19 @@
+<form id="dlgmailedit_form">
+
+ <table>
+   <!--tr><th colspan="2">Параметры</th></tr-->
+   <tr><th>ID</th><td><input id="dlgmailedit_id_edt" name="dlgmailedit_id_edt" type="text" value=""></td><td style="border:0px;"></td></tr>
+   <tr><th>Адрес</th><td><input id="dlgmailedit_addr_edt" name="dlgmailedit_addr_edt" type="text" value=""></p></td><td id="addr_err" name="addr_err" type="text" style="color:red; border:0px;" ></td></tr>
+   <tr><th>Host</th><td><input id="dlgmailedit_host_edt" name="dlgmailedit_host_edt" type="text" value=""></p></td><td id="host_err" name="host_err" type="text" style="color:red; border:0px;"></td></tr>
+   <tr><th>Port</th><td><input id="dlgmailedit_port_edt" name="dlgmailedit_port_edt" type="text" value=""></p></td><td id="port_err" name="port_err" type="text" style="color:red; border:0px;"></td></tr>
+   <tr><th>Кодировка</th><td><select id="dlgmailedit_coding_edt" name="dlgmailedit_coding_edt" value="">
+                            <option value="koi8-r">koi8-r</option>
+                            <option value="windows-1251">windows-1251</option>
+                            </p></td><td style="border:0px;"></td></tr>
+ </table>
+ <br>
+ <div class="buttons save">
+    <button type="button" id="dlgmailedit_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;Сохранить</button>&nbsp;
+    <button type="button" id="dlgmailedit_cancel_btn"><img src="/ENGINE/images/actions/cancel.png" alt=""/>&nbsp;Отмена</button>
+ </div>
+</form>

@@ -1,0 +1,32 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    #if $PNUM
+        $_('Поддон'): <b><u>$PNUM</u></b>($SNAME)<br>
+    #else
+        <b><u>$SNAME</u></b><br>
+    #end if
+    <b>(<u>$WCODE</u>) </b> $WNAME<br>
+    <hr>
+    <form action="taskAPalletWaresAdd" name="frm"  method=post>
+        <input type=hidden name=wid value=$WID>
+        <input type=hidden name=pid value=$PID>
+        <input type=hidden name=tid value=$tid>
+        <select name=wuid>
+          #if $wuid==$MWUID
+            <option value=$MWUID selected>$MWUCODE</option>
+          #end if
+          #if $VWUID
+            <option value=$VWUID>$VWUCODE</option>
+          #end if
+          #if $wuid != $MWUID
+            <option value=$MWUID>$MWUCODE</option>
+          #end if
+        </select>:
+        <input type="text" name="amount" id=":focus:float" value="$amount" size="6"><br><br>
+        $_('Дата'): <input type="text" name="productdate" id="::date" value="$productdate" size="6"><br>
+        <hr>
+        <input type=submit value="$_('Сохранить')">
+    </form>
+
+#end def

@@ -1,0 +1,130 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+
+##Styles
+<link rel="shortcut icon" href="$sp_img/favicon.png">
+<link rel="stylesheet" href="$eng_css/buttons.css" type="text/css" media="screen"/>
+
+##Scripts
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.timer.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$sp_js/webserver.js"></script>
+
+
+<div align="center">
+<form id="webserver_form">
+    <fieldset>
+        <legend align="center"><strong><label style="display: -moz-inline-box; display: inline-block" for="status_lbl"><span style="display: block; width: 300px;">$_('Статус веб-сервера'):</span></label>
+        <span id="status_lbl" style="width: 100px"></span></strong></legend>
+        <br/>
+
+        <div class="container">
+        <p style='width: 800px;'>
+        <label style="display: -moz-inline-box; display: inline-block" for="trans_lbl"><span style="display: block; width: 300px;">$_('Активных транзакций к серверам БД'):</span></label>
+        <span id="trans_lbl"></span>
+        <span class="buttons">
+            <button id='threads_btn' type="button"><img src="$eng_img/actions/magnifier.png"/>&nbsp;$_('Потоки')</button>
+        </span>
+        &nbsp;<label><input type="checkbox" id="showAlert">$_('показывать предупреждение')</label>
+        </p>
+        <br/>
+
+        <p style='width: 800px;'>
+        <label style="display: -moz-inline-box; display: inline-block" for="cur_time_span"><span style="display: block; width: 300px;">$_('Текущее время веб-сервера'):</span></label>
+        <span id="cur_time_span"></span>
+        &nbsp;
+        <label style="display: -moz-inline-box; display: inline-block" for="refresh_time"><span style="display: block">$_('Автообновление экрана'):</span></label>
+        <span>
+            <select id='refresh_time'>
+                <option value='null'>$_('Не обновлять')</option>
+                <option value='1'>1 $_('сек')</option>
+                <option selected value='3'>3 $_('сек')</option>
+                <option value='5'>5 $_('сек')</option>
+                <option value='10'>10 $_('сек')</option>
+                <option value='30'>30 $_('сек')</option>
+                <option value='60'>60 $_('сек')</option>
+            </select>
+        </span>
+
+        </p>
+        <br/>
+
+        </div>
+
+        <p>
+        <label style="display: -moz-inline-box; display: inline-block" for="wait_edt"><span style="display: block; width: 200px;">$_('Ждать перед выключением')</span></label>
+        <input name="wait_edt" id="wait_edt" type="text" value=60 style="width: 30px"/>
+        <label style="display: -moz-inline-box; display: inline-block" for="wait_edt"><span style="display: block; width: 30px;">$_('сек')</span></label>
+        <span class="buttons">
+            <button id='stop_btn' type="button"><img src="$eng_img/errors/exclamation.png"/>&nbsp;$_('Стоп')</button>
+            <button id='cancel_btn' disabled type="button"><img src="$eng_img/actions/cancel.png"/>&nbsp;$_('Отмена стопа')</button>
+        </span>
+        </p>
+        <p>
+            <input type='checkbox' name='trans_alert_chk' id='trans_alert_chk' size='8'/>
+            <label style="display: -moz-inline-box; display: inline-block" for="trans_alert_chk">$_('Останавливать как только все транзакции завершатся')</label>
+        </p>
+        <br/>
+
+        <div id="timer_div" style="display:none">
+            <p>
+            <label style="display: -moz-inline-box; display: inline-block" for="timer_lbl"><span style="display: block; width: 300px;">$_('Таймер (веб-сервер остановится через)')</span></label>
+            <span id="timer_lbl" style="width: 30px"></span>
+            <label style="display: -moz-inline-box; display: inline-block" for="timer_lbl"><span style="display: block; width: 30px;">$_('сек')</span></label>
+            <span class="buttons">
+                <button id='reset_btn' type="button"><img src="$eng_img/actions/reset.gif"/>&nbsp;$_('Сброс таймера')</button>
+            </span>
+            </p>
+            <br/>
+       </div>
+
+        <p>
+        <div id="msg">
+        </div>
+        </p>
+
+        <div id="threads_div" style="display:none; text-align: center;">
+            #if $varExists("useLayers") and $useLayers
+                <hr>
+                <div style='text-align: center; display: inline-block;'>
+                    <div style='text-align: left; display: inline-block;'>
+                        <span>
+                            <label style="display: -moz-inline-box; display: inline-block; width:100px;" for="layers"><span style="display: block; width: 300px;">Слои:</span></label>
+                            <select id='layers'>
+                            </select>
+                            <span class="buttons">
+                                <button id='refresh_layers_btn' type="button"><img src="$eng_img/images/refresh.png"/>&nbsp;$_('Обновить слои')</button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <br/>
+            #end if
+
+            <strong>$_('Потоки')</strong>&nbsp;($_('макс.') <span id="max_threads_span"></span>)
+            <table id="threads_tbl">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        #if $varExists("useLayers") and $useLayers
+                            <th>$_('Код слоя')</th>
+                            <th width=200>$_('Организация')</th>
+                        #end if
+                        <th>$_('Актив транз')</th>
+                        <th>$_('Старт транз')</th>
+                        <th>$_('Стоп транз')</th>
+                        <th>$_('Длит транз')</th>
+                        <th nowrap width=600>$_('Последний SQL-запрос')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</form>
+</div>
+#end def

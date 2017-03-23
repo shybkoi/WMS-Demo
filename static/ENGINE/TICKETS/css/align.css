@@ -1,0 +1,24 @@
+
+.full_height {
+height: 100%; 
+}
+
+.vertical_top {
+vertical-align: top;
+}
+
+.footer_btns {
+position: relative; 
+margin-top: -26px;
+clear: both;
+}
+
+.left_aligned_btns {
+float: left; 
+margin-left: 3px;
+}
+
+.right_aligned_btns {
+float: right; 
+margin-right: 3px;
+}

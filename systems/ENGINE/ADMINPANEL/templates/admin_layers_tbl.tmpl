@@ -1,0 +1,43 @@
+#encoding cp1251
+<table id="tbl_layers" style="border: 2px ridge #FFE4E1; border-spacing: 2px">
+  <thead>
+    <tr>
+      <th>$_('Отключен')</th>
+      <th>$_('№ п/п')</th>
+      <th>ID</th>
+      <th>$_('Код')</th>
+      <th>$_('Организация')</th>
+      <th>$_('Дата регистрации')</th>
+      <th>$_('Владелец')</th>
+      <th>$_('Доп. код')</th>
+      <th>$_('Изменено')</th>
+      <th>$_('Текущий тариф')</th>
+      <th>$_('Дата тарифа')</th>
+      <th>$_('Тариф истекает')</th>
+    </tr>
+  </thead>
+  <tbody id="tbl_layers_tbody">
+        #set $N=1
+        #for $layer in $layers
+            <tr id="$layer.LAYER_ID">
+                <td class="hac disabled"><input type="checkbox"
+                    #if $layer.DISABLED is not None and $layer.DISABLED != 0
+                        checked
+                    #end if
+                    ></td>
+                <td class="har enum">$N</td>
+                <td class="har layer_id">$layer.LAYER_ID</td>
+                <td class="code">$layer.CODE</td>
+                <td class="organization">$layer.ORGANIZATION</td>
+                <td class="reg_date hac">#filter DateFilter $layer.REG_DATE #end filter</td>
+                <td class="owner_fio" owner_id="$layer.OWNER_ID">$layer.OWNER_FIO</td>
+                <td class="card_code">$layer.CARD_CODE</td>
+                <td class="lastdate hac">#filter LongDateTimeFilter $layer.LASTDATE #end filter</td>
+                <td class="tar_name" id_tar="$layer.ID_TAR"><a href="tarif?focused_id=$layer.ID_TAR">$layer.TAR_NAME</a></td>
+                <td class="tar_date hac">#filter DateFilter $layer.DATE_FROM #end filter</td>
+                <td class="expire_date hac">#filter DateFilter $layer.EXPIRE_DATE #end filter</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

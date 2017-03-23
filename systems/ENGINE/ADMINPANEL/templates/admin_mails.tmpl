@@ -1,0 +1,52 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+	##Table of mails
+    <div style="font: bold 14pt sans-serif; color: grey">Управление адм.почтой</div>
+	<br>
+    <table id="tbl_mails" style="min-width:600px;">
+	<thead>
+		<tr>
+			<th><img style="background-color: transparent" border=0 src="$eng_img/actions/edit.png" /></th>
+			<th><img style="background-color: transparent" border=0 src="$eng_img/actions/delete.png" /></th>
+			<th>ID</th>
+			<th>Адрес</th>
+            <th>Host</th>
+            <th>Port</th>
+            <th>Кодировка</th>
+           	</tr>	
+	
+	</thead>
+    <tbody id="tbl_mails_tbody">
+	#for $mails in $datalist
+		<tr id="${mails.id_mail}">
+		    <td class="hac"><a title="Редактировать адрес" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/edit.png" /></a></td>
+            <td class="hac"><a title="Удалить адрес" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/delete.png" /></a></td>
+       		<td id="id_${mails.id_mail}" class="har" style="text-align: left;">$mails.id_mail</td>
+			<td id="addr_${mails.id_mail}" class="har" style="text-align: left;">$mails.addr</td>
+            <td id="host_${mails.id_mail}" class="har" style="text-align: left;">$mails.host</td>
+            <td id="port_${mails.id_mail}" class="har" style="text-align: left;">$mails.port</td>
+            <td id="coding_${mails.id_mail}" class="har" style="text-align: left;">$mails.coding</td>
+		</tr>
+	#end for	
+	</tbody>
+
+    <tfoot>
+              <tr><td colspan=12>&nbsp;</td></tr>
+              <tr><td colspan=12 align="left">
+                  <div class="buttons" style="text-align: left">
+                      <button id="mail_add_btn" type="button" onclick="javascript:void(0);"><img src="$eng_img/actions/add.png" style="vertical-align: middle" />&nbsp;Добавить адрес</button>
+                  </div>
+                </td>
+              </tr>
+    </tfoot>
+	</table>
+	
+##Dialog Add mail
+<div id="dlgmailedit" class="dialog flora" title="Добавление адреса" align="center"></div>	
+	
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_mails.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+#end def

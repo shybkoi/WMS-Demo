@@ -1,0 +1,126 @@
+/**********************************
+This file skins login Styles
+Chernyavsky A.E.
+***********************************/
+body{
+	clear: both !important;
+	clear: left !important;
+	clear: right !important; 
+}
+#loginForm{
+	
+	 margin-left:40px;
+	 height: 400px;
+	 width: 400px;
+	 background-image:url(../../images/login/new/loginform.png);
+	 background-repeat:no-repeat;
+
+}
+#loginForm label {
+
+    color: #6e6d6d !important;
+/*    left: 10px !important;*/
+    margin-top: 0 !important;
+    position: absolute !important;
+    width: 50px !important;
+
+}
+#loginForm label span{
+    width:100px;
+}
+#loginForm label.error, #loginForm input.submit {
+    margin-left:203px;
+}
+
+.submit{
+    background-image: url("../../images/login/new/enterbutt.png") !important;
+    border: 1px solid #779175 !important;
+    height: 26px;
+    left: 120px;
+    padding-top: 0 !important;
+    position: absolute;
+    top: 160px;
+    width: 80px !important;
+	font-family: sans-serif, Lucida Grande,Tahoma,Arial,Verdana !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+	color: #606370 !important;
+	
+	
+    
+    
+    
+    
+    	
+/*======next for IE=======*/	
+left /*\**/:140px\9 !important;
+top /*\**/:160px\9 !important;
+	
+	
+	
+	
+}
+.submit img{
+	display:none !important;
+}
+.submit:hover {
+
+	    background-image: url("../../images/login/new/enterbutthover.png") !important;
+		color:black !important;
+}
+	
+
+
+form.login fieldset p a {
+    color: #0054EE;
+    left: 110px;
+    position: absolute;
+    top: 230px;
+
+
+
+/*======next for IE=======*/	
+left /*\**/:100px\9 !important;
+top /*\**/:225px\9 !important;
+width /*\**/:180px\9 !important;
+
+
+}
+
+#error-wrap {
+	display:inline;
+    color: #F73D67;
+    left: 30px !important;
+    position: absolute;
+    top: -14px !important;
+	width: 280px;
+	text-align: center;
+
+
+/*======next for IE=======*/
+margin-top /*\**/:40px\9 !important;
+margin-left /*\**/:10px\9 !important;
+
+
+} 
+	
+
+
+
+
+
+
+body{
+    background-color: white !important;
+    background-image: url("../../images/login/new/back.jpg") !important;
+    background-position: 50% 60px !important;
+    background-repeat: no-repeat;
+}
+
+form.login legend {
+	
+filter:alpha(opacity=0); /*for IE*/
+}
+
+
+

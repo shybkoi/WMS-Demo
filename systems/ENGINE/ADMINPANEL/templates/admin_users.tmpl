@@ -1,0 +1,116 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+  ##Table of users
+    <span style="font: bold 14pt sans-serif; color: gray">Управление пользователями</span>
+        <table id="tbl_users" style="border: 2px ridge #FFE4E1; border-spacing: 2px">
+            <thead>
+               ##<tr><td colspan=12 align="left">
+               ##   <span class="buttons" style="text-align: left">
+               ##       <button class="user_add_btn" type="button" onclick="javascript:void(0);"><img src="$eng_img/actions/add.png" style="vertical-align: middle" />&nbsp;Добавить пользователя</button>
+               ##   </span>
+               ##   ##<!--button class="buttons" style="background-color: transparent" type="button" onclick="javascript: addUser();"><img src="$eng_img/actions/add.png" style="vertical-align: middle">&nbsp;Добавить пользователя</button-->
+               ##   ##<!--a title="Добавить пользователя" href="javascript: addUser();"><img src="$eng_img/actions/add.png"></a-->
+               ## </td></tr>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>ID</th>
+                <th>Логин</th>
+                <th>ФИО</th>
+                <th>Роли</th>
+                <th>Пароль</th>
+                <th>E-MAIL</th>
+                <th>Телефон</th>
+                <th>Изменён</th>
+                <th>Комментарий</th>
+              </tr>
+            </thead>
+            <tbody id="tbl_users_tbody">
+            #for $user in $datalist
+            <tr id="${user.ID_USER}">
+               <td class="hac edit_user"><a title="Редактировать пользователя" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/edit.png" /></a></td>
+               <td class="hac rights_user"><a title="Права пользователя" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/rights.gif" /></a></td>
+               <td class="hac delete_user"><a title="Удалить пользователя" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/delete.png" /></a></td>
+               <td id="id_${user.ID_USER}" class="har">$user.ID_USER</td>
+               <td id="login_${user.ID_USER}">$user.LOGIN</td>
+               <td id="fio_${user.ID_USER}">$user.FIO</td>
+               #if $user.CNT_ROLES == 0
+                 #set $roles_title="Кликните, чтобы назначить"
+               #else
+                 #set $roles_title="Роли пользователя: " + $user.LIST_ROLES
+               #end if
+               <td id="role_${user.ID_USER}" class="hac user_roles"><a title="$roles_title" href="javascript:void(0);">${user.CNT_ROLES}</a></td>
+               <td class="hac reset_passwd">
+               #*
+               #if $user.passwd
+                 #set $checked='checked'
+               #else
+                 #set $checked='disabled'
+               #end if
+               ##<label class="prettyCheckbox checkbox" for="passwd_${user.ID_USER}"></label>
+               <input id="passwd_${user.ID_USER}" type='checkbox' $checked>
+               *#
+               <input id="passwd_${user.ID_USER}" type="button" value="...">
+               </td>
+               <td id="email_${user.ID_USER}">$user.EMAIL</td>
+               <td id="phonenumber_${user.ID_USER}">$user.PHONENUMBER</td>
+               <td id="lastdate_${user.ID_USER}">#filter DateTimeWSecFilter $user.LASTDATE #end filter</td>
+               <td id="comments_${user.ID_USER}">$user.COMMENTS</td>
+            </tr>
+            #end for
+            </tbody>
+            <tfoot>
+              <tr><td colspan=12>&nbsp;</td></tr>
+              <tr><td colspan=12 align="left">
+                  <div class="buttons" style="text-align: left">
+                      <button class="user_add_btn" type="button" onclick="javascript: void(0);"><img src="$eng_img/actions/add.png" style="vertical-align: middle">&nbsp;Добавить пользователя</button>
+                      ##<!--button class="buttons" style="background-color: transparent" type="button" onclick="javascript: addUser();"><img src="$eng_img/actions/add.png" style="vertical-align: middle">&nbsp;Добавить пользователя</button-->
+                      ##<!--a title="Добавить пользователя" href="javascript: addUser();"><img src="$eng_img/actions/add.png"></a-->
+                      <span>
+                          #if $varExists('$layers') and $layers
+                              <label id='lbl_filter_cmb' for="filter_cmb">$_('Фильтр')</label><select id='filter_cmb'>
+                                  <option value='-2'>СУПЕРАДМИНИСТРАТОРЫ</option>
+                                  #for $layer in $layers
+                                      #if str($layer_id) == str($layer.LAYER_ID)
+                                          #set $selected = ' selected = "selected" '
+                                      #else
+                                          #set $selected = ' '
+                                      #end if
+                                      <option $selected value='$layer.LAYER_ID'>$layer.ORGANIZATION ($layer.LAYER_ID)</option>
+                                  #end for
+                              </select>
+                          #end if
+                      <span>
+                  </div>
+              </td></tr>
+            </tfoot>
+        </table>
+
+##Style
+<link rel="stylesheet" href="$sp_css/admin_users.css" type="text/css"/>
+
+##Dialog Add/Edit User
+<div id="dlgedit" class="dialog flora" title="Изменение параметров пользователя" align="center"></div>
+
+##Dialog User Rights
+<div id="dlgrights" class="dialog flora" title="Права пользователя" align="center"></div>
+<div id="dlgurrights" class="dialog flora" title="Назначенные роли" align="center"></div>
+
+##Dialog Изменение пароля
+<div id="dlgchangepasswd" class="dialog flora" title="Изменение пароля" align="center"></div>
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_roles.js"></script>
+<script type="text/javascript" src="$sp_js/admin_users.js"></script>
+<script type="text/javascript">
+#if $varExists('$focused_id')
+  #if $focused_id!=''
+    focused_id=$focused_id
+  #end if
+#end if
+
+</script>
+#end def

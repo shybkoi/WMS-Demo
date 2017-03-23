@@ -1,0 +1,31 @@
+#encoding cp1251
+
+##from systems.KURSSKLAD.cheetahutils import coalesceValue
+##from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+	<form action="main">
+        ШК: <input type="text" id="barcode:scan:text" name="barcode" title="$_('Ворота'),$_('Авто'),$_('Поддон')"><br>
+	</form><br>
+	
+	#if $sort == 'P'
+		&uarr;&darr; = <a href="main?sort=N" title="Сорировать по воротам">$_('Приоритет')</a>
+	#elif $sort == 'N'
+		&uarr;&darr; = <a href="main?sort=P" title="Сорировать по приоритету">$_('Ворота')</a>
+	#end if
+    <hr>    
+	#if $varExists('$datalist') and $datalist		
+		#for $item in $datalist
+			#if $item.TPRIORITY
+				#filter Quantity$item.TPRIORITY#end filter#:
+			#end if
+			<a href="gate?id=$item.GID">$item.GNAME</a>, #filter TimeFilter$item.TBEGINTIME#end filter#
+			<br>
+			$item.ANAME<br><br>			
+		#end for
+	#end if
+	
+#end def
+
+

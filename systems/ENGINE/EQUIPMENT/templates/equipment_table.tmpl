@@ -1,0 +1,88 @@
+#encoding cp1251
+<table id="tbl_equipment">
+    <thead>
+        <tr>
+            <th>$_('№ п/п')</th>
+            <th>$_('Название')</th>
+            <th>$_('Статус')</th>
+            <th>$_('Серийный номер')</th>
+            <th>$_('Рег. номер')</th>
+            <th>$_('Вид')</th>
+            <th>$_('Тип оборудования')</th>
+            <th>$_('ФИО сотрудника')</th>
+            <th>$_('Работает с')</th>
+        </tr>
+    </thead>
+    <tbody id='tbl_equipment_tbody'>
+        #set $N=1
+        #for $item in $datalist
+            <tr id="$item.ID_EQUIPMENT" end_time="$item.END_TIME">
+                <td class="har enum">$N</td>
+                <td class="equip_name">$item.EQUIP_NAME</td>
+                #if $item.STATUS=='A'
+                    <td class="equip_status equip_active" title="$_('Активное')" style="text-align: center;">
+                        <img src="$sps_img.KURSSKLAD/YesNo/yes.png" border="0">
+                    </td>
+                #else if $item.STATUS=='N'
+                    <td class="equip_status equip_inactive" title="$_('Не активное')" style="text-align: center;">
+                        <img src="$sps_img.KURSSKLAD/YesNo/no.png" border="0">
+                    </td>
+                #end if
+                <td class="serial_num">$item.SERIAL_NUM</td>
+                <td class="har reg_num">$item.REG_NUM</td>
+                #if $item.IS_MOBILE
+                    <td class="equip_kind" equip_kind="M" title="$_('Мобильное')" style="text-align: center;">
+                        <img src="$eng_img/actions/mobile.png" border="0">
+                    </td>
+                #else
+                    <td class="equip_kind" equip_kind="T" title="$_('Терминальное')" style="text-align: center;">
+                        <img src="$eng_img/actions/terminal.png" border="0">
+                    </td>
+                #end if
+                <td class="type_name" id_type='$item.ID_TYPE'>$item.TYPE_NAME</td>
+                <td class="fio">$item.FIO</td>
+                #if $item.BEGIN_TIME is not None and $item.END_TIME is None
+                    <td class="begin_time hac">#filter LongDateTimeFilter $item.BEGIN_TIME #end filter</td>
+                #else
+                    <td class="begin_time hac"></td>
+                #end if
+            </tr>
+            #set $N=$N+1
+        #end for
+        #set $N=$N-1
+    </tbody>
+    <tfoot>
+        <tr class="buttons">
+            <th id="thAmountEquip">$N</th>
+            <th>
+                <button id="badd" type="button" title="$_('Добавить')">
+                    <img src="$eng_img/actions/add.png" border="0">
+                </button>
+                <button id="brefresh" type="button" title="$_('Обновить')">
+                    <img src="$eng_img/actions/refresh.png" border="0">
+                </button>
+            </th>
+            <th style="text-align: right;"><select id="equipStatus" style="width:52px; font-size:smaller">
+                <option value="null">$_('Все')</option>
+                <option value="A">$_('Акт')</option>
+                <option value="N">$_('Неакт')</option>
+            </select></th>
+            <th></th>
+            <th></th>
+            <th style="text-align: right;"><select id="equipKndFilter" style="width:52px; font-size:smaller">
+                <option value="null">$_('Все')</option>
+                <option value="T">$_('Терм')</option>
+                <option value="M">$_('Моб')</option>
+            </select></th>
+            <th>
+                <button id="btypes" type="button">$_('Типы')</button>
+            </th>
+            <th></th>
+            <th style="text-align: right;"><select id="stEq" style="width:120px; font-size:smaller">
+                <option value="null">$_('Все сессии')</option>
+                <option value="1">$_('Активные')</option>
+                <option value="0">$_('Не активные')</option>
+            </select></th>
+        </tr>
+    </tfoot>
+</table>

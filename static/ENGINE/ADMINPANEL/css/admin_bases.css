@@ -1,0 +1,62 @@
+ button.buttons {
+    background: #ffffff;
+    border: 1px solid #808080;
+    margin: 0;
+    padding: 0;
+ }
+ button.buttons:hover {
+    background: lightblue;
+ }
+ 
+ ul.contextMenu {
+    width: 200px !important;
+    
+ }
+ 
+ div#admin-base-addedit {
+    width: 750px;
+    height: 250px;
+ }
+ 
+ fieldset {
+    border: 1px solid #808080;
+    padding: 7px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+ }
+ 
+ .titles {
+    width: 15% !important;
+ }
+ 
+ div.buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+ }
+ 
+ #tblBaseParametrs td {
+    border: none;
+    margin: 5px;
+ }
+ 
+ #tblBaseParametrs input {
+    color: #000000;
+    width: 98%;
+    border: 1px solid #808080;
+    -moz-border-radius: 4px;
+    
+    -webkit-border-radius: 4px;    
+    border-radius: 4px;
+    
+ }
+ 
+ .errorfield {
+    background: #FFD4D4;
+    border: 2px solid red;
+    
+    
+ }
+ 
+ 

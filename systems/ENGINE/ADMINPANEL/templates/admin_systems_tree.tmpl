@@ -1,0 +1,76 @@
+#encoding cp1251
+<ul style="text-align: left" id="tree_systems_tree" class="treeview">
+    $tree
+</ul>
+
+<div id="tree_buttons " class="buttons">
+    <div id="treecontrol" style="float: left">
+        <a href="#" style="float: left">$_('Свернуть всё')</a>
+        <span style="float: left">&nbsp;&nbsp;</span>
+        <a href="#" style="float: left">$_('Развернуть всё')</a>
+    </div>
+    <div class="buttons save footer_btns">
+        <button type="button" id="save_btn" style="background-color:#CCC"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+        <button type="button" id="cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+        <button type="button" id="exit_to_systems_btn"><img src="$eng_img/actions/exit.png" alt=""/>&nbsp;$_('Закрыть')</button>
+    </div>
+</div>
+
+<ul style="display: none; width: 200px" id="menuTree" class="contextMenu">
+    <li class="add">
+        <a href="#addUser">$_('Выбрать пользователей')</a>
+    </li>
+</ul>
+
+<ul style="display: none; width: 300px" id="menuUser" class="contextMenu">
+    <li class="add">
+        <a href="#addUser">$_('Выбрать пользователей')</a>
+    </li>
+    <li class="addchild">
+        <a href="#addOpt">$_('Добавить опцию')</a>
+    </li>
+    <li class="delete separator">
+        <a href="#delUserOpts">$_('Удалить все опции пользователя')</a>
+    </li>
+    <!--li class="delete">
+        <a href="#delSelectedOpts">Удалить выбранные опции</a>
+    </li-->
+</ul>
+
+<ul style="display: none; width: 300px" id="menuType" class="contextMenu">
+    <li class="addchild">
+        <a href="#addOpt">$_('Добавить опцию')</a>
+    </li>
+    <li class="delete separator">
+        <a href="#delType">$_('Удалить тип, все его объекты и опции')</a>
+    </li>
+</ul>
+
+<ul style="display: none; width: 300px" id="menuObj" class="contextMenu">
+    <li class="addchild">
+        <a href="#addOpt">$_('Добавить опцию')</a>
+    </li>
+    <li class="delete separator">
+        <a href="#delObj">$_('Удалить объект и все его опции')</a>
+    </li>
+</ul>
+
+<ul style="display: none; width: 200px" id="menuOpt" class="contextMenu">
+    <li class="add">
+        <a href="#addOpt">$_('Добавить опцию')</a>
+    </li>
+    <li class="edit">
+        <a href="#editOpt">$_('Изменить опцию')</a>
+    </li>
+    <li class="delete">
+        <a href="#delOpt">$_('Удалить опцию')</a>
+    </li>
+</ul>
+
+##Dialog Add/Edit Option
+<div id="dlgoptedit" class="dialog flora" align="center"></div>
+##Dialog OK/Cancel
+<div id="dlgokcancel" class="dialog flora" align="center"></div>
+
+##Scripts
+<script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js"></script>

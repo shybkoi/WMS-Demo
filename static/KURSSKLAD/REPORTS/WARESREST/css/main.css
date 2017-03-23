@@ -1,0 +1,62 @@
+.dvData table td {
+    padding-top: 0;
+    padding-bottom: 0;
+    /*white-space: nowrap;*/
+}
+
+.date img,
+.date span{
+    vertical-align: middle;
+}
+
+.hidden {
+    display: none;
+}
+
+.date {
+    width: 80px;
+    white-space: nowrap;
+}
+
+.imgClick {
+    width:0;
+    height:0;
+    padding: 8px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+[data-code] {
+    cursor: pointer;
+}
+
+.dash {
+    border-right: 2px solid black;
+}
+
+.imgClick[data-val="+"] {
+    background-image: url(../../../images/tree/tv-expandable.gif);
+}
+tr:not(.hidden):last-child .imgClick[data-val="+"],
+tr.last-child .imgClick[data-val="+"]{
+    background-image: url(../../../images/tree/tv-expandable-last.gif);
+}
+.imgClick[data-val="-"] {
+    background-image: url(../../../images/tree/tv-collapsable.gif);
+}
+tr:not(.hidden):last-child .imgClick[data-val="-"],
+tr.last-child .imgClick[data-val="-"]{
+    background-image: url(../../../images/tree/tv-collapsable-last.gif);
+}
+.imgClick[data-val="="] {
+    background-image: url(../../../images/tree/tv-item.gif);
+}
+tr:not(.hidden):last-child .imgClick[data-val="="],
+tr.last-child .imgClick[data-val="="]{
+    background-image: url(../../../images/tree/tv-item-last.gif);
+}
+
+tr.last-child:not([data-hide="true"]) ~ [data-hide="true"] .vertline {
+    visibility: hidden;
+}

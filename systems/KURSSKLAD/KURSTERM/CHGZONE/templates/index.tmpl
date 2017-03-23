@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    #if $varExists('$fio') and $fio
+        <b><u>$fio</u></b><br><hr>
+    #end if
+    
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #if $item.zoneid == $zoneid
+                + <a href="zone?mid=$manid&zid=$item.zoneid" id=":focus:">$item.zonename</a><br><br>
+            #else
+                - <a href="zone?mid=$manid&zid=$item.zoneid">$item.zonename</a><br><br>
+            #end if
+        #end for
+    #end if
+#end def

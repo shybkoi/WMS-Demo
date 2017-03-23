@@ -1,0 +1,15 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	<form action="wpMain">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('Поддон')"><br>
+	</form>
+
+	<hr>
+	#if $varExists('$datalist') and $datalist
+	    #for $item in $datalist
+	        <a href="pal?id=$item.PID">$item.PNUM</a><br>
+	    #end for
+	#end if
+#end def

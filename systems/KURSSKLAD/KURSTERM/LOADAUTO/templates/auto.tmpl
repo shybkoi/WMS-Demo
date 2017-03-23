@@ -1,0 +1,24 @@
+#encoding cp1251
+
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main#def mainData
+    <b><u> $ANAME </u></b><br>
+    
+    #set $coma = ','
+    #set $canEnd = True
+    <form action=auto>
+        <input type=hidden name=id value=$aid>
+        ШК: <input type="text" id="barcode:scan:text" name="barcode" title="$_('Авто'),$_('Ворота')"><br>
+    </form>
+    <hr>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <b><u>$item.GNAME</u></b><br>#filter DateTimeFilter $item.TPLANDT#end filter#<br><br>                
+        #end for
+    #end if
+	
+#end def
+
+

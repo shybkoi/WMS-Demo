@@ -1,0 +1,28 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$PNUM</u></b>($SNAME)<br>
+    $TOOBJNAME<br>
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    <b><u>$DOCNUM / #filter DateFilter2$DOCDATE#end filter#</u></b><br>
+    <hr>
+    <br>
+Заказ: <b>$QTASKSTR</b> <br>
+    #if $QSELECT
+        Отобрано: <a href="taskWtwClear?palletid=$PID&waresid=$WID&twid=$TWID" title="$_('Очистить')" onClick="return confirm('Вы действительно хотите начать заново?')">$QSELECTSTR</a>
+    #else
+        <a href="taskWtwAmount?palletid=$PID&waresid=$WID&twid=$TWID">Ввести вес вручную</a>
+    #end if
+    <br>
+    На поддоне: $QPALLETSTR <br>
+    <br>
+    <form action="taskWPalletWaresPos">
+        <input type="hidden" name="palletid" value="$PID">
+        <input type="hidden" name="waresid" value="$WID">
+        <input type="hidden" name="twid" value="$TWID">
+        ШК: <input type="text" id=":scan:text" name="barcode" title="Паллет, Весовой ШК" value="">
+	</form>
+    
+    <a href="taskWtwEnd?twid=$TWID&pc=1" onClick="return confirm('Подтвердите, что действительно нет товара на поддоне')">Нет товара на поддоне</a><br>
+#end def

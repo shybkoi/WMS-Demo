@@ -1,0 +1,15 @@
+#encoding cp1251
+<table id="tbl_devel_ips">
+  <thead>
+  <tr>
+    <th>IP-адрес</th>
+  </tr>
+  </thead>
+  <tbody>
+        #for $item in $devel_ips
+            <tr id="$item.ID_DEVEL_IP">
+                <td class="hac ip">$item.IP</td>
+            </tr>
+        #end for
+  </tbody>
+</table>

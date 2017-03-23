@@ -1,0 +1,43 @@
+#encoding cp1251
+#extends systems.engine_main
+#def $system_help = True
+#end def
+#def engineData
+	<style>
+		label.lbl {
+			display: block;
+			width: 35%;
+			float: left;
+			text-align: left;
+		}
+		.rght {
+			display: block;
+			width: 60%;
+		}
+	</style>
+
+	<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sp_js/tunit.js"></script>
+		
+	#block adminData
+    <div id="dvMain">	
+		<div id="dvTable"></div>
+	</div> 
+	#end block
+#end def
+
+

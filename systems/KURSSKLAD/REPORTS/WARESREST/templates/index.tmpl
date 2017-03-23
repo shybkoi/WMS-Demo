@@ -1,0 +1,194 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def systemNavigation
+ 	<form class="buttons">
+		$_('Склад'): <select id="selObj"></select>
+        &nbsp;&nbsp;&nbsp;
+		$_('Зона МП'): <select id="selZone"></select>
+        &nbsp;&nbsp;&nbsp;
+        <button type=submit id=btnRefresh><img src="$eng_img/actions/refresh.png"></button>
+        <!--<button type=button id=btnPrint><img src="$eng_img/actions/printer.png"></button>-->
+	</form>
+#end def
+
+#def engineData
+    ##Styles
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="$sp_css/main.css" />
+
+    ##Scripts
+    <script type="text/javascript" src="$eng_js/jquery/2.1.1/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+    var jQuery_2_1_1 = $.noConflict(true);
+    </script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.time.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/handlebars.min.js"></script>
+
+    <script type="text/javascript" src="$sp_js/main.js"></script>
+    <div class="dvData"></div>
+#compiler-settings
+directiveStartToken = %
+#end compiler-settings
+
+    <script id="row" type="text/x-handlebars-template">
+        <tr data-wid="{{WID}}" {{#if hidden}}data-hide="true"{{/if}} class="{{#if hidden}}hidden{{/if}} {{#if last}}last-child{{/if}}">
+            <td class="date text">
+                {{#if hidden}}<img class="vertline" src="../../images/tree/vertline.gif"/>{{/if}}
+                <img alt="" class="imgClick" data-val="{{#if expandable}}+{{else}}={{/if}}"/>
+                &nbsp;<span {{#unless expandable}}class="wldate"{{else}}class="wldateall"{{/unless}} {{#if values.PDATETITLE}}title="{{values.PDATETITLE}}"{{/if}}>{{values.PDATE}}</span>
+            <td class="number" title="{{EXTERNALCODE}}">{{WCODE}}
+            <td class="text dash">{{WNAME}}
+            <td data-code="" class="number">{{values.QA_DEC}}
+            <td data-code="" class="number dash">{{values.QA}}
+            <td data-code="B" class="number">{{values.QB_DEC}}
+            <td data-code="B" class="number dash">{{values.QB}}
+            <td data-code="STACK" class="number" title="{{values.QSNTITLE}}">{{values.QSN}}
+            <td data-code="STACK" class="number">{{values.QSP}}
+            <td data-code="STACK" class="number">{{values.QS_DEC}}
+            <td data-code="STACK" class="number dash">{{values.QS}}
+            <td data-code="BUYRET" class="number">{{values.QR_DEC}}
+            <td data-code="BUYRET" class="number dash">{{values.QR}}
+            <td data-code="E" class="number">{{values.QE_DEC}}
+            <td data-code="E" class="number dash">{{values.QE}}
+            <td data-code="TRASH" class="number">{{values.QT_DEC}}
+            <td data-code="TRASH" class="number dash">{{values.QT}}
+            <td data-code="DEFICIT" class="number">{{values.QN_DEC}}
+            <td data-code="DEFICIT" class="number">{{values.QN}}
+        </tr>
+    </script>
+
+    <script id="units" type="text/x-handlebars-template">
+        {{#if amount}}<th ksort="text">Кол-во{{/if}}
+        <th ksort="digit" title="Декалитры">ДЛ
+        <th ksort="digit" title="Основных единиц измерения">ОЕИ
+    </script>
+
+    <script id="rest" type="text/x-handlebars-template">
+        {{#if rows.length}}
+        <table>
+            <thead>
+            <tr>
+                <th ksort="date">Дата</th>
+                <th ksort="text">Номер паллета</th>
+                <th ksort="text">Местоположение</th>
+                {{> units amount=true }}
+            </tr>
+            </thead>
+            <tbody>
+            {{#each rows}}
+                <tr>
+                    <td>{{APDATE}}</td>
+                    <td>{{PNUMBER}}
+                    <td>{{SNAME}}
+                    <td>{{viewQuantity WLIAMOUNT @root.wares.VUFACTOR @root.wares.VUCODE @root.wares.MUFACTOR @root.wares.MUCODE}}
+                    <td class="number">{{decaliters WLIAMOUNT @root.wares.DLFACTOR @root.wares.DLCODE @root.wares.MUFACTOR @root.wares.MUCODE 1}}
+                    <td class="number">{{WLIAMOUNT}}
+                </tr>
+            {{/each}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="3"></th>
+                <th>{{viewQuantity footer.WLIAMOUNT @root.wares.VUFACTOR @root.wares.VUCODE @root.wares.MUFACTOR @root.wares.MUCODE}}</th>
+                <th class="number">{{decaliters footer.WLIAMOUNT  @root.wares.DLFACTOR @root.wares.DLCODE @root.wares.MUFACTOR @root.wares.MUCODE 1}}</th>
+                <th class="number">{{footer.WLIAMOUNT}}</th>
+            </tr>
+            </tfoot>
+        </table>
+        {{else}}
+        Нет данных для отображения
+        {{/if}}
+    </script>
+
+    <script id="table" type="text/x-handlebars-template">
+      <table>
+          <thead>
+            <tr>
+                <th rowspan="3">Дата
+                <th colspan="2">Товар
+                <th colspan="{{siteslength}}">{{title}}
+                <th colspan="{{problemslength}}">Проблемы
+            </tr>
+            <tr>
+                <th rowspan="2">Код</th>
+                <th rowspan="2">Наименование</th>
+                {{#each sites}}
+                <th colspan="{{#if colspan}}{{colspan}}{{else}}2{{/if}}"{{#if title}} title="{{title}}"{{/if}}>{{name}}
+                {{/each}}
+                {{#each problems}}
+                <th colspan="2"{{#if title}} title="{{title}}"{{/if}}>{{name}}
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each sites}}
+                    {{#if stack}}
+                        <th title="Количество штабелей">КШ
+                        <th title="Количество паллет">КП
+                        <th title="Декалитры">ДЛ
+                        <th title="Основных единиц измерения">ОЕИ
+                    {{else}}
+                        {{> units }}
+                    {{/if}}
+                {{/each}}
+                {{#each problems}}
+                    {{> units }}
+                {{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{#each data as |r|}}
+                {{#if single}}
+                {{> row values=single last=@last}}
+                {{else}}
+                {{#if header}}
+                {{> row values=header expandable=true last=@last}}
+                {{#each rows}}
+                    {{> row r values=this hidden=true last=@last}}
+                {{/each}}
+                {{/if}}
+                {{/if}}
+            {{/each}}
+          </tbody>
+          <tfoot>
+          <tr>
+              {{#with footer}}
+              <th colspan="3">
+              <th class="number">{{QA_DEC}}
+              <th class="number">{{QA}}
+              <th class="number">{{QB_DEC}}
+              <th class="number">{{QB}}
+              <th class="number">{{QSN}}
+              <th class="number">{{QSP}}
+              <th class="number">{{QS_DEC}}
+              <th class="number">{{QS}}
+              <th class="number">{{QR_DEC}}
+              <th class="number">{{QR}}
+              <th class="number">{{QE_DEC}}
+              <th class="number">{{QE}}
+              <th class="number">{{QT_DEC}}
+              <th class="number">{{QT}}
+              <th class="number">{{QN_DEC}}
+              <th class="number">{{QN}}
+              {{/with}}
+          </tr>
+          </tfoot>
+
+      </table>
+    </script>
+
+%compiler-settings reset
+#end def

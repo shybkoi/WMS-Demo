@@ -1,0 +1,18 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$PNUM</u></b>($SNAME)<br>
+    $TOOBJNAME<br>    
+    <b><u>($WCODE)</u></b>$WNAME<br><br>
+    <b><u>$DOCNUM / #filter DateFilter2$DOCDATE#end filter#</u></b><br><br>
+	
+    Отсканируйте ШК местоположения<br>
+    <u><b>$TSNAME</b></u>
+    
+    <form action="taskWPalletWares">
+        <input type="hidden" name="palletid" value="$PID">
+        <input type="hidden" name="waresid" value="$WID">
+        ШК: <input type="text" id=":scan:text" name="barcode" value="">
+	</form>
+#end def

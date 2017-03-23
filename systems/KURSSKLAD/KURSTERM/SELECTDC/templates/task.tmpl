@@ -1,0 +1,10 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   <b> № $docnum от #filter DateFilter $docdate #end filter # </b>
+   <br> № $TID
+   <br>
+   <a href="task$ALGORITHM?id=$TID">$_('Продолжить')</a>
+#end def    

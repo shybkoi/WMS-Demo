@@ -1,0 +1,68 @@
+#encoding cp1251
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="windows-1251"/>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    #if $varExists("system_name")
+    <title>$system_name</title>
+    #end if
+    #if $varExists("eng_img")
+    <link rel="shortcut icon" href="$eng_img/favicon.ico">
+    #end if
+
+    <link href="/locale/$getSesVar('locale')/locale.json" lang="$getSesVar('locale')" rel="gettext" />
+    <script type="text/javascript" src="$eng_js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="$eng_js/bootstrap/bootstrap.min.js"></script>
+
+    <link href="$eng_css/mobile/main_mob.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="$eng_css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="$eng_css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="screen">
+
+</head>
+<body>
+<script>
+    #if $varExists('$sp_img')
+      sp_img="$sp_img";
+    #end if
+##    #if $varExists('$sp_img.WMSMOBILE')
+##      sps_img="$sps_img.WMSMOBILE";
+##    #end if
+</script>
+
+  <div class="container">
+    <!--Begin Head -->
+    #if $varExists("userfio")
+        <div class="navbar navbar-fixed-top">
+            <div class='container navbar-inner'>
+
+
+                        <p class='brand'>
+                            $userfio
+                        </p>
+
+
+                    <ul class="nav nav-pills pull-right">
+                       <li><a href="exit">Выход</a></li>
+                    </ul>
+            </div>
+        </div>
+    #end if
+    <div id="container-content-wrapper">
+      <div id="container-content" align="center">
+        <!--Begin Interface Data-->
+        #block engineData_mob
+            нет информации для отображения
+        #end block engineData_mob
+        <!--End Interface Data-->
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+

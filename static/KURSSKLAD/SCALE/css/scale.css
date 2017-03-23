@@ -1,0 +1,114 @@
+#admin-actions{border: 2px solid gray;}
+#left { text-align: left; }
+#right { text-align: right; }
+#center { text-align: center; vertical-align: middle; }
+#widthth { width: 30;}
+.Row { width: 99%;}
+.width100 { width: 100% !important;}
+.padding-top{ padding-top: 5px;}
+#tmaster, #ss-tmaster { width: 100% !important;}
+#tdetail, #detail { width: 100%;}
+#t-results { width: 100%;}
+#noborder { border: 0;}
+#user-message{
+        text-align: center;
+        vertical-align:top;
+        color : red;}
+#ms-Body{
+        position: relative;
+        float:left;
+        width: 82%;
+        text-align: left;
+        vertical-align:top;}
+#ms-Filter
+    {        
+        position: relative;
+        float:left;
+        width: 18%;
+        text-align: left;
+        vertical-align:top;
+    }
+.left-radio
+    {        
+        position: relative;
+        float:left;
+        width: 33%;
+        text-align: left;
+        vertical-align:top;
+                padding-bottom: 10px;
+    }
+#admin-actions{
+    position: relative;
+    float:left;
+    width: 30%;
+    text-align: left;
+    padding-left: 2px;
+    width: 98.5% !important;
+}
+#user-actions{
+    position: relative;
+    float:left;
+    width: 98.5% !important;
+    text-align: right;
+    padding-right: 2px;
+}
+.right-search
+    {        
+        position: relative;
+        float:left;
+        width: 50%;
+        text-align: left;
+        padding-top: 20px;
+    }
+.result-table
+    {        
+        position: relative;
+        float:left;
+        width: 100%;
+        text-align: left;
+        vertical-align:top;
+    }
+.Select
+    { 
+        width: 100%;
+        text-align: left;
+    }
+.stopx{width: 100px;}
+.twostopx{width: 200px;}
+.num{width: 20px;text-align: center;}
+.Checkbox{width: 20px;text-align: center;}
+.center{text-align: center;}
+.Name{text-align: left;}
+.Code{width: 100px;text-align: center;}
+.GroupName{width: 200px;text-align: left;}
+.GroupNameMaster, .ProducerNameMaster, .NameMaster{width: 30%;text-align: left;}
+.dlgGroupName{width: 120px;text-align: left;}
+.ProducerName{width: 200px;text-align: left;}
+.SalePrice{width: 60px;text-align: right;}
+th.num, th.Name, th.Code, th.GroupName, th.dlgGroupName, th.ProducerName, th.SalePrice{text-align: center;}
+.d-row
+        {
+        position: relative;
+        float:left;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+.d-label
+        {
+        position: relative;
+        float:left;
+        width: 25%;
+        text-align: left;
+        vertical-align: middle;
+    }
+.d-input
+        {
+        position: relative;
+        float:left;
+        width: 75%;
+        text-align: left;
+        vertical-align: middle;
+    }

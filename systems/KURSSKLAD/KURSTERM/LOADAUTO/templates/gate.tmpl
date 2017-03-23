@@ -1,0 +1,64 @@
+#encoding cp1251
+
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main#def mainData
+    <b><u> $GNAME </u></b><br>
+    
+    #set $coma = ','
+    #set $canEnd = True
+    #if $tid 
+        <b><u> $ANAME </u></b><br>
+        #filter DateTimeFilter $plandt #end filter#
+        <hr>    
+        #set $clientName = ''
+        #set $docID = 0
+        #if $varExists('$datalist') and $datalist
+            #for $item in $datalist
+                #if $clientName != $item.CLIENTNAME
+                    #if $clientName != ''
+                        <br>
+                    #end if
+                    <b><u>$item.CLIENTNAME</u><b>
+                    #set $clientName = $item.CLIENTNAME
+                    #set $docID = 0
+                #end if
+                
+                #if $docID != $item.DOCID
+                    <br>
+                    <u>$item.DNUM</u>:
+                    #set $docID = $item.DOCID
+                #else
+                    $coma
+                #end if
+                
+                #if $item.TSTAT == '2'
+                    <font class="green">$item.TNUMBER</font>
+                #else
+                    #set $canEnd = False
+                    #set $str = $item.TNUMBER+'('+$item.TSNAME+')'
+                    <font class="red">$str</font>
+                #end if
+            #end for
+        #end if     
+        #if $canEnd
+            <hr>
+            <a href='gateTaskEnd?tid=$TID'>$_('Завершить')</a>
+        #end if
+    #else
+        <form action=gate>
+            <input type=hidden name=id value=$gid>
+            ШК: <input type="text" id="barcode:scan:text" name="barcode" title="$_('Авто'),$_('Ворота')"><br>
+        </form>
+        <hr>
+        #if $varExists('$datalist') and $datalist
+            #for $item in $datalist
+                <b><u>$item.ANAME</u></b><br>#filter DateTimeFilter $item.TPLANDT#end filter#<br><br>                
+            #end for
+        #end if        
+    #end if
+	
+#end def
+
+

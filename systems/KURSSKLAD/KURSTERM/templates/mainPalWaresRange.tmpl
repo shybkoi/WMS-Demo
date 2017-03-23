@@ -1,0 +1,15 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    $_('Выберите товар')
+    <hr>
+
+    #if $varExists('$datalist')
+        #for $item in $datalist
+            <a href="palWares?id=$PAL_ID&wid=$item.WID">($item.WCODE) <br>
+                $item.WNAME.replace('"',"'")</a>
+            <br><br>
+        #end for
+    #end if
+#end def

@@ -1,0 +1,29 @@
+#encoding cp1251
+    <script type="text/javascript">
+        function changeZone() {
+            var zoneid = \$('#changezone_main').val();
+            if (!zoneid) {
+                alert('Невозможно изменить зону привязки!');
+            } else {
+                \$.getJSON('changezone_set_zone', {zoneid: zoneid}, function() {
+                    location.reload();
+                });
+            }
+        }
+    </script>
+    
+    #if $varExists('$zone_datalist') and $zone_datalist
+    <select style="width: 250px;" id="changezone_main" onchange="changeZone();">  
+            #for $item in $zone_datalist
+                <option value=$item.ZONEID 
+                #if str($item.ZONEID)==str($user_zone_id)
+                    selected
+                #end if                            
+                > $item.NAME
+            #end for
+    </select>
+    #else
+        #if $varExists('$user_zone_name') and $user_zone_name
+            $user_zone_name
+        #end if
+    #end if

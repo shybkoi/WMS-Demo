@@ -1,0 +1,16 @@
+/*-----------------------------------------
+[Theme Import Stylesheet]
+Theme name:   darkgrey
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    14:43 17.06.2011
+Author:     Beogainko S.S.   (sbelogainco@gmail.com)
+Based on theme by:	    Chernyavsky A.E. (che.alexey@gmail.com)
+
+-----------------------------------------*/
+
+@import "/ENGINE/themes/darkgrey/css/structure.css";
+@import "/ENGINE/themes/darkgrey/css/jquery.treeview.css";
+@import "/ENGINE/themes/darkgrey/css/datepicker.css";
+@import "/ENGINE/themes/darkgrey/css/dialog.css";
+@import "/ENGINE/themes/darkgrey/css/contextMenu.css";

@@ -1,0 +1,16 @@
+/*-----------------------------------------
+[Theme Import Stylesheet]
+Theme name:   magnit
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    14:43 17.06.2011
+Author:     Beogainko S.S.   (sbelogainco@gmail.com)
+Based on theme by:	    Chernyavsky A.E. (che.alexey@gmail.com)
+
+-----------------------------------------*/
+
+@import "/ENGINE/themes/magnit/css/structure.css";
+@import "/ENGINE/themes/magnit/css/jquery.treeview.css";
+@import "/ENGINE/themes/magnit/css/datepicker.css";
+@import "/ENGINE/themes/magnit/css/dialog.css";
+@import "/ENGINE/themes/magnit/css/contextMenu.css";

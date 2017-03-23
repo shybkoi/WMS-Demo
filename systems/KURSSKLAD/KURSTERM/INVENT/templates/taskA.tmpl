@@ -1,0 +1,13 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    $ZONENAME</br>
+    <b>π$TID</b>($ALGORITHM)
+    <br>
+    <br>
+	<form action="taskA">
+        <input type="hidden" value="$TID" name="tid">
+        $_('ÿ '): <input type="text" id=":scan:text" name="barcode" title="$_('Ãœ')" />
+	</form>
+#end def

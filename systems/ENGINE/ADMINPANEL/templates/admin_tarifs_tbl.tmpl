@@ -1,0 +1,43 @@
+#encoding cp1251
+<table id="tbl_tarifs" style="border: 2px ridge #FFE4E1; border-spacing: 2px">
+  <thead>
+    <tr>
+      <th>$_('Отключен')</th>
+      <th>$_('№ п/п')</th>
+      <th>ID</th>
+      <th>$_('Название')</th>
+      <th>$_('Описание')</th>
+      <th>$_('По умолчанию')</th>
+      <th>$_('Сортировка')</th>
+      <th>$_('Срок действия (в днях)')</th>
+      <th>$_('Напоминать за (дней)')</th>
+      <th>$_('Изменено')</th>
+    </tr>
+  </thead>
+  <tbody id="tbl_tarifs_tbody">
+        #set $N=1
+        #for $tarif in $tarifs
+            <tr id="$tarif.ID_TAR">
+                <td class="hac disabled"><input type="checkbox"
+                    #if $tarif.DISABLED is not None and $tarif.DISABLED != 0
+                        checked
+                    #end if
+                    ></td>
+                <td class="har enum">$N</td>
+                <td class="har id_tar">$tarif.ID_TAR</td>
+                <td class="tar_name">$tarif.TAR_NAME</td>
+                <td class="tar_desc">$tarif.TAR_DESC</td>
+                <td class="hac is_default"><input type="checkbox"
+                    #if $tarif.IS_DEFAULT is not None and $tarif.IS_DEFAULT != 0
+                        checked
+                    #end if
+                    ></td>
+                <td class="har orderby">$tarif.ORDERBY</td>
+                <td class="har expire_days">$tarif.EXPIRE_DAYS</td>
+                <td class="har remind_days">$tarif.REMIND_DAYS</td>
+                <td class="lastdate hac">#filter LongDateTimeFilter $tarif.LASTDATE #end filter</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

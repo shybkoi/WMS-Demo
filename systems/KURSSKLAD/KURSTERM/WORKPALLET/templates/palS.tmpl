@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.mainPalS
+
+#def palFooter
+    <hr>
+    #if $PAL_CANEDIT=='1'
+        #set $title = $_('Паллет')
+        #if $PAL_TCANMOVE == '1'
+            #set $title += ', ' + $_('МП паллета')
+        #end if
+        #if $varExists('$datalist') and len($datalist)>0
+            #set $title += ', ' + $_('Товар')
+        #end if
+        <form action="palScan">
+            <input type="hidden" name="id" value="$PAL_ID">
+            $_('ШК'): <input type="text" id=":scan:text" name="barcode" value="" title="$title">
+        </form>
+    #end if
+#end def

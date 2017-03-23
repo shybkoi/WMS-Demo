@@ -1,0 +1,337 @@
+#encoding cp1251
+#import conf.engine_conf as cfg
+#def $activeTab($methodname)
+    #set $class_name = 'nonactive-tab'
+    #import py_utils as pu
+    #set $ind = 0
+    #set $found_method = $pu.find_base_caller($ind)[3]
+    #while $found_method != ''
+        #if $found_method == $methodname
+            #set $class_name = 'active-tab'
+            #break
+        #end if
+        #set $ind += 1
+        #set $found_method = $pu.find_base_caller($ind)[3]
+    #end while
+    #echo $class_name
+#end def
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <meta name="robots" content="noindex, nofollow">
+    #if $varExists("system_name")
+    <title>$system_name</title>
+    #end if
+    #if $varExists("sp_img")
+    <link rel="shortcut icon" href="$sp_img/favicon.ico">
+    #end if
+    <link rel="stylesheet" href="$eng_css/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="$eng_css/structure.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="$eng_css/dialog.resizable.css" type="text/css" media="screen"/>
+    #if $varExists("$up_theme_name")
+    <link id="csstheme" rel="stylesheet" href="/ENGINE/themes/$up_theme_name/css/import.css" type="text/css" media="screen"/>
+    #end if
+
+    <link href="/locale/$getSesVar('locale')/locale.json" lang="$getSesVar('locale')" rel="gettext" />
+    <script type="text/javascript" src="$eng_js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.gettext.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.core.min.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.resizable.min.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.draggable.min.js"></script>
+    <script type="text/javascript" src="$eng_js/json2.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.easing.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.accordion.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.treeview.js" ></script>
+    <script type="text/javascript" src="$eng_js/jquery.numeric.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/utils.datetime.js"></script>
+    <script type="text/javascript">
+    \$(function(){
+
+      \$(".search-btn").click(function(){
+        \$("#search-content").slideToggle("slow");
+        \$(this).toggleClass("active"); return false;
+      });
+
+       \$("#user-bar-accordion").accordion({
+          //active: false,
+          header: ".head",
+          accordigation: true,
+          event: "click",
+          fillSpace: false,
+          animated: "easeslide",
+                autoheight: false
+        });
+       \$("#user-bar-accordion-tooggler").click(function(){
+            var Tooggled = \$("#container-user-bar-accordion");
+            var Container = \$("#container-content");
+            //if((Tooggled).is(":hidden"))
+            //    Container.animate({marginRight:"184px"},{duration:"normal", queue:true});
+            //else
+            //    Container.animate({marginRight:"5px"},{duration:"normal", queue:true});
+            Tooggled.toggle("normal");
+        });
+
+        \$("#systems-tree").treeview({
+          persist: "location",
+          collapsed: true,
+          unique: true,
+              animated: "fast"
+        });
+
+        function getMsg() {
+            \$.getJSON('ajaxGetMsg',{},function(data){
+                if (data.data.RES=="eng_msg") alert(data.data.MES);
+                if (data.data.RES=="eng_redirect_to_index"){
+                    alert(data.data.MES);
+                    location.href=data.data.LOCATION;
+                }
+                if (data.data.RES=="eng_error"){
+                    alert(data.data.MES);
+                }
+              });
+        }
+        \$("<div id='container-busy'></div>")
+        .ajaxStart(function() {
+            \$(this).show();
+            \$('body').addClass("cursor_wait");
+            getMsg();
+        })
+        .ajaxStop(function(){\$(this).hide(); \$('body').removeClass("cursor_wait");})
+        .ajaxError(function(event, request, settings, error){
+            ##\$(this).text("Ошибка запроса страницы: " + settings.url).show();
+            \$('body').removeClass("cursor_wait");
+            ##alert("ajaxError: Во время обработки запроса возникла ошибка, либо пропала связь с сервером! Администратор системы автоматически получит электронное письмо. Попробуйте подключиться через 5-10 минут.");
+            try {
+                eval("var json=" + request.responseText);
+            }
+            catch(e) {
+                var json = request.responseText;
+            }
+            var mes = (json ? '\n\n\nТехнические подробности:\n---\n' + (json.mes ? json.mes : json) : '');
+            if (settings.url != 'ajaxGetMsg')
+                alert('Во время обработки запроса возникла ошибка либо пропала связь с сервером:' + mes);
+            ##alert(listProperties(request, 'request'));
+        })
+        .appendTo("#container-head");
+        ##executing at start page
+        getMsg();
+
+        ##alert(listProperties(sps_css, "sps_css"));
+    });
+    </script>
+
+</head>
+<body>
+<script type="text/javascript">
+    ## iface valiables
+    #import secure
+    #if $varExists('$ifaceVariables')
+        #for $item in $ifaceVariables
+            #set $v = secure.escape_js_string($item.VALUE)
+            $item.VARIABLE = "$v";
+        #end for
+    #end if
+    ## string params
+    #if $varExists('$sp')
+      sp="$sp";
+    #end if
+    #if $varExists('$sp_img')
+      sp_img="$sp_img";
+    #end if
+    #if $varExists('$sp_css')
+      sp_css="$sp_css";
+    #end if
+    #if $varExists('$sp_js')
+      sp_js="$sp_js";
+    #end if
+    #if $varExists('$sp_forms')
+      sp_forms="$sp_forms";
+    #end if
+    #if $varExists('$sp_reports')
+      sp_reports="$sp_reports";
+    #end if
+
+    eng_img="$eng_img";
+    eng_css="$eng_css";
+    eng_js="$eng_js";
+    eng_forms="$eng_forms";
+    eng_reports="$eng_reports";
+
+    ## dict params
+    sps_name=$sps_name;
+    sps_img=$sps_img;
+    sps_css=$sps_css;
+    sps_js=$sps_js;
+    sps_forms=$sps_forms;
+    sps_reports=$sps_reports;
+
+    #*#if $varExists('$so_js_dic')
+      ##{"['role_add_btn2', 'element']": {'add':{'par1': 'val1', 'par2': 'val2'}, 'add2':{}}, "['role_add_btn', 'element']": {'cancel':{}, 'nodelete':{}, 'view':{}}}
+      loaded_sys_options=$so_js_dic;
+    #else
+      loaded_sys_options=null;
+    #end if*#
+    function include(script_filename) {
+      document.write('<'+'script'+' language="javascript"'+' type="text/javascript"'+' src="'+script_filename+'">'+'</'+'script'+'>');
+    }
+</script>
+      #if $getSesVar("user-agent-restricted")
+            #from conf.engine_conf import UA_OTHER_REMIND
+            #if $UA_OTHER_REMIND
+                #def gen_browser($p, $compact)
+                    #set $onclick = 'return !window.open(this.href)'
+                    #set $img = $p.shortname
+                    #if $compact
+                        #set $img = $img + '_small'
+                    #end if
+                    #set $img = $img + '.jpg'
+                    #set $recommend= ''
+                    #if $p.basic
+                        #set $recommend='<div><span>(рекомендуемый)</span></div>'
+                    #end if
+                    <li style='display: inline;'>
+                        <a href="$p.href" onclick="$onclick"><img src="$eng_img/change_browser/$img" alt="$p.showname" /></a>
+                    </li>
+                #end def
+
+                #def gen_browser_lst($compact)
+                    #from conf.engine_conf import UA_ALLOWED
+                    #for $b in $UA_ALLOWED
+                      #if $b.recommend
+                        $gen_browser($b, $compact)
+                      #end if
+                    #end for
+                #end def
+                <div id="ua_change" align="center">
+                    <p>Вы используете устаревший браузер. Для стабильной и комфортной работы установите один из браузеров, перечисленных ниже:</p>
+                    <ul>$gen_browser_lst(True)</ul>
+                </div>
+            #end if
+      #end if
+
+  <div id="container-page">
+    <!--Begin Head -->
+    <div id="container-head" class="container">
+      #if $varExists("html_warning") and $html_warning
+        <div id="html-warning">$html_warning</div>
+      #end if
+      #if $varExists("clt_html") and $clt_html
+          <div id="addinfo">$clt_html</div>
+      #else
+          #if $varExists("addinfo")
+            <div id="addinfo">$addinfo</div>
+          #end if
+      #end if
+      #if $varExists("top_system_name")
+        <div id="parent-sys-name">$top_system_name</div>
+      #end if
+      <div id="container-user-data">
+      #if $varExists("userfio")
+        $userfio
+      #end if
+        <ul class="user-menu">
+          <li><a id="user-bar-accordion-tooggler" href="javascript:void(0);">Меню</a></li>
+          #if getattr(cfg, 'SHOW_TOP_SYSTEM_NAME', False) and $varExists("top_system_name") and $top_system_name and $varExists("top_system_ref") and $top_system_ref
+                <li>
+                    <a href="$top_system_ref">$top_system_name</a>
+                </li>
+          #end if
+
+          #if $varExists("system_help")
+              <li>  <a href="javascript: void(0);" onclick="var wind  = window.open('$sp/help/index.htm','Инструкция по работе с системой'); wind.focus();">
+                        Справка
+                    </a>
+              </li>
+          #end if
+          <li><a href="/exit">Выход</a></li>
+        </ul>
+      </div>
+      #if $varExists("system_name")
+        <div id="sys-name">$system_name</div>
+      #end if
+      #if $varExists("test_message")
+        <div id="test-message">$test_message</div>
+      #end if
+
+
+        <div id="sysmenu" class="navigation">
+        #block systemNavigation
+        #end block systemNavigation
+        </div>
+
+    </div>
+    <!--End Head -->
+    <!--Begin UserBar Accordion-->
+    <div id="container-user-bar-accordion" class="container" align="center">
+            <ul id="user-bar-accordion" class="accord user-bar-accordion">
+            #if $varExists("eng_systems_tree")
+                <li class="accord">
+                    <a class="head">Мои системы</a>
+                    <ul id="systems-tree">$eng_systems_tree</ul>
+                </li>
+            #end if
+
+                <li class="accord">
+                    <a class="head">Мой профиль</a>
+                    <ul class="accord">
+                        <li class="accord"><a href="/PROFILE/theme">Тема оформления</a></li>
+                        <li class="accord"><a href="/PROFILE/passwd">Пароль</a></li>
+
+                        #from system_init import get_mapped_sysinfo
+                        #set $profileaddoninfo = get_mapped_sysinfo("/ADDONS/PROFILEADDON")
+                        #if len($profileaddoninfo) > 0
+                            <li class="accord"><a href="/PROFILE/info">Учетные данные</a></li>
+                        #end if
+
+                    </ul>
+                </li>
+            </ul>
+    </div>
+    <!--End UserBar Accordion-->
+    <div id="container-content-wrapper">
+      <div id="container-content" class="container" align="center">
+        #if $varExists("searchbar")
+            #set $searchbar_style=''
+            #if str($searchbar.visible) == '1'
+                #set $searchbar_style='style = "display: block;"'
+            #end if
+
+        <!--Begin Search Bar-->
+        <div id="search-wrap">
+            <div id="search-content" class="container" $searchbar_style>
+                 #block searchData
+                   нет информации для отображения
+                 #end block searchData
+            </div>
+            <p class="search-header"><a href="#" class="search-btn">Поиск</a></p>
+        </div>
+        <!--End Search Bar-->
+        #end if
+        <!--Begin Interface Data-->
+        #if $varExists('$engine_error') and $engine_error
+            #import secure
+            #set $engine_error_sec = secure.escape_js_string($engine_error)
+            <script type="text/javascript">alert('$engine_error_sec');</script>
+        #else
+            #block engineData
+                нет информации для отображения
+            #end block engineData
+        #end if
+        <p id="nodatamsg" style="display:none;">Нет данных для отображения</p>
+        <!--End Interface Data-->
+      </div>
+    </div>
+    <div id="page-empty"></div>
+  </div>
+  <div id="container-footer" class="container">
+   <p>
+   #if $varExists("system_name")
+    #import datetime
+    #set $cur_year = datetime.date.today().strftime("%Y")
+    Технологии <a href="http://rbsrandl.com" target="_blank">ООО &laquo;Ритейл-Консалтинг&raquo;</a>. $system_name &copy; $cur_year Все права сохранены
+   #end if
+   </p>
+  </div>
+</body>
+</html>

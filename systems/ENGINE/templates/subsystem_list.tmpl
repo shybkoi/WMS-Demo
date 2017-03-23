@@ -1,0 +1,23 @@
+#encoding cp1251
+#extends systems.engine_main
+#def engineData
+    #if $varExists('first_time')
+        #if $first_time==1
+            <style>
+            \#success_msg {
+                color: \#0b0;
+                font-size: larger;
+                margin-bottom: 10px;
+            }
+            </style>
+            <div id='success_msg'>$_('–егистраци€ прошла успешно, добро пожаловать!')</div>
+        #end if
+    #end if
+<div id="sysLst-container">
+    <ul>
+      #for item in $datalist
+       <li><a href="$item.full_ref_name"><img src="$item.full_folder_name/images/logo.png" width="60" /><span>$item.show_name</span></a></li>
+      #end for
+    </ul>
+</div>
+#end def

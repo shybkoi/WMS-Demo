@@ -1,0 +1,47 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+<link href="$sp_css/wmconfig.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="$sp_css/tree.css" rel="stylesheet" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+<script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js"></script>    
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+<script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+
+<script type="text/javascript" src="$sp_js/wmconfig.js"></script>
+<script type="text/javascript" src="$sp_js/jquery.tree.js"></script>
+
+<div class='div-type'>
+</div>
+<div class='div-params'>
+</div>
+<div class='method-obj-container'>
+    <div class='div-method'>
+    </div>
+    <div class='div-type-method'>
+    </div>
+    <div class='div-object'>
+    </div>
+</div>
+
+<ul id="tblWaresSetMenu" class="contextMenu">
+    <li class="copy"><a href="#copy">Копировать</a></li>
+</ul>
+<ul id="tblTaskTypeMenu" class="contextMenu" style="width:200px;">
+    <li class="add"><a href="#add">Добавить параметр</a></li>
+</ul>
+<ul id="tblParamsMenu" class="contextMenu">
+    <li class="delete"><a href="#delete">Удалить</a></li>
+</ul>
+#end def

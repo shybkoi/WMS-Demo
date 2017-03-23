@@ -1,0 +1,8 @@
+/*invalid label for form fields*/
+.invalid {
+	margin-left: 0px;
+	padding: 0px;
+  background-color: #EDF8FF;
+	color: red;
+  text-align: left;
+}

@@ -1,0 +1,99 @@
+#encoding cp1251
+
+#def is_rf(field)
+    #if $field in $required_fields
+        <div class='required_field'>*</div>
+    #end if
+#end def
+
+#extends systems.ENGINE.ACCOUNT.templates.account_main
+#def accountData
+        <script type="text/javascript" src="/ENGINE/ACCOUNT/js/register.js"></script>
+        <form method="POST" action="createaccount" name="createaccount-form" id="createaccount-form">
+            <div class="register-block">
+                <h1>$_('Регистрация аккаунта')</h1>
+                <!--Begin basic registration data-->
+                <table>
+                    <tbody>
+                      <tr>
+                        <td>ФИО:$is_rf('fio')</td>
+                        <td><input type="text" value="" size="30" maxlength="80" id="fio" name="fio"></td>
+                      </tr>
+                      <tr>
+                        <td>$_('Имя для входа (логин)'):$is_rf('login')</td>
+                        <td><input type="text" value="" size="30" maxlength="30" id="login" name="login"></td>
+                      </tr>
+                      <tr>
+                        <td>$_('Почтовый ящик (email)'):$is_rf('email')</td>
+                        <td><input type="text" value="" size="30" maxlength="100" id="email" name="email"></td>
+                      </tr>
+                      <tr>
+                        <td>$_('Пароль'):$is_rf('passwd')</td>
+                        <td>
+                            <input type="password" value="" size="30" id="passwd" name="passwd">
+                            <span id="verdict_passwd" style="display: none;"></span>
+                            <span id="pc-container" style="display: none;">
+                                <span id="pc-indicator"><span id="pc-indicator-inline"></span></span>
+                                <span id="pc-indicator-text"></span>
+                            </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>$_('Введите пароль еще раз'):$is_rf('passwd2')</td>
+                        <td><input type="password" value="" size="30" id="passwd2" name="passwd2">
+                            <span id="verdict_passwd2" style="display: none;"></span>
+                            <span id="repeat-text" style="display: none;"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>$_('Контактный телефон'):$is_rf('phonenumber')</td>
+                        <td><input type="text" value="" size="30" maxlength="30" id="phonenumber" name="phonenumber"></td>
+                      </tr>
+                      #if $varExists('tarifs') and $tarifs
+                          <tr>
+                             <td>$_('Тариф'):$is_rf('tarif')</td>
+                             <td>
+                                <select id="tarif" name="tarif">
+                                    #for $tarif in $tarifs
+                                       #if $tarif.IS_DEFAULT
+                                         #set $selected='selected'
+                                       #else
+                                         #set $selected=''
+                                       #end if
+                                       <option value="$tarif.ID_TAR" $selected>$tarif.TAR_NAME</option>
+                                    #end for
+                                </select>
+                             </td>
+                           </tr>
+                       #end if
+                        <!--End basic registration data-->
+                        <!--Begin additional registration data-->
+                        #block regAddon
+                            #if $varExists('regaddon') and $regaddon == 1
+                                #if $varExists('regaddon_tmpl_path')
+                                    #include $regaddon_tmpl_path+"regaddon.tmpl"
+                                #end if
+                            #end if
+                        #end block regAddon
+                        <!--End additional registration data-->
+                        #if $useCaptcha == 1
+                            <script type="text/javascript">
+                            var RecaptchaOptions = {
+                               lang : 'ru',
+                            };
+                            </script>
+                          <tr>
+                            <td>$_('Защита от роботов'):$is_rf('recaptcha')</td>
+                            <td>
+                                $_('Введите символы, представленные на картинке ниже.')<br>
+                                $CaptchaHtml
+                                $_('Буквы вводятся без учета регистра.')<br>
+                            </td>
+                          </tr>
+                        #end if
+                    </tbody>
+                </table>
+                <input type="SUBMIT" value="$_('Я принимаю условия. Создайте мой аккаунт.')" name="submitbutton" id="submitbutton" style="width: 42em;">
+            </div>
+        </form>
+#end def

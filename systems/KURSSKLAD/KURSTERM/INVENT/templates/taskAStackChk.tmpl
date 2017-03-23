@@ -1,0 +1,28 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+
+    $ZONENAME <b>№$TID</b>($ALGORITHM)
+    <br>
+    <b>$S_NAME</b>
+    #if $S_MODELID		
+        ##($S_PALCURCNT / $S_PALMAXCNT)
+        <br>
+        <b>($S_WCODE)</b> $S_WNAME
+        <br>
+        <b>$TimeStampToDate($S_WPRODUCTDATE)</b> - $TimeStampToDate($S_WBESTBEFOREDATE)
+    #end if
+	
+	<br><br>
+	<form action="taskAStackChk">
+		<input type="hidden" name="tid" value="$TID">
+		<input type="hidden" name="sid" value="$S_ID">
+		<input type="hidden" name="cnt" value="$CNT">
+		$_('Отсканируйте ШК паллета') <b>$PNUM</b>: 
+		<input type="text" id=":scan:text" name="barcode" title="">
+	</form>	
+	
+	<a href="javascript: if (confirm('$_('Вы  уверены, что паллет отсутствует?')')) location.href='taskAStackChk?tid=$TID&sid=$S_ID&cnt=$CNT&pid=$PID'">$_('Паллет не найден')</a>	
+#end def

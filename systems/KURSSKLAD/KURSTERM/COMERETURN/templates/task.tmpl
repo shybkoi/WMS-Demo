@@ -1,0 +1,74 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   <b><u>$FROMNAME</u></b><br>
+   <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+    <form action="taskWaresScan">
+        <input type="hidden" name="tid" value="$TID">
+        $_('ШК'): <input type='text' name='barcode' id='barcode:scan' title="$_('Товар'), $_('Поддон')">
+    </form>
+    #if $showList=='0'
+        <a href="task?tid=$TID&showList=1">$_('Товары')</a>
+    #else
+        <a href="task?tid=$TID&showList=0">$_('Скрыть')</a> 
+      #if $showList!='11'
+        <a href="task?tid=$TID&showList=11">$_('Различия')</a>
+      #else
+        <a href="task?tid=$TID&showList=10">$_('Все')</a>
+      #end if
+    #end if
+   
+   #if $varExists('$datalist')
+    <table>
+        <thead>
+            <tr>
+                <th>$_('Код')</th>
+                <th>$_('План')</th>
+                <th>$_('Факт')</th>
+            </tr>
+        </thead>
+        <tbody>
+        #for $item in $datalist
+            #if $item.QFACT
+              #set $qFact = float($item.QFACT)
+            #else
+              #set $qFact = 0.0000
+            #end if
+            #if $item.QDOC
+              #set $qDoc = float($item.QDOC)
+            #else
+              #set $qDoc = 0.0000
+            #end if
+          #if $showList != '11' or $qFact != $qDoc
+            <tr>
+                <td><a href="taskWares?tid=$TID&wid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                <td>$viewQuantity($item.QDOC,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+              #if $qFact < 0.00001
+                <td style="background-color:yellow;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>              
+              #elif $qFact > $qDoc
+                <td style="background-color:tomato;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+              #elif $qDoc > $qFact 
+                <td style="background-color:tomato;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>              
+              #else
+                <td style="background-color:limegreen;">$viewQuantity($item.QFACT,$item.VUFACTOR,$item.VUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+              #end if
+            </tr>
+          #end if
+        #end for
+        </tbody>    
+    </table>
+   #else   
+    <br>
+   #end if
+   
+   #if $ALGORITHM and $ALGORITHM=='W'
+        <a href="taskBL?tid=$TID">$_('Коносамент')</a><br>
+   #else
+        <a href="javascript: if (confirm('$_('Вы  уверены?')')) location.href='taskEnd?tid=$TID'">$_('Завершить')</a>
+   #end if
+#end def    
+

@@ -1,0 +1,30 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+   $_('От'): <b><u>$FROMNAME</u></b><br>
+   #if $varExists('$THROUGHNAME') and $THROUGHNAME
+    $_('Через'): <b>$THROUGHNAME</b><br>
+   #end if
+   #if $TONAME
+    $_('Кому'): $TONAME<br>
+   #end if
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+	#if $varExists('$ALGORITHM') and $ALGORITHM
+		<u>($ALGORITHM)</u>
+	#end if	
+	<br>
+    $_('ШК'): <b><u>$barcode</u></b><br>
+    
+    <br><br>
+        <u><b>$_('Выберите товар'):</b></u>    
+    <hr>    
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <b>(<u><a href='dfsTaskWares?tid=$TID&wid=$item.WID'>$item.WCODE</a></u>)</b> $item.WNAME<br><br>
+        #end for
+    #end if	
+    
+#end def

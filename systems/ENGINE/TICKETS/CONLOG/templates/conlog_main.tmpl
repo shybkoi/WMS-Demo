@@ -1,0 +1,86 @@
+#encoding cp1251
+#extends systems.engine_main
+#def searchData
+
+<label for="dpDBeg">Период соединений</label>
+<input name="dpDBeg" id="dpDBeg" type="text" align="center" size=7 title="с"/>
+<input name="dpDEnd" id="dpDEnd" type="text" align="center" size=7 title="по"/>
+
+<label for="develId_cmb">Кто</label>
+<select id='develId_cmb' title='Кто'>
+    <option value=''>Все</option>
+    <option value='-1'>Firebird Utilites</option>
+    #if $varExists('$datalist')
+        #if $datalist
+            #for $item in $datalist
+                #* #if str($develId) == str($item.DEVEL_ID)
+                    #set $selected = ' selected = "selected" '
+                #else
+                    #set $selected = ' '
+                #end if
+                <option $selected value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+                *#
+                <option value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+            #end for
+        #end if
+    #end if
+</select>
+
+<label for="idBase_cmb">БД</label>
+<select id='idBase_cmb' title='БД'>
+    ##<option value=''>Все БД</option>
+    #if $varExists('$dbs')
+        #if $dbs
+            #for $item in $dbs
+                <option value= '$item.ID_BASE'>$item.DB_NAME</option>
+            #end for
+        #end if
+    #end if
+</select>
+
+<label for="ip">IP</label>
+<input name="ip" id="ip" type="text" align="left" size=15 title="IP-адрес"/>
+
+<span class='buttons'>
+    <button id="bfilters" title="Поиск"> <img src="$eng_img/actions/magnifier.png" alt=""/></button>
+</span>
+
+#end def
+
+#def engineData
+
+##Styles
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/conlog.css" />
+
+
+##Scripts
+##<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.cluetip.min.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+##<script type='text/javascript' src="$eng_js/jquery.contextMenu.min.js"></script>
+<script type="text/javascript" src="$sp_js/conlog.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+
+<script type="text/javascript" src="$eng_js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$eng_js/k.blocks.js"></script>
+
+<div id="content">
+    <div id='master'>
+    </div>
+    <div id='detail'>
+    </div>
+</div>
+
+##Dialogs
+##<div id="dlgadd" class="dialog flora" title="Добавление тикета" align="center"></div>
+
+#end def

@@ -1,0 +1,23 @@
+#encoding cp1251
+#extends ppmain
+
+#def ppFilter
+    ##Scripts
+    <script type="text/javascript" src="$sp_js/palleti.js"></script>
+	
+    <form id="frmFilter" class="buttons">
+		<b>Период поиска этикеток приемки:</b>
+		<input type="text" id="dvFilterDateBeg" size="8">
+		<input id="dvFilterTimeBeg" size=5 value="00:00">
+		 -
+		<input type="text" id="dvFilterDateEnd" size="8">
+		<input id="dvFilterTimeEnd" size=5 value="23:59">
+		
+        <button type="submit" id="dvFilterBtnLocate"><img src="$eng_img/actions/magnifier.png" border="0"></button>
+	</form>
+#end def
+
+#def ppData
+	<div id="dvScreen"></div>
+#end def
+

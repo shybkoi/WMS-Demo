@@ -1,0 +1,28 @@
+#scalepriceprint-table{border:1px solid black; font-size: 16pt;}
+
+#scalepriceprint-table td.Numposition
+        {
+        text-align: center; 
+        border-width: 1px;
+        font-weight: bold;
+        font-size: 14pt; 
+    }
+#scalepriceprint-table td.SalePrice
+        {
+        text-align: right; 
+        font-weight: bold;
+        font-size: 14pt; 
+    }
+#scalepriceprint-table td.Name
+        {
+        text-align: left; 
+        font-style: oblique;
+        font-size: 14pt; 
+    }
+#scalepriceprint-table td.Code
+        {
+        text-align: center;
+        font-size: 14pt; 
+        font-style:oblique;
+        font-weight: bold;
+    }  

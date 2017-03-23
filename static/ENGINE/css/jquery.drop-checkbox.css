@@ -1,0 +1,42 @@
+.item-container { cursor: pointer; }
+div.item-name:hover { background-color: #FFFFCC; }
+div.main-checkbox:hover { border-color: #939393; }
+.main-checkbox {
+    -moz-border-radius:3px 3px 3px 3px ;
+    background:-moz-linear-gradient(center top , #F9F9F9, #E3E3E3) repeat scroll 0 0 transparent;
+    border-color:#CCCCCC #BBBBBB #A0A0A0;
+    border-left:1px solid #BBBBBB;
+    border-right:1px solid #BBBBBB;
+    border-style:solid;
+    border-width:1px;
+    color:#000000;
+    cursor:default;
+    font:75% arial,sans-serif;
+    margin:0 8px 0 0;
+    outline:medium none;
+    padding:3px 8px;
+    text-align:center;
+    vertical-align:middle;
+    white-space:nowrap;
+    padding-left:6px;
+}
+.inline-obj {
+    display:inline-block;
+    position:relative;
+}
+.gmail-triangle {
+    background: url("/ENGINE/images/actions/triangle.png") no-repeat scroll -36px 50% transparent;
+    font-size:0;
+    height:6px;
+    margin-left:3px;
+    vertical-align:middle;
+    width:7px;
+}
+.input-checkbox { margin:0 0 0 0;padding:0;vertical-align:middle; }
+.pos-box { margin:0 3px; }
+.bg-items { background:#f7f7f7;color:#000;font:110% arial,sans-serif }
+.shadow-box { -webkit-box-shadow:0 4px 10px #8b8b8b;-moz-box-shadow:0 4px 10px #8b8b8b;box-shadow:0 4px 10px #8b8b8b;padding:5px }
+.no-select { -moz-user-select: none; }
+.box-position { /*left: 4px !important; top: 51.6px!important;*/ display: none; }
+.box-pressed { border-color:#888!important;color:#fff;background:-moz-linear-gradient(top,#777,#999) }
+.item-name { text-transform: none; text-align: left; }

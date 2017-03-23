@@ -1,0 +1,12 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$ALIAS</u></b><br><br>
+    <hr>
+	<form action="printer">
+        <input type="hidden" name="id" value="$printerid">
+        $_('Кол-во'): <input type="text" id=":focus:" name="cnt" value="" size="6"><br>
+        <button type="submit">$_('Печать')</button>
+	</form>    
+#end def

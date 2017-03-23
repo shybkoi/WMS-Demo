@@ -1,0 +1,22 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$PNUM</u></b>($SNAME)<br>
+    $TOOBJNAME<br>
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    <b><u>$DOCNUM / #filter DateFilter2$DOCDATE#end filter#</u></b><br>
+    <hr>
+    <br>
+    Заказ: <b>$QTASKSTR</b> <br>
+    <br>
+    На поддоне: $QPALLETSTR <br>
+    <br>    
+    <form action="taskWtwAmount">
+        <input type="hidden" name="palletid" value="$PID">
+        <input type="hidden" name="waresid" value="$WID">
+        <input type="hidden" name="twid" value="$TWID">
+        Вес: <input type="text" name="weight" id="::float" size="6" value="$weight">
+        <button type="submit">Ok</button>
+	</form>
+#end def

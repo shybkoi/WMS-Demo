@@ -1,0 +1,288 @@
+/**********************************
+Форма изменения пароля
+Черноусов А.В.
+***********************************/
+
+#loginForm {
+	 margin-left:40px;
+	 height: 400px;
+	 width: 400px;
+	 background-image:url(../../images/login/new/loginform.png);
+	 background-repeat:no-repeat;
+
+}
+
+#loginForm label {
+    width:150px;
+	
+	color: #6e6d6d !important;
+    margin-top: 0 !important;
+    width: 50px !important; 
+	
+	
+}
+
+
+#loginForm label span{
+    margin-bottom: -5px;
+    margin-left: 0px;
+    margin-top: -20px;
+    padding-top: 10px;
+    text-align: left;
+    width: 200px;
+	
+	
+	
+/*======next for IE=======*/
+margin-left /*\**/:30px\9 !important;
+
+}
+#loginForm label.error, #loginForm input.submit {
+    margin-left:203px;
+}
+
+/* Пароли */
+
+/* Расположение контейнеров и индикаторов */
+
+#pc-container
+{
+    height: 30px;
+
+
+}
+
+#pc-indicator
+{
+    padding: 1px;
+    margin: 5px 0px 0px 0px;
+    border: solid 1px #bbb;
+    font-size:0px;
+    position: relative;
+    height: 5px;
+    display: block;
+	left:15px !important;
+	
+	
+/*======next for IE=======*/	
+margin-left /*\**/:15px\9 !important;
+	
+	
+}
+
+#pc-indicator-inline
+{
+    float: left;
+    padding: 2px;
+    /*background-color: #c00;*/
+    /*width:25%;*/
+    overflow: hidden;
+    height: 1px;
+}
+
+#pc-indicator-text
+{
+    padding: 0px;
+    font-size: 10px;
+    position: relative;
+    /*color: #aaa000;*/
+	left: 15px !important;
+	
+/*======next for IE=======*/
+display /*\**/:block !important;
+width /*\**/:200px\9 !important;
+left /*\**/:50px\9 !important;
+	
+	
+}
+
+#repeat-text
+{
+    height: 20px;
+    padding: 0px;
+    font-size: 10px;
+    position: relative;
+    /*display: block;*/
+	left: 15px !important;
+	
+/*======next for IE=======*/
+display /*\**/:block !important;
+width /*\**/:200px\9 !important;
+left /*\**/:50px\9 !important;	
+	
+}
+
+/* Состояния текстового индикатора */
+
+.pc-critical
+{
+    color: #bf0200;
+}
+
+.pc-yellow
+{
+    color: #f5e923;
+}
+
+.pc-green
+{
+    color: #0a9200;
+}
+
+/* Состояния визуального индикатора */
+
+.pc-i-critical
+{
+    background-color: #c00;
+}
+
+.pc-i-yellow
+{
+    background-color:  #aaa444; /*#ccc444;*/
+}
+
+.pc-i-green
+{
+    background-color: #82CE76; /*#0f0;*/
+}
+
+/* Кнопка Изменить */
+
+.disabled {
+    background-color: #CCC !important;
+}
+
+#btnchange img {
+    margin-right: 3px !important;
+}
+
+/* Вердикты */
+
+.verdict {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.verdict_yes {
+    background:transparent url(/ENGINE/images/actions/accept.png) no-repeat scroll center center;
+}
+
+.verdict_no {
+    background:transparent url(/ENGINE/images/actions/exclamation.png) no-repeat scroll center center;
+}
+
+
+#username {
+    border-color: #909090;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 30px;
+    margin-top: 0px;
+    width: 230px;
+}
+
+
+#password {
+    border-color: #909090;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 30px;
+    margin-top: 0px;
+    width: 230px;
+}
+
+
+#oldpassword, #newpassword, #repeatnewpassword{
+    border-color: #909090;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 30px;
+    margin-top: 0px;
+    width: 230px;
+}
+
+form.login fieldset {
+    color:red;
+    padding: 20px 40px 7px;
+}
+
+
+form.login fieldset p a {
+    color: #0054EE;
+    left: 140px;
+    position: absolute;
+    top: 270px;
+	
+/*======next for IE=======*/		
+left /*\**/:150px\9 !important;
+top /*\**/:302px\9 !important;
+width /*\**/:60px\9 !important;
+}
+
+#error-wrap {
+    color: #F73D67;
+    left: 30px;
+    position: absolute;
+    top: -16px;
+	width: 280px;
+	text-align: center;
+	
+	
+	/*======next for IE=======*/
+margin-top /*\**/:35px\9 !important;
+margin-left /*\**/:10px\9 !important;
+	
+}
+
+
+
+
+.submit{
+    background-image: url("../../images/login/new/enterbutt.png") !important;
+    border: 0 none !important;
+    height: 30px;
+    left: 85px;
+    padding-top: 0 !important;
+    position: absolute;
+    top: 220px;
+    width: 150px !important;
+	font-family: sans-serif, Lucida Grande,Tahoma,Arial,Verdana !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+	color: #606370 !important;
+	
+	
+	/*======next for IE=======*/	
+left /*\**/:100px\9 !important;
+top /*\**/:260px\9 !important;
+	
+}
+.submit img{
+	display:none !important;
+}
+.submit:hover {
+
+	    background-image: url("../../images/login/new/enterbutthover.png") !important;
+		color:black !important;
+}
+body{
+    background-color: white !important;
+    background-image: url("../../images/login/new/back.jpg") !important;
+    background-position: 50% 60px !important;
+    background-repeat: no-repeat;
+}
+
+
+
+
+#loginForm.login fieldset legend
+ {
+    color: #686868;
+    font-weight: normal;
+    padding-left: 96px;
+}

@@ -1,0 +1,58 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+
+<style>
+td{
+    text-align: left;
+}
+
+\#content{
+    text-align: left;
+    line-height: 1.3;
+}
+</style>
+
+<div id='content'>
+
+#set $M=1
+#for $system in $systems
+    #if $M>1
+    <hr>
+    #end if
+<br>
+    $M) $_('Cистема'): <strong>$system.NAME ($system.REF_NAME)</strong>
+<br>
+    $_('Путь'): <a href='$system.FULL_REF_NAME' target='_blank'>$system.FULL_REF_NAME</a>
+<br>
+    $_('Описание'): $system.DOCSTRING
+<br>
+
+    #set $methods = $get_methods($system)
+
+    <table>
+        <thead>
+            <tr>
+                <th>$_('Имя метрики')</th>
+                <th>$_('Описание метрики')</th>
+                <th>$_('Путь')</th>
+            </tr>
+        </thead>
+        <tbody>
+           #for $method in $methods
+                <tr>
+                    <td>$method.NAME</td>
+                    <td>$method.DOCSTRING</td>
+                    <td><a href='$method.FULL_REF_NAME' target='_blank'>$method.FULL_REF_NAME</a></td>
+                </tr>
+            #end for
+        </tbody>
+    </table>
+    $_('Кол-во метрик'): $system.CNT_METRICS
+
+    #set $M=$M+1
+#end for
+</div>
+
+#end def

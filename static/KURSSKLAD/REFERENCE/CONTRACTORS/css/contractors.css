@@ -1,0 +1,32 @@
+#div-filter select{width: 200px;}
+#dlg-ashedule select{width: 200px;}
+#div-filter div.ordererror select{width: 120px;}
+input.Date{width: 70px;}
+input.numeric{width: 20px;}
+.inactive{background-color: #E8E8E8}
+.Code{width: 40px;}
+.Unit{width: 20px;}
+.Double{width: 40px;}
+.Num, .Status,.Image{width: 20px;}
+
+div.period{padding-top:5px;}
+.Name{text-align: left;}
+th.Name{text-align: center;}
+td.Num{text-align: left !important;}
+#div-main{float:left;
+position:relative;
+width:100%;}
+.HasDivergence{background-color:yellow;}
+.ErrorEndTime{background-color:yellow;}
+.ErrorCreateTime{background-color:yellow;}
+.NotByShedule{background-color:yellow;}
+tr.trDoc{background-color:yellow;}
+.ErrorWrite1{background: url(/KURS/images/error.png) center center no-repeat;}
+.ErrorPrice1{background: url(/KURS/images/error.png) center center no-repeat;}
+.ErrorCount1{background: url(/KURS/images/error.png) center center no-repeat;}
+.CheckPrice1{background: url(/KURS/images/accept.png) center center no-repeat;}
+.CheckCount1{background: url(/KURS/images/accept.png) center center no-repeat;}
+
+#addBond select,input {
+    width: 170px;
+}

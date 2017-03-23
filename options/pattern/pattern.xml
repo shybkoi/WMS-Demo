@@ -1,0 +1,21 @@
+<patterns name="Представления">
+    <users id="users" name="Пользователи" source="db" id_base="-1" table_name="ENGINE_USERS" key_field="ID_USER" name_field="FIO"></users>
+    <options id="options" name="Опции" source="pattern_xml" subtag="option">
+        <option id="add" name="Добавлять"/>
+        <option id="edit" name="Редактировать"/>
+        <option id="delete" name="Удалять"/>
+        <option id="view" name="Отображать"/>
+        <option id="noadd" name="Не добавлять"/>
+        <option id="noedit" name="Не редактировать"/>
+        <option id="nodelete" name="Не удалять"/>
+        <option id="hide" name="Не отображать"/>
+        <option id="grant" name="Давать права"/>
+        <option id="commission" name="Комиссия"/>
+    </options>
+    <types id="types" name="Типы объектов" source="pattern_xml" subtag="type">
+        <type id='element' source="instance_xml" name='Элемент интерфейса'/>
+        <type id='system' source="db" name='Система' id_base="-1" table_name="ENGINE_SYSTEMS" key_field="ID_SYSTEM" name_field="SHOW_NAME"/>
+        <type id='tabel_shop' source="db" name='Магазин табелей' id_base="1" table_name= "C1_DEPARTMENT" key_field="ID_DEPARTMENT" name_field="NAME_DEPARTMENT"/>
+        <type id='other' source="instance_xml" name='Другой'/>
+    </types>
+</patterns>

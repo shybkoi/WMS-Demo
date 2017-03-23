@@ -1,0 +1,49 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+    <b><u>($WCODE)</u></b>$WNAME<br><br>
+    #if $SLOTID
+        <a href="palSlotWares?id=$SLOTPALLETID&wid=$WID">$SPNAME: $SLOTNAME</a>
+    #end if
+    
+    #if $varExists('$datalist') and $datalist and len($datalist)>0
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Поддон')</th>
+                    <th>$_('Кол-во')</th>
+                <tr>
+            </thead>
+            <tbody>
+            #set $Q = 0
+            #for $item in $datalist
+                #set $Q += float($item.Q)
+                #if $item.canedit == '0'
+                    #set $trClass = 'class="inactive"'
+                #else
+                    #set $trClass = ''
+                #end if
+                <tr $trClass>
+                    <td>#filter DateFilter2 $item.PRODUCTDATE #end filter #</td>
+					#if not $item.pnum
+						<td>$item.SNAME</td>
+					#else
+						<td><a href="#" title="$item.SNAME">$item.PNUM</a></td>
+					#end if	                    
+                    <td>$viewQuantity($item.Q,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<u><b>#filter Quantity$item.Q#end filter#</b></u>)</td>
+                </tr>
+            #end for            
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">$_('Итого'):</th>
+                    <th>$viewQuantity($Q,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) (<u><b>#filter Quantity$Q#end filter#</b></u>)</th>
+                </tr>
+            </tfoot>
+        </table>
+    #end if
+    
+#end def

@@ -1,0 +1,67 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b>$SITENAME</b><br>
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUCODE
+        <b>#filter Quantity$MWUFACTOR#end filter# $VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE</b><br>
+    #end if
+    <hr>
+    $_('Вм-сть'): <font class="green">$viewQuantity($QCONTENT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$QSLOT#end filter#</u></b>)</font><br>
+    $_('На МО'): <font class="green">$viewQuantity($QSLOT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$QSLOT#end filter#</u></b>)</font><br>
+    $_('Заказ'): <font class="yellow">$viewQuantity($QNEED,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$QNEED#end filter#</u></b>)</font><br>
+    <br>
+    #if $QREFILL > 0.0001
+        $_('Пополнить'): <font class="red">$viewQuantity($QREFILL,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$QREFILL#end filter#</u></b>)</font>
+    #else
+        <a href="rfsTaskEnd?id=$tid" title="Завершает пополнение позиции">Завершить</a>
+    #end if
+    #if $varExists('$pid')
+        <br>
+        #if $pnum
+            $pnum ($psname)
+        #else
+            $psname
+        #end if
+    #end if
+        
+    #if $varExists('$datalist')
+        <br>
+        <a href="rfsTaskWaresAside?tid=$tid&wid=$wid" title="Откладывает выполнение этого задания">Отложить</a>
+        #if $QREFILL > 0.00001 and (not $datalist or len($datalist)==0)
+            <a href="rfsTaskWaresCancel?tid=$tid&wid=$wid" title="Отменяет пополнение позиции">Отменить</a>
+        #end if
+        #if $flags == 'A'
+            <a href="rfsTaskWaresPallet?tid=$tid&wid=$wid&flags=O" title="Самые подходящие паллеты">Подходящие</a>
+        #end if
+        <hr>
+        
+      #set $pid = 0
+      #for $item in $datalist
+        <tr>
+          #if $item.PCANEDIT == '1'
+            <a href="rfsTaskWaresPallet?tid=$tid&wid=$wid&pid=$item.pid" title="$item.SNAME">$item.PNUM</a><br>
+            #filter DateFilter2$item.PRODUCTDATE#end filter#
+            =
+            $viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$item.AMOUNT#end filter#</u></b>)
+            <br>
+          #else
+            <a href="#" title="$item.SNAME">$item.PNUM</a><br>
+            <font class="red">#filter DateFilter2$item.PRODUCTDATE#end filter#
+            =
+            $viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)(<b><u>#filter Quantity$item.AMOUNT#end filter#</u></b>)</font>
+            <br>
+          #end if
+        #set $pid = $item.pid
+      #end for
+      <hr>
+      #if $flags == 'O'
+        <a href="rfsTaskWaresPallet?tid=$tid&wid=$wid&flags=A">Показать все паллеты</a>
+      #end if
+    #end if
+    
+#end def
+

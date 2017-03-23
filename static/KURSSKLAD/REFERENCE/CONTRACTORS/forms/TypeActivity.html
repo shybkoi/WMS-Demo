@@ -1,0 +1,60 @@
+<div class="Body TABody">
+    <div class="actions">        
+        <a href="#" class="add"><img src="/KURSSKLAD/images/add.png" alt="Добавить"/></a>
+        <a href="#" class="edit"><img src="/KURSSKLAD/images/edit.png" alt="Изменить"/></a>
+        <a href="#" class="delete"><img src="/KURSSKLAD/images/delete.png" alt="Удалить"/></a>
+    </div>
+    <div class="table"></div>
+    <div class="form-edit">
+        <div><span>Вид деятельности:</span><select class="ActivityType"/> 
+        <fieldset>
+            <legend>Лицензия</legend>
+            <div><span>Серия</span><input class="LicSerial"/></div>
+            <div><span>Номер</span><input class="LicNumber"/></div>
+            <div><span>Изображение</span><input type="file" class="LicPicture"/></div>
+            <div><span>Регистрационный номер</span><input class="RegNumber"/></div>
+            <div class="agency"><span>Выдавший орган</span><select class="LicAgencyid"/><a href="#" class="add"><img src="/KURS/images/add.png" alt="Добавить"/></a></div>
+            <fieldset>
+                <legend>Период действия</legend>
+                <div><span>С</span><input class="LicDate1"/></div>
+                <div><span>По</span><input class="LicDate2"/></div>
+            </fieldset>
+            <div><span>Условия</span><textarea class="LicConditions"/> </div>
+            <div><span>Примечания</span><textarea class="Notes"/> </div>
+        </fieldset>
+        <div class="buttons">
+            <button class="save">Сохранить</button> 
+            <button class="cancel">Отмена</button>
+        </div>
+    </div>
+</div>
+<style>
+    div.TABody div{float:left;padding-top: 5px;}
+    div.TABody fieldset{float:left;padding-top: 5px;}
+    div.TABody div input.LicSerial{width: 200px;}
+    div.TABody div select.ActivityType{width: 400px;}
+    div.TABody div input.LicNumber{width: 200px;}
+    div.TABody div input.RegNumber{width: 200px;}
+    div.TABody div select.LicAgencyid{width: 478px;}
+    div.TABody div input.LicDate1{width: 70px;}
+    div.TABody div input.LicDate2{width: 70px;}
+    div.TABody div textarea.LicConditions{width: 70px;}
+    div.TABody div textarea.Notes{width: 70px;}
+    div.TABody div.table{width: 100%;}
+    span{font-weight:bold;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

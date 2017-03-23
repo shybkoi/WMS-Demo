@@ -1,0 +1,9 @@
+div #dvDocs, #dvWares{
+    height: inherit;
+}
+input.number{
+    width: 75px;
+}
+input.dvWaresDetail{
+    text-align:right;
+}

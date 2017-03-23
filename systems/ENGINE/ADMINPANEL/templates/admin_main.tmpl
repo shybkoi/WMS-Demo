@@ -1,0 +1,57 @@
+#encoding cp1251
+#extends systems.engine_main
+#def $system_help = True
+#end def
+#from layers import layersIsUse
+#def systemNavigation
+<ul>
+ <li><a class="$activeTab('bases')" href="bases">$('БД')</a></li>
+ <li><a class="$activeTab('systems')" href="systems">$('Системы')</a></li>
+ <li><a class="$activeTab('roles')" href="roles">$('Роли')</a></li>
+ <li><a class="$activeTab('users')" href="users">$('Пользователи')</a></li>
+ <li><a class="$activeTab('mails')" href="mails">$('Адм.почта')</a></li>
+ <li><a class="$activeTab('config')" href="config">$('Настройки')</a></li>
+ <li><a class="$activeTab('messages')" href="messages">$('Сообщения')</a></li>
+ <li><a class="$activeTab('cpstatus')" href="cpstatus">$('Статус')</a></li>
+#if layersIsUse()
+ <li><a class="$activeTab('layer')" href="layer">$('Клиенты')</a></li>
+ <li><a class="$activeTab('tarif')" href="tarif">$('Тарифы')</a></li>
+#end if
+</ul>
+#end def
+
+#def engineData
+
+##Styles
+##<link rel="stylesheet" href="$eng_css/buttons.css" type="text/css" media="screen"/>
+##<link rel="stylesheet" href="$eng_css/checkboxes.css" type="text/css" media="screen"/>    
+##<link rel="stylesheet" href="$eng_css/dialog.css" type="text/css" media="screen"/>
+##<link rel="stylesheet" href="$eng_css/dialog.resizable.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="$eng_css/jquery.cluetip.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/tables.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/valid.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/align.css" type="text/css"/>
+
+##Scripts
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.cluetip.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+##<script type="text/javascript" src="$eng_js/kEnum.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.quicksearch.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type='text/javascript' src="$eng_js/jquery.contextMenu.min.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+
+ #block adminData
+    нет информации для отображения
+ #end block adminData
+
+#end def

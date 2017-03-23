@@ -1,0 +1,82 @@
+#encoding cp1251
+#import system_init as si
+#import conf.engine_conf as cfg
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>$_('Добро пожаловать')</title>
+<link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/LOGIN/import.css">
+<script type="text/javascript" src="$eng_js/jquery-1.3.2.min.js"></script>
+</head>
+<body>
+<div id="header">
+</div>
+
+<div align="center">
+<div id="main">
+<form style="display: block;" class="login" id="loginForm" action="login" method="post">
+    <fieldset>
+        <p>
+            <label style="display: -moz-inline-box;" for="username"><span>Логин</span></label>
+            <input id="username" name="username"
+        #if $varExists('$username')
+          value="$username"
+        #end if
+        >
+        </p>
+        <p>
+            <label style="display: -moz-inline-box;" for="password"><span>Пароль</span></label>
+            <input type="password" id="password" name="password">
+            #if si.password_recovery_enabled
+                <a href="/ACCOUNT/recovery">Забыли?</a>
+            #end if
+        </p>
+        <div id="error-wrap">
+            #if $varExists("test_message")
+                <div id="test-message">$test_message</div>
+            #end if
+            #if $varExists('$mes')
+                <span id="error-exclamation">Ошибка: </span><span id="error">$mes</span>
+            #end if
+        </div>
+        <div class="buttons" align="center">
+            <button class="submit" type="submit"><img src="$eng_img/login/key.png" alt=""/>Вход</button>
+        </div>
+        #if si.regopen
+            <div class="links">
+                <a class="register" href="/ACCOUNT/">Регистрация</a>
+            </div>
+        #end if
+    </fieldset>
+</form>
+</div>
+</div>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/LOGIN/import.css">
+
+<script type="text/javascript" src="$eng_js/login/login.js"></script>
+<!--script type="text/javascript" src="$eng_js/snow.js"></script-->
+    #if getattr(cfg, 'LOCALE_ON', False)
+        #if len(getattr(cfg, 'LOCALE_ALL', [])) > 1
+            <select id="lang_sel" name="lang_sel">
+                  #for $lang in $langs
+                      #if $getSesVar('locale') == $lang.LANG_CODE
+                          #set $selected=' selected'
+                      #else
+                          #set $selected=''
+                      #end if
+                      <option value="$lang.LANG_CODE"$selected>$lang.LANG_NAME</option>
+                  #end for
+            </select>
+            <script type="text/javascript" src="$eng_js/jquery.cookie.js"></script>
+        #end if
+    #end if
+    #if not si.password_recovery_enabled
+        <style>
+            #password{
+                width: 240px;
+                left: 50px;
+            }
+        </style>
+    #end if
+</body>
+</html>

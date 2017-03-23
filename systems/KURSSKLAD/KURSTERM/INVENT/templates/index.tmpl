@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+	<form action="main">
+        $_('ÿ '): <input type="text" id=":scan:text" name="barcode" title="">
+	</form>
+    <br>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <a href="taskL?tid=$item.TASKID">π$item.TASKID</a><br>
+            ÓÚ $TimeStampToDate($item.PLANDATETIME)<br><br>
+        #end for
+    #end if
+#end def

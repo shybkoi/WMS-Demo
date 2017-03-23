@@ -1,0 +1,141 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+
+##Styles
+<link rel="shortcut icon" href="$sp_img/favicon.png">
+<link rel="stylesheet" type="text/css" href="$sp_css/updater.css" />
+<link href="$sp_css/contextMenu.css" rel="stylesheet" type="text/css" media="screen"/>
+
+##Scripts
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.form.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.timer.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="$sp_js/updater.js"></script>
+<script type="text/javascript">
+  var bonds=[];
+  var server_time = $curtime;
+  var user_id = $userid;
+  #for $bond in $datalist_bond
+      bonds[bonds.length] = {base:$bond.ID_BASE, module:$bond.ID_MODULES};
+  #end for
+</script>
+
+<div align="center">
+<table class="upload_table" cellpadding="5">
+    <thead>
+        <tr>
+            <th>$_('№ п/п')</th><th width='7%'>$_('Время')</th><th width='15%'>$_('Ф.И.О.')</th>
+            <th width='12%'>$_('Куда лить SQL')</th><th width='12%'>$_('Куда лить модули')</th>
+            <th width='12%'>$_('Файл в архиве 7z')</th>
+            <th>$_('Что нового?')</th><th>$_('Отправить')</th>
+        </tr>
+        <tr>
+            <th colspan="8" align="left">
+                <div class='addSign'>
+                    $_('Добавить')
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <form id="upd_form" action="upload" method="post" enctype="multipart/form-data">
+                <th>&nbsp;</th><th><span class="curtime"></span></th><th>$userfio</th>
+                <th>
+                    <select id="upd_base_cmb" name="upd_base_cmb" style="width: 400px">
+                        <optgroup label="Выберите базу...">
+                          #for $base in $datalist_bases
+                              <option value="$base.ID_BASE">$base.SHOW_NAME $_('на сервере') $base.IP</option>
+                          #end for
+                        </optgroup>
+                    </select>
+                </th>
+                <th>
+                    <select id="upd_module_cmb" name="upd_module_cmb" style="width: 400px">
+                        <optgroup label="Выберите место...">
+                          #for $modules in $datalist_modules
+                              <option value="$modules.ID_MODULES">$modules.SHOW_NAME $_('на сервере') $modules.IP</option>
+                          #end for
+                        </optgroup>
+                    </select>
+                </th>
+                <th>
+                    <input type="file" name="upd_file" id="upd_file" />
+                </th>
+                <th>
+                    <a href='#' class='wnAddStatus'><img src='$eng_img/actions/stop.png' class='wnAddImg'/></a>
+                </th>
+
+                <th>
+                    <button id='upload_btn' type="button"><img src="$eng_img/actions/arrow_up.png"/>&nbsp;Залить</button>
+                </th>
+            </form>
+        </tr>
+        <tr>
+
+            <th colspan="8">
+                <div class="addSign">
+                    $_('Уже добавлены')  <a href='#' class='refreshupdates'>
+                    <img src='$eng_img/actions/refresh.png' /></a>
+                </div>
+                #if $opt('edit','XMLADMIN','admin_mode','other')=='1':
+                    <span class='adminfilter'>
+                        $_('Просмотреть обновления за') <input type='text' class='admin-update-date' size='8'/>
+                        <button id='adminShowUpdates' class='buttons'>
+                            <img src='$eng_img/actions/find.png' />
+                        </button>
+
+                    </span>
+                #end if
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+</table>
+
+<ul id="menuUpdates" class="contextMenu">
+    <li class="information"><a href="\#info">$_('Информация')</a></li>
+    <li class="information"><a href="\#whatsnew">$_('Что нового?')</a></li>
+    <li class="delete"><a href="\#delete">$_('Удалить')</a></li>
+
+    <li class="add"><a href="\#commonInfo">$_('Сводная (Информация)')</a></li>
+    <li class="add"><a href="\#commonWhatsNew">$_('Сводная (Что нового)')</a><li>
+</ul>
+
+<div id="progress">
+</div>
+
+#*<iframe id="iframe_status" name="iframe_status" width="100px" height="100px">
+  tttttt
+  <script type="text/javascript">
+  alert(344);
+  $.timer(500, function (timer) {
+      alert(123);
+      /*$.getJSON('upload_stats', null, function(json){
+        //if (json.data.STATUS=='starting') {
+        //  $('#progress').text("Подготовка");
+        //}
+        //alert (json.data.STATUS);
+        if (json.data.STATUS=='uploading') {
+          $('#progress').text(json.data.ETA);
+        }
+        else if (json.data.STATUS=='done') {
+          //$('#progress').text('Файл '+$('#upd_file').val()+' успешно отправлен');
+          timer.stop();
+        }
+      });*/
+  });
+  </script>
+</iframe>
+*#
+#end def

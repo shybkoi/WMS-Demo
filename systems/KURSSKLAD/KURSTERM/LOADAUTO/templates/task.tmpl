@@ -1,0 +1,85 @@
+#encoding cp1251
+
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+#from systems.KURSSKLAD.cheetahutils import getNumFromName
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    <u> $SNAME </u><br>
+    #set $coma = ','
+    #set $canEnd = True
+    <b>$INFONAME</b><br>
+	#if $varExists('$TPRIORITY') and $TPRIORITY
+		#filter Quantity$TPRIORITY#end filter#:
+	#end if
+	<a href="taskPriority?tid=$TID" title="$_('Изменить приоритет')">#filter DateTimeFilter $plandt #end filter#</a><br>
+    
+	#if $varExists('$TCAPACITY') and $TCAPACITY
+		$_('Поддонов') <b>~ <u>#filter Quantity $TCAPACITY #end filter#</u></b>
+	#end if
+	
+    <hr>    
+    #set $clientName = ''
+    #set $docID = 0
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #if $clientName != $item.CLIENTNAME
+                #if $clientName != ''
+                    <br>
+                #end if
+                <b><u>$item.CLIENTNAME</u><b>
+                #set $clientName = $item.CLIENTNAME
+                #set $docID = 0
+            #end if
+            
+            #if $docID != $item.DOCID
+                <br>
+                <u>$item.DNUM</u>:
+                #set $docID = $item.DOCID
+            #else
+                $coma
+            #end if
+            
+            #if $item.TSTAT and $item.TSTAT == '2'
+                #if $item.TUID                    
+                    <font class="green">$item.TUTYPESHORT$getNumFromName($item.TUNAME)</font> =
+                #end if
+                <font class="green">$item.TNUMBER</font>
+            #else
+                #if $item.TUID                    
+                    #if $item.TUSTAT == '2'
+                        <font class="green">$item.TUTYPESHORT$getNumFromName($item.TUNAME)</font> =
+                    #else
+                        <font class="red">$item.TUTYPESHORT$getNumFromName($item.TUNAME)</font> =
+                    #end if
+                #end if
+                
+
+                #if $item.TNUMBER
+                    #set $str = $item.TNUMBER
+                    #if $item.TSNAME
+                        #set $str += '(' +$item.TSNAME +')'
+                    #end if
+                #else
+                    #set $str = '?????'
+                #end if
+
+                #if $item.DSTAT != 'e' or $item.TID
+                    <font class="red">$str</font>
+                #else
+                    <font class="yellow">$str</font>
+                #end if                                
+            #end if
+
+            #if $item.DSTAT != 'e'
+                #set $canEnd = False
+            #end if
+        #end for
+    #end if     
+    #if $canEnd
+        <hr>
+        <a href='gateTaskEnd?tid=$TID'>$_('Завершить')</a>
+    #end if	
+#end def
+
+

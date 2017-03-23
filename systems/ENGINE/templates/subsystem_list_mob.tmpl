@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.engine_main_mob
+#def engineData_mob
+<style>
+    *html body{
+        line-height: 1.1;
+    }
+    #form{
+        margin-top:3px;
+    }
+</style>
+
+<div id="form" align='center' class="container">
+    #for item in $datalist
+        <a title="$item.show_name" href="$item.full_ref_name" class="btn btn-primary btn-large btn-block">$item.show_name</a>
+        <br/>
+    #end for
+</div>
+#end def

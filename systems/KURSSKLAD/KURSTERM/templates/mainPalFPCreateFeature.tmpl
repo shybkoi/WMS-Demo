@@ -1,0 +1,21 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+#from systems.KURSSKLAD.cheetahutils import Quantity as QFunc
+#def mainData
+
+    <b><u>$PAL_NUM</u></b>
+	<br>
+
+    <b>($WCODE)</b> $WNAME<br><br>
+
+    $_('Произведен'): $TimeStampToDate($PRODUCTDATE) <br>
+    $_('Годен до'): $TimeStampToDate($BESTBEFOREDATE)<br>
+    $_('Кол-во'): $QFunc($QUANTITY)
+
+    <hr>
+    #for $item in $datalist
+        <a href="palCreateFP?barcode=$PAL_BARCODE&featureid=$item.PFID&dt=$ctm">$item.PFNAME</a><br><br>
+    #end for
+#end def

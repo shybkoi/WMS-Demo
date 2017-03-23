@@ -1,0 +1,85 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+   $_('От'): <b><u>$FROMNAME</u></b><br>
+   #if $varExists('$THROUGHNAME') and $THROUGHNAME
+    $_('Через'): <b>$THROUGHNAME</b><br>
+   #end if
+   #if $TONAME
+    $_('Кому'): $TONAME<br>
+   #end if
+
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+	#if $varExists('$ALGORITHM') and $ALGORITHM
+		<u>($ALGORITHM)</u>
+	#end if
+	<br>
+    <b>(<u>$WCODE</u>)</b> $WNAME <br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b>
+    #end if
+    <br>
+    #if $varExists('$PNUM') and $PNUM
+		<b><u>$PNUM</u></b>($SNAME)
+	#else 
+		<b>$SNAME</b>
+	#end if
+    <br>
+    #if $varExists('$qdoc')
+        $_('План'): $viewQuantity($qdoc,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>#filter Quantity$qdoc#end filter#</u>)</b>
+        <br>
+    #end if
+    #if $varExists('$qfact')
+        $_('Факт'): $viewQuantity($qfact,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>#filter Quantity$qfact#end filter#</u>)</b>
+        <br>
+    #end if
+    
+    <hr>
+    #if $varExists('$datalist')
+        #if len($datalist)>0
+            <form action=dfsTaskWaresPalletSave>
+        #end if
+                <table>
+                    <thead>
+                        <tr>
+                            <th>$_('Дата')</th>
+                            <th>$_('Кол-во')</th>
+                            <th><select name=wuid>
+                                  #if $VWUID
+                                    <option value=$VWUID>$VWUCODE</option>
+                                  #end if
+                                    <option value=$MWUID>$MWUCODE</option>
+                                </select>
+                            </th>
+							<th>$_('Резерв')</th>
+                        <tr>
+                    </thead>
+                    <tbody>
+                    #for $item in $datalist
+                        <tr>                    
+                            <td>#filter DateFilter2$item.productdate#end filter#</td>
+                            <td>#filter Quantity$item.AMOUNT#end filter#</td>
+                            #if $item.WLNUMBER
+                                <td><input name=wl$item.WLOTID id=":scan:float" type=text size=3 title="$item.WLNUMBER.replace('"',"'")" value=0></td>
+                            #else
+                                <td><input name=wl$item.WLOTID id=":scan:float" type=text size=3 value=0></td>
+                            #end if
+							<td>#filter Quantity$item.RESERVE#end filter#</td>
+                        </tr>
+                    #end for
+                    </tbody>
+                </table>
+                <br>
+        #if len($datalist)>0
+                <input type=hidden name=tid value=$TID>
+                <input type=hidden name=pid value=$PID>
+                <input type=hidden name=wid value=$WID>
+                <input type=hidden name=ctm value="$ctm">
+                <input type=submit value=Ok />
+            </form>                
+        #end if
+    #end if    
+#end def

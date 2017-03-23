@@ -1,0 +1,71 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+
+#def mainData
+    $FROMNAME<br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>$S_NAME</b><br>
+    <b><u>($WCODE)</u></b> $WNAME
+    <hr>
+    <form action="taskStackData">
+        <input type="hidden" name="tid" value="$TID">
+        <input type="hidden" name="wid" value="$WID">
+        <input type="hidden" name="sid" value="$S_ID">
+        <input type="hidden" name="prid" value="$PRODUCERID">
+        <input type="hidden" name="lid" value="$PRODLINEID">
+        #if $varExists('$STACKMODELID')
+            <b>$STACKMODELNAME</b><br>
+            <input type="hidden" name="mid" value="$STACKMODELID">
+        #else
+            <input type="hidden" name="mid" value="0">
+        #end if
+        <u>$PRODLINENAME</u><br>
+        <u>$PRODUCERNAME</u><br>
+        <br>
+        #if $PRODLINECHGDATE == '1'
+            $_('Производство') <input type="text" name="prdate" id="productdate::date" size="7" value="$GetCurDate(shortYear=True)"><br>
+            ##$_('Годен до') <input type="text" name="bbdate" id="bestbeforedate::date" size="7" value="$GetCurDate(shortYear=True, deltadays=$WUBDAYS)" onblur="bbdatechg();"><br>
+        #else
+            <input type="hidden" name="prdate" value="$GetCurDate(shortYear=True)">
+            ##<input type="hidden" name="bbdate" value="$GetCurDate(shortYear=True, deltadays=$WUBDAYS)">
+            $_('Производство'): <b>$GetCurDate(shortYear=True)</b><br>
+            ##$_('Годен до'): $GetCurDate(shortYear=True, deltadays=$WUBDAYS) <br>
+        #end if
+        #if $S_SPCODE == 'STACK'
+            <input type="hidden" name="pq" value="#filter Quantity$W_PUFACTOR#end filter#">
+            $_('На паллете'): <b>#filter Quantity$W_PUFACTOR#end filter#</b><br>
+            $_('Паллетов'): <input type="text" name="pcnt" id="pcnt::int" size="2" value=""><br>
+        #else
+            <input type="hidden" name="pcnt" value="1">
+            $_('Паллетов'): <b>1</b><br>
+            $_('На паллете'): <input type="text" name="pq" id="pq::float" size="4" value="">
+        #end if
+        <hr>
+        <input type="submit" value="$_('Сохранить')">
+    </form>
+    <script language="javascript">
+        function prdatechg(){
+            var prd = document.getElementById('productdate::date').value ;
+            var spl =  prd.split('.');
+            var d = new Date('20'+spl[2],spl[1]-1,spl[0]);
+            var ms = d.valueOf() + $WUBDAYS * 24 * 60 * 60 * 1000;
+            var d2 = new Date(ms);
+            document.getElementById('bestbeforedate::date').value = ( (d2.getDate()>9) ? d2.getDate() : '0' + d2.getDate() ) + '.' +
+              ( (d2.getMonth()>8) ? (d2.getMonth()+1) : '0' + (d2.getMonth()+1) ) + '.' +
+              ( (d2.getFullYear()-2000 > 9) ? d2.getFullYear()-2000 : '0' + d2.getFullYear()-2000 );
+        }
+
+        function bbdatechg(){
+            var bbd = document.getElementById('bestbeforedate::date').value ;
+            var spl =  bbd.split('.');
+            var d = new Date('20'+spl[2],spl[1]-1,spl[0]);
+            var ms = d.valueOf() - $WUBDAYS * 24 * 60 * 60 * 1000;
+            var d2 = new Date(ms);
+            document.getElementById('productdate::date').value = ( (d2.getDate()>9) ? d2.getDate() : '0' + d2.getDate() ) + '.' +
+              ( (d2.getMonth()>8) ? (d2.getMonth()+1) : '0' + (d2.getMonth()+1) ) + '.' +
+              ( (d2.getFullYear()-2000 > 9) ? d2.getFullYear()-2000 : '0' + d2.getFullYear()-2000 );
+        }
+
+    </script>
+#end def

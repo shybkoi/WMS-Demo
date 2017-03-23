@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.ENGINE.ACCOUNT.templates.account_main
+#def accountData
+    <h1>Изменение пароля</h1>
+    <div class="register-block">
+        <form method="POST" action="rp_drop" name="rp_drop-form">
+            <table>
+                <tbody>
+                  <tr><td>Выберите новый пароль и введите его ниже:</td></tr>
+                  #include '../systems/ENGINE/PROFILE/templates/passwd_verify.tmpl'
+                </tbody>
+            </table>
+            <input type="SUBMIT" class="button" value="Сохранить" name="submitbutton" id="submitbutton">
+            <input type="hidden" value="$c" name="c" id="c">
+        </form> 
+    </div>    
+#end def

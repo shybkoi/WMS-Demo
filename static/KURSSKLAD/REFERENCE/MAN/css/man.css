@@ -1,0 +1,37 @@
+td.tdStatus0{
+    width: 16px;
+    background-image: url('/ENGINE/images/actions/delete.png');
+    background-repeat: no-repeat;
+	background-position: center center;
+}
+
+td.tdStatus1{
+    width: 16px;
+    background-image: url('/ENGINE/images/actions/add.png');
+    background-repeat: no-repeat;
+	background-position: center center;
+}
+
+div.dvMes{
+    width:100%;
+    font-weight:800;
+    line-height:1.5;
+    text-align:center;
+}
+hr{
+    width: 230px;
+}
+span.hide{
+    display: none;
+}
+#filter option,select {
+    text-transform:none;
+}
+
+input.inpDate{
+	width: 70px;    
+}
+
+input.inpTime{
+	width: 40px;    
+}

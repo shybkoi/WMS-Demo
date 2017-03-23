@@ -1,0 +1,35 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def searchData
+##Styles
+<link rel="shortcut icon" href="$sp_img/favicon.png">
+<style>
+    #updatenews{
+        margin-top:60px;
+
+    }
+    input.Date{
+        width: 80px
+    }
+</style>
+##Scripts
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="$sp_js/updatenews.js"></script>
+    <div id = "div-filter">
+        <div class="period">
+            <b>Период с</b>
+            <input id='dbeg' class='Date'/>
+            <b> по </b>
+            <input id='dend' class='Date'/>
+            <a href = "#" id = "idgo"><img src="$sps_img.KURS/go.png" title="Загрузить на экран" border="0" /></a>
+        </div>
+    </div>
+#end def
+#def engineData
+<div id="updatenews" align="center"/>
+#end def

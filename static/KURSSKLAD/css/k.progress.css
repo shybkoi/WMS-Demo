@@ -1,0 +1,66 @@
+#dlgP_View{
+    background-image: linear-gradient(bottom, rgb(50,158,29) 0%, rgb(51,214,70) 57%, rgb(125,255,125) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(50,158,29) 0%, rgb(51,214,70) 57%, rgb(125,255,125) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(50,158,29) 0%, rgb(51,214,70) 57%, rgb(125,255,125) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(50,158,29) 0%, rgb(51,214,70) 57%, rgb(125,255,125) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(50,158,29) 0%, rgb(51,214,70) 57%, rgb(125,255,125) 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(50,158,29)),
+        color-stop(0.57, rgb(51,214,70)),
+        color-stop(1, rgb(125,255,125))
+    );
+    height:100%;
+}
+
+#dlgP_Text{
+    text-shadow: RGB(255,255,255) 1px 1px 1px; 
+    line-height: 2;
+    font-weight:800;
+    text-align:center;
+    color:black;
+}
+
+
+#dlgP_Info{
+    background-image: linear-gradient(bottom, rgb(212,212,212) 0%, rgb(171,171,171) 57%, rgb(122,122,122) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(212,212,212) 0%, rgb(171,171,171) 57%, rgb(122,122,122) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(212,212,212) 0%, rgb(171,171,171) 57%, rgb(122,122,122) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(212,212,212) 0%, rgb(171,171,171) 57%, rgb(122,122,122) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(212,212,212) 0%, rgb(171,171,171) 57%, rgb(122,122,122) 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(212,212,212)),
+        color-stop(0.57, rgb(171,171,171)),
+        color-stop(1, rgb(122,122,122))
+    );
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:8%;
+    margin-bottom:8%;
+    height:25px;
+    width:90%;
+}
+
+div.dlgP_float{
+    float:left;
+    width:50%;
+    height:0.7cm;
+    line-height:0.7cm;
+    text-align:left;
+    font-weight:700;
+}
+
+div.dlgP_Mes{
+    height:100%;
+    width:100%;
+    text-align:center;
+    font-weight:700;
+    line-height:1.5;
+}

@@ -1,0 +1,41 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData 
+    #if $varExists('$objname') and $objname
+        <b>$objname</b> <br><br>
+    #end if
+    
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUCODE
+        $VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE <br>
+    #end if    
+    
+    #if $WSITEID
+        <b>$WSITENAME</b>: 
+        #if $WSITEQ
+            $viewQuantity($WSITEQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            (#filter Quantity$WSITEQ#end filter#)
+        #else
+            0
+        #end if
+        <br>
+    #end if
+        
+    <br>
+    <form action='waresSlotSet'>
+        <input type="hidden" name="wid" value=$WID>
+        <input type="hidden" name="sid" value=$SITEID>
+        $_('Новое МО'): <u><b>$SITENAME</b></u><br>
+        $_('Вместимость'): <br>
+        <select name=wuid>
+            #if $VWUID
+                <option value=$VWUID>$VWUCODE</option>
+            #end if
+                <option value=$MWUID>$MWUCODE</option>
+        </select> :
+        <input type=text name=q value=0 size="4"><br><br>    
+        <input type="submit" value="$_('Save')">
+    </form>
+#end def

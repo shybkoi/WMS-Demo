@@ -1,0 +1,16 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+   <b> № $docnum от #filter DateFilter $docdate #end filter # </b>
+   <br> № $TID
+   <br>
+  
+  $_('Отсканируйте ШК принтера')
+   <form action='taskEndPrint'>
+      <input type="hidden" name="tid" value="$TID">
+      <input type='text' name='barcode' id='barcode:scan'>
+   </form>
+  
+#end def    

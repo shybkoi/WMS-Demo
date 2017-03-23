@@ -1,0 +1,74 @@
+
+/* root element for tabs  */
+ul.tabs {  
+    z-index: 2;
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #666;	 	
+}
+
+/* single tab */
+ul.tabs li.ordercontrol {  
+	float:left;	 
+	padding:0; 
+	margin-top:-26px;  
+    margin-left:76px;  
+    height:30px;
+	list-style-type:none;	
+}
+ul.tabs li.orderreport {  
+	float:left;	 
+	padding:0; 
+	margin-top:-25px; 
+    height:30px;
+	list-style-type:none;	
+}
+ul.tabs li.ordererror {  
+	float:left;	 
+	padding:0; 
+	margin-top:-25px; 
+    height:30px;
+	list-style-type:none;	
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a { 
+	float:left;
+	font-size:12px;
+	display:block;
+	padding:3px 10px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	border-bottom:0px;
+	height:15px;
+	color:#777;
+	margin-right:2px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright:4px;
+	position:relative;
+	top:1px;	
+}
+
+ul.tabs a:hover {
+	color:#000;
+}
+	
+/* selected tab */
+ul.tabs a.current {
+    z-index: 1;
+	border-bottom:2px solid #fff;	
+	color:#000;	
+	cursor:default;
+    font-weight:bold;
+}
+
+	
+/* tab pane */
+div.panes > div {
+	display:none;
+	border:1px solid #666;
+	border-width:1px 1px 1px 1px;
+	padding:15px 20px;
+    margin-top: -7px;
+}

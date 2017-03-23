@@ -1,0 +1,64 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>$TONAME</br>
+    <b><u>($wcode)</u></b>$wname<br>
+    $viewQuantity($QO,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$QO#end filter#</u></b>)    
+    <hr>
+    #if $varExists('$TWPALLETNUM') and $TWPALLETNUM
+        <b>$TWPALLETNUM</b>($SITENAME)
+    #else
+        <b>$SITENAME</b>
+    #end if
+    #set $QSite = 0
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PDATE#end filter#</td>
+                    <td>$viewQuantity($item.PAMOUNT,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)
+                      #if $VUCODE                    
+                        (<b><u>#filter Quantity$item.PAMOUNT#end filter#</u></b>)
+                      #end if
+                    </td>
+                </tr>
+                #set $QSite += $item.PAMOUNT
+            #end for
+            </tbody>
+        </table>
+    #end if
+    <hr>    
+    #if $TWSTAT == '5'
+        <a href='taskF?id=$TID'>$_('Обновить')</a><br>
+    #else            
+        <form action='taskFWares'>
+            <input type=hidden name=twid value=$TWID>
+			$_('При сканировании ШК паллета будет отобрано ') 
+			#if $QO > $QSite	
+				<input type="hidden" name="qselect" value="$QSite">
+				<br><b>$viewQuantity($QSite,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)</b>
+			#else 
+				<input type="hidden" name="qselect" value="$QO">
+				<br><b>$viewQuantity($QO,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)</b>
+			#end if
+			<input type=text name=barcode id="barcode:scan">
+            ##$_('ШК поддона'): <br> <input type=text name=barcode id="barcode:scan">
+        </form>
+        
+        <br>  
+
+        <a href='taskFWaresUQuant?twid=$TWID'>$_('Фактическое количество')</a><br>
+        <a href='qTaskFWaresNoPlace?twid=$TWID' onClick="return confirm('$_('Нет места на поддоне')\n---------------------------------\n$_('Вы уверены?')')">$_('Нет места на поддоне')</a>
+    #end if
+#end def    
+

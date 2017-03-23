@@ -1,0 +1,10 @@
+#tbl_layers {clear:both;}
+.bordered {
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/*form#quicksearch{
+    display: inline-block;
+}*/

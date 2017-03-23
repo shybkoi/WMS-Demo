@@ -1,0 +1,14 @@
+/*-----------------------------------------
+[Theme Import Stylesheet]
+Theme name:   Dreamr
+Project:      FirePy Engine
+Version:      0.9 RC
+Last change:  03.01.2010
+Author:	      Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+@import "/ENGINE/themes/dreamr/css/structure.css";
+@import "/ENGINE/themes/dreamr/css/jquery.treeview.css";
+@import "/ENGINE/themes/dreamr/css/datepicker.css";
+@import "/ENGINE/themes/dreamr/css/dialog.css";
+@import "/ENGINE/themes/dreamr/css/contextMenu.css";
+

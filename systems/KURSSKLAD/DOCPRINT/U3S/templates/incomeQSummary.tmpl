@@ -1,0 +1,94 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+##<script type="text/javascript" src="/ENGINE/js/jquery-1.3.2.min.js"></script>
+##<script type="text/javascript" src="/KURSSKLAD/js/k.formats.js"></script>
+
+<div align="left">
+<table>  
+  #if $doc.fromObjName
+    <tr><td class="footer" valign="top" width="20%">Производитель</td><td class="footer" width="80%"><b> $doc.fromObjName </b></td></tr>
+  #end if
+ 
+  #if $doc.toObjName  
+    <tr><td class="footer" valign="top" width="20%">Склад</td><td class="footer" width="80%"><b> $doc.toObjName </b></td></tr>
+  #end if
+</table>
+</div>
+
+<br>
+<div align="center"><font size="4">$doc.DTPRINTNAME</font><br>№ $doc.DocNUM от $TimeStampToDate($doc.DocDate)</div>
+  <table width="100%" border="1" cellspacing="0">
+	<thead>
+		<tr>
+			<th rowspan="2">Локальный код</th>
+			<th rowspan="2">Наименование</th>
+			<th rowspan="2">Внешний код</th>
+			<th colspan="3">Документ</th>
+			<th colspan="3">Приемка</th>
+			<th colspan="3">Приход резерва</th>
+		</tr>
+		<tr>
+			<th>Паллет</th><th>ОЕИ</th><th>Итого</th>
+			<th>Паллет</th><th>ОЕИ</th><th>Итого</th>
+			<th>Паллет</th><th>ОЕИ</th><th>Итого</th>
+		</tr>
+	</thead>
+	<tbody>  
+	  #set $Cnt_pos = 0
+	  #set $QDOCINCOME = 0
+	  #set $QDOCINCOMEP = 0
+	  #set $QDOCINCOMEM = 0
+	  #set $QTASKLOT = 0
+	  #set $QTASKLOTP = 0
+	  #set $QTASKLOTM = 0
+	  #set $QDOCFUND = 0
+	  #set $QDOCFUNDP = 0
+	  #set $QDOCFUNDM = 0
+
+	  #for $item in $wares
+		#set $Cnt_pos += 1
+        #set $QDOCINCOME += float($item.QDOCINCOME)
+		#set $QDOCINCOMEP += int($item.QDOCINCOMEP)
+		#set $QDOCINCOMEM += float($item.QDOCINCOMEM)
+		#set $QTASKLOT += float($item.QTASKLOT)
+		#set $QTASKLOTP += int($item.QTASKLOTP)
+		#set $QTASKLOTM += float($item.QTASKLOTM)
+		#set $QDOCFUND += float($item.QDOCFUND)
+		#set $QDOCFUNDP += int($item.QDOCFUNDP)
+		#set $QDOCFUNDM += float($item.QDOCFUNDM)
+		
+		<tr>
+			<td style="text-align:right">$item.WCODE</td>
+			<td style="text-align:left">$item.WNAME</td>
+			<td style="text-align:center">$item.WEXTERNALCODE</td>
+			<td style="text-align:right">$Quantity($item.QDOCINCOME)</td>
+			<td style="text-align:right">$item.QDOCINCOMEP</td>
+			<td style="text-align:right">$Quantity($item.QDOCINCOMEM)</td>
+			<td style="text-align:right">$Quantity($item.QTASKLOT)</td>
+			<td style="text-align:right">$item.QTASKLOTP</td>
+			<td style="text-align:right">$Quantity($item.QTASKLOTM)</td>
+			<td style="text-align:right">$Quantity($item.QDOCFUND)</td>
+			<td style="text-align:right">$item.QDOCFUNDP</td>
+			<td style="text-align:right">$Quantity($item.QDOCFUNDM)</td>						
+		</tr>
+	  #end for
+	</tbody>
+    <tfoot>
+        <tr>
+			<td style="text-align:right">$Cnt_pos</td>
+			<td style="text-align:center" colspan="2">Итого</td>
+			<td style="text-align:right">$Quantity($QDOCINCOME)</td>
+			<td style="text-align:right">$QDOCINCOMEP</td>
+			<td style="text-align:right">$Quantity($QDOCINCOMEM)</td>
+			<td style="text-align:right">$Quantity($QTASKLOT)</td>
+			<td style="text-align:right">$QTASKLOTP</td>
+			<td style="text-align:right">$Quantity($QTASKLOTM)</td>
+			<td style="text-align:right">$Quantity($QDOCFUND)</td>
+			<td style="text-align:right">$QDOCFUNDP</td>
+			<td style="text-align:right">$Quantity($QDOCFUNDM)</td>								
+        </tr>
+    </tfoot>
+</table>
+<br>

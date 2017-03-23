@@ -1,0 +1,32 @@
+#encoding cp1251
+#extends wtmain
+
+#def wtData
+    ##Scripts	
+    <script type="text/javascript" src="$sp_js/worktaskdetail.js"></script>
+	<div id="dvFilter" class="Filter buttons">
+		Период поиска: 
+		<input type="text" id="dvFilterDateBeg" size="8">
+		<select id="dvFilterTimeBeg">
+			<option selected value="08">08:00</option>
+			<option value="20">20:00</option>
+		</select>
+		 - 
+		<input type="text" id="dvFilterDateEnd" size="8">
+		<select id="dvFilterTimeEnd">
+			<option value="08">08:00</option>
+			<option selected value="20">20:00</option>
+		</select>
+		&nbsp;&nbsp;&nbsp;
+		<span class="dvFilterTT" style="display:none;"> По типу задания:</span>
+		<select id="dvFilterTaskType" class="dvFilterTT" style="display:none;">
+			<option value="0">Без фильтра</option>
+		</select>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" id="dvFilterBtnLocate"><img src="$eng_img/actions/magnifier.png" border="0"></button>
+	</div>
+
+	<div id="dvScreen"></div>
+#end def
+

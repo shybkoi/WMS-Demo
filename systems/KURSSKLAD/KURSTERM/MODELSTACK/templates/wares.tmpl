@@ -1,0 +1,34 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+#from systems.KURSSKLAD.cheetahutils import Quantity
+
+#def mainData
+    <form action='main'>
+        $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+    </form>  
+    <hr>
+
+    <b>($WCODE)</b>$WNAME<br>
+    #if $varExists('$datalist') and $datalist
+        <form action="waresSetModels">
+            <input type="hidden" name="wid" value="$WID">
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Модель')</th>
+                    <th>$_('Пр-т')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>$item.MODELNAME</td>
+                    <td><input type='text' id="::int" name="m$item.MODELID" value="$item.PRIORITY" size="2"></td>
+            #end for
+            </tbody>
+        </table>
+            <input type="submit" value="$_('Сохранить')">
+        </form>
+    #end if
+#end def

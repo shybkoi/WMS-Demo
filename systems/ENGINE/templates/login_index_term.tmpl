@@ -1,0 +1,76 @@
+#encoding cp1251
+#import conf.engine_conf as cfg
+#extends systems.engine_main_term
+#def engineData_term
+
+<div align = "center">
+#if $varExists('$termname')
+    #if $termname != '' and $termname is not None
+        $termname
+    #end if
+#end if
+
+#if $varExists('$termusername')
+    <br/>Пользователь:
+    #if $termusername != '' and $termusername is not None
+        $termusername<br/><br/>
+    #else
+        не привязан<br/><br/>
+    #end if
+#end if
+
+<form id="login_term" action="login_term" method='POST'>
+    #if $mes != 'termnum_is_lost'
+        Отсканируйте Ваш ШК<br/>
+        <input type=
+        #if cfg.TERMINAL_BARCODE_ASTERISKS
+            "password"
+        #else
+            "text"
+        #end if
+        id='code' name="code" class="scanBarcode">
+    #end if
+
+    <br/>
+    <p id="error">
+        #if $varExists('$mes')
+            #if $mes != '' and $mes is not None
+                #if $mes == 'termnum_is_lost'
+                    Была потеряна связь с сервером. Реинициализация оборудования...
+                #else
+                    $mes
+                #end if
+            #end if
+        #end if
+    </p>
+</form>
+</div>
+<script type="text/javascript">
+    #if $mes == 'termnum_is_lost'
+        \$(document).ready(function() {
+            try{
+                setTimeout('location.href = "$cfg.TERMINAL_START_PAGE"', 3000);
+            }catch(e){
+                setTimeout(location.href = "$cfg.init_url", 3000);
+            }
+        });
+    #else
+        \$(document).ready(function() {
+            \$('#code').focus();
+            \$('#code').kInputScan();
+                \$("#login_term").submit(function(){
+                    ##проверка в js
+                    if (!\$('#code').val()) {
+                        \$('#error').text('ШК пуст');
+                        return false;
+                    }
+                    else
+                        return true;
+                });
+        });
+    #end if
+</script>
+<script type="text/javascript">
+    \$.rebuildObjArray();
+</script>
+#end def

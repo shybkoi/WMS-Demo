@@ -1,0 +1,18 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <b><u>$ANAME</u></b><hr>
+    
+    <b><u>$TUNAME</u></b><br>
+    Получатель: $TUOBJNAME<br>
+    Авто: $TUAUTONAME
+    <hr>
+    
+	<form action="autoTransUnit">
+        <input type=hidden name=aid value=$AID>
+        <input type=hidden name=tuid value=$TUID>
+        $_('Отсканируйте ШК единицы транспортировки для возврата на склад'): 
+        <input type="text" id=":scan:text" name="barcode">
+	</form>
+#end def

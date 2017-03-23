@@ -1,0 +1,91 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+<script type="text/javascript" src="/ENGINE/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/KURSSKLAD/js/k.formats.js"></script>
+
+<div align="left">
+<table>
+  #if $varExists('$ownerCompanyName') and $ownerCompanyName  
+    <tr><td class ="footer">Организация</td><td class ="footer"><b>$ownerCompanyName</b></td></tr> 
+  #end if       
+  #if $varExists('$ownerOKPO') and $ownerOKPO
+    <tr><td class ="footer">ЕГРПОУ</td><td class ="footer">$ownerOKPO</td></tr>
+  #end if
+  #if $varExists('$ownerINN') and $ownerINN
+    <tr><td class ="footer">ИНН</td><td class ="footer">$ownerINN</td></tr>
+  #end if
+  
+  #if $varExists('$ownerKPP') and $ownerKPP
+    <tr><td class ="footer">№ свидет.</td><td class ="footer">$ownerKPP</td></tr>
+  #end if
+  #if $varExists('$ownerAdres') and $ownerAdres
+    <tr><td class ="footer">Адрес</td><td class ="footer">$ownerAdres</td></tr>
+  #end if
+  #if $doc.fromObjName
+    <tr><td class="footer" valign="top" width="20%">Отправитель</td><td class="footer" width="80%"><b> $doc.fromObjName </b>
+            #if $doc.FROMADDRESS 
+                <BR>$doc.FROMADDRESS 
+            #end if
+        </td></tr>
+  #end if
+ 
+  #if $doc.toObjName  
+    <tr><td class="footer" valign="top" width="20%">Получатель</td><td class="footer" width="80%"><b> $doc.toObjName </b>
+            #if $doc.TOADDRESS
+                <BR>$doc.TOADDRESS
+            #end if
+        </td></tr>
+  #end if
+</table>
+</div>
+
+<br>
+<div align="center"><font size="4">$doc.DTPRINTNAME</font><br>№ $doc.DocNUM от $TimeStampToDate($doc.DocDate)</div>
+  <table width="100%" border="1" cellspacing="0">
+    <tr><th>№</th><th>Код</th><th>Наименование</th><th>Кол-во</th><th>Итого</th><th>Цена</th><th>Сумма</th></tr>
+  
+  #set $Number = 0
+  #set $Cnt_pos = 0
+  #set $PrevCode=-1
+  #set $amount = 0
+  #set $q = 0
+  #set $a = 0
+  #for $item in $wares
+    #set $Number = $Number+1 
+    #if $PrevCode <> $item.CODE
+        #set $Cnt_pos +=1;
+    #end if
+    #set $amount += $float($item.DOCSUM)
+    #if $item.VIEWUAMOUNT
+        #set $a += $float($item.VIEWUAMOUNT)
+    #end if
+    #set $q += $float($item.AMOUNT)
+    #set $PrevCode = $item.CODE              
+    <tr>
+        <td style="text-align:right">$Number</td>
+        <td style="text-align:right">$item.CODE</td>
+        <td style="text-align:left">$item.NAME</td>
+        <td style="text-align:right"><script>document.write(qStr($item.AMOUNT,$item.VIEWUAMOUNT,'$item.VIEWUCODE',$item.MAINUAMOUNT,'$item.MAINUCODE'));</script></td>
+        <td style="text-align:right">$Quantity($item.AMOUNT)</td>
+        <td style="text-align:right">$item.PRICE</td>
+        <td style="text-align:right">$item.DOCSUM</td>
+    </tr>
+  #end for
+    <tfoot>
+        <tr><td style="text-align:right">$Cnt_pos</td>
+            <td colspan="2" style="text-align:right;"> Итого: </td>
+            <td style="text-align:right">$Quantity($a)</td>
+            <td style="text-align:right">$Quantity($q)</td>
+            <td style="text-align:right">&nbsp;</td>
+            <td style="text-align:right">$amount</td>
+        </tr>
+    </tfoot>
+
+</table>
+<br><br>
+<b>Сдал(а):</b><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Принял(а):</b><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+<br>

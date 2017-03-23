@@ -1,0 +1,8 @@
+#master {clear:left; float: left; width: 80%;}
+#detail {clear:right; float: left; width: 15%; margin-left: 10px;}
+
+/*не катит из-за неучёта фильтра 
+#content {position: relative;}
+#master {clear:left; float: left; margin-right: 225px;}
+#detail {position: absolute; top: 0px; right: 0; width: 225px;}
+*/

@@ -1,0 +1,142 @@
+#encoding cp1251
+#extends systems.engine_main
+#def searchData
+
+<label for="ticketId">Тикет ID</label>
+<input name="ticketId" id="ticketId" type="text" align="left" size=5 title="Id тикета"/>
+
+<label for="dpDBeg">Период выдачи</label>
+<input name="dpDBeg" id="dpDBeg" type="text" align="center" size=7 title="с"/>
+<input name="dpDEnd" id="dpDEnd" type="text" align="center" size=7 title="по"/>
+
+<label for="develId_cmb">Разработчик</label>
+<select id='develId_cmb' title='Разработчик'>
+    <option value=''>Все разработчики</option>
+    #if $varExists('$datalist')
+        #if $datalist
+            #for $item in $datalist
+                #* #if str($develId) == str($item.DEVEL_ID)
+                    #set $selected = ' selected = "selected" '
+                #else
+                    #set $selected = ' '
+                #end if
+                <option $selected value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+                *#
+                <option value= '$item.DEVEL_ID'>$item.DEVEL_FIO</option>
+            #end for
+        #end if
+    #end if
+</select>
+<label for="edtReason">Причина</label>
+<input name="edtReason" id="edtReason" type="text" size=10 title="Часть текста"/>
+<br/>
+
+<label for="ticket">Тикет</label>
+<input name="ticket" id="ticket" type="text" align="left" size=20 title="Тикет"/>
+
+<label for="adminId_cmb">Админ</label>
+<select id='adminId_cmb' title='Админ'>
+    <option value=''>Все админы</option>
+    #if $varExists('$admins')
+        #if $admins
+            #for $item in $admins
+                #* #if str($develId) == str($item.DEVEL_ID)
+                    #set $selected = ' selected = "selected" '
+                #else
+                    #set $selected = ' '
+                #end if
+                <option $selected value= '$item.ID_USER'>$item.FIO</option>
+                *#
+                <option value= '$item.ID_USER'>$item.FIO</option>
+            #end for
+        #end if
+    #end if
+</select>
+
+<label for="idBase_cmb">БД</label>
+<select id='idBase_cmb' title='БД'>
+    <option value=''>Все БД</option>
+    #if $varExists('$dbs')
+        #if $dbs
+            #for $item in $dbs
+                <option value= '$item.ID_BASE'>$item.DB_NAME</option>
+            #end for
+        #end if
+    #end if
+</select>
+
+<label for="kind_cmb">Вид</label>
+<select id='kind_cmb' title='Вид'>
+    <option value=''>Все виды</option>
+    <option value='tmp'>Временные</option>
+    <option value='perm'>Постоянные</option>
+</select>
+
+<label for="ip">IP</label>
+<input name="ip" id="ip" type="text" align="left" size=15 title="IP-адрес"/>
+
+<span class='buttons'>
+    <button id="bfilters" title="Поиск"> <img src="$eng_img/actions/magnifier.png" alt=""/></button>
+</span>
+
+#end def
+
+#def engineData
+
+##Styles
+<link rel="stylesheet" href="$eng_css/jquery.cluetip.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/tables.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/valid.css" type="text/css"/>
+<link rel="stylesheet" href="$sp_css/align.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/tickets.css" />
+
+
+##Scripts
+<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+##<script type="text/javascript" src="$eng_js/jquery.cluetip.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+<script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+<script type='text/javascript' src="$eng_js/jquery.contextMenu.min.js"></script>
+<script type="text/javascript" src="$sp_js/tickets.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+
+#*<script type="text/javascript" src="$sps_js.KURS/k.formats.js"></script>
+<script type="text/javascript" src="$sps_js.KURS/k.messages.js"></script>
+<script type="text/javascript" src="$sps_js.KURS/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$sps_js.KURS/k.blocks.js"></script>
+*#
+
+<div id="content">
+</div>
+
+<div class='buttons' style='float: left;'>
+    <button id="badd" title="Добавить тикет"> <img src="$eng_img/actions/add.png" alt=""/>&nbsp;Добавить тикет</button>
+</div>
+
+<ul style="display: none; width: 300px" id="menuTicket" class="contextMenu">
+    <li class="addTicket">
+        <a href="#addTicket">Добавить тикет</a>
+    </li>
+    <li class="delTicket">
+        <a href="#delTicket">Удалить тикет</a>
+    </li>
+    <li class="delAllTickets">
+        <a href="#delAllTmpTickets">Удалить все временные за сегодня</a>
+    </li>
+    <li class="delAllTickets">
+        <a href="#delAllPermTickets">Удалить все перманентные за сегодня</a>
+    </li>
+</ul>
+
+##Dialogs
+<div id="dlgadd" class="dialog flora" title="Добавление тикета" align="center"></div>
+
+#end def

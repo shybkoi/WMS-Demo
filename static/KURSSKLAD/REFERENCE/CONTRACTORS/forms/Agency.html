@@ -1,0 +1,32 @@
+<div class="Body AgencyBody">
+    <div class="form-edit">
+        <div><span>Название:</span><input class="Name"/> </div>
+        <div><span>Короткое название:</span><input class="ShortName"/> </div>
+        <div><span>Код:</span><input class="Code"/> </div>
+        <div class="buttons">
+            <button class="save">Сохранить</button> 
+            <button class="cancel">Отмена</button>
+        </div>
+    </div>
+</div>
+<style>
+    div.AgencyBody div{float:left;padding-top: 5px;}
+    div.AgencyBody div input.Name{width: 350px;}
+    div.AgencyBody div input.ShortName{width: 100px;}
+    div.AgencyBody div input.Code{width: 100px;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

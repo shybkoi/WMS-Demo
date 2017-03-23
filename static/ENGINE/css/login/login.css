@@ -1,0 +1,17 @@
+/**********************************
+This file skins login Styles
+Chernyavsky A.E.
+***********************************/
+
+#loginForm{
+    width:300px;
+}
+#loginForm label {
+    width:100px;
+}
+#loginForm label span{
+    width:100px;
+}
+#loginForm label.error, #loginForm input.submit {
+    margin-left:203px;
+}

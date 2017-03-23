@@ -1,0 +1,7 @@
+#dvDocs, #dvListWares, #dvWaresDetail{
+    height: inherit;
+}
+.inQUANTITY{
+    text-align: right;
+    width: 50px;
+}

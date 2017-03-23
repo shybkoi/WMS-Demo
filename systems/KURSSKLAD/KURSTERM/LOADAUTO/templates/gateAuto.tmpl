@@ -1,0 +1,17 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main#def mainData
+    <b><u> $GNAME </u></b><br>
+    <b><u> $ANAME </u></b><br>
+    <hr>
+    $_('Для постановки автомобиля на ворота выберите задание из списка'):<br>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <a href='gateTaskStart?tid=$item.TID'>#filter DateTimeFilter $item.TPLANDT #end filter#</a><br>
+        #end for
+    #end if    
+    
+	
+#end def
+
+

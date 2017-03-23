@@ -1,0 +1,29 @@
+div #dvScan{
+    margin-top: -10px;
+    padding: 1px;
+}
+div #dvDocs, #dvListWares, #dvDocWares{
+    height: inherit;
+}
+div #dvDocs{
+    width: 400px;
+}
+div #dvListWares{
+    width: 600px;
+}
+div #dvStatus{
+    float: left;
+}
+div #dvButtons{
+    display: inline;
+    float: right;
+}
+input {
+    text-align: right;
+}
+input :focus{
+    text-align: right;
+}
+input.dvWaresDetail{
+    width: 80px;
+}

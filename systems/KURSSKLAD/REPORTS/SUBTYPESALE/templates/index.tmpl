@@ -1,0 +1,55 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+ <form class="buttons">
+     C <input id="dBeg" type=text class="date" />
+     По <input id="dEnd" type=text class="date" />
+     Подтип 
+     <select id="subtype">
+        <option value="null">Все</option>
+        #for $item in $subtype
+            <option value="$item.CODE">$item.NAME</option>
+        #end for
+     </select>
+     <button style="button" type=submit id="go"><img src="$eng_img/arrows/arrow_right.png"></button>
+ </form>
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>     
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sp_js/subtypesale.js"></script>
+    
+    <link href="$sp_css/subtypesale.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+
+
+#end def
+
+#def engineData
+    <div id="dvTabs" style="text-align:left;">
+        <ul>
+            <li><a href="#byDocuments"><span>По документам</span></a></li>
+            <li><a href="#byWares"><span>По товарам</span></a></li>
+        </ul>
+        <div id="byDocuments"></div>
+        <div id="byWares"></div>
+    </div>    
+#end def

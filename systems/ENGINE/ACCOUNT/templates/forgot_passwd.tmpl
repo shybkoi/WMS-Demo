@@ -1,0 +1,40 @@
+#encoding cp1251
+#import system_init as si
+#extends systems.ENGINE.ACCOUNT.templates.account_main
+#def accountData
+
+    <h1>Забыли пароль?</h1>
+    <p class = "helpmsg">Чтобы сбросить пароль, введите полный адрес электронной почты, используемый вами для входа в аккаунт.</p>
+
+    <form class = "reminderform" method="POST" action="/ACCOUNT/verifyuser">
+        <table>
+        <tbody>
+            <tr>
+                <td>Адрес электронной почты</td>
+                <td><input type="text" size="18" id="email" name="email"></td>
+            </tr>
+            #if $useCaptcha == 1
+                <script type="text/javascript">
+                var RecaptchaOptions = {
+                   lang : 'ru',
+                };
+                </script>
+              <tr>
+                <td>Защита от роботов:</td>
+                <td>
+                    Введите символы, представленные на картинке ниже.<br>
+                    $CaptchaHtml
+                    Буквы вводятся без учета регистра.<br>
+                </td>
+              </tr>
+            #end if
+        </tbody>
+        </table>
+        <input type="submit" class="button" value="Отправить">
+    </form>
+
+    #if si.regopen
+        <div class = "nohaveacc">Если у вас нет аккаунта, можете <a class="register" href="/ACCOUNT/">создать его сейчас.</a></div>
+    #end if
+
+#end def

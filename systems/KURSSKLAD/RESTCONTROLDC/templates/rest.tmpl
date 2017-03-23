@@ -1,0 +1,24 @@
+#encoding cp1251
+#extends rcmain
+#def $system_help = False
+#end def
+
+#def rcFilter
+ 	<form class="buttons">
+		$_('Склад'): <select id="selObj"></select>
+        &nbsp;&nbsp;&nbsp;
+		$_('Зона МП'): <select id="selZone"></select>
+        &nbsp;&nbsp;&nbsp;
+		$_('МП'): <input id="site" type="text">
+        &nbsp;&nbsp;&nbsp;
+        <button type=button id=btnRefresh><img src="$eng_img/actions/refresh.png"></button>
+        <button type=button id=btnPrint><img src="$eng_img/actions/printer.png"></button>
+	</form> 
+#end def
+
+#def rcData
+    
+    ##Scripts
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.SiteTree.js"></script>
+    <script type="text/javascript" src="$sp_js/rest.js"></script>
+#end def

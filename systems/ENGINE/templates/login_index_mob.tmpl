@@ -1,0 +1,64 @@
+#encoding cp1251
+#import conf.engine_conf as cfg
+#extends systems.engine_main_mob
+#def engineData_mob
+
+
+#if $varExists('$termname')
+    #if $termname != '' and $termname is not None
+        <div class='container'>
+            <div class=''>
+                <h3 class='brand btn-block' style='text-align: center;'>$termname</h3>
+            </div>
+        </div>
+    #end if
+#end if
+<div>
+    <form action="login_term" method='POST' id="login_form">
+        #if $mes != 'termnum_is_lost'
+            <h3>Зарегистрируйтесь в системе</h3>
+            <input type='hidden' id='code' name="code" class="scanBarcode">
+            <br/>
+        #end if
+
+        <br/>
+        <p class='text-error'>
+            #if $varExists('$mes')
+                #if $mes != '' and $mes is not None
+                    #if $mes == 'termnum_is_lost'
+                        Сервер был перезагружен. Сессия утеряна. Перевойдите в приложение.
+                    #else
+                        $mes
+                    #end if
+                #end if
+            #end if
+        </p>
+    </form>
+    <button  id="scanbtn" class="login_scan_button btn btn-primary btn-large btn-block">Сканировать персональный QR-код</button>
+</div>
+
+<script type="text/javascript">
+
+    \$('#scanbtn').unbind('click').click(function(){
+        try{
+            //submit_barcode('1NCWLC914MWKF481');
+            //Android.scanBarcode();
+            Android.executeMethod('scanBarcode','submit_barcode','', '');
+        }
+        catch(e){
+            bc = prompt('Отсканируйте QR-код','');
+            submit_barcode(bc);
+            //alert('Android interface not installed');//
+        }
+    });
+
+    //submit_barcode('00R2LGV142MTCF6F');
+
+    function submit_barcode(barcode, params) {
+        var form = \$("form#login_form");
+        \$("input#code",form).val(barcode);
+        form.submit();
+    }
+
+</script>
+#end def

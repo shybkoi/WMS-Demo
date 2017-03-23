@@ -1,0 +1,10 @@
+#dvPrintPallet {
+    display: box;
+}
+#dvPrintPallet span {
+    width: 150px;
+}
+
+#dvPrintPallet input {
+    width: 40px;
+}

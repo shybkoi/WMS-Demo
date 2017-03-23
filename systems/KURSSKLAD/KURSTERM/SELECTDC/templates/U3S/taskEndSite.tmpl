@@ -1,0 +1,34 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import Quantity
+
+#def mainData
+   
+   <b> № $docnum от #filter DateFilter $docdate #end filter # </b>
+   <br> № $TID
+   <br>
+
+    $_('Отсканируйте ШК местоположения')
+    <form action=taskEndSite>
+        <input type=hidden name=tid value=$TID>
+        <input type=text name=barcode id='barcode:scan'>
+    </form>
+
+    #if $varExists('$datalist') and $datalist and $len($datalist) > 0 and $datalist[0].SITEID
+        <hr>
+        #for $item in $datalist
+            <b>$item.sitename</b> <br>
+            #if $item.INFO
+                $item.INFO <br>
+            #end if
+        #end for
+
+        #if $varExists('$warpal') and $warpal and $len($warpal) > 0
+            <hr>
+            #for $item in $warpal
+                $item.WNAME = <b>$Quantity($item.AMOUNT)</b> <br>
+            #end for
+        #end if
+    #end if
+#end def    

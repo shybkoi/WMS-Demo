@@ -1,0 +1,88 @@
+#encoding cp1251
+#extends systems.engine_main
+#def $system_help = True
+#end def
+
+#def systemNavigation
+#*
+    <ul id="ulNavigation">
+        <li><a href="SALE">Отборка</a></li>
+        <li><a href="INCOME">Приемка</a></li>
+    </ul>
+*#
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$eng_css/contextMenu.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>        
+    <link href="$sps_css.KURSSKLAD/contextMenuStatus.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs-ie.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+  ##Scripts
+    
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script> 
+    
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>
+    #set $selectJS = $sp_js + '/Select' + $versionJS +'.js'
+    ##<script type="text/javascript" src="$sp_js/Select.js"></script>
+    <script type="text/javascript" src="$selectJS"></script>
+
+
+    #block adminData   
+        <div id="dvShop" style="float:left;position:relative;">
+            <div id="dvShopTop" style="float:left;position:relative;"></div>
+            <div id="dvShopBottom" style="float:left;position:relative;">
+                <div id="divTabs" style="text-align:left;">
+                    <ul>
+                        <li><a href="#dvShopDocs"><span>Документы</span></a></li>
+                        <li><a href="#dvShopTaskes"><span>Задания</span></a></li>
+                    </ul>
+                    <div id="dvShopDocs"></div>
+                    <div id="dvShopTaskes"></div>
+                </div>
+            </div>
+        </div>
+        <div id="dvSplitter" style="float:left;position:relative;"></div>
+        <div id="dvTask" style="float:left;position:relative;">
+            <div id="dvTaskTop" style="border-bottom:1px solid;float:left;position:relative;text-align:center">
+                <form id="frmFilterTask" style="float:left;position:relative;width:80%;text-align:center;vertical-align:middle;" class="buttons">
+                    <b>Период: </b>
+                        <input type="text" class="period" id="dBeg" name="dBeg" value="" size="8" />
+                        <input type="text" class="period" id="dEnd" name="dEnd" value="" size="8" />&nbsp;&nbsp;&nbsp;
+                    <b>Покупатель: </b>
+                        <input type="text" id="objName" value="" size="20"/>&nbsp;
+                        <button type="submit" title="Поиск"><img src="$eng_img/actions/magnifier.png" border="0"></button>&nbsp;&nbsp;&nbsp;
+                    <br><br>
+                </form>
+                <div id="dvButtons" class="buttons" style="float:left;position:relative;width:19%;text-align:right;">
+                    <button type="button" id="btnListWorkers" title="Показать список отборщиков"><img src="$eng_img/actions/user.png" border="0"></button>
+                    <button type="button" id="btnSummary" title="Показать суммарную информацию"><img src="$eng_img/actions/sum.png" border="0"></button>
+                    <button type="button" id="btnSummaryDST" title="Показать суммарную информацию по подтипам документов"><img src="$eng_img/actions/application_view_detail.png" border="0"></button>
+                </div>                
+            </div>                    
+            <div id="dvTaskBottom" style="float:left;position:relative;"></div>
+        </div>        
+    #end block
+
+#end def

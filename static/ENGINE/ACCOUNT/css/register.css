@@ -1,0 +1,108 @@
+/* Расположение контейнеров и индикаторов */
+
+#pc-container
+{
+    height: 30px;
+}
+
+#pc-indicator
+{
+    padding: 1px;
+    margin: 5px 0px 0px 0px;
+    border: solid 1px #bbb;
+    font-size:0px;
+    position: relative;
+    height: 5px;
+    display: block;
+}
+
+#pc-indicator-inline
+{
+    float: left;
+    padding: 2px;
+    /*background-color: #c00;*/
+    /*width:25%;*/
+    overflow: hidden;
+    height: 1px;
+}
+
+#pc-indicator-text
+{
+    font-family: arial,sans-serif;
+    font-size: smaller;
+}
+
+#repeat-text
+{
+    font-family: arial,sans-serif;
+    font-size: smaller;
+}
+
+/* Состояния текстового индикатора */
+
+.pc-critical
+{
+    color: #f00;
+}
+
+.pc-yellow
+{
+    color: #888000;
+}
+
+.pc-green
+{
+    color: #0b0;
+}
+table {
+     <!--border: 2px solid #797982;-->
+}
+
+table td:first-child {
+    font-weight: bold;
+    vertical-align: top;
+}
+
+table td {
+    padding: 8px; 
+}
+
+div.errormsg {
+    color: red;
+    font-family: arial,sans-serif;
+    font-size: smaller;
+}
+
+/* Состояния визуального индикатора */
+
+.pc-i-critical
+{
+    background-color: #c00;
+}
+
+.pc-i-yellow
+{
+    background-color:  #aaa444; /*#ccc444;*/
+}
+
+.pc-i-green
+{
+    background-color: #82CE76; /*#0f0;*/
+}
+
+/* Вердикты */
+
+.verdict {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.verdict_yes {
+    background:transparent url(/ENGINE/images/actions/accept.png) no-repeat scroll center center;
+}
+
+.verdict_no {
+    background:transparent url(/ENGINE/images/actions/exclamation.png) no-repeat scroll center center;
+}

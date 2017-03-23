@@ -1,0 +1,31 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    #if $varExists('$PNUM') and $PNUM
+		<b><u>$PNUM</u></b>($SNAME)
+	#else
+		<b>$SNAME</b>
+	#end if
+    <br><br>
+
+    $_('МП поддона'): <br><br>
+
+    #if $varExists('$datalist')
+        #for $item in $datalist
+            #if $item.CANSELECT == '1'
+                <a href="taskLPalletSiteSet?tid=$tid&pid=$PID&sid=$item.SID&wid=$wid">$item.SNAME</a>
+            #else
+                <font class="inactive">$item.SNAME</font>
+            #end if
+            :
+            #if $item.PALLETS
+                $item.PALLETS
+            #else
+                ______
+            #end if
+            <br><br>
+        #end for
+    #end if
+
+#end def

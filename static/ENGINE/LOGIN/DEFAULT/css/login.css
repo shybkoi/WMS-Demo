@@ -1,0 +1,317 @@
+/**********************************
+This file skins login Styles
+Chernyavsky A.E.
+***********************************/
+
+body{
+    clear: both !important;
+    clear: left !important;
+    clear: right !important;
+    background-color:white !important;
+    background-image:url(../images/back.png) !important;
+    background-position:left !important;
+    background-repeat:repeat-y !important;
+    font-family:  verdana, Arial, Helvetica, sans-serif;
+    font-size:12px;
+    }
+
+#loginForm{
+    margin-top:80px;
+    height: 380px;
+    width: 363px;
+    background-image:url(../images/loginform.png);
+    background-repeat:no-repeat;
+    background-position:center top;
+    border: 1px solid #E1E1E1;
+    }
+
+form.login fieldset {
+    padding-left: 35px;
+    padding-top: 0px;
+    border: 0 none;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 280px;
+    width: 5px
+    }
+
+#username{
+    left: 50px;
+    position: relative;
+    width: 240px;
+    }
+
+#loginForm.login fieldset p label{
+    left: -5px;
+   //left: -50px; /*IE*/
+    position: relative;
+    }
+
+/* Opera */
+@media all and (-webkit-min-device-pixel-ratio:10000),
+not all and ( -webkit-min-device-pixel-ratio : 0 ) {
+  #loginForm.login fieldset p label { left: -50px; }
+}
+
+#password{
+    left: 45px;
+    position: relative;
+    width: 180px;
+    }
+
+#loginForm label {
+    color: grey !important;
+    margin-top: 0 !important;
+    position: absolute !important;
+    width: 50px !important;
+    }
+
+#loginForm label span{
+    margin-left: 30px;
+    }
+
+#error-wrap {
+    display: block;
+    height: 40px;
+    width:150%;
+    /*left: 25px;*/
+    left: -35px;
+    position: relative;
+    top: -100px;
+    color: #F73D67;
+        /*======next for IE=======*/
+    margin-top /*\**/:40px\9 !important;
+    margin-left /*\**/:10px\9 !important;
+    }
+
+#error-exclamation {font-weight: bold;}
+input {    border: 1px solid #D24E6A; }
+input:focus { border: 1px dotted #D24E6A; }
+input.error { border: 1px dotted #D24E6A; }
+form.login .gray * { color: gray; }
+
+#username, #password {
+    -moz-border-radius: 2px;
+    border-radius:2px;
+    border-color: #C8C8C8 #939393 #C8C8C8 #C8C8C8;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    }
+
+form.login fieldset p a{
+    color: #1499d1;
+    position:relative;
+    left: 55px;
+    }
+
+.submit, .buttons a, .buttons button{
+    background-image: url("../images/enterbutt.png") !important;
+    border: 1px solid #999 !important;
+    height: 30px;
+    padding-top: 0 !important;
+    width: 92px !important;
+    font-family: sans-serif, Lucida Grande,Tahoma,Arial,Verdana !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    color: #606370 !important;
+    margin-left: 50px;
+    cursor:pointer;
+        /*======next for IE=======*/
+    left /*\**/:120px\9 !important;
+    top /*\**/:160px\9 !important;
+    }
+
+.submit:hover, .buttons a:hover, .buttons button:hover{
+    background-image: url("../images/enterbutthover.png") !important;
+    color:black !important;
+    }
+
+div.links{
+    padding-left: 50px;
+    padding-top: 40px;
+    color: #1499D1;
+    }
+
+.recommend span.alert{
+    color:red;
+    }
+
+p.recommend {
+    margin-top:30px;
+    }
+
+.submit img{
+    display:none !important;
+    }
+
+/*opera*/
+@media all and (-webkit-min-device-pixel-ratio:10000),
+not all and (-webkit-min-device-pixel-ratio:0) {
+body{
+    font-size:12px !important;
+    }
+
+#loginForm {
+    margin-left:50px;
+    }
+
+form.login fieldset p a  {
+    left: 220px;
+    position: relative;
+    top: -20px;
+    left:235px;
+    }
+
+#loginForm.login fieldset p label span{
+    margin-left: 60px !important;
+    }
+
+form.login fieldset {
+    padding-top: 30px !important;
+}
+
+#error-wrap {
+    left: -50px !important;
+    position: relative !important;
+    text-align: center !important;
+    top: -120px !important;
+    width: 400px  !important;
+    display:block !important;
+    }
+
+.submit{
+    margin-left:100px !important;
+    margin-top:-80px;
+    }
+div.links a.register{
+    margin-left:55px;
+     }
+
+p.recommend{
+    position: relative;
+    margin-top:30px;
+    }
+
+#password{
+    left: 50px;
+    }
+}
+
+/*===========================================*/
+
+/*IE*/
+ body{
+    _font-size:12px !important;
+    }
+
+#loginForm{
+    _position:relative !important;
+    _top:20px;
+    }
+
+form.login fieldset {
+    _position: relative;
+    _top: 200px;
+    _width: 0px;
+    _left:30px;
+    }
+
+#username, #password {
+    _left:10px;
+    }
+
+p.recommend {
+    _margin-left: 0px;
+    _position:relative;
+    _top:60px;
+    }
+
+a.register {
+    _margin-left:-30px;
+    _position:relative;
+    _left:50px;
+    _top:15px;
+    }
+
+.submit{
+    _margin-left:-25px !important;
+    _position:absolute;
+    _margin-top:-50px;
+    }
+
+form.login fieldset p a {
+    _left: 20px;
+    }
+
+#error-wrap {
+    _position: relative !important;
+    _text-align: center !important;
+    _left:-40px !important;
+    _top: -135px !important;
+    _width: 300px  !important;
+    _height:40px !important;
+    _display:block !important;
+    }
+
+p.recommend{
+    _margin-left:60px;
+    }
+
+/*===========================*/
+
+
+/*Chrome and Safari*/
+@media screen and (-webkit-min-device-pixel-ratio:0){
+#error-wrap {
+    position: relative !important;
+    text-align: center !important;
+    left:-10px !important;
+    top: -120px !important;
+    width: 300px  !important;
+    height:40px !important;
+    display:block !important;
+    }
+
+.submit{
+    margin-left:100px !important;
+    margin-top:-20px;
+    }
+
+div.links a.register {
+    margin-left:60px;
+    }
+
+p.recommend{
+    position: relative;
+    margin-top:60px;
+    }
+
+form.login fieldset p a  {
+    left: 220px;
+    position: relative;
+    top: -20px;
+    left:235px;
+    }
+
+#password{
+    left: 50px;
+    }
+
+#loginform.login fieldset p label {
+    left:-5px;
+    }
+}
+
+div.required_field {
+    display: inline;
+    color: #CD1010;
+    }
+
+/*Language combo*/
+#lang_sel
+{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

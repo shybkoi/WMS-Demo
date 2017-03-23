@@ -1,0 +1,121 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDateTime
+#from systems.KURSSKLAD.cheetahutils import formatFloat
+#from systems.KURSSKLAD.cheetahutils import coalesceValue
+
+#set $rnd = 4
+#if $HEADHTML
+    $HEADHTML
+#else    
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+##        <link href="/KURSSKLAD/DOCPRINT/css/docPrint.css" rel="stylesheet" type="text/css" media="screen"/>
+##        <link href="/KURSSKLAD/DOCPRINT/css/docPrint.css" rel="stylesheet" type="text/css" media="print"/>
+
+        <style type="text/css">
+            .cellprint{border: 1px solid black;}
+            .barcode{font-size:35px;padding: 5 15 5 15;font-family:"Free 3 of 9 Extended","Free 3 of 9";}
+        </style>
+        
+        <title>Печать
+            #if len($docs)==1
+                № $docs[0].doc.DocNUM от #filter DateFilter $docs[0].doc.DocDate #end filter#
+            #else
+                Печать документов
+            #end if
+        </title>
+    </head>
+#end if
+<body>
+    #for $d in $docs
+      <div style="page-break-after: always">
+        #if $PRINTHEADER == '1'
+            <div align="right">
+                <table>
+                    <tr><td class ="footer" style="font-size:6px;text-align:right;">$TimeStampToDateTime($d.doc.formdate)</td></tr>
+                    <tr><td class ="footer">$prefix$formatFloat($d.doc.DocId,0)</td></tr>  
+                    <tr><td class ="footer"><font face="Free 3 of 9 Extended" size="5">*$prefix$formatFloat($d.doc.DocId,0)*</font></td></tr>
+                    <tr><td class ="footer" style="font-size:6px">$TimeStampToDateTime($d.doc.lastdate)</td></tr>
+                </table>
+            </div>
+        #end if
+        
+        #set global $doc = $d.doc
+        #set global $wares = $d.wares
+        #if $DTPRINTTMPL
+            #include $DTPRINTTMPL
+            ##include '../systems/KURSSKLAD/DOCPRINT/MM/templates/docPrintININCOME.tmpl'
+        #else
+          <div align="left">
+            <table>
+                <tr><td class ="footer">Организация</td><td class ="footer"><b>$ownerCompanyName</b></td></tr>    
+              #if $varExists('$ownerOKPO') and $ownerOKPO
+                <tr><td class ="footer">ЕГРПОУ</td><td class ="footer">$ownerOKPO</td></tr>
+              #end if
+              #if $varExists('$ownerINN') and $ownerINN
+                <tr><td class ="footer">ИНН</td><td class ="footer">$ownerINN</td></tr>
+              #end if
+              
+              #if $varExists('$ownerKPP') and $ownerKPP
+                <tr><td class ="footer">№ свидет.</td><td id="nojsalign" class ="footer">$ownerKPP</td></tr>
+              #end if
+              #if $varExists('$ownerAdres') and $ownerAdres
+                <tr><td class ="footer">Адрес</td><td class ="footer">$ownerAdres</td></tr>
+              #end if
+              #if $d.doc.fromObjName
+                <tr><td class="footer" valign="top" width="20%">Отправитель</td><td class="footer" width="80%"><b> $d.doc.fromObjName </b>
+                        #if $d.doc.FROMADDRESS 
+                            <BR>$d.doc.FROMADDRESS 
+                        #end if
+                    </td></tr>
+              #end if              
+              #if $d.doc.toObjName  
+                <tr><td class="footer" valign="top" width="20%">Получатель</td><td class="footer" width="80%"><b> $d.doc.toObjName </b>
+                        #if $d.doc.TOADDRESS
+                            <BR>$d.doc.TOADDRESS
+                        #end if
+                    </td></tr>
+              #end if
+            </table>
+          </div>
+            
+          <br>
+            <div align="center"><font size="4">$doc.DTPRINTNAME</font><br>№ $d.doc.DocNUM от #filter DateFilter $d.doc.DocDate #end filter #</div>
+            <table width="100%" border="1" cellspacing="0">
+                <tr><th>№</th><th>Код</th><th>Наименование товара</th><th>Ед.изм.</th><th>Кол-во</th><th>Цена с НДС</th><th>Стоимость с НДС</th></tr>
+              #set $Number = 0
+              #set $Cnt_pos = 0
+              #set $PrevCode=-1
+              #for $item in $d.wares
+                #set $Number = $Number+1 
+                #if $PrevCode <> $item.CODE
+                    #set $Cnt_pos +=1;
+                #end if
+                #set $PrevCode = $item.CODE              
+                <tr>
+                    <td style="text-align:right">$Number</td>
+                    <td style="text-align:right">$item.CODE</td>
+                    <td style="text-align:left">$item.WARESNAME</td>
+                    <td style="text-align:center">$item.WARESUNITID_NAME</td>
+                    <td style="text-align:right">$formatFloat($item.AMOUNT,3)</td>
+                    <td style="text-align:right">$formatFloat($item.PRICE,$rnd)</td>
+                    <td style="text-align:right">$formatFloat($item.DOCSUM,$rnd)</td>
+                </tr>
+              #end for            
+            </table> 
+            <div align="right"><b> Итого: $d.doc.DocSum </b><br><b> В т.ч. НДС: $d.doc.DOCNDS </b></div>
+            <div align="left">Всего наименований: $Cnt_pos,  на сумму: $d.doc.DocSum $d.doc.CurShortName<br><b> $d.doc.DOCSumSTR </b><br>В т.ч. НДС: <b>$d.doc.DOCNDSSTR</b></div>
+            <br><br>
+            <b>Сдал(а):</b><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Принял(а):</b><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <br>
+        #end if
+      </div>  
+    #end for 
+</body>
+</html>     
+        

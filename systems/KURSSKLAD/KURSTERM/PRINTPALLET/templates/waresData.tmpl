@@ -1,0 +1,31 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+
+#def mainData
+	<b>$labeltypes['FG']</b>
+	<hr>
+
+    <b><u>($WCODE)</u></b> $WNAME
+    <hr>
+    <form action="waresData">
+        <input type="hidden" name="wid" value="$WID">
+        <input type="hidden" name="prid" value="$PRODUCERID">
+        <input type="hidden" name="lid" value="$PRODLINEID">
+        <u>$PRODLINENAME</u><br>
+        <u>$PRODUCERNAME</u><br>
+        <br>
+        #if $PRODLINECHGDATE == '1'
+            $_('Производство') <input type="text" name="prdate" id="productdate::date" size="7" value="$GetCurDate(shortYear=True)"><br>
+        #else
+            <input type="hidden" name="prdate" value="$GetCurDate(shortYear=True)">
+            $_('Производство'): <b>$GetCurDate(shortYear=True)</b><br>
+        #end if
+        <input type="hidden" name="pq" value="#filter Quantity$W_PUFACTOR#end filter#">
+        $_('На паллете'): <b>#filter Quantity$W_PUFACTOR#end filter#</b><br>
+        $_('Этикеток'): <input type="text" name="pcnt" id="pcnt::int" size="2" value="1"><br>
+        <hr>
+        $_('Принтер'): <input type="text" id=":scan:text" name="barcode" size="6">
+        <button type="submit">OK</button>
+    </form>
+#end def

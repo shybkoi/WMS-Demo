@@ -1,0 +1,31 @@
+/* Progressbar
+----------------------------------*/
+
+div.progressbar-outer
+{
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid blue;
+}
+
+div.progressbar-inner 
+{ 
+    height:100%; 
+    text-align: left;
+    vertical-align: middle;
+    width: 100%;
+    background-color: green;
+    padding: 0;
+    border: 0;
+}
+
+div.progressbar-indicator 
+{
+    margin: 0; 
+    height: 100%; 
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 700;
+}

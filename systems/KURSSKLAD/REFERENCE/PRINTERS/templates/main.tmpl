@@ -1,0 +1,30 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$sp_css/printers.css" rel="stylesheet" type="text/css" media="screen"/>
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>   
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sp_js/printers.js"></script>
+    #block adminData      
+        <div id="dvTbl" style="float:left;position:relative;"></div>
+    #end block
+
+#end def

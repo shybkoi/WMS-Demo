@@ -1,0 +1,30 @@
+/*-----------------------------------------
+[Theme Generic context menu Stylesheet]
+Theme name:   Black&White
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    11:25 10.08.2009
+Author:	    Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+.contextMenu {
+	border: solid 1px #1F1F1F;
+	background: #EEE;
+    text-align: left;
+}
+.contextMenu A {
+	color: #333;
+}
+.contextMenu LI.hover A {
+	color: #FFF;
+	background-color: #9A9A9A;
+}
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+.contextMenu LI.separator {
+	border-top: solid 1px #CCC;
+}

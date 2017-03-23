@@ -1,0 +1,63 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+##Styles
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/admin_tarifs.css" />
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_tarifs.js"></script>
+<script type="text/javascript">
+#if $varExists('$focused_id')
+  #if $focused_id!=''
+    focused_id=$focused_id
+  #end if
+#end if
+</script>
+
+<span style="font: bold 14pt sans-serif; color: gray">$_('Управление тарифами')</span>
+
+<div id="content">
+</div>
+
+<br>
+<div class="buttons save">
+    <span class="bordered"><img src="$eng_img/circular/eye.png"/>&nbsp;<input id='cbShowDisabled' type="checkbox"/><label for ='cbShowDisabled'>$_('Показать отключенные')</label></span>
+    <button id="brefresh" type="button"><img src="$eng_img/actions/refresh.png"/>&nbsp;$_('Обновить тарифы')</button>
+</div>
+
+##Context menu
+<ul style="display: none; width: 380px" id="menuTarif" class="contextMenu">
+    <li class="addTarif">
+        <a href="#addTarif"><img src="$eng_img/actions/add.png" alt=""/>&nbsp;$_('Добавить')</a>
+    </li>
+    <li class="editTarif">
+        <a href="#editTarif"><img src="$eng_img/actions/edit.png" alt=""/>&nbsp;$_('Редактировать')</a>
+    </li>
+    <li class="delTarif">
+        <a href="#delTarif"><img src="$eng_img/actions/delete.png" alt=""/>&nbsp;$_('Удалить')</a>
+    </li>
+    <li class="disableTarif">
+        <a href="#disableTarif"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;<span>$_('Отключить')</span></a>
+    </li>
+    <li class="setDefault">
+        <a href="#setDefault"><img src="$eng_img/circular/flag_yellow.png" alt=""/>&nbsp;<span>$_('Назначить тарифом по умолчанию')</span></a>
+    </li>
+    <li class="rights">
+        <a href="#rights"><img src="$eng_img/actions/rights.gif" alt=""/>&nbsp;$_('Права тарифа')</a>
+    </li>
+    <li class="layers">
+        <a href="#layers"><img src="$eng_img/actions/application_view_detail.png" alt=""/>&nbsp;$_('Клиенты на тарифе')</a>
+    </li>
+</ul>
+
+##Dialog Add/Edit tarif
+<div id="dlgedit" class="dialog flora" title="Изменение параметров тарифа" align="center"></div>
+
+##Dialog tarif Rights
+<div id="dlgrights" class="dialog flora" title="Права клиента согласно тарифа" align="center"></div>
+
+##Dialog tarif Layers
+<div id="dlglayers" class="dialog flora" title="Клиенты на тарифе" align="center"></div>
+
+#end def

@@ -1,0 +1,49 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import Quantity
+
+#def mainData
+
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>
+    #if $SITENAME
+        <b>$SITENAME</b><br><br>
+    #end if
+    <b><u>($wcode)</u></b>$wname	
+	#if $varExists('$PLANPRODUCTDATE') and $PLANPRODUCTDATE
+		<br><b>#filter DateFilter$PLANPRODUCTDATE#end filter#</b> = 
+	#end if		
+	$viewQuantity($QPLAN,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE) (<u><b>$Quantity($QPLAN)</b></u>)
+    <hr>
+
+    <a href="taskP?id=$TID">$_('Обновить')</a><br>
+	#if $varExists('$datalist') and len($datalist) > 0
+	<font class="yellow"><b>$_('Нет подходящего штабеля!')</b></font>
+	<form action="taskP">
+        <input type="hidden" name="id" value="$TID">		
+        $_('Отсканируйте поддон для продолжения отборки:') <input type="text" id=":scan:text" name="barcode" value="">
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>$_('Паллет')</th>
+				<th>$_('МП')</th>
+			</tr>
+		</thead>
+		<tbody>
+		#for $item in $datalist
+			<tr>
+				<td>$item.PNUM</td>
+				<td>$item.SNAME</td>
+			</tr>
+		#end for
+		</tbody>
+	</table>
+    #else
+		<font class="red"><b>$_('Нет подходящего паллета!')</b></font><br>
+		<a href="taskPEmpty?tid=$TID">$_('Завершить без отборки')</a>
+	#end if
+#end def
+

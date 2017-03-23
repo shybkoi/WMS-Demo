@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   <b> № $docnum от #filter DateFilter $docdate #end filter # </b>
+   <br> № $TID
+   <br>
+
+    $_('Товаров'): $CNTWARES <br>
+    $_('Позиций'): $CNTPOS <br>
+    $_('Выполнено'): $CNTDONE <br>
+    $_('Частично'): $CNTDONEPART <br>
+    $_('Вычерки'): $CNTSKIP <br>
+    <br>
+    <a href="listTaskes">$_('Список заданий')</a>
+#end def    
+

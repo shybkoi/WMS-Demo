@@ -1,0 +1,76 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    #if $varExists('$use_wlnumber') and $use_wlnumber
+        <script language="javascript" src="$sps_js.KURSTERM/request.js"></script>
+        <script language="javascript" src="$sps_js.KURSTERM/wlnumber.js"></script>
+    #end if
+    
+    #if $PNUM
+        $_('Поддон'): <b><u>$PNUM</u></b>($SNAME)<br>
+    #else
+        <b><u>$SNAME</u></b><br>
+    #end if
+    <b>(<u>$WCODE</u>) </b> $WNAME<br>
+    <hr>
+    #if $varExists('$use_wlnumber') and $use_wlnumber
+        #set $onsubmit = 'onsubmit="javascript: return frmSubmit();"'
+        #set $dateonblur = 'onblur="chgDate();"'
+    #else
+        #set $onsubmit = ''
+        #set $dateonblur = ''
+    #end if      
+    <form action="palWaresAdd" name="frm" $onsubmit method=post>
+        <input type=hidden name=wid value=$WID>
+        <input type=hidden name=id value=$PID>
+        <input type=hidden name=dbeg value="$dbeg">
+        <select name=wuid>
+          #if $wuid==$MWUID
+            <option value=$MWUID selected>$MWUCODE</option>
+          #end if
+          #if $VWUID
+            <option value=$VWUID>$VWUCODE</option>
+          #end if
+          #if $wuid != $MWUID
+            <option value=$MWUID>$MWUCODE</option>
+          #end if
+        </select>: 
+        <input type="text" name="amount" id=":focus:float" value="$amount" size="6"><br><br>
+        $_('Дата'): <input type="text" name="productdate" id="::date" value="$productdate" size="6" $dateonblur"><br>
+		#if $varExists('$use_wlnumber') and $use_wlnumber            
+			<br>$_('Партия') № <select name="wlnumber"></select><br>
+		#else
+			<input type="hidden" name="wlnumber" value=" ">
+		#end if
+        <hr>
+        <input type=submit value="$_('Сохранить')">
+    </form>
+    
+    #if $varExists('$use_wlnumber') and $use_wlnumber 
+        <script>
+            #if $varExists('$wlnumber') and $wlnumber
+                defaultWLNumber = '$wlnumber';
+            #end if
+            
+            function frmSubmit(){
+                if (document.frm.wlnumber.disabled){
+                    alert('$_('Номер партии не установлен')! $_('Ожидайте окончания заполнения списка для выбора!')');
+                    document.frm.sbarcode.value = '';
+                    return false;
+                }
+                else if (!document.frm.wlnumber.value){
+                        alert('$_('Номер партии не установлен')!');
+                        return false;
+                    }
+                else
+                    return true;
+            }
+            
+            function chgDate(){
+                reqWLNumbers($wid);
+            }
+                   
+            chgDate();
+        </script>    
+    #end if
+#end def

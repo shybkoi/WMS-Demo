@@ -1,0 +1,26 @@
+#encoding cp1251
+#extends profile_main
+#def profileData
+    #set $eng_th = '/ENGINE/themes/'
+    #set $img_small = 'small.png'
+    #set $img_big = 'big.png'
+    <link type="text/css" rel="stylesheet" href="$eng_css/jquery.fancybox.css"  media="screen"/>
+    <script type="text/javascript" src="$eng_js/jquery.fancybox-1.2.1.pack.js"></script>
+    <script>
+      \$(function(){
+      \$('.chtheme')
+      .click(function(){
+        \$('#csstheme').attr('href',"$eng_th"+\$(this).attr('name')+"/css/import.css");
+        \$.getJSON('ajaxChangeTheme', {themeid:\$(this).attr('id')});
+        });
+      \$('.theme').fancybox();
+     });
+    </script>
+    <h1 align="center">$_('Темы оформления')</h1>
+    #for $theme in $datalist
+      <div class="gallery">
+         <a class="theme" rel="group" title="$theme.SHOW_NAME" id="$theme.ID_THEME" name="$theme.NAME" href="$eng_th/$theme.NAME/$img_big"><img src="$eng_th/$theme.NAME/$img_small"/></a>
+         <p><a class="chtheme" href="#" id="$theme.ID_THEME" name="$theme.NAME">$theme.SHOW_NAME ($_('нажмите, чтобы изменить'))</a></p>
+      </div>  
+    #end for
+#end def

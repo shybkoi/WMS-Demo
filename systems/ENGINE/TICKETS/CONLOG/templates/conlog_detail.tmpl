@@ -1,0 +1,15 @@
+#encoding cp1251
+<table id="tbl_detail">
+  <thead>
+  <tr>
+    <th>Время соединения</th>
+  </tr>
+  </thead>
+  <tbody>
+        #for $item in $detail
+            <tr>
+                <td class="hal">$item.ACCESS_STAMP</td>
+            </tr>
+        #end for
+  </tbody>
+</table>

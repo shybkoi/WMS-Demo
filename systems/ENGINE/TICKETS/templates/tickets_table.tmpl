@@ -1,0 +1,45 @@
+#encoding cp1251
+<table id="tbl_tickets">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Перманент</th>
+            <th>Выдан</th>
+            <th>Причина</th>
+            <th>Разработчик</th>
+            <th>БД</th>
+            <th>IP/порт</th>
+            <th>Тикет</th>
+            <th>Удалён</th>
+            <th>Выдал</th>
+            <th>Разрешены IP</th>
+        </tr>
+    </thead>
+  <tbody id='tbl_tickets_tbody'>
+        #for $item in $datalist
+            #if $item.DELETED_TIME is not None
+                #set $deleted=' class="deleted"'
+            #else
+                #set $deleted=''
+            #end if
+            #if $item.PERM is not None and $item.PERM != 0
+                #set $perm='Да'
+            #else
+                #set $perm=''
+            #end if
+            <tr id="$item.TICKET_ID"$deleted>
+                <td class="har">$item.TICKET_ID</td>
+                <td class="hac perm">$perm</td>
+                <td class="grant_stamp">#filter LongDateTimeFilter $item.GRANT_STAMP #end filter</td>
+                <td>$item.REASON</td>
+                <td>$item.DEVEL_FIO</td>
+                <td>$item.DB_NAME</td>
+                <td>$item.DB_IP</td>
+                <td>$item.TICKET</td>
+                <td class="hac deleted_time">#filter TimeFilter $item.DELETED_TIME #end filter</td>
+                <td>$item.ADMIN_FIO</td>
+                <td>$item.ALLOWED_IPS</td>
+            </tr>
+        #end for
+  </tbody>
+</table>

@@ -1,0 +1,151 @@
+/*Ths file skins login
+ Chernyavsky A.E.*/
+
+table
+        {
+        width: auto;
+        padding: 0;
+        border-left: 1px solid #FF873D;
+        border-collapse:collapse;
+        }
+caption
+        {
+        padding: 0 0 5px 0;
+        margin:0 auto;
+        width:auto;
+        font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        text-align: right;
+        }
+
+th
+        {
+        font: bold 10px/22px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        color: #4f6b72;
+        border-right: 1px solid #FF873D;
+        border-bottom: 1px solid #FF873D;
+        border-top: 1px solid #FF873D;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align:center;
+        padding: 1px 1px 1px 1px;
+        background: #FFD9B5 url(/ENGINE/images/login/ta_bg_header.jpg) no-repeat;
+        vertical-align:middle;
+        }
+td
+        {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        border-right: 1px solid #FF873D;
+        border-bottom: 1px solid #FF873D;
+        padding: 1px 1px 1px 1px;
+        color: #4f6b72;
+        text-align:center;
+        vertical-align:middle;
+        }
+td.lb
+        {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        border-left: 3px solid #FF873D;
+        border-bottom: 1px solid #C1DAD7;
+        padding: 1px 1px 1px 1px;
+        color: #4f6b72;
+        text-align:center;
+        vertical-align:middle;
+        }
+
+td.td_vat
+        {
+        vertical-align:top;
+        }
+
+/* Alternate row style */
+tr.alt
+        {
+        background: #F5FAFA;
+        color: #797268;
+        }
+/* The current cell */
+table tbody tr td.currentCell,
+table tbody tr td:hover,
+table tbody tr.alt td:hover
+        {
+        background-color:#FFB16D;
+        }
+/* Normal row hover styles */
+
+table tr.rowHover td,  /* Internet Explorer < 7 (and 7 in quirks mode) requires a specific class */
+tr:hover td     /* All others can use the :hover pseudo */
+        {
+        background-color:#FFDCC1;
+        }
+
+/* Alternate row hover styles */
+tr.alt:hover td
+        {
+        background-color:#caFAFA;
+        }
+
+/* Column "cell" highlighting */
+table tr td.rowHover
+        {
+        background-color:#eaFAFA;
+        }
+/* Header highlighting */
+table tr th.rowHover
+        {
+        color:#222;
+        }
+
+/* Row select styles */
+
+table tbody tr.alt.rowSelect,   /* Everything but Internet Explorer (IE treats this rule as being tr.rowSelect) */
+table tbody tr.alt.rowSelect td
+        {
+        background-color:#597bc6;
+        color:#eee !important;
+        }
+table tbody tr.rowSelect, /* All browsers */
+table tbody tr.rowSelect td
+        {
+        background-color:#6783cb;
+        color:#fff !important;
+        }
+
+tr.rowSelect td.rowHover,
+tr.rowSelect:hover td
+        {
+        background-color:#6783bb;
+        }
+tr.alt.rowSelect td.rowHover,
+tr.alt.rowSelect:hover td
+        {
+        background-color:#597bb6;
+        }
+table tr.rowSelect td:hover,
+tr.rowSelect td.currentCell
+        {
+        background-color:#5783bb;
+        }
+table tr.alt.rowSelect td:hover
+        {
+        background-color:#497bb6;
+        }
+/* Warning styles */
+th.warning
+        {
+         background: #90B2D9 url(/ENGINE/images/login/information.png) no-repeat;
+
+        }
+th.error
+        {
+         background: #FBBCA8 url(/ENGINE/images/login/exclamation.png) no-repeat;
+
+        }
+.tbl-floating{
+    position:relative;
+    float: left;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+table.clearence{
+margin-bottom:10px;}

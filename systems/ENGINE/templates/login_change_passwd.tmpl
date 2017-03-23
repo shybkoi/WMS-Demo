@@ -1,0 +1,61 @@
+#encoding cp1251
+#import conf.engine_conf as cfg
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>$_('Изменение временного пароля')</title>
+<link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/LOGIN/import.css">
+<link rel="stylesheet" type="text/css" media="screen" href="$eng_css/login/login_change_passwd.css">
+<script type="text/javascript" src="$eng_js/jquery-1.3.2.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        // заполнение формы параметрами
+        #if $varExists('fieldvalues')
+            #for $field, $val in $fieldvalues.items()
+                jQuery("\#$field").val("$val");
+            #end for
+        #end if
+        // сообщения об ошибках
+        #if $varExists('fields')
+            #for $field in $fields
+                jQuery("\#$field.name").after("<div class='errormsg'>$field.errmes</div>");
+            #end for
+        #end if
+    });
+</script>
+</head>
+<body>
+<div id="header">
+</div>
+
+<div align="center">
+<div id="main">
+    <form method="POST" action="login_change_passwd" id="login-change-passwd-form">
+        <div class="changepasswd-block">
+
+            <table>
+                <thead>
+                    <tr><th colspan="2">$_('Изменение временного пароля пользователя')</th></tr>
+                    <tr><th colspan="2">$username</th></tr>
+                </thead>
+                <tbody>
+
+                  #include '../systems/ENGINE/PROFILE/templates/passwd_verify.tmpl'
+
+                </tbody>
+            </table>
+        </div>
+        <div id="error-wrap-login-change-passwd">
+            #if $varExists('$mes') and $mes
+                <span id="error-exclamation-login-change-passwd">$_('Ошибка: ')</span><span id="error-login-change-passwd">$mes</span>
+            #end if
+        </div>
+        <div class="buttons">
+            <button id='change-btn' class="submit" type="submit">$_('Изменить пароль')</button>
+        </div>
+        <input type="hidden" name="uid" value="$uid">
+    </form>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+/**********************************
+Chernyavsky A.E.
+Use: login template
+
+***********************************/
+form.login fieldset {
+	margin-bottom: 10px;
+}
+
+form.login legend {
+	padding: 0 2px;
+	font-weight: bold;
+	_margin: 0 -7px; /* IE Win */
+}
+
+form.login label {
+	display: inline-block;
+	line-height: 1.8;
+	vertical-align: top;
+	cursor: hand;
+}
+
+form.login fieldset p {
+	list-style: none;
+	padding: 5px;
+	margin: 0;
+}
+
+form.login fieldset fieldset {
+	border: none;
+	margin: 3px 0 0;
+}
+
+form.login fieldset fieldset legend {
+	padding: 0 0 5px;
+	font-weight: normal;
+}
+
+form.login fieldset fieldset label {
+	display: block;
+	width: auto;
+}
+
+form.login label { width: 100px; } /* Width of labels */
+form.login fieldset fieldset label { margin-left: 103px; } /* Width plus 3 (html space) */
+form.login label.error {
+	margin-left: 103px;
+	width: 220px;
+}
+
+form.login input.submit {
+	margin-left: 103px;
+}
+
+/*\*//*/ form.login legend { display: inline-block; } /* IE Mac legend fix */
+
+#login-container{
+ text-align: center;
+}
+
+form.login {
+	/*width: 370px;*/
+    font-size: 1.0em;
+	color: #333;
+}
+
+form.login legend {
+	padding-left: 0;
+}
+
+form.login legend, form.login label {
+	color: #426F29;
+}
+
+form.login fieldset {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:#F8FDEF url(/ENGINE/images/login/login-fieldset.gif) repeat-x scroll left bottom;
+border:1px solid #D24E6A;
+}
+
+form.login fieldset fieldset {
+	background: none;
+}
+
+form.login fieldset p, form.login fieldset fieldset {
+	padding: 5px 10px 7px;
+	background: url(/ENGINE/images/login/login-divider.gif) left bottom repeat-x;
+}
+
+form.login label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+#error-wrap {color: #F73D67;}
+#error-exclamation {font-weight: bold;}
+input {	border: 1px solid #D24E6A; }
+input:focus { border: 1px dotted #D24E6A; }
+input.error { border: 1px dotted #D24E6A; }
+form.login .gray * { color: gray; }
+
+#loginForm label span{
+   display: block;
+}

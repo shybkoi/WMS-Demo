@@ -1,0 +1,30 @@
+#encoding cp1251
+
+    #def gen_browser($p, $compact)
+        #set $onclick = 'return !window.open(this.href)'
+        #set $img = $p.shortname 
+        #if $compact
+            #set $img = $img + '_small'
+        #end if
+        #set $img = $img + '.jpg'
+        #set $recommend= ''
+        #if $p.basic
+            #set $recommend='<div><span>(рекомендуемый)</span></div>'
+        #end if
+        <td> 
+            <a href="$p.href" onclick="$onclick"><img src="$eng_img/change_browser/$img" alt="$p.showname" /></a><br/>
+            <a class="brows_name" href="$p.href" onclick="$onclick">$p.showname</a>
+            $recommend
+        </td>
+    #end def
+    
+    #def gen_browser_lst($compact)
+        #from conf.engine_conf import UA_ALLOWED
+        #for $b in $UA_ALLOWED 
+          #if $b.recommend  
+            $gen_browser($b, $compact)
+          #end if  
+        #end for    
+    #end def
+
+

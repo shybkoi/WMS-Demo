@@ -1,0 +1,76 @@
+#encoding cp1251
+#extends profile_main
+#def profileData
+        <link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/PROFILE/css/passwd.css">
+        <script>
+            jQuery(document).ready(function() {
+                // заполнение формы параметрами
+                #if $varExists('fieldvalues')
+                    #for $field, $val in $fieldvalues.items()
+                        jQuery("\#$field").val("$val");
+                    #end for
+                #end if
+                // сообщения об ошибках
+                #if $varExists('fields')
+                    #for $field in $fields
+                        jQuery("\#$field.name").after("<div class='errormsg'>$field.errmes</div>");
+                    #end for
+                #end if
+            });
+        </script>
+        #if $varExists('success') and $success
+            <div id='success_msg'>
+                $_('Ваш пароль успешно изменён!')
+            </div>
+        #end if
+        <form method="POST" action="changepasswd" name="changepasswd-form">
+            <div class="changepasswd-block">
+
+                <table>
+                    <thead>
+                        <tr><th colspan="2">$_('Изменение пароля пользователя')</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>$_('Текущий пароль:')</td>
+                        <td>
+                            <input type="password" value="" size="30" id="oldpasswd" name="oldpasswd">
+                        </td>
+                      </tr>
+
+                      #include '../systems/ENGINE/PROFILE/templates/passwd_verify.tmpl'
+
+                    </tbody>
+                </table>
+            </div>
+            <input type="SUBMIT" value="$_('Изменить пароль')" name="submitbutton" id="submitbutton">
+        </form>
+        #if $varExists('has_barcode') and $has_barcode
+            <script type="text/javascript" src="/ENGINE/PROFILE/js/printbc.js"></script>
+
+            <div id="printbarcode">
+                <table>
+                    <thead>
+                        <tr><th colspan="2">$_('Генерация и печать ШК или QR-кода авторизации')</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>$_('Текущий пароль'):</td>
+                        <td>
+                            <input type="password" value="" size="30" id="passwdBC" name="passwdBC">
+                            <div class="errormsg">
+                            </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id='success_msg_bc'>
+            </div>
+            <br>
+            <input type="button" value="$_('Генерировать код')" name="genbcbutton" id="genbcbutton">
+            <input type="button" value="$_('Распечатать ШК')" name="prnbcbutton" id="prnbcbutton">
+            <input type="button" value="$_('Распечатать QR-код')" name="prnqrbutton" id="prnqrbutton">
+        #end if
+#end def

@@ -1,0 +1,47 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def $system_help = False
+#end def
+
+#def systemNavigation
+  ##Styles
+    ##<link href="$sp_css/printers.css" rel="stylesheet" type="text/css" media="screen"/>
+
+  ##Scripts
+	<script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sp_js/worktaskrate.js"></script>
+
+	<form id="frm" class="buttons">
+		$_('Период'):
+		<input id="dbeg" name="dbeg" type="text" size="8">
+		&nbsp;
+		<input id="dend" name="dend" type="text" size="8">
+		&nbsp;&nbsp;&nbsp;
+		$_('Склад'):
+		<select id=whid name=whid><option value="0">Без фильтра</option></select>
+		&nbsp;&nbsp;&nbsp;
+		$_('Тип задания'):
+		<select id=ttid name=ttid><option value="0">Без фильтра</option></select>
+		&nbsp;&nbsp;&nbsp;
+		<button type="submit"><img src="$eng_img/arrows/arrow_right.png"></button>
+	</form>
+#end def
+
+#def engineData
+    <div id="dvWH" style="float:left;position:relative;"></div>
+#end def

@@ -1,0 +1,45 @@
+#encoding cp1251
+#extends systems.engine_main_term
+#def engineData_term
+<div align = "center">
+    Ошибка при обработке запроса<br/>
+    #if $varExists('$title')
+        #if $title!=''
+            <div class="error_title_term">$time<br/>$title</div>
+        #end if
+    #end if
+
+    #if $varExists('$exception_text')
+        <div class="error_body_term">$exception_text</div>
+    #end if
+
+    #if $varExists('$traceback')
+        #if $traceback!=''
+            <br/>
+            <div class="error_traceback_term">$traceback</div>
+        #end if
+    #end if
+
+    #if $varExists('$back')
+        #if $back
+            <br/>
+            <div class="error_back_term">Попробуйте зайти сюда позже.<br/>А пока можно вернуться <a href='javascript:history.back()'>Назад.</a></div>
+        #end if
+    #end if
+
+    #if $varExists('$url')
+        #if $varExists('$termnum') and $termnum
+            #set $url = $url + '?termnum=' + $termnum
+            #if $varExists('$fti') and $fti
+                #set $url = $url + '&fti=' + $fti
+            #end if
+        #end if
+        <br/>
+        <p class="error_back_url">Нажмите <a href="$url" id="ok">сюда</a>, чтобы перейти<br/>на стартовую страницу.
+        <br>Или <a href='tasklist'>перейти к списку систем</a></p>
+    #end if
+</div>
+<script type="text/javascript">
+    \$.rebuildObjArray();
+</script>
+#end def

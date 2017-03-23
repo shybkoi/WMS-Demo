@@ -1,0 +1,67 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+   $_('От'): <b><u>$FROMNAME</u></b><br>
+   #if $varExists('$THROUGHNAME') and $THROUGHNAME
+    $_('Через'): <b>$THROUGHNAME</b><br>
+   #end if
+   #if $TONAME
+    $_('Кому'): $TONAME<br>
+   #end if
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b>
+	#if $varExists('$ALGORITHM') and $ALGORITHM
+		<u>($ALGORITHM)</u>
+	#end if
+	<br>
+    <b>(<u>$WCODE</u>)</b> $WNAME <br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b>
+    #end if
+    <br>
+    #if $varExists('$qdoc')
+        $_('План'): $viewQuantity($qdoc,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>#filter Quantity$qdoc#end filter#</u>)</b>
+        <br>
+    #end if
+    #if $varExists('$qfact') and $qfact
+        $_('Факт'): $viewQuantity($qfact,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>#filter Quantity$qfact#end filter#</u>)</b>
+        <br>
+    #end if
+        
+    <hr>
+    #if $varExists('$datalist') and $datalist
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Поддон')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            #set $q = 0
+            <tbody>
+            #for $item in $datalist
+                #set $q += $item.AMOUNT
+                <tr>
+                    <td>#filter DateFilter2$item.PRDATE#end filter#</td>
+                    <td>
+                    #if $item.PNUM                        
+                        <a title="$item.sname" href="javascript: if (confirm('$_('Вы действительно хотите отменить выбранный пункт отборки?')')) location.href='dfsTaskWaresPalletCanc?tid=$tid&wid=$wid&pid=$item.PID&wlid=$item.WLID'">$item.pnum</a>
+                    #else
+                        <a href="javascript: if (confirm('$_('Вы действительно хотите отменить выбранный пункт отборки?')')) location.href='dfsTaskWaresPalletCanc?tid=$tid&wid=$wid&pid=$item.PID&wlid=$item.WLID'">$item.sname</a>
+                    #end if
+                    </td>
+                    <td>$viewQuantity($item.AMOUNT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b>(<u>#filter Quantity$item.amount#end filter#</u>)</b></td>
+                </tr>
+            #end for
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan=3>$viewQuantity($q,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE) <b><u>(#filter Quantity$q#end filter#)</u></b></th>
+                </tr>
+            </tfoot>
+        </table>
+    #end if	
+#end def

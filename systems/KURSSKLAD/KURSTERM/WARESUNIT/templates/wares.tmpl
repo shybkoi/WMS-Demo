@@ -1,0 +1,50 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUID
+        <b>$VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE </b>
+    #end if
+    #if $WSITEID
+        <font color="gray"><b>$WSITENAME</b></font>
+    #end if
+    
+    #if $varExists('$datalist') and $datalist
+      <table>
+        <thead>
+          <tr>
+            <th>$_('Кр-ть')</th>
+            <th>$_('ЕИ')</th>
+            <th>$_('ШК')</th>
+          </tr>
+        <tbody>
+        #for $item in $datalist
+          <tr>
+            <td>#filter Quantity$item.WUFACTOR#end filter#</td>
+            <td><a href="wuWaresUnit?wid=$WID&uid=$item.UID">$item.UCODE</a></td>
+          #if $item.WUBARCODES          
+            <td>
+                #set $bcSplit = $item.WUBARCODES.split(';')
+                #set $i = 0
+                #for $bc in $bcSplit
+                    #if $i>0
+                        <br>
+                    #end if
+                    $bc
+                    #set $i += 1
+                #end for            
+            </td>
+          #else
+            <td>&nbsp;</td>
+          #end if
+          </tr>
+        #end for
+        </tbody>
+      </table>
+    #end if
+    
+    <a href="wuWaresGetUnits?wid=$WID">$_('Добавить')</a>
+    
+#end def

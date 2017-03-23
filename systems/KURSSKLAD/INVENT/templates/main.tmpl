@@ -1,0 +1,83 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def engineData
+  ##Styles
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs-ie.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>
+  
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>      
+    <script type="text/javascript" src="$eng_js/jquery.blockUI.js"></script>      
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.countryLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/mwDetail.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.helpers.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Select.js"></script>
+    <script type="text/javascript" src="$sp_js/Invent.js"></script>
+
+    <div id="main-screen" style="float:left;width:100%;position:relative;">
+		<div id="dvTabs" style="text-align:left;">
+			<ul>
+				<li><a href="#dvWares"><span>Товары</span></a></li>
+				##<li><a href="#dvPallet"><span>Поддоны</span></a></li>
+				<li><a href="#dvProgress"><span>Прогресс</span></a></li>
+                <li><a href="#dvNotInventPallet"><span>Паллеты</span></a></li>
+				<span id="spanTaskId"  taskid="" style="display:block;float:right;padding: 7px 0 0 5px;">Задание не выбрано</span>
+				<span style="display:block;float:right;padding: 3px 0 0 5px;" class="buttons">
+					<button  id="btnDialogTask" title="Поиск задания"><img src="$eng_img/actions/magnifier.png"></button>
+				</span>
+				<span class="buttons" style="display:block;float:right;padding: 3px 0 0 5px;"><button id="statusUp" title="Поднять статус"><img src="$eng_img/actions/statusUp.png"></button></span>
+			</ul>
+			<div id="dvWares" style="">
+                #*
+				<div id="dvWaresFilter" style="float:left;position:relative;width:15%;">
+					<ul id="ulWaresGroup" class="treeview" style="float:left;position:relative;width:100%;overflow:auto;text-align:left;"></ul>
+					<form id="frmLocWares" action="locWares" style="clear:both;">
+						<table><tr><th>Быстрый поиск</th><th class="buttons"><button title="Очистить" type="button"><img src="$eng_img/actions/page_white_copy.png" border="0"></button></th></tr></tr><tr>
+							<td colspan="2">
+								<select style="width:30%;float:left;">
+									<option value="wcode">Код</option>
+									<option value="wname">Наименование</option>
+									<option value="wbarcode">Штрих-код</option>
+								 </select>
+						         <input type="text" style="width:65%;float:right;" value="" />
+                            </td></tr></table>
+					</form>
+				</div>
+                *#
+				<div id="dvTaskWares" style="float:left;position:relative;width:100%;"></div>
+			</div>
+			<div id="dvPallet" style="">
+				## Ряд: <select id="pallet"></select>
+				##<div id="dvPalletLeft" style="float:left;position:relative;width:15%;"></div>
+				<div id="dvTaskPallet" style="float:left;position:relative;width:85%;"></div>
+			</div>
+            <div id="dvProgress" style="width: 100%;height: 100%;"></div>
+            <div id="dvNotInventPallet" style="width: 100%;height: 100%;"></div>
+            </div>
+		</div>
+    </div>
+#end def

@@ -1,0 +1,127 @@
+/**********************************
+Форма изменения пароля
+Черноусов А.В.
+***********************************/
+
+#loginForm {
+    width:360px;
+}
+
+#loginForm label {
+    width:150px;
+}
+
+#loginForm label span{
+    width:150px;
+}
+#loginForm label.error, #loginForm input.submit {
+    margin-left:203px;
+}
+
+/* Пароли */
+
+/* Расположение контейнеров и индикаторов */
+
+#pc-container
+{
+    height: 30px;
+}
+
+#pc-indicator
+{
+    padding: 1px;
+    margin: 5px 0px 0px 0px;
+    border: solid 1px #bbb;
+    font-size:0px;
+    position: relative;
+    height: 5px;
+    display: block;
+}
+
+#pc-indicator-inline
+{
+    float: left;
+    padding: 2px;
+    /*background-color: #c00;*/
+    /*width:25%;*/
+    overflow: hidden;
+    height: 1px;
+}
+
+#pc-indicator-text
+{
+    padding: 0px;
+    font-size: 10px;
+    position: relative;
+    /*color: #aaa000;*/
+}
+
+#repeat-text
+{
+    height: 20px;
+    padding: 0px;
+    font-size: 10px;
+    position: relative;
+    /*display: block;*/
+}
+
+/* Состояния текстового индикатора */
+
+.pc-critical
+{
+    color: #f00;
+}
+
+.pc-yellow
+{
+    color: #888000;
+}
+
+.pc-green
+{
+    color: #0b0;
+}
+
+/* Состояния визуального индикатора */
+
+.pc-i-critical
+{
+    background-color: #c00;
+}
+
+.pc-i-yellow
+{
+    background-color:  #aaa444; /*#ccc444;*/
+}
+
+.pc-i-green
+{
+    background-color: #82CE76; /*#0f0;*/
+}
+
+/* Кнопка Изменить */
+
+.disabled {
+    background-color: #CCC !important;
+}
+
+#btnchange img {
+    margin-right: 3px !important;
+}
+
+/* Вердикты */
+
+.verdict {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.verdict_yes {
+    background:transparent url(/ENGINE/images/actions/accept.png) no-repeat scroll center center;
+}
+
+.verdict_no {
+    background:transparent url(/ENGINE/images/actions/exclamation.png) no-repeat scroll center center;
+}

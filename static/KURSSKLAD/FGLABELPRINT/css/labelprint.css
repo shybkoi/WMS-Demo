@@ -1,0 +1,7 @@
+#frmPrinting table, #frmPrinting td, #frmEditProdPlan table, #frmEditProdPlan td{
+  border: none;
+}
+
+#frmPrinting td.text{
+  text-align: left;
+}

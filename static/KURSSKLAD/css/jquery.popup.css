@@ -1,0 +1,11 @@
+div.dvTitleAktiv{
+    background-image: -moz-linear-gradient(bottom, rgb(35,59,102) 0%, rgb(0,145,255) 50%, rgb(28,42,77) 100%);
+}       
+
+div.PU_popup{
+    background-color:#FDF6DE;
+    box-shadow: 0 0 5px black;                      /* Параметры тени */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);           /* Параметры тени */
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);      /* Для Firefox */
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);   /* Для Safari и Chrome */
+}    

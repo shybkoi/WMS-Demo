@@ -1,0 +1,41 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+#from systems.KURSSKLAD.cheetahutils import Quantity
+
+#def mainData
+    <form action='scanMain'>
+        $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+    </form>  
+    <hr>
+
+    <b>$S_NAME</b>
+    #if $S_MODELID
+        ($S_PALCURCNT / $S_PALMAXCNT)
+        <br>
+        <b>($S_WCODE)</b> $S_WNAME
+        <br>
+        <b>$TimeStampToDate($S_WPRODUCTDATE)</b> - $TimeStampToDate($S_WBESTBEFOREDATE)
+    #end if
+    
+    #if $varExists('$datalist') and $datalist
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('№')</th>
+                    <th>$_('Паллет')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>$item.PNUM</td>
+                    <td><b>$item.PNUMBER</b></td>
+                    <td>$Quantity($item.PQ)</td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+    #end if    
+#end def

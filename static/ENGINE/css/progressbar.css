@@ -1,0 +1,72 @@
+/*This file skins progressbar
+ Chernyavsky A.E.*/
+
+.ui-progressbar {
+	width: 400px; height: 20px;
+	border: 1px #ccc solid;
+	background:#E0E8F3 url(/images/tabel/ui/bg.gif) repeat-x scroll 0%;
+	position:relative;
+}
+
+.ui-progressbar-wrap {
+	position: relative;
+	height: auto;
+	width: auto;
+	line-height: 18px;
+	_line-height: 16px;
+}
+
+.ui-progressbar-bar {
+	background:#9CBFEE url(/images/tabel/ui/progress-bg.gif) repeat-x scroll left center;
+	border-bottom:1px solid #7FA9E4;
+	border-right:1px solid #7FA9E4;
+	border-top:1px solid #D1E4FD;
+	position: absolute;
+}
+
+.ui-progressbar-text {
+	color:#fff;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.ui-progressbar-text-back {
+	color:#FFFFFF;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 1px;
+}
+
+.ui-progressbar-disabled {
+	opacity:.5;
+	filter:Alpha(Opacity=50);
+}
+
+
+/* custom */
+.ui-progressbar-text.right-align {
+	text-align: right;
+	padding: 0 5px 0 0;
+}
+.ui-progressbar-inner-custom {
+	background: url(images/custom-bar.gif) repeat-x scroll left center;
+	border-bottom:1px solid #EFEFEF;
+	border-right:0pt none;
+	border-top:1px solid #BEBEBE;
+	height:15px;
+}
+.bold {
+	color: red !important;
+}
+.ui-hidden {
+	left:-10000px;
+	position:absolute;
+	top:-10000px;
+	visibility:hidden;
+}
+
+
+

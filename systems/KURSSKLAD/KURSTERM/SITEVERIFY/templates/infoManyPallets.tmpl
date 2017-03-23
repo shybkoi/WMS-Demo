@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+    <form action="scanMain">  
+        $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+    </form>
+    <hr>
+    $_('Несколько поддонов на МП')
+    <br><br>
+    #if $varExists('$datalist') and $datalist and len($datalist)>0
+        #for $item in $datalist
+            <u><b>$item.SNAME</u></b><br>
+            $item.PNUMBERS<br><br>
+        #end for
+    #else
+        <div class="NoData">$_('Ничего не найдено')</div>
+    #end if    
+#end def

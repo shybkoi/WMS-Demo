@@ -1,0 +1,58 @@
+/**********************************
+This file skins login Styles
+Chernyavsky A.E.
+***********************************/
+#sysLst-container{
+ margin-top:2em; 
+ border:1px solid #D24E6A;
+ padding-top:1.5em;
+ padding-bottom:1.5em;
+ background-color: #EFC2D3;
+ text-align: center;
+}
+#login-container{
+ text-align: center;
+}
+
+
+form.login {
+	width: 370px;
+	font-size: 1.0em;
+	color: #333;
+}
+
+form.login legend {
+	padding-left: 0;
+}
+
+form.login legend, form.login label {
+	color: #426F29;
+}
+
+form.login fieldset {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:#F8FDEF url(/ENGINE/images/login/login-fieldset.gif) repeat-x scroll left bottom;
+border:1px solid #D24E6A;
+}
+
+form.login fieldset fieldset {
+	background: none;
+}
+
+form.login fieldset p, form.login fieldset fieldset {
+	padding: 5px 10px 7px;
+	background: url(/ENGINE/images/login/login-divider.gif) left bottom repeat-x;
+}
+
+form.login label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+#error {color: #F73D67;}
+input {	border: 1px solid #D24E6A; }
+input:focus { border: 1px dotted #D24E6A; }
+input.error { border: 1px dotted #D24E6A; }
+form.login .gray * { color: gray; }

@@ -1,0 +1,37 @@
+#encoding cp1251
+
+<div class="full_height">
+  <div id="dlglistBC_caption"></div>
+  <br/>
+  <table id="dlglistBC_bc_tbl">
+    <thead>
+      <tr>
+        <th>$_('Тип кода')</th>
+        <th>$_('Код')</th>
+        <th>$_('Дата генерации')</th>
+        <th></th>
+        <th>$_('ШК')</th>
+        <th>$_('QR')</th>
+      </tr>
+    </thead>
+    <tbody>
+        #for $item in $barcodes
+            <tr id="dlglistBC_${item.ID_TYPE}">
+                <td class='hal bc_type_name'>$item.TYPE_NAME</td>
+                <td class='hac bc'>$item.BARCODE</td>
+                <td class='lastdate'>$item.LASTDATE</td>
+                <td class="hac delete_bc"><a title="$_('Удалить ШК')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/delete.png" /></a></td>
+                <td class="hac print_bc"><a title="$_('Печатать ШК')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/bc.png" /></a></td>
+                <td class="hac print_qr"><a title="$_('Печатать QR-код')" href="javascript:void(0);"><img style="background-color: transparent" border=0 src="$eng_img/actions/qr.png" /></a></td>
+            </tr>
+        #end for
+    </tbody>
+  </table>
+</div>
+<div class="buttons save footer_btns right_aligned_btns">
+      <button type="button" id="dlglistBC_gen_btn"><img src="/ENGINE/images/actions/key_go.png" alt=""/>&nbsp;$_('Генерировать код доступа')</button>&nbsp;
+      <button type="button" id="dlglistBC_close_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+</div>
+
+##Dialog OK/Cancel
+<div id="dlgokcancel" class="dialog flora" align="center"></div>

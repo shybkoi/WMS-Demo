@@ -1,0 +1,88 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+    
+    ##Scripts
+    <script type="text/javascript" src="$sp_js/admin_bases.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.min.js" ></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/k.UpDown.js"></script>
+    
+    ##CSS
+    <link rel="stylesheet" href="$sp_css/admin_bases.css" type="text/css" media="screen"/>    
+    
+    
+    <span style="font: bold 14pt sans-serif; color: gray">$_('Управление базами данных')</span>
+    <table class='flora' cellspacing='5' id='tblBases' style='width: 90%;'>
+      <thead>
+          <tr>
+            <th>ID_BASE</th><th>DB_PATH</th><th>DB_USER</th><th>DB_IP</th><th>DB_PASS</th><th>DB_ROLE</th><th>DB_CHARSET</th><th>USERS_TABLE_NAME</th><th>USERS_TABLE_ID_FIELD</th>
+            <th>USERS_TABLE_FIO_FIELD</th><th>COMMENTS</th><th>CODE</th>
+          </tr>
+      </thead>
+      <tbody>
+        #for $item in $datalist
+            <tr idbase='$item.ID_BASE'><td class='id_base'>$item.ID_BASE</td><td class='db_path'>$item.DB_PATH</td><td class='db_user'>$item.DB_USER</td>
+                <td class='db_ip'>$item.DB_IP</td><td class='db_pass'>$item.DB_PASS</td><td class='db_role'>$item.DB_ROLE</td><td class='db_charset'>$item.DB_CHARSET</td>
+                <td class='users_table_name'>$item.USERS_TABLE_NAME</td><td class='users_table_id_field'>$item.USERS_TABLE_ID_FIELD</td>
+                <td class='users_table_fio_field'>$item.USERS_TABLE_FIO_FIELD</td><td class='comments'>$item.COMMENTS</td><td class='code'>$item.CODE</td>
+            </tr>
+        #end for
+      </tbody>
+    </table>
+    
+    <ul id='tblContextMenu' class='contextMenu'>
+        <li class='add'><a href='\#add_base'>Добавить новую базу</a></li>
+        <li class='edit'><a href='\#edit_base'>Редактировать</a></li>
+        <li class='delete'><a href='\#delete_base'>Удалить</a></li>
+    </ul>
+    
+    <div id='admin-base-addedit' class='flora' style='display: none;'>
+        <fieldset>
+            <legend>Параметры базы даных:</legend>
+            <form id='add-base-form'>
+                <table id='tblBaseParametrs' class='flora' style='width: 100%;'>
+                    <tbody>
+                        <tr><th class='titles'>DB_PATH:</th><td class='values' colspan='3'><input type='text' notnull name='db_path' id='add-base-db_path'/></td>                        
+                        </tr>
+                        <tr><th>CODE:</th><td><input type='text' name='code' id='add-base-code' /></td>
+                            <th class='titles'>DB_USER:</th><td class='values'><input type='text' notnull name='db_user' id='add-base-db_user' /></td>
+                        </tr>
+                        <tr><th>DB_IP:</th><td><input type='text' notnull name='db_ip' id='add-base-db_ip' /></td>
+                            <th>DB_PASS:</th><td><input type='text' notnull name='db_pass' id='add-base-db_pass' /></td>
+                        </tr>
+                        <tr><th>DB_ROLE:</th><td><input type='text' name='db_role' id='add-base-db_role' /></td>
+                            <th>DB_CHARSET:</th>
+                            <td>
+                                <select name='db_charset' id='add-base-db_charset'>
+                                    <optgroup label='Выберите кодировку'>
+                                        <option value='ASCII'>ASCII</option>
+                                        <option value='ISO8859'>ISO8859</option>
+                                        <option value='NONE'>NONE</option>
+                                        <option value='UNICODE_FSS'>UNICODE_FSS</option>
+                                        <option value='UTF8'>UTF8</option>
+                                        <option value='WIN1251'>WIN1251</option>
+                                    </optgroup>
+                                </select>
+                            </td>                        
+                        </tr>
+                        
+                        <tr><th>USERS_TABLE_NAME:</th><td><input type='text' name='users_table_name' id='add-base-users_table_name' /></td>
+                            <th>USERS_TABLE_ID_FIELD:</th><td><input type='text' name='users_table_id_field' id='add-base-users_table_id_field' /></td>
+                        </tr>
+                        <tr><th>USERS_TABLE_FIO_FIELD:</th><td><input type='text' name='users_table_fio_field' id='add-base-users_table_fio_field' /></td>
+                            <th>COMMENTS:</th><td><input type='text' name='comments' id='add-base-comments' /></td>                        
+                        </tr>                    
+                    </tbody>
+                    
+                </table>
+            </form>
+            <div class='buttons'>
+                <button id='add-base-btnsave' class='buttons'><img src='$eng_img/actions/save.png' />Сохранить</button>
+                <button id='add-base-btnclose' class='buttons'><img src='$eng_img/actions/delete.png' />Закрыть</button>
+            </div>
+	</fieldset>
+    </div>    
+#end def
+
+

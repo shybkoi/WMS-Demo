@@ -1,0 +1,23 @@
+#encoding cp1251
+<table id="tbl_systems_options">
+  <thead>
+  <tr>
+    <th>$_('№')</th>
+    <th>$_('Название')</th>
+    <th>$_('ID')</th>
+    <th>$_('Выбор')</th>
+  </tr>
+  </thead>
+  <tbody>
+        #set $N=1
+        #for $item in $options
+            <tr id="$item.ID">
+                <td class="har">$N</td>
+                <td class="name">$item.NAME</td>
+                <td class="hal">$item.ID</td>
+                <td class="hac"><input type="radio" name="sel_option" value="$item.ID"/></td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

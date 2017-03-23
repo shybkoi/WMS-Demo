@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b>$S_NAME</b><br>
+	<a href="taskStackWares?tid=$TID&sid=$S_ID">$_('Новый паллет')</a>	
+    <hr>
+	#if $varExists('$datalist')
+		$_('Нажмите на паллет для печати этикетки')<br>
+		#for $item in $datalist
+			<br>
+			<a href="taskSiteBPallet?tid=$TID&sid=$S_ID&pid=$item.S_PALID">$item.S_PALNUM</a><br>
+			<b><u>($item.S_WCODE)</u></b> $item.S_WNAME<br>
+			$TimeStampToDate($item.S_WPRODUCTDATE) - $TimeStampToDate($item.S_WBESTBEFOREDATE)<br>
+		#end for
+	#end if
+#end def

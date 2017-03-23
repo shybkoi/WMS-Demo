@@ -1,0 +1,39 @@
+div.buttons{
+    text-align: center;
+}
+button.add{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/KURS/images/add.png) left center no-repeat; 
+}
+button.save{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/KURS/images/save.png) left center no-repeat; 
+}
+button.Print{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/ENGINE/images/actions/printer.png) left center no-repeat; 
+}
+button.BarCode{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/KURS/images/barcode.png) left center no-repeat; 
+}
+button.cancel{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/KURS/images/cancel.png) left center no-repeat; 
+}
+button.Excel{
+    border: 1px solid black;
+    padding-left: 16px !important;
+    margin-top: 5px;
+    background: url(/ENGINE/images/apps/excel.png) left center no-repeat; 
+}

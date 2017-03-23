@@ -1,0 +1,87 @@
+#encoding cp1251
+#extends admin_main
+#def adminData
+
+<div style="font: bold 14pt sans-serif; color: gray">Управление настройками</div>
+<br>
+    #for $config in $conf['datalist']
+
+                #for $theme in $themes['datalist']
+                    #if $config.DEFAULT_THEME == $theme.ID_THEME
+                    
+                    #end if
+                #end for
+
+    #end for
+
+##Table Edit Config
+<div id="dlgconfigedit" >
+    <form id="dlgconfigedit_form">
+        <table>
+        <tr><th>Тема оформления по-умолчанию</th>
+            <td>
+                <select id="dlgconfigedit_DEFAULT_THEME" name="dlgconfigedit_DEFAULT_THEME" value="" style="width: 100%;">
+                    #for $theme in $themes['datalist']                   
+                        #set $slt = ""
+                        #if $config.DEFAULT_THEME == $theme.ID_THEME
+                            #set $slt = "selected = 'selected'"
+                        #end if
+                    <option value="$theme.ID_THEME" $slt >$theme.SHOW_NAME</option>
+                    #end for
+                </select>
+            </td><td style="border:0px;"></td>
+        </tr>
+
+        <tr><th>Доступность регистрации</th><td><select id="dlgconfigedit_REGOPEN" name="dlgconfigedit_REGOPEN" value=""  style="width: 100%;" >
+                                #set $rslt = ''
+                                #if $config.REGOPEN == 0
+                                    #set $rslt = "selected = 'selected'"
+                                #end if        
+                                <option value="0" $rslt >0</option>
+                                #set $rslt = ''
+                                #if $config.REGOPEN == 1
+                                    #set $rslt = "selected = 'selected'"
+                                #end if                                   
+                                <option value="1" $rslt >1</option>
+                            </select>
+                        </td><td style="border:0px;"></td>
+        </tr>
+
+        <tr><th>Captcha</th><td><select id="dlgconfigedit_REGCAPTCHA" name="dlgconfigedit_REGCAPTCHA" value="" style="width: 100%;">
+                                #set $cslt = ''
+                                #if $config.REGCAPTCHA == 0
+                                    #set $cslt = "selected = 'selected'"
+                                #end if                                 
+                                <option value="0" $cslt >0</option>
+                                #set $cslt = ''
+                                #if $config.REGCAPTCHA == 1
+                                    #set $cslt = "selected = 'selected'"
+                                #end if                                
+                                <option value="1" $cslt >1</option>
+                            </select>
+                        </td><td style="border:0px;"></td>
+        </tr>
+
+        <tr><th>Время истечения ссылки (дни)</th><td><input id="dlgconfigedit_RESETPSWD_EXPIRED_DAYS" name="dlgconfigedit_RESETPSWD_EXPIRED_DAYS" type="text" value="$config.RESETPSWD_EXPIRED_DAYS"></input></td>
+            <td id="days_err" name="days_err" type="text" style="color:red; border:0px;"></td>
+        </tr>
+
+        <tr><th>Мин. срок жизни истории сессий (дни)</th><td><input id="dlgconfigedit_SESSION_HISTORY_DAYS" name="dlgconfigedit_SESSION_HISTORY_DAYS" type="text" value="$config.SESSION_HISTORY_DAYS"></input></td>
+            <td id="SESSION_HISTORY_DAYS_err" name="SESSION_HISTORY_DAYS_err" type="text" style="color:red; border:0px;"></td>
+        </tr>
+
+        <tr><th>Код слоя неавториз. пользователей</th><td><input id="dlgconfigedit_ANONYMOUS_LAYER_CODE" name="dlgconfigedit_ANONYMOUS_LAYER_CODE" type="text" value="$config.ANONYMOUS_LAYER_CODE"></input></td>
+            <td style="border:0px;"></td>
+        </tr>
+
+        </table>
+        <br>
+        <div class="buttons save">
+            <button type="button" id="dlgconfigedit_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;Сохранить</button>&nbsp;
+        </div>
+    </form>
+</div>
+
+##Scripts
+<script type="text/javascript" src="$sp_js/admin_config.js"></script>
+#end def

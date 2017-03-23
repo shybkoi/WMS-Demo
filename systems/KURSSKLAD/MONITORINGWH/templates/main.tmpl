@@ -1,0 +1,94 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#def systemNavigation
+#end def
+
+#def engineData
+
+##Styles
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progress.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/jquery.popup.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/jquery.contextMenu.css"/>
+    <link href="$sp_css/monitoringwh.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$eng_css/jquery.multiSelect.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$eng_css/jqtreetable.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/x3dom.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+    
+##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>  
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.multiSelect.js"></script>        
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>        
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jqtreetable.min.js"></script>
+    
+    <script type="text/javascript" src="$eng_js/jquery.touchevents.js"></script>    
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.popup.js"></script> 
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script> 
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progress.js"></script>   
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>   
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.time.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.helpers.js"></script>
+    <script type="text/javascript" src="$sp_js/siteClass.js"></script>    
+    <script type="text/javascript" src="$sp_js/monitoringwh.js"></script>
+    <script type="text/javascript" src="$sp_js/route.js"></script>
+    <script type="text/javascript" src="$sp_js/sale.js"></script>
+    <script type="text/javascript" src="$sp_js/waresset.js"></script>
+    <script type="text/javascript" src="$sp_js/crbadwares.js"></script>
+    <script type="text/javascript" src="$sp_js/titleInfo.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/d3.v3.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/x3dom-full.js"></script>
+    <script type="text/javascript" src="$sp_js/modelStack.js"></script>
+	#block whScripts
+		## сроки годности
+    #end block    
+    #block adminData
+        <script>
+            var useviewunit = $viewunit;
+			#if $congestion
+				var congestion = true;
+			#else
+				var congestion = false;
+			#end if 
+        </script>
+        <style>
+            #grid {
+                position: absolute!important;
+                left: 0px;
+                top: 0px;
+                float: left;
+            }
+        </style>
+        <div id="dvData" style="float:left;position:relative;">            
+            <div id="caption"></div>
+            <div style="width:100%;height:100%;position:relative;">
+                <canvas id="grid"> </canvas>
+                <div id="dvSite"></div>
+            </div>
+            ##<div id="actions-buttons"><a href="#" id="badWaresBtn"><img src="$eng_img/actions/exclamation.png"/></a></div>
+        </div>
+        
+    #end block
+#end def

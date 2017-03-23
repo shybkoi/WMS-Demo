@@ -1,0 +1,33 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData 
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUCODE
+        $VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE <br>
+    #end if
+    #if $WSITEID
+        <br>
+        <b>$WSITENAME</b> :
+        $viewQuantity($WSITEQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+        <b>(#filter Quantity$WSITEQ#end filter#)</b>
+        <br>
+        $_('Вместимость'): $viewQuantity($WSITECONTENT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            <b>(#filter Quantity$WSITECONTENT#end filter#)</b>
+        <br><br>
+        $_('Доступно на МХ'): $viewQuantity($WSTOREQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            <b>(#filter Quantity$WSTOREQ#end filter#)</b>
+        <br>
+        $_('Заказано на завтра'): $viewQuantity($WORDERQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            <b>(#filter Quantity$WORDERQ#end filter#)</b>
+        <br><br>
+        <a href="rfsTaskCreate?wid=$WID">$_('Начать пополнение')</a><br>
+    #end if
+    
+    <br>
+    <form action=rfsMain>
+        ШК: <input type=text name=barcode id=:scan title="Товар, МО">
+    </form>    
+
+#end def

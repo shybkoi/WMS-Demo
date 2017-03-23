@@ -1,0 +1,47 @@
+<div class="Body">
+    <div><span>Почтовый индекс</span> <input class="PostIndex"/></div>
+    <div><span title="ОКАТО - Общеукраинский классификатор административно-территориальных объединений">Код ОКАТО</span> <input class="OKATO"/></div>
+    <div><span>Страна</span><select class="Countryid"></select></div>
+    <div><span>Регион</span><select class="State"/> </div>
+    <div><span>Код региона</span><input class="StateCode"/> </div>
+    <div><span>Населенный пункт</span><select class="City"/> </div>
+    <div><span>Район</span><select class="Rayon"/> </div>
+    <div><span>Улица</span><select class="Street"/> </div>
+    <div><span>Дом</span><input class="House"/> </div>
+    <div><span>Корпус</span><input class="Building"/> </div>
+    <div><span>Квартира/комната</span><input class="Room"/> </div>
+    <div class="buttons">
+        <button class="save">Сохранить</button> 
+        <button class="cancel">Отмена</button>
+    </div>
+</div>
+<style>
+    div.Body div{float:left;padding-top: 5px;}
+    div.Body div input.PostIndex{width: 80px;}
+    div.Body div input.OKATO{width: 100px;}
+    div.Body div select.Countryid{width: 508px; height:20px;}
+    div.Body div select.State{width: 300px; height:20px;}
+    div.Body div input.StateCode{width: 110px;}
+    div.Body div select.Rayon{width: 514px; height:20px;}
+    div.Body div select.City{width: 427px; height:20px;}
+    div.Body div select.Street{width: 512px; height:20px;}
+    div.Body div input.House{width: 70px;}
+    div.Body div input.Building{width: 70px;}
+    div.Body div input.Room{width: 70px;}
+    span{font-weight:bold;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/ENGINE/images/actions/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/ENGINE/images/actions/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

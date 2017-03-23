@@ -1,0 +1,156 @@
+body{
+background: url("/ENGINE/HEALTH/images/texture.png") repeat;
+}
+td:first-child {
+text-align:left;
+}
+div.HealthData {
+width:350px;
+font-family: sans-serif,arial,verdana,tahoma,trebuchet MS;
+}
+th a.detail, th a.transfer{float:right;}
+div#graph canvas, p.aSlicePie{cursor:pointer;padding:0;margin:0;}
+p.aSlicePie{
+padding:0;
+margin:0;
+border:0px;
+text-decoration:none;
+color: #E3EFF4;
+font-size: 14px;}
+p.aSlicePie :hover{
+color:#343a3c;
+}
+a:link, a:visited, a:active, a:hover  { text-decoration: none; } 
+div#graph-detail {
+width:350px;
+}
+div#graph-detail div{
+margin-bottom:5px;
+}
+div.DivGraph{
+width:350px;
+height:350px;
+}
+div#graph {
+width:350px;
+height:350px;
+float:top;
+border:0;
+}
+div.row table th,div.row table td {
+color: #E3EFF4;
+padding: 2px;
+border: 1px solid #828282;
+}
+div.row table {
+width:100%;
+font-size:10pt;
+background-color: #303030;
+}
+div.row img.logo {
+float:left;
+}
+div.row a.refresh {
+float:right;
+}
+.StrokeColor {
+background-color:#858585;
+width:1px;
+}
+.GreenSlice {
+background-color:#296e2b;
+}
+.RedSlice {
+background-color:#7f0000;
+}
+td.AllTasks,td.AllTasks:hover,tr:hover td.AllTasks {
+background-color:#2d97c3;
+}
+td.OffTasks,td.OffTasks:hover,tr:hover td.OffTasks,tr:hover td.HealthGood,td.HealthGood,td.HealthGood:hover {
+background-color:#296e2b;
+}
+td.OnTasks,td.HealthBad,tr:hover td.HealthBad,tr:hover td.OnTasks,td.OnTasks:hover,td.HealthBad:hover {
+background-color:#7f0000;
+}
+td.ErrTasks,td.ErrTasks:hover{
+background-color:#F1B215;
+} 
+
+th{background-color: #000;color: #fff;}
+img{border:0px;}
+
+div.HealthData  {
+text-align: center;
+}
+div.DivGraph{
+float:top;
+padding:0;
+border:0;
+left: 50%; 
+top: 0px;
+}
+body{
+}
+table, table tr, table thead, table th, table td{
+    padding:0;
+    border-spacing:0px;
+}
+table {
+    border-left-color: #202020;
+}
+th {
+    background: url("/ENGINE/themes/blacknwhite/images/bg-header.jpg") repeat-x scroll 0 0 #CAE8EA;
+    border-bottom-color: #898989 !important;
+    border-right-color: #898989;
+    border-top-color: #898989;
+    font: bold 14px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    padding: 2px 1px;
+    vertical-align: middle;
+}
+th {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid;
+    font: bold 14px/22px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    letter-spacing: 1px;
+    padding: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+    border-left: 1px solid;
+    padding: 0;
+    width: auto;
+}
+td , tr{
+    border-bottom-color: #898989;
+    border-top-color: #898989;
+    border-right-color: #898989;
+    color: #202020;
+}
+td, tr {
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    font: bold 14px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    padding: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+#RefreshGraph{position: absolute; top: 21px; left: 184.5px;}
+#RefreshGraph div{font-size:12pt;text-align:center;padding:2px;color:rgb(104,219,104);}
+
+
+td.ErrTasks,td.ErrTasks:hover{
+background-color:#F1B215;
+}
+input.transferCnt{width:78px;}
+td.left5{padding-left:5px !important;text-align:left;}
+input.transferBtn,input.transferCls{
+border:1px solid black;
+cursor:pointer;
+}
+td.AllTasks,td.OffTasks,td.OnTasks,td.ErrTasks{width:25%;}
+td.LastDate{text-align:center;}

@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    $_('Выберите товар')
+    <hr>
+    #if not $varExists('$url')
+        #set $url = 'wares?waresid='
+    #end if
+    #if $varExists('$datalist')
+        #for $item in $datalist
+            <a href="$url$item.WID">($item.WCODE) <br>
+                $item.WNAME.replace('"',"'")</a>
+            <br><br>
+        #end for
+    #end if
+#end def

@@ -1,0 +1,12 @@
+div#dlgfromopts h2.header{
+    margin-bottom: 5px;
+}
+
+div.rewrite_rule_check {
+    color: #FF5500;
+}
+
+
+select#sel_users {
+    width: 98%;
+}

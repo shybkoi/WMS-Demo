@@ -1,0 +1,83 @@
+#encoding cp1251
+<form id="dlgoptedit_form" class="full_height">
+  <table class="vertical_top">
+    <tr><th>Пользователи</th>
+        <td>
+            <input id="dlgoptedit_users_edt" readonly name="dlgoptedit_users_edt" type="text"  size="45" value=""/>
+            <span class="buttons">
+                <button type="button" id="dlgoptedit_select_users_btn"><img src="/ENGINE/images/actions/find.png"/>&nbsp;Выбрать</button>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th>Тип</th>
+        <td>
+            <select name='dlgoptedit_type_cmb' id='dlgoptedit_type_cmb'>
+            #for $item in $datalist_types
+                <option value="$item.ID">$item.NAME ($item.ID)</option>
+            #end for
+            </select>
+        </td>
+    </tr>
+    <tr><th>Объект</th>
+        <td>
+            <strong style="margin-left: 5px; margin-right: 5px">ID</strong><input id="dlgoptedit_obj_id_edt" name="dlgoptedit_obj_id_edt" type="text" size="15" value=""/>
+            <strong style="margin-left: 5px; margin-right: 5px">Имя</strong><input id="dlgoptedit_obj_name_edt" name="dlgoptedit_obj_name_edt" type="text" size="15" value=""/>
+            <span class="buttons">
+                <button type="button" id="dlgoptedit_select_obj_btn"><img src="/ENGINE/images/actions/find.png"/>&nbsp;Выбрать по типу</button>
+            </span>
+        </td>
+    </tr>
+    <tr><th>Опция</th>
+        <td>
+            <input id="dlgoptedit_opt_edt" readonly name="dlgoptedit_opt_edt" type="text" size="45" value=""/>
+            <span class="buttons">
+                <button type="button" id="dlgoptedit_select_opt_btn"><img src="/ENGINE/images/actions/find.png"/>&nbsp;Выбрать</button>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+			<div align='center' class='rewrite_rule_check' style='display: none;'>
+				<input type='checkbox' id='rewrite_rule_box'  title='При снятом флажке произойдёт добавление/изменение (но не удаление других) атрибутов опции выбранным пользователям'/>
+                <label for='rewrite_rule_box' title='При снятом флажке произойдёт добавление/изменение (но не удаление других) атрибутов опции выбранным пользователям'>Синхронизировать(сделать идентичными) атрибуты опции выбранных пользователей</label>
+			</div>
+            <div align="center"><strong>Аттрибуты (зависимые параметры опции)</strong></div>
+            <div>
+                <table id="dlgoptedit_tbl_attrs">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Значение</th>
+                            <th><a id='dlgoptedit_clear_attrs' title="Удалить всё" href="#"><img src="/ENGINE/images/actions/delete.png"/></a></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dlgoptedit_tbl_attrs_tbody">
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+  </table>
+</form>
+
+<div class="buttons footer_btns">
+    <span class="left_aligned_btns">
+        <button title="Добавить аттрибут" type="button" id="dlgoptedit_add_opt_btn"><img src="/ENGINE/images/actions/add.png"/></button>&nbsp;
+        <button type="button" id="dlgoptedit_select_attrs_btn"><img src="/ENGINE/images/actions/find.png"/>&nbsp;Добавить из существующих у опции</button>
+		<button type="button" id="dlgoptedit_from_all_options"><img src="/ENGINE/images/actions/edit2.png"/>&nbsp;Из опций системы</button>
+    </span>
+	
+
+    <span class="right_aligned_btns">
+        <button type="button" id="dlgoptedit_save_btn"><img src="/ENGINE/images/actions/accept.png"/>&nbsp;OK</button>&nbsp;
+        <button type="button" id="dlgoptedit_cancel_btn"><img src="/ENGINE/images/actions/cancel.png"/>&nbsp;Отмена</button>
+    </span>
+</div>
+
+##Dialog Add/Edit Attr
+<div id="dlgattredit" class="dialog flora" align="center"></div>
+
+##Dialog From System Options
+<div id="dlgfromopts" class="dialog flora" align="center" style="position: relative;"></div>
+

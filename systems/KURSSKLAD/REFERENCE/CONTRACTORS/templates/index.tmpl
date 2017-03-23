@@ -1,0 +1,69 @@
+#encoding cp1251
+#extends systems.engine_main
+#def searchData
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.numeric.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.jec-1.3.0.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.checkdate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.multiSelect.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.quickhelper.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sp_js/contractors.js"></script>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/k.progressbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/TableColumns.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/TdClassImages.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_css.KURSSKLAD/jquery.contextMenu.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sps_name.KURSSKLAD/REPORTS/css/k.quickhelper.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="$sp_css/contractors.css" />
+    ##<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/tabs.css" />
+    <div id = "div-filter">
+        <b> Поиск по наименованию </b> <input id="stext"/>
+        <b>Статус</b>
+            <select name="status" id="status" class="Select">
+                <option value="n" selected>Все</option>
+                #*#if $varExists('$dl_status')
+                    #for $item in $dl_status
+                        <option value='$item.code'> $item.name</option>
+                    #end for
+                #end if*#
+            </select>
+          
+        <a href = "#" id = "idgo"><img src="$sps_img.KURSSKLAD/go.png" title="Загрузить на экран" border="0" /></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href = "#" id = "addContractors"><img src="$sps_img.KURSSKLAD/add.png" title="Добавить контрагента" border="0" /></a>
+    </div>
+#end def
+#def engineData         
+    <div id = "div-main" class="panes">
+        <div id = "div-contractors">
+        </div>
+    </div>   
+    <ul id="cm-contractors" class="contextMenu">
+       <li class="add"><a href="#add">Добавить</a></li>
+       <li class="edit"><a href="#edit">Изменить</a></li>
+       <li class="delete"><a href="#delete">Удалить</a></li>
+       <li class="refresh"><a href="#reload">Обновить</a></li>
+       <li class="export"><a href="#excel">Экспорт в Excel</a></li>
+       <li class="req"><a href="#req">Показать реквизиты</a></li>
+       <li class="bond separator"><a href="#bond">Связи</a></li>
+       <li class="palfeatures"><a href="#palfeature">Хар-ки паллета</a></li>
+    </ul>
+#end def

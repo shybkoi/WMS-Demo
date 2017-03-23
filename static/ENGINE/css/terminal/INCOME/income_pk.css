@@ -1,0 +1,29 @@
+div #dvScan{
+    margin-top: -10px;
+    padding: 1px;
+}
+div #dvDocs, #dvWares, #dvDocWares, #dvTaskEnd{
+    height: inherit;
+}
+div #dvDocs{
+    width: 500px;
+}
+div #dvWares{
+    width: 500px;
+}
+div #dvStatus{
+    float: left;
+}
+div #dvButtons{
+    display: inline;
+    float: right;
+}
+div #dvDocWares: input{
+    text-align: right;
+}
+input :focus{
+    text-align: right;
+}
+/* .kTblScrollFF-wrap{
+    border-left: none !important;
+} */

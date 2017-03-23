@@ -1,0 +1,77 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>
+    <b><u>($wcode)</u></b>$wname<br>
+    <b>$_('Заказ')</b>: $viewQuantity($QO,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$QO#end filter#</u></b>)
+    #if $QS and float($QS)>0.00001
+        <br>$_('Отобрано'): <a href="taskCtwClear?twid=$TWID" title="$_('Очистить')" onClick="return confirm('Вы действительно хотите начать заново?')">$viewQuantity($QS,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$QS#end filter#</u></b>)</a>
+    #end if
+
+    <hr>
+    <b>$SITENAME</b>
+
+    #set $QSite = 0
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>$_('Дата')</th>
+                    <th>$_('Кол-во')</th>
+                </tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td>#filter DateFilter2$item.PDATE#end filter#</td>
+                    <td>$viewQuantity($item.PAMOUNT,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE)(<b><u>#filter Quantity$item.PAMOUNT#end filter#</u></b>)</td>
+                </tr>
+                #set $QSite += $item.PAMOUNT
+            #end for
+            </tbody>
+        </table>
+    #end if
+    <hr>    
+    #if $TWSTAT == '5'
+        <a href='taskC?id=$TID'>$_('Обновить')</a><br>
+    #else    
+        #if $QO > $QSite
+            #set $onsubmit = ' onsubmit="return frmSubmit();"'
+            <script>
+                function frmSubmit(){
+                    var r = confirm('На МО меньше товара, чем нужно отобрать:\nВы уверены, что можете это сделать?');
+                    if (!r)
+                        document.getElementById('barcode:scan').value = '';
+                    return r;                
+                }
+            </script>        
+        #else 
+            #set $onsubmit=''
+        #end if
+
+        #set $onsubmit=''
+
+        <form$onsubmit action='taskCWares'>
+            <input type=hidden name=twid value=$TWID>
+            $_('Отсканируйте весовой ШК или МО'): <br> <input type=text name=barcode id="barcode:scan">
+        </form>
+        
+        <br>  
+        #*
+        #if $QREFILL > 0.0001
+            <a href='qTaskCWaresNoAmount?twid=$TWID'>Нет товара в нужном количестве</a><br>
+        #else
+            <a href='taskCWaresQuant?twid=$TWID'>$_('Фактическое количество')</a><br>
+        #end if
+        *#
+        <a href='qTaskCWaresNoAmount?twid=$TWID'>$_('Не хватает на МО')</a><br>
+    #if not $QS or float($QS) < 0.00001
+        <a href='taskCWaresQuant?twid=$TWID'>$_('Фактическое количество')</a><br>
+    #end if        
+        <a href='qTaskCWaresNoPlace?tid=$TID&twid=$TWID' onClick="return confirm('$_('Нет места на поддоне')\n---------------------------------\n$_('Вы уверены?')')">$_('Нет места на поддоне')</a>
+    #end if
+#end def    
+

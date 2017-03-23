@@ -1,0 +1,31 @@
+tr.trTreeView td{
+    padding:0px;
+    line-height: 0.9;
+}
+
+tr.lineThrough td.text {
+    text-decoration: line-through;
+}
+
+td.tdAlign{
+    vertical-align:middle;
+    #line-height: 0;
+}
+
+div.dvLeft{
+    float:left;
+    height:100%;
+    line-height:1.4;
+    text-decoration: inherit
+}
+
+td.paddingLeft{
+    padding-left:3px !important;
+}
+
+div.dvMes{
+    width:100%;
+    font-weight:800;
+    line-height:1.5;
+    text-align:center;
+}

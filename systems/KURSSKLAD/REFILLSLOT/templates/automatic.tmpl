@@ -1,0 +1,52 @@
+#encoding cp1251
+#extends rfsmain
+
+
+#def rfsFilter
+    <div class="buttons">
+        Объект 
+        <select id=objid name=objid style="width:200px;">
+        #for $item in $datalist
+            #if $OBJID == $item.OBJID
+                <option value="$item.OBJID" selected>$item.OBJNAME</option>
+            #else
+                <option value="$item.OBJID">$item.OBJNAME</option>
+            #end if
+        #end for
+        </select> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button style="button" type=button id=btnPrint><img src="$eng_img/actions/printer.png"/></button>
+    </div>
+#end def
+
+#def rfsData   
+  ##Styles
+    <link href="$eng_css/contextMenu.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>        
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>     
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$eng_js/jqtreetable.min.js"></script>   
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>    
+    <script type="text/javascript" src="$sp_js/automatic.js"></script>
+    
+    <div id="dvWH" style="float:left;position:relative;overflow:auto;"></div>
+#end def

@@ -1,0 +1,33 @@
+#encoding cp1251
+<form id="dlgedit_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('ID')</th><td  style='width: 60%'>
+        <span id='dlgedit_id'></span>
+    </td></tr>
+
+    <tr><th>$_('Название')</th><td>
+        <input type='text' id='dlgedit_tar_name' name='dlgedit_tar_name' style='width: 100%' value='' maxlength='80'/>
+    </td></tr>
+
+    <tr><th>$_('Описание')</th><td>
+        <textarea id='dlgedit_tar_desc' name='dlgedit_tar_desc' style='width: 100%' value='' rows='8' maxlength='32000'/>
+    </td></tr>
+
+    <tr><th>$_('Сортировка (целое число)')</th><td>
+        <input type='text' id='dlgedit_orderby' name='dlgedit_orderby' style='width: 100%' value='' maxlength='9'/>
+    </td></tr>
+
+    <tr><th>$_('Срок действия (в днях)')</th><td>
+        <input type='text' id='dlgedit_expire_days' name='dlgedit_expire_days' style='width: 100%' value='' maxlength='9'/>
+    </td></tr>
+
+    <tr><th>$_('Напоминать за (дней)')</th><td>
+        <input type='text' id='dlgedit_remind_days' name='dlgedit_remind_days' style='width: 100%' value='' maxlength='9'/>
+    </td></tr>
+  </table>
+
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgedit_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgedit_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

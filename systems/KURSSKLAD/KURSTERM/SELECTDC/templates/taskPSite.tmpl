@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>
+    <b>$SITENAME</b><br><br>
+
+    <form action='taskPSite'>
+        <input type=hidden name=tid value=$TID>
+        $_('ШК МП'): <br> <input type=text name=barcode id="barcode:scan">
+    </form>
+    <a href="taskPReNew?tid=$TID&trash=0">$_('Новое МП')</a><br>
+    <br>
+    <hr>
+   <b><u>($wcode)</u></b>$wname
+#end def
+

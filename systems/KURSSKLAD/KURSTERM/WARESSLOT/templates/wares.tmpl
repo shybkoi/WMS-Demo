@@ -1,0 +1,34 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData 
+    #if $objname
+        <b>$objname</b> <br><br>
+    #end if
+    
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $VWUCODE
+        $VWUCODE = #filter Quantity$VWUFACTOR#end filter# $MWUCODE <br>
+    #end if
+    #if $WSITEID
+        <b>$WSITENAME</b> :
+        #if $WSITEQ
+            $viewQuantity($WSITEQ,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            <b>(#filter Quantity$WSITEQ#end filter#)</b>
+        #else 
+            <a href="javascript: if (confirm('Вы  уверены, что хотите отвязать товар?')) location.href='waresSlotDel?wid=$WID'">Отвязать</a>
+        #end if
+        <br>
+        $_('Вместимость'): $viewQuantity($WSITECONTENT,$VWUFACTOR,$VWUCODE,$MWUFACTOR,$MWUCODE)
+            <b>(#filter Quantity$WSITECONTENT#end filter#)</b>
+        <br>
+    #end if
+    
+    <br>
+    <form action=waresScan>
+        <input type=hidden name=id value=$WID>
+        ШК: <input type=text name=barcode id=:scan title="Товар, МО">
+    </form>    
+
+#end def

@@ -1,0 +1,77 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import Quantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+  #block palBefore
+  #end block palBefore
+
+  #block palInfo
+    #if $P_FEATUREID
+        #if $S_PALFEATUREID != $P_FEATUREID
+            <font class="yellow">$P_FEATURENAME</font>
+        #else
+            $P_FEATURENAME
+        #end if
+        <br>
+    #end if
+	#if $varExists('$P_NUM') and $P_NUM
+		<b><u>$P_NUM</u></b>($P_SNAME)
+	#else
+	    <b>$P_SNAME</b>
+	#end if
+	<br>
+    <b>($W_CODE)</b> $W_NAME
+    #if $varExists('$W_SNAME') and $W_SNAME
+        <br>$_('МО'): $W_SNAME
+    #end if
+    <br>
+    $_('На паллете'): $viewQuantity($P_WQ,$W_VUFACTOR,$W_VUCODE,$W_MUFACTOR,$W_MUCODE) (<b><u>$Quantity($P_WQ)</u></b>)<br>
+    <b>$TimeStampToDate($W_PRODUCTDATE)</b> - $TimeStampToDate($W_BESTBEFOREDATE)
+    <hr>
+  #end block palInfo
+
+  #block stackInfo
+    #if $S_PALFEATUREID
+        #if $S_PALFEATUREID != $P_FEATUREID
+            <font class="yellow">$S_PALFEATURENAME</font>
+        #else
+            $S_PALFEATURENAME
+        #end if
+        <br>
+    #end if
+
+    <b>$S_NAME</b>
+    #if $S_MODELID
+        ($S_PALCURCNT / $S_PALMAXCNT) <br>
+        $S_PALNUM <br>
+    #end if
+    <hr>
+  #end block stackInfo
+
+  #block stackModels
+
+    #if not $S_MODELID
+        $_('Выберите модель штабеля')<br>
+        #if $varExists('$datalist') and $datalist
+            #for $item in $datalist
+                <a href="palSiteStackSet?id=$P_ID&sid=$S_ID&mid=$item.MODELID&cdt=$CDT">$item.MODELNAME</a><br>
+            #end for
+            </form>
+        #end if
+    #else
+        #*#if $S_PALFEATUREID != $P_FEATUREID
+            <a href="palSiteStackSet?id=$P_ID&sid=$S_ID&cdt=$CDT" onClick="return confirm('$_('Характеристии штабеля и паллета не совпадают! Продолжить?')')">
+            $_('Переместить')</a><br>
+        #else
+            <a href="palSiteStackSet?id=$P_ID&sid=$S_ID&cdt=$CDT">$_('Переместить')</a><br>
+        #end if*#
+        #if $S_PALFEATUREID == $P_FEATUREID
+            <a href="palSiteStackSet?id=$P_ID&sid=$S_ID&cdt=$CDT">$_('Переместить')</a><br>
+        #end if
+    #end if
+  #end block stackModels
+#end def

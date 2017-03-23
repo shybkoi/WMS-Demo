@@ -1,0 +1,22 @@
+#encoding cp1251
+#extends systems.engine_main_term
+#def engineData_term
+<style>
+    *html body{
+        line-height: 1.1;
+    }
+    #form{
+        margin-top:3px;
+    }
+</style>
+
+<div id="form" align='center'>
+    #for item in $datalist
+        <a title="$item.show_name" href="$item.full_ref_name">$item.show_name</a>
+        <br/>
+    #end for
+</div>
+<script type="text/javascript">
+    \$.rebuildObjArray();
+</script>
+#end def

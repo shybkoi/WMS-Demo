@@ -1,0 +1,35 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+
+#def mainData    
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    #if $WUID == $MWUCODE
+        <b>$UCODE</b>
+    #else
+        <b>$UCODE = #filter Quantity$WUFACTOR#end filter# $MWUCODE </b>
+    #end if
+    #if $WSITEID
+        <font color="gray"><b>$WSITENAME</b></font>
+    #end if
+    <hr>
+    <form action=wuSetBarcodes>
+        <input type=hidden name=uid value=$UID>
+        <input type=hidden name=wid value=$WID>
+        #if $varExists('$datalist') and $datalist
+          #for $item in $datalist
+            #if $item.ORIGIN == '0'
+                <input size=20 style="text-align:center;" type=text name=wbcid$item.id value="$item.barcode"><br>
+            #else
+                <input size=20 style="text-align:center;" readonly type=text name=wbcid$item.id value="$item.barcode"><br>
+            #end if
+          #end for
+          <br>
+        #end if
+        $_('Новый ШК'): <input type=text name=wbcid0 value="" size=13>
+        <br>
+        <input type=submit value="$_('Сохранить')">
+    </form>
+   
+    
+#end def

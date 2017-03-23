@@ -1,0 +1,21 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	$_('Номер паллета для печати копии'):
+	<form action="pallet">
+		<input type="text" name="num" value="" size="7"><button type="submit">$_('OK')</button>
+	</form>	
+	<hr>
+	<u>$_('Тип новой этикетки'):</u><br><br>
+	
+	
+	<a href="wares">$labeltypes['FG']</a><br>
+	<a href="printer?labeltype=I">$labeltypes['I']</a><br>
+	<a href="printer?labeltype=CR">$labeltypes['CR']</a><br>
+	
+	
+	#*<form action="wares">
+        $_('Товар'): <input type="text" id=":scan:text" name="barcode">
+	</form>  *#
+#end def

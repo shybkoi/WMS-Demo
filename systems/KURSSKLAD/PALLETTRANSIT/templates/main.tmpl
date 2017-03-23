@@ -1,0 +1,53 @@
+#encoding cp1251
+#extends systems.engine_main
+#def $system_help = True
+#end def
+
+#def systemNavigation
+     <form id="frmFilter" class="buttons" style="width: 100%"> &nbsp; </form>
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$eng_css/contextMenu.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/contextMenuStatus.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs-ie.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/docClientOrdStatIncome.css" rel="stylesheet" type="text/css" media="screen"/>
+
+  ##Scripts
+
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.table.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/PALLET/transitList.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/PALLET/transit.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.doclocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/DOC/clientorder.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.wares.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sp_js/palletTransit.js"></script>
+
+    #block adminData
+        <div id=dvWH>
+
+        </div>
+    #end block
+#end def

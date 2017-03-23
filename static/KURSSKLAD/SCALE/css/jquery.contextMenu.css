@@ -1,0 +1,8 @@
+.contextMenu {
+	width: 200px;
+}
+
+.contextMenu LI.export A { background-image: url(/ENGINE/images/apps/excel.png); }
+.contextMenu LI.detail A { background-image: url(/ENGINE/images/actions/application_view_detail.png); }
+.contextMenu LI.multidelete A { background-image: url(/KURSSKLAD/images/delete-group.png); }
+.contextMenu LI.getfile A { background-image: url(/KURSSKLAD/images/getfile.png); }

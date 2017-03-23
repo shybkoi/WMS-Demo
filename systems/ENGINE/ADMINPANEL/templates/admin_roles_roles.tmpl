@@ -1,0 +1,21 @@
+#encoding cp1251
+<table id="tbl_roles_roles">
+  <thead>
+  <tr>
+    <th>$_('№')</th>
+    <th>$_('Название')</th>
+    <th>$_('ID')</th>
+  </tr>
+  </thead>
+  <tbody>
+        #set $N=1
+        #for $item in $roles
+            <tr id="$item.ID_ROLE">
+                <td class="har">$N</td>
+                <td class="role_name">$item.ROLE_NAME</td>
+                <td class="har">$item.ID_ROLE</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

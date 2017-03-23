@@ -1,0 +1,46 @@
+<div class="Body GBody">
+    <div class="actions">        
+        <a href="#" class="add"><img src="/KURS/images/add.png" alt="Добавить"/></a>
+        <a href="#" class="edit"><img src="/KURS/images/edit.png" alt="Изменить"/></a>
+        <a href="#" class="delete"><img src="/KURS/images/delete.png" alt="Удалить"/></a>
+    </div>
+    <div class="category"></div>
+    <div class="mactions panel">
+        <div class="inobjcat"><a href="#" class="inobjcat"><img src="/KURS/images/arrows/arrow_right.png" title="Добавить группу"/></a>     </div>
+        <div class="allinobjcat"><a href="#" class="allinobjcat"><img src="/KURS/images/arrows/fast_forward.png" title="Добавить все группы"/></a>   </div>  
+        <div class="outobjcat"><a href="#" class="outobjcat"><img src="/KURS/images/arrows/arrow_left.png" title="Удалить группу"/></a>     </div>
+        <div class="alloutobjcat"><a href="#" class="alloutobjcat"><img src="/KURS/images/arrows/rewind.png" title="Удалить все группы"/></a>     </div>
+    </div>
+    <div class="objcat"></div>
+    <div class="buttons">
+        <button class="save">Сохранить</button> 
+        <button class="cancel">Отмена</button>
+    </div>
+</div>
+<style>
+    div.GBody div{float:left;padding-top: 5px;}
+    div.GBody div.category{width: 270px;}
+    div.GBody div.actions{width:100%;}
+    div.GBody div.mactions{width: 20px; margin-top:5px;}
+    div.GBody div.mactions div.inobjcat{padding-top: 30px;padding-left: 2px; height:20px;}
+    div.GBody div.mactions div.allinobjcat{padding-top: 10px;padding-left: 2px; height:30px;}
+    div.GBody div.mactions div.outobjcat{padding-top: 30px;padding-left: 2px; height:20px;}
+    div.GBody div.mactions div.alloutobjcat{padding-top: 10px;padding-left: 2px;padding-bottom: 128px; height:30px;}
+    div.GBody div.objcat{width: 270px;}
+    span{font-weight:bold;}
+    div.buttons button.save{
+        padding-left: 20px;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons button.cancel{
+        padding-left: 20px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.buttons{
+        padding-top: 5px;
+        text-align: center;
+        width:100%;
+    }
+</style>

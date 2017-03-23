@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b>$S_NAME</b>
+    #if $S_MODELID
+        ($S_PALCURCNT / $S_PALMAXCNT) <br>
+        $S_PALNUM <br>
+    #end if
+    <hr>
+    <b><u>($S_WCODE)</u></b> $S_WNAME<br>
+    $TimeStampToDate($S_WPRODUCTDATE) - $TimeStampToDate($S_WBESTBEFOREDATE)
+    <hr>
+    <a href="taskStackPrinter?tid=$TID&sid=$S_ID&prid=$PRINTERID&pid=$S_PALID">$S_PALNUM</a><br>
+    <a href="taskStackPrinter?tid=$TID&sid=$S_ID&prid=$PRINTERID&pid=0">Все</a>
+
+#end def

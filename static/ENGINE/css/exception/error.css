@@ -1,0 +1,43 @@
+/*Ths file skins errors
+ Chernyavsky A.E.*/
+
+.error_header {color:#FF5459;}
+.error_title {color:#1B5C91;}
+.error_body {color:#237BC4; border-bottom: 0px; padding-bottom: 15px;}
+.error_title_term {}
+.error_body_term{
+font-weight:bold;
+z-index:100;
+}
+.error_traceback_term{}
+.error_back_term{}
+.error_back_url{}
+body {
+    background-color:white;
+	background-image:url(../../images/errors/errimage.png);
+	background-repeat: no-repeat;
+	color:#6a7073;
+}
+#banner {
+    background-color: transparent;
+    border: 0 none;
+    color: grey;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+}
+a { 
+    background-image: url("../../images/errors/arrow.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #21A4FF;
+    padding-top: 6px;
+}
+.error_back, p{
+    color:#444;
+}
+.error_img{
+	display:none;
+}

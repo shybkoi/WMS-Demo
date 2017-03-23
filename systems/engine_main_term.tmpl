@@ -1,0 +1,156 @@
+#encoding cp1251
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <meta name="robots" content="noindex, nofollow">
+    #if $varExists("system_name")
+    <title>$system_name</title>
+    #end if
+    #if $varExists("eng_img")
+    <link rel="shortcut icon" href="$eng_img/favicon.ico">
+    #end if
+
+    <link href="/locale/$getSesVar('locale')/locale.json" lang="$getSesVar('locale')" rel="gettext" />
+    <script type="text/javascript" src="$eng_js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.gettext.js"></script>
+    <script type="text/javascript" src="$eng_js/term/kTermEvents.js"></script>
+    <script type="text/javascript" src="$eng_js/term/kTermCommon.js"></script>
+
+    #if $varExists("is_terminal") and $is_terminal
+        <link rel="stylesheet" href="$eng_css/reset.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="$eng_css/structure.css" type="text/css" media="screen"/>
+        <link href="$eng_css/terminal/main_term.css" rel="stylesheet" type="text/css" media="screen">
+    #else
+        <link rel="stylesheet" href="$eng_css/reset.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="$eng_css/structure.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="/ENGINE/css/datepicker.css" type="text/css" media="screen"/>
+        <link href="$eng_css/terminal/main_term_pk.css" rel="stylesheet" type="text/css" media="screen">
+        <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+        <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+        <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+        <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+        <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    #end if
+
+    <script type="text/javascript">
+    \$(function(){
+
+        \$("<div id='container-busy'></div>")
+        .ajaxStart(function() {
+            \$(this).show();
+            \$('body').addClass("cursor_wait");
+        })
+        .ajaxStop(function(){\$(this).hide(); \$('body').removeClass("cursor_wait");})
+        .ajaxError(function(event, request, settings, error){
+            ##\$(this).text("Ошибка запроса страницы: " + settings.url).show();
+            \$('body').removeClass("cursor_wait");
+            ##alert("ajaxError: Во время обработки запроса возникла ошибка, либо пропала связь с сервером! Администратор системы автоматически получит электронное письмо. Попробуйте подключиться через 5-10 минут.");
+            try {
+                eval("var json=" + request.responseText);
+            }
+            catch(e) {
+                var json = request.responseText;
+            }
+            var mes = (json ? '\n\n\nТехнические подробности:\n---\n' + (json.mes ? json.mes : json) : '');
+            alert('Во время обработки запроса возникла ошибка либо пропала связь с сервером:' + mes);
+            ##alert(listProperties(request, 'request'));
+        })
+        .appendTo("#container-head");
+    });
+    </script>
+
+</head>
+<body>
+#*<script>
+    ## string params
+    #if $varExists('$sp')
+      sp="$sp";
+    #end if
+    #if $varExists('$sp_img')
+      sp_img="$sp_img";
+    #end if
+    #if $varExists('$sp_css')
+      sp_css="$sp_css";
+    #end if
+    #if $varExists('$sp_js')
+      sp_js="$sp_js";
+    #end if
+    #if $varExists('$sp_forms')
+      sp_forms="$sp_forms";
+    #end if
+    #if $varExists('$sp_reports')
+      sp_reports="$sp_reports";
+    #end if
+
+    eng_img="$eng_img";
+    eng_css="$eng_css";
+    eng_js="$eng_js";
+    eng_forms="$eng_forms";
+    eng_reports="$eng_reports";
+
+    ## dict params
+    sps_name=$sps_name;
+    ##sps_img=$sps_img;
+    sps_css=$sps_css;
+    sps_js=$sps_js;
+    sps_forms=$sps_forms;
+    sps_reports=$sps_reports;
+
+    function include(script_filename) {
+      document.write('<'+'script'+' language="javascript"'+' type="text/javascript"'+' src="'+script_filename+'">'+'</'+'script'+'>');
+    }
+</script>*#
+<script>
+    #if $varExists('$sp_img')
+      sp_img="$sp_img";
+    #end if
+    sps_img="$sps_img.KURSTERM";
+</script>
+
+  <div id="container-page">
+    <!--Begin Head -->
+    <div id="container-head" class="container">
+        #if $varExists("OBJECT_NAME")
+        <div id="shop_number">
+            $OBJECT_NAME
+        </div>
+        #end if
+
+        #if $varExists("userfio")
+            <div id="userfio">
+                $userfio
+            </div>
+        #end if
+        <div id="icons">
+            <ul class="user-menu">
+               ##<li><a href="tasklist" title="Меню"><img src="$eng_img/terminal/menu.bmp" alt="Меню"></a></li>
+               <li><a href="exit"title="Выход"><img  src="$eng_img/terminal/exit.bmp" alt="Выход"></a><li>
+            </ul>
+        </div>
+
+        #if $varExists("system_name")
+          <div id="sys-name">$system_name</div>
+        #end if
+    </div>
+
+    <div id="container-content-wrapper">
+      <div id="container-content" class="container" align="center">
+        <!--Begin Interface Data-->
+        #block engineData_term
+            нет информации для отображения
+        #end block engineData_term
+        <!--End Interface Data-->
+      </div>
+    </div>
+  </div>
+  <div id="container-footer" class="container">
+    <div id="dvStatus"></div>
+    <div id="dvButtons"></div>
+  </div>
+</body>
+</html>
+
+
+
+

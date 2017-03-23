@@ -1,0 +1,49 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+  #block palBefore
+  #end block palBefore
+
+  #block palInfo
+	#if $clientConf.palletFeatures and $varExists('$PAL_FEATUREID')
+	    #if $PAL_FEATUREID
+            <a href="palFPFeature?id=$PAL_ID">$PAL_FEATURENAME</a>
+        #else
+            <a href="palFPFeature?id=$PAL_ID">$_('Характеристика')</a>
+        #end if
+        <br>
+	#end if
+
+	#if $varExists('$PAL_NUM') and $PAL_NUM
+		<b><u>$PAL_NUM</u></b><br>
+		#if $PAL_SPCODE == 'STACK'
+		    №$PAL_N  <b>$PAL_SNAME</b>($PAL_SCURCNT / $PAL_SMAXCNT)
+		#else
+		    <u>$PAL_SNAME</u>
+		#end if
+	#else
+	    <b>$PAL_SNAME</b>
+	#end if
+	#if $varExists('$REC_SNAME') and $REC_SNAME
+	    --> <b><u>$REC_SNAME</u></b>
+	#end if
+
+	<br>
+    <b>($WCODE)</b> $WNAME
+    #if $varExists('$WSNAME') and $WSNAME
+        <br>$_('МО'): $WSNAME
+    #end if
+    <br><br>
+    <b>$PAL_PRODLINENAME</b><br>
+    $_('На паллете'): $viewQuantity($WQ,$VUFACTOR,$VUCODE,$MUFACTOR,$MUCODE) (<b><u>#filter Quantity$WQ#end filter#</u></b>)<br>
+    <b>$TimeStampToDate($PRODUCTDATE)</b> - $TimeStampToDate($BESTBEFOREDATE)
+  #end block palInfo
+
+  #block palFooter
+
+  #end block palFooter
+#end def

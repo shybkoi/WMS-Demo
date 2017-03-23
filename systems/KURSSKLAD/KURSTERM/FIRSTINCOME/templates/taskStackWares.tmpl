@@ -1,0 +1,27 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b><u>$FROMNAME</u></b><br>
+    <b>#filter DateFilter$DOCDATE#end filter#</b> №<b>$DOCNUM</b><br>
+    <b>$S_NAME</b>
+
+    <form action="taskStackWares">
+        <input type="hidden" name="tid" value="$TID">
+        <input type="hidden" name="sid" value="$S_ID">
+        $_('Товар'): <input type='text' name='barcode' id='barcode:scan'>
+    </form>
+
+
+    #if $varExists('$datalist') and $datalist
+        <hr>
+        #for $item in $datalist
+            <b>(<u><a href='taskStackWaresModel?tid=$TID&sid=$S_ID&wid=$item.WID'>$item.WCODE</a></u>)</b> $item.WNAME<br><br>
+        #end for
+    #end if
+
+
+#end def

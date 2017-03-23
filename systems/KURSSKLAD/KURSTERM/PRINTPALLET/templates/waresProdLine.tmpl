@@ -1,0 +1,17 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	<b>$labeltypes['FG']</b>
+	<hr>
+
+    <b><u>($WCODE)</u></b> $WNAME<br>
+    <hr>
+    
+    $_('Выберите линию производства')<br>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            <a href="waresProducer?wid=$WID&lid=$item.ID_PRODLINE">$item.NUMBER - $item.NAME</a><br>
+        #end for        
+    #end if
+#end def

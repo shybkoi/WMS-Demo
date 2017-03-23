@@ -1,0 +1,19 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+   
+    <b> № $docnum от #filter DateFilter$docdate#end filter# (<u>$TID</u>)</b>
+    <br>
+    <b>$SITENAME</b><br><br>
+    
+    <form action='taskCWaresSite'>        
+        <input type=hidden name=twid value=$TWID>
+        $_('ШК места отборки'): <br> <input type=text name=barcode id="barcode:scan" title="$_('МО')">
+    </form>   
+    <br>
+    <a href='qTaskCWaresNoPlace?tid=$TID&twid=$TWID' onClick="return confirm('$_('Нет места на поддоне')\n---------------------------------\n$_('Вы уверены?')')">$_('Нет места на поддоне')</a>   
+   <br><hr>
+   <b><u>($wcode)</u></b>$wname    
+#end def    
+

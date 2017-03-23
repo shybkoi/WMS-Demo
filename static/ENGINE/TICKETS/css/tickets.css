@@ -1,0 +1,7 @@
+.contextMenu LI.addTicket A     { background-image: url(/ENGINE/images/actions/add.png); }
+.contextMenu LI.delTicket A { background-image: url(/ENGINE/images/actions/delete.png); }
+.contextMenu LI.delAllTickets A { background-image: url(/ENGINE/images/actions/cancel.png); }
+
+tr.deleted {background-color: #ddd;}
+
+#tbl_tickets {clear:both;}

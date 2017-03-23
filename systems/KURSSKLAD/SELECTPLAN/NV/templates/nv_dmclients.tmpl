@@ -1,0 +1,65 @@
+#encoding cp1251
+#extends nv_dmmain
+#def $system_help = False
+#end def
+
+#def rcFilter
+ 	<form id="frm" class="buttons">
+      #if $varExists('$datalist') and $datalist
+        Подтип: <select name="dst">
+            <option value=null>$_('Без фильтра')</option>
+            #for $item in $datalist
+                <option value=$item.DSTCODE>$item.DSTNAME</option>
+            #end for
+        </select>
+        &nbsp;&nbsp;&nbsp;
+      #end if
+        Период поиска:
+        <input id=docBeg name=docbeg type=text class=date size=7 />&nbsp;
+        <input id=docEnd name=docend type=text class=date size=7 />
+ 	    &nbsp;&nbsp;&nbsp;
+        Период актуальной отгрузки:
+        <input id=dBeg name=dbeg type=text class=date size=7 />&nbsp;
+        <input id=dEnd name=dend type=text class=date size=7 />
+        &nbsp;&nbsp;&nbsp;
+        <button type=submit id=btnDo><img src="$eng_img/arrows/arrow_right.png"></button>
+        <button type=button id=btnPrint><img src="$eng_img/actions/printer.png"></button>
+        &nbsp;&nbsp;&nbsp;
+        <button type=button id=btnLocDoc title="Поиск внутренних заказов"><img src=$eng_img/actions/application_view_detail.png border=0></button>
+	</form>
+#end def
+
+#def rcData
+    <link href="$eng_css/jquery.drop-checkbox.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$eng_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sp_css/NV/deliverymanager.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/NV/inExpenseStatIncome.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs-ie.css" rel="stylesheet" type="text/css" media="screen"/>
+
+
+    ##Scripts
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectAutoComplete.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.DocTypes.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.doclocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.docwares.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/NV/docConfOrder.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/NV/docInExpense.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.table.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.wares.js"></script>
+
+    <script type="text/javascript" src="$sp_js/NV/dmclients.js"></script>
+
+    <div id="dvWH" style="text-align:left;"></div>
+#end def

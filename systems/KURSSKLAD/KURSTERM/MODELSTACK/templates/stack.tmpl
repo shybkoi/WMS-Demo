@@ -1,0 +1,37 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+#from systems.KURSSKLAD.cheetahutils import Quantity
+
+#def mainData
+    <form action='main'>
+        $_('ШК'): <input type="text" name="barcode" id="barcode:scan:text" title="$_('МП'), $_('Поддон'), $_('Товар')">
+    </form>  
+    <hr>
+
+    <b>$S_NAME</b>
+    #if $S_MODELID
+        ($S_PALCURCNT / $S_PALMAXCNT)
+        <br>
+        <b>($S_WCODE)</b> $S_WNAME
+        <br>
+        <b>$TimeStampToDate($S_WPRODUCTDATE)</b> - $TimeStampToDate($S_WBESTBEFOREDATE)
+    #end if
+    
+    <hr>
+    #if $S_MODELID
+        $_('Длина'): <input disabled type=text id="::int" value="$Quantity($S_PL)" size="2"><br>
+        $_('Ширина'): <input disabled type=text id="::int" value="$Quantity($S_PW)" size="2"><br>
+        $_('Высота'): <input disabled type=text id="::int" value="$Quantity($S_PH)" size="2"><br>
+        $_('в паллетоместах')
+    #else
+        <form action="stackSetLWH">
+            <input type=hidden name=siteid value="$S_ID">
+            $_('Длина'): <input type=text name="pl" id="::int" value="$Quantity($S_PL)" size="2"><br>
+            $_('Ширина'): <input type=text name="pw" id="::int" value="$Quantity($S_PW)" size="2"><br>
+            $_('Высота'): <input type=text name="ph" id="::int" value="$Quantity($S_PH)" size="2"><br>
+            $_('в паллетоместах')<br>
+            <input type=submit value="$_('Сохранить')">
+        </form>        
+    #end if    
+#end def

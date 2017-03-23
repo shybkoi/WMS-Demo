@@ -1,0 +1,21 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	<b>$labeltypes['FG']</b>
+	<hr>
+
+    <form action="wares">
+        $_('Товар'): <input type='text' name='barcode' id='barcode:scan'>
+    </form>
+
+
+    #if $varExists('$datalist') and $datalist
+        <hr>
+        #for $item in $datalist
+            <b>(<u><a href='waresProdLine?wid=$item.WID'>$item.WCODE</a></u>)</b> $item.WNAME<br><br>
+        #end for
+    #end if
+
+
+#end def

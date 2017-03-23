@@ -1,0 +1,21 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    #if $VWUID
+        #set $wucode = $VWUCODE
+        #set $Q = $Q / float($VWUFACTOR)
+    #else
+        #set $wucode = $MWUCODE
+        #set $Q = $Q / float($MWUFACTOR)
+    #end if
+
+    <b>$FROMNAME</b><br>
+    <b>$TONAME</b><br>
+    №<b><u>$DOCNUM</b></u> от <b><u>#filter DateFilter$DOCDATE#end filter#</u></b><br>
+    <b><u>($WCODE)</u></b>$WNAME<br>
+    <b><u>$PNUM</u></b>($SNAME)<br>
+    $_('Произведен'): <b><u>$PDATE</u></b><br>
+    $_('Принято'): <b><u>#filter Quantity$Q#end filter#</u></b> $wucode<br><br>
+    <a href="taskWaresEdit?pid=$PID&wid=$WID&tid=$TID&pdate=$PDATE&clear=1">$_('Обнулить')</a>
+#end def

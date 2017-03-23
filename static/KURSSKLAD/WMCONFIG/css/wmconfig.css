@@ -1,0 +1,42 @@
+.div-type, .div-params, .method-obj-container,.div-method, .div-type-method, .div-object {
+    float: left;
+}
+
+.user-wrap {
+    overflow: auto;
+}
+
+#newParam div:first-child {
+    overflow-y: auto;
+}
+
+#newParam fieldset{
+    width: 49%;
+    float: left;
+    display:  -moz-box;
+    padding: 5px 3px 3px 3px;
+    box-sizing:border-box;/*для Оперы*/
+    -moz-box-sizing:border-box;/*для мозилы*/
+    border: 1px solid #c9c9c9;
+    margin: 2px;
+}
+
+#newParam li {
+    padding: 1px 0 1px 0;
+}
+
+#newParam label{
+    display: inline-block; 
+    width: 120px;
+    vertical-align: top;
+    padding-top: 4px;
+}
+/*.div-params {
+    height: 300px;
+    padding-left: 20%;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 10px;
+}*/

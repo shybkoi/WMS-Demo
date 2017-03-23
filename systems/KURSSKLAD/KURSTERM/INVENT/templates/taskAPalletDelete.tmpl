@@ -1,0 +1,18 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    #set $cntPallet = 0
+    #if $varExists('$datalist')
+        #for $item in $datalist
+            #if $item.PALLETID and  $item.PTYPE != '1'
+                <a href="javascript: if (confirm('$_('Вы  уверены?')')) location.href='taskAPalletDelete?tid=$tid&sid=$sid&pid=$item.PALLETID'">№$item.PNUMBER ($item.SNAME)<br><br>
+                #set $cntPallet += 1
+            #end if
+        #end for
+
+        #if $cntPallet == 0
+            $_('Паллеты не найдены')
+        #end if
+    #end if
+#end def

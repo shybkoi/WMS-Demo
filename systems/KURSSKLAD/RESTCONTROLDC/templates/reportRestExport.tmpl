@@ -1,0 +1,60 @@
+#encoding cp1251
+#from systems.KURSSKLAD.cheetahutils import viewQuantity
+#from systems.KURSSKLAD.cheetahutils import titleQuantity
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <style type="text/css">
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td,th {
+            border: 1px solid black;
+        }
+        h1,h2,h3,h4{
+            text-align: left;
+            margin: 5px;
+        }
+    </style>
+        
+    <title>$_('Остатки')</title>
+</head>
+<body>
+    <h3>Остатки</h3>
+    <h4>Объект: $OBJNAME</h4>
+    #if $RDATE
+        <h4>Дата: $RDATE</h4>
+    #end if
+    <table>
+        <thead>
+            <tr>
+                <th>$_('Группа')</th>
+                <th>$_('Подгруппа')</th>
+                <th>$_('Код')</th>
+                <th>$_('Наименование')</th>
+                <th>$_('Ед. изм.')</th>
+                <th>$_('Кол-во')</th>
+                <th>$_('Итого')</th>
+            </tr>
+        </thead>
+        <tbody>
+        #if $varExists('$datalist') and $datalist
+            #for $item in $datalist
+            <tr>
+                <td>$item.WGNAME</td>
+                <td>$item.WGSUBNAME</td>
+                <td>$item.WCODE</td>
+                <td>$item.WNAME</td>
+                <td>$titleQuantity($item.WUFACTOR,$item.WUCODE,$item.MUFACTOR,$item.MUCODE)</td>                
+                <td>$viewQuantity($item.WREST,$item.WUFACTOR,$item.WUCODE,$item.MUFACTOR,$item.MUCODE)</td>
+                <td>#filter Quantity$item.WREST #end filter #</td>
+            </tr>
+            #end for
+        #end if
+        </tbody>
+    </table>
+</body>
+</html>

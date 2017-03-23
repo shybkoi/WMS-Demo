@@ -1,0 +1,13 @@
+#encoding cp1251
+#extends systems.ENGINE.ACCOUNT.templates.account_main
+#def accountData
+    <h1>Вы пытаетесь использовать неправильный или недействительный URL-адрес.</h1>
+    <div class="register-block">
+        <table style="text-align: center;">
+            <tbody>
+                <tr><td>Ссылка на сброс пароля не существует или срок ее действия уже истек.</td></tr>
+                <tr><td>Если Вы хотите сбросить пароль - <a href="/ACCOUNT/recovery">повторите попытку</a>.</td></tr>
+            </tbody>         
+        </table>
+    </div>  
+#end def    

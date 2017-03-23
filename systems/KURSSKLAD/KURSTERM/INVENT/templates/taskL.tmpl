@@ -1,0 +1,38 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    $ZONENAME</br>
+    <b>№$TID</b>($ALGORITHM)
+    <br>
+        #set $focus = ":focus:"
+        <a id="#if $view=='all' then $focus else ''#" href="taskL?tid=$tid&view=all">Все</a>&nbsp;
+        <a id="#if $view=='diff' then $focus else ''#" href="taskL?tid=$tid&view=diff">Не завершенные</a>
+    <br>
+	<form action="taskL">
+        <input type="hidden" value="$TID" name="tid">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('МП')" />
+	</form>
+    <br>
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #if $view == 'all'
+                <br><b><u>($item.CODE)</u></b><a href="taskLWares?tid=$TID&wid=$item.WARESID" title="">$item.NAME</a>
+                #if $item.STATUS == '2'
+                    +
+                #else
+                    -
+                #end if
+                <br>
+            #else
+                #if $item.STATUS != '2'
+                    <br><b><u>($item.CODE)</u></b><a href="taskLWares?tid=$TID&wid=$item.WARESID" title="">$item.NAME</a>
+                        -
+                    <br>
+                #end if
+            #end if
+
+
+        #end for
+    #end if
+#end def

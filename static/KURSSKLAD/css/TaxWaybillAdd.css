@@ -1,0 +1,101 @@
+    #dvTaxWaybilAdd button.save, #divShowTaxWaybilInfo button.save, #dvShowTaxWaybilInfo button.save {
+        padding-left: 16px !important;
+        background: url(/KURS/images/save.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    #dvTaxWaybilAdd button.cancel, #divShowTaxWaybilInfo button.cancel, #dvShowTaxWaybilInfo button.cancel{
+        padding-left: 16px;
+        background: url(/KURS/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    #dvTaxWaybilAdd .buttons, #divShowTaxWaybilInfo .buttons, #dvShowTaxWaybilInfo .buttons{
+        padding-top: 5px;
+        text-align: center;
+        width: 100%;
+    }
+    #dvTaxWaybilAdd div.label, #divShowTaxWaybilInfo div.label, #dvShowTaxWaybilInfo div.label{
+        width: 80px;
+        padding-right: 10px;
+        padding-left:10px;
+        text-align: left;
+        position: relative;
+        float: left;       
+    }
+    #dvTaxWaybilAdd div.longlabel, #divShowTaxWaybilInfo div.longlabel, #dvShowTaxWaybilInfo div.longlabel{
+        width: 100px;
+        padding-right: 10px;
+        padding-left:10px;
+        text-align: left;
+        position: relative;
+        float: left;       
+    }
+    #dvTaxWaybilAdd div.labellong, #divShowTaxWaybilInfo div.labellong, #dvShowTaxWaybilInfo div.labellong{
+        width: 100px;
+        padding-right: 10px;
+        padding-left:10px;
+        text-align: left;
+        position: relative;
+        float: left;       
+    }
+    #dvTaxWaybilAdd div.input, #divShowTaxWaybilInfo div.input, #dvShowTaxWaybilInfo div.input{
+        width: 140px;
+        height: 25px;
+        padding-bottom: 4px;
+        padding-left: 5px;
+        text-align: left;
+        position: relative;
+        float: left;
+    }
+    #dvTaxWaybilAdd div.inputlong, #divShowTaxWaybilInfo div.inputlong, #dvShowTaxWaybilInfo div.inputlong{
+        width: 220px;
+        height: 25px;
+        padding-bottom: 4px;
+        padding-left: 5px;
+        text-align: left;
+        position: relative;
+        float: left;
+    }
+    #dvTaxWaybilAdd div.longinput, #divShowTaxWaybilInfo div.longinput, #dvShowTaxWaybilInfo div.longinput{
+        width: 360px;
+        height: 25px;
+        padding-bottom: 4px;
+        padding-left: 5px;
+        text-align: left;
+        position: relative;
+        float: left;
+    }
+    #dvTaxWaybilAdd div.longinput input.longinput, #divShowTaxWaybilInfo div.longinput input.longinput, #dvShowTaxWaybilInfo div.longinput input.longinput {
+    
+        width: 95%;
+    }
+    
+    #dvTaxWaybilAdd input[type=text], #divShowTaxWaybilInfo input[type=text], #dvShowTaxWaybilInfo input[type=text]{    
+        color: #808080;
+        font-family: Verdana, sans-serif;        
+        width: 95%;
+        border: 1px solid orange;
+        height: 19px;
+        -moz-border-radius: 5px;        
+    }
+    
+    #dvTaxWaybilAdd input.Date, #divShowTaxWaybilInfo input.Date, #dvShowTaxWaybilInfo input.Date {
+        width: 55% !important;
+    }
+    
+    #dvTaxWaybilAdd input[type!=text], #divShowTaxWaybilInfo input[type!=text], #dvShowTaxWaybilInfo input[type!=text]{
+        width: 100px;
+        height:20px;
+    }
+    #dvTaxWaybilAdd select, #divShowTaxWaybilInfo select, #dvShowTaxWaybilInfo select{
+        width: 130px;
+        height: 25px;
+    }
+    div.flora div.widthfull{
+        width: 100%;
+        text-align: left;
+        padding-top: 5px;
+    }
+    div.flora div.title{
+        border-bottom: 2px solid black;
+         margin-bottom: 7px;
+    }

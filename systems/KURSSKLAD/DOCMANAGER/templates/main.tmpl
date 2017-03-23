@@ -1,0 +1,136 @@
+#encoding cp1251
+#extends systems.engine_main
+
+#from random import random
+
+#def $system_help = True
+#end def
+
+#def systemNavigation
+#end def
+
+#def engineData
+
+  ##Styles    
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$sps_css.KURSSKLAD/jquery.popup.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$eng_css/jquery.drop-checkbox.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <link href="$eng_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sp_css/DocManager.css" rel="stylesheet" type="text/css" media="screen"/>       
+    <link href="$sp_css/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" media="screen"/>       
+	<link href="$sps_css.KURSSKLAD/wh.reserve.summary.css" rel="stylesheet" type="text/css" media="screen"/>    
+    
+    <style>
+        .ui-progressbar-indicator{
+            line-height:40px;
+            position:absolute;
+            text-indent:-20px;
+            left:50%;
+            border: 1px solid black;
+        }
+        
+        
+    </style>    
+
+  ##Scripts
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>    
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kScrollableToDown.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.boxit.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.drop-checkbox.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.form.min.js"></script>
+    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.id.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.blocks.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.DocTypes.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.WaresGroups.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectAutoComplete.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.report.TTN.js"></script>        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.docPrint.js"></script>                
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.js"></script>                
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.popup.js"></script>    
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/taskView.js"></script>          
+    
+    <script type="text/javascript" src="$sp_js/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.reserve.summary.js"></script>		
+    <script type="text/javascript" src="$sp_js/DocManager.js"></script>
+    <script type="text/javascript" src="$sp_js/WLImages.js"></script>
+
+    #block adminData   
+        <script>
+        var admin = 0;
+        var useviewunit = $viewunit;
+        var gtdedit = $gtdedit;
+        </script>
+        <div id="divFilter" style="float:left;position:relative;">
+            <form id="frmScan">
+                <table>
+                    <tr><th>ШК</th></tr>
+                    <tr><td><input type="text" name="barcode" size="8" value=""></tr>
+                </table>
+            </form>
+            <br>
+            <form id="frmFilter">
+                <table>
+                    ##<tr><th><a id="aSpDocTypes">Тип операции</a></th></tr>
+                    <tr><th>Тип операции</th></tr>
+                    <tr><td><select name='doctype' id='cmbDocType'></select></td></tr>
+                    ##<tr><th>Подтип операции</th></tr>
+                    ##<tr><td><select name='docsubtype' id='cmbDocSubType'></select></td></tr>
+                    <tr><th>Период</th></tr>
+                    <tr><td><input type="text" id="dbeg" name="dbeg" size="8" value="">
+                            <input type="text" id="dend" name="dend" size="8" value=""></td></tr>
+                    <tr><td><input type=checkbox checked id='frmDocFilter-chkDate'>По дате документа</td></tr>
+                    <tr><th>Статус</th></tr>
+                    <tr><td><select name='status' id='cmbDocStatus'></select></td></tr>
+                    <tr><th><span id="fromobj-name">От кого</span></th></tr>
+                    <tr><td><input type="text" id="fromobj" value=""></td></tr>
+                    <tr><th><span id="throughobj-name">Через кого</span></th></tr>  
+                    <tr><td><input type="text" id="throughobj" value=""></td></tr>
+                    <tr><th><span id="toobj-name">Кому</span></th></tr>    
+                    <tr><td><input type="text" id="toobj" value=""></td></tr>
+                    <tr><th>Номер документа</th></tr>    
+                    <tr><td><input type="text" name="docnum" style="width:100%;" value=""></td></tr>    
+                    <tr><th>Сумма между</th></tr>
+                    <tr><td><input type="text" size="8" name="sumFrom" value="">
+                            <input type="text" size="8" name="sumTo" value=""></td></tr>    
+                    <tr><td><div class="buttons" style="text-align: right; padding:3px">
+                                #if $opt('view',None,'confBtn','element')
+                                    <button type="button" id="cfgBtn" title="Изменение настроек редактирования" style="float: left;"><img border="0" src="$sps_img.KURSSKLAD/wrench.png"></button>
+                                #end if
+                                <button type="button" id="btnCalc" title="Посчитать сумму"><img src="$sps_img.KURSSKLAD/sum.png" border="0"></button>
+                                <button type="button" title="Создать документ" id="btnCreateDoc"><img src="$eng_img/actions/add.png" border="0"></button>
+                                <button type="submit" title="Искать"><img src="$sps_img.KURSSKLAD/magnifier.png" border="0"></button>
+                            </div></td></tr>
+                </table>
+                <input type="hidden" name="flags" value="R">
+            </form>
+        </div>
+        
+        <div id="divTblData" style="float:left;position:relative;">
+            <div id="divTblMaster" style="float:left;position:relative;"></div>
+            <div id="divTblDetail" style="float:left;position:relative;"></div>
+        </div>
+		
+    #end block
+
+#end def

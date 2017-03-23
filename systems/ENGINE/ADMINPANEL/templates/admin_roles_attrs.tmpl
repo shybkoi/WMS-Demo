@@ -1,0 +1,23 @@
+#encoding cp1251
+<table id="tbl_roles_attrs">
+  <thead>
+  <tr>
+    <th>$_('№')</th>
+    <th>$_('Имя')</th>
+    <th>$_('Значение')</th>
+    <th>$_('Слияние')</th>
+  </tr>
+  </thead>
+  <tbody>
+        #set $N=1
+        #for $item in $attrs
+            <tr id="$item.ID" value="$item.VALUE" merge_symbol="$item.MERGE_SYMBOL">
+                <td class="har">$N</td>
+                <td class="hac">$item.ID</td>
+                <td class="hac">$item.VALUE</td>
+                <td class="hac">$item.MERGE_SYMBOL</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+#encoding cp1251
+<form id="dlgedit_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('ID')</th><td  style='width: 60%'>
+        <span id='dlgedit_id'></span>
+    </td></tr>
+
+    <tr><th>$_('Организация')</th><td>
+        <input type='text' id='dlgedit_organization' name='dlgedit_organization' style='width: 100%' value='' maxlength='80'/>
+    </td></tr>
+
+    <tr><th>$_('Владелец')</th><td>
+        <select id='dlgedit_ownerId_cmb'>
+            #if $varExists('$users') and $users
+                #for $user in $users
+                    #if str($owner_id) == str($user.ID_USER)
+                        #set $selected = ' selected = "selected" '
+                    #else
+                        #set $selected = ' '
+                    #end if
+                    <option $selected value='$user.ID_USER'>$user.FIO</option>
+                #end for
+            #end if
+        </select>
+    </td></tr>
+
+    <tr><th>$_('Дата регистрации')</th><td>
+        <input type="text" name="dlgedit_reg_date" id="dlgedit_reg_date" align="center" style='width: 100%' size=8 title="Дата регистрации"/>
+    </td></tr>
+
+    <tr><th>$_('Код клиента')</th><td>
+        <span id='dlgedit_code'></span>
+    </td></tr>
+
+    <tr><th>$_('Доп. код')</th><td>
+        <input type='text' id='dlgedit_card_code' name='dlgedit_card_code' style='width: 100%' value='' maxlength='10'/>
+    </td></tr>
+  </table>
+
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgedit_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgedit_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

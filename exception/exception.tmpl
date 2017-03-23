@@ -1,0 +1,40 @@
+#encoding cp1251
+#extends exception_main
+#def errData
+<link rel="shortcut icon" href="/images/bug.ico">
+<link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/css/exception/core.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/ENGINE/css/exception/error.css">
+ <h1 id="banner">Ошибка при обработке запроса</h1>
+ <div align = "center">
+ <img src="/ENGINE/images/errors/error_big.png" class = "error_img" alt="">
+ <p class="error_header">К сожалению, на странице произошла ошибка.</p>
+    #if $varExists('$title') 
+        #if $title!=''
+            <div class="error_title">$time - $title</div>
+        #end if
+    #end if
+    
+    #if $varExists('$exception_text')
+        <div class="error_body">$exception_text</div>
+    #end if
+
+    #if $varExists('$traceback')
+        #if $traceback!=''
+            <br/>
+            <div class="error_traceback">$traceback</div>
+        #end if
+    #end if
+
+    #if $varExists('$back') 
+        #if $back
+            <br/>
+            <div class="error_back">Попробуйте зайти сюда позже. А пока можно вернуться <a href='javascript:history.back()'>Назад</a></div>
+        #end if
+    #end if
+
+    #if $varExists('$url')
+        <br/>
+        <p>Нажмите <a href="$url" id="ok">сюда</a>, чтобы перейти на стартовую страницу.</p>
+    #end if
+ </div>   
+#end def

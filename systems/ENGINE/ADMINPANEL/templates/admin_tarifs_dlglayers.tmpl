@@ -1,0 +1,33 @@
+#encoding cp1251
+<div id="dlglayers_caption"></div>
+<table id="tbl_layers" class="full_height">
+  <thead>
+    <tr>
+      <th>$_('Отключен')</th>
+      <th>$_('№ п/п')</th>
+      <th>$_('Код')</th>
+      <th>$_('Организация')</th>
+      <th>$_('Дата тарифа')</th>
+    </tr>
+  </thead>
+  <tbody id="tbl_layers_tbody">
+        #set $N=1
+        #for $layer in $layers
+            <tr id="l_$layer.LAYER_ID">
+                <td class="hac disabled"><input type="checkbox"
+                    #if $layer.DISABLED is not None and $layer.DISABLED != 0
+                        checked
+                    #end if
+                    ></td>
+                <td class="har enum">$N</td>
+                <td class="code">$layer.CODE</td>
+                <td class="organization">$layer.ORGANIZATION</td>
+                <td class="date_from hac">#filter DateFilter $layer.DATE_FROM #end filter</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>
+<div class="buttons save footer_btns">
+  <button type="button" id="dlglayers_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+</div>

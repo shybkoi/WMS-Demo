@@ -1,0 +1,31 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+	<form action="main">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" title="$_('Документ'), $_('Принтер')">
+	</form>  
+    <br>
+  #if $varExists('$datalist')
+    #for $item in $datalist
+        #if $item.TSTAT == '0'
+            <a href="task?tid=$item.taskid" title="#filter DateFilter$item.DOCDATE#end filter# №$item.NUMBER">$item.objname</a><br><br>
+        #elif $item.TSTAT == '1'
+            <a class=green href="task?tid=$item.taskid" title="#filter DateFilter$item.DOCDATE#end filter# №$item.NUMBER">$item.objname</a><br><br>
+        #else
+            <a class=red href="task?tid=$item.taskid" title="#filter DateFilter$item.DOCDATE#end filter# №$item.NUMBER">$item.objname</a><br><br>
+        #end if        
+        
+    #end for
+  #end if
+  <hr>
+  #if $varExists('$zd')
+    #for $item in $zd
+        <a href="chgZone?id=$item.ZONEID">$item.ZONENAME</a> - $item.CNTDOCS
+        #if $item.CNTDOCS2 and $item.CNTDOCS2 > 0
+            <font class="green">($item.CNTDOCS2)</font>
+        #end if 
+        <br>
+    #end for
+  #end if  
+#end def

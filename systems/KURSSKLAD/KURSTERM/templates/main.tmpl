@@ -1,0 +1,152 @@
+#encoding cp1251
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  <link href="$sps_css.KURSTERM/bw.css" rel="stylesheet" type="text/css" media="screen" />  
+    #if $varExists('jsmain')
+    <script>
+        $jsmain
+    </script>
+    #end if
+
+    <script>
+     loaded=0;
+	   function onBodyLoad(){
+      loaded++;
+	    if (loaded==1){
+   	    //in IE error positioning in element - gasim
+        try {
+            parsePage();
+        }
+        catch(e) {
+          //alert (e.message);
+        }
+   	    #if $varExists('jsbodyload')
+          $jsbodyload
+   	    #end if
+	    }
+	  }
+    </script>
+
+
+    #if not $varExists('no_java_common')
+      #if not $varExists('no_java_point')
+        <script language="javascript" src="$sps_js.KURSTERM/point.js"> </script>
+      #end if
+      #if not $varExists('no_java_types')
+        <script language="javascript" src="$sps_js.KURSTERM/types.js"> </script>
+      #end if
+      #if not $varExists('no_java_scan')
+        <script language="javascript" src="$sps_js.KURSTERM/scan.js"> </script>
+      #end if
+      #if not $varExists('no_java_marker')
+        <script language="javascript" src="$sps_js.KURSTERM/marker.js"> </script>
+      #end if
+      <script language="javascript" src="$sps_js.KURSTERM/core.js"> </script>
+      <!--script language="javascript">ScrollStep=1;</script-->
+    #else
+      <script language="javascript"> 
+        var is_ie = ( /msie/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent) );
+        var is_opera = (navigator.appName == 'Opera');
+        var is_Terminal;
+        if (navigator.appVersion.toUpperCase().indexOf('COMPATIBLE')!=-1) is_Terminal = true;
+        else
+            if (navigator.platform.toUpperCase().indexOf('CE.NET')!=-1) is_Terminal = true;
+            else is_Terminal = false;
+        //onBodyLoad();        
+      </script> 
+    #end if
+
+</head>
+<body onLoad="javascript:onBodyLoad()" style="overflow:hidden;">
+<!--iframe scrolling="no" src="/message" id="message" name="message" width="0" height="0"></iframe-->
+<div id="hint" name="hint" class="hint">
+#if $varExists('methodname') 
+  $methodname 
+#end if
+</div>
+<div id="content-wrapper">
+        #if $varExists('$system_name') and $system_name
+            <div id="actioncaption">
+				#if $varExists("is_terminal") and not $is_terminal and $varExists("helpSystem") and $helpSystem
+                    				###Help
+                        <div style="width:25%;float:left;background-color:inherit;">&nbsp;</div>
+                        <div style="width:50%;float:left;background-color:inherit;color:inherit;">$system_name
+                            #if $varExists('$treeName')
+                                - $treeName
+                            #end if
+                        </div>
+                        <div style="width:25%;float:left;color:inherit;background-color:inherit;text-align:right;">
+						    <a href="javascript: void(0);" title="Справка" onclick="var wind  = window.open('$sp/help/index.htm','Инструкция по работе с системой'); wind.focus();">Справка</a>&nbsp;&nbsp;
+                        </div>                            
+                #else 
+                    $system_name
+                    #if $varExists('$treeName')
+                        - $treeName
+                    #end if                    
+                #end if	
+			</div>
+        #end if
+        <div>
+            <div class="zoneinfo">
+                #if $varExists('$zonename')
+                    $zonename
+                #else
+                    &nbsp;
+                #end if
+            </div>
+            <div class="buttonbar">                
+                ###Tasks
+                <a href="tasklist" id="tasklist" title="$_('Task List')"><img src="$sps_img.KURSTERM/tasklist.gif"  border="0"></a>
+                
+                ###Reload
+                #if $varExists('reloadurl')
+                    <a href="$reloadurl" id="reloadurl" title="$_('Refresh')"><img src="$sps_img.KURSTERM/reload.gif"  border="0"></a>
+                #end if
+                
+                ###BackUrl
+                #if $varExists('backurl') and $backurl
+                    #if $backurl=='history.go(-1)'
+                        <a onClick="$backurl ; return false" href="#" id="backurl" title="$_('Back')" ><img src="$sps_img.KURSTERM/back.gif" border="0"></a>
+                    #else
+                        <a href="$backurl" id="backurl" title="$_('Back')" ><img src="$sps_img.KURSTERM/back.gif" border="0"></a>
+                    #end if    
+                    &nbsp;&nbsp;&nbsp;
+                #end if
+            </div>
+        </div>
+        
+        #if $varExists('$mes') and $mes
+          #*
+            #from re import match
+            #from operator import truth
+            #set $m = $match('isc_dsql_execute: exception \d{1,4} \W?[A-Z_]{1,31}(.{1,255}) SQL traceback ',$mes)
+            #if $truth($m) and $m.lastindex >= 1
+                #set $mes = $m.group(1)
+            #else
+                #if len($mes.split('\n'))>3
+                    #set $mes = $mes.split('\n')[3]
+                #end if
+            #end if 
+          *#
+            ##set $mes = $mes.split('\n')[3]
+            <div id="warning">$mes</div>
+        #end if
+        
+        #if $varExists('ActionCaption') and $ActionCaption is not None
+	    <div id="actioncaption">$ActionCaption</div>
+        #end if        
+        
+        <div id="data" align="center">
+        #block mainData
+            MainData here
+        #end block mainData
+        <br>
+        </div>
+</div>
+    <!--<script language="JavaScript" src="$sps_js.KURSTERM/request.js"></script>-->
+</body>
+</html>     
+        

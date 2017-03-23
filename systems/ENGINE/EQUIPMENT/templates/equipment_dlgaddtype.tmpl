@@ -1,0 +1,19 @@
+#encoding cp1251
+<form id="dlgaddType_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('Название')</th><td>
+        <input type='text' id='dlgaddType_type_name' name='dlgaddType_type_name' style='width: 100%' value='' maxlength="80"/>
+    </td></tr>
+
+    <tr><th>$_('Вид')</th><td>
+        <select id='dlgaddType_kindId_cmb'>
+            <option value='T'>$_('Терминальное')</option>
+            <option value='M'>$_('Мобильное')</option>
+        </select>
+    </td></tr>
+  </table>
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgaddType_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgaddType_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

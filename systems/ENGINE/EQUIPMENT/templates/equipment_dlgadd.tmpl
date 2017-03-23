@@ -1,0 +1,54 @@
+#encoding cp1251
+<form id="dlgadd_form" class="full_height">
+  <table style='width: 100%'>
+    <tr><th>$_('Название')</th><td>
+        <input type='text' id='dlgadd_equip_name' name='dlgadd_equip_name' style='width: 100%' value='' maxlength="80"/>
+    </td></tr>
+
+    <tr><th>$_('Вид')</th><td>
+        <select id='dlgadd_kindId_cmb'>
+            <option value='T'>$_('Терминальное')</option>
+            <option value='M'>$_('Мобильное')</option>
+        </select>
+    </td></tr>
+
+    <tr><th>$_('Тип')</th><td>
+        <select id='dlgadd_typeId_cmb'>
+            #if $varExists('$datalist')
+                #if $datalist
+                    #for $item in $datalist
+                        #*
+                        #if str($ID_TYPE) == str($item.ID_TYPE)
+                            #set $selected = ' selected = "selected" '
+                        #else
+                            #set $selected = ' '
+                        #end if
+                        ##<option $selected value='$item.ID_TYPE'>$item.NAME</option>
+                        *#
+                        <option value='$item.ID_TYPE' equip_kind=
+                            #if $item.IS_MOBILE
+                                "M"
+                            #else
+                                "T"
+                            #end if
+                        >$item.NAME</option>
+                    #end for
+                #end if
+            #end if
+        </select>
+    </td></tr>
+
+    <tr><th>$_('Рег. номер')</th><td>
+        <input type='text' id='dlgadd_reg_num' name='dlgadd_reg_num' style='width: 100%' value='' maxlength='40'/>
+    </td></tr>
+
+    <tr><th>$_('Серийный номер')</th><td>
+        <input type='text' id='dlgadd_serial_num' name='dlgadd_serial_num' style='width: 100%' value='' maxlength='40'/>
+    </td></tr>
+  </table>
+
+</form>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgadd_save_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Сохранить')</button>&nbsp;
+    <button type="button" id="dlgadd_cancel_btn"><img src="$eng_img/actions/cancel.png" alt=""/>&nbsp;$_('Отмена')</button>
+</div>

@@ -1,0 +1,20 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData
+    <form action='wuMain'>
+        $_('ШК'): <input type='text' name='barcode' id=':scan' title="$_('Товар')">
+    </form>
+    
+    #if $varExists('$datalist') and $datalist
+        <br><br>
+            <u><b>$_('Выберите товар'):</b></u>
+        <hr>    
+        #for $item in $datalist
+            <b>(<u><a href='wuWares?id=$item.WARESID'>$item.CODE</a></u>)</b> $item.NAME<br><br>
+        #end for
+    #end if	
+    
+#end def
+
+

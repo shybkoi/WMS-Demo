@@ -1,0 +1,23 @@
+#encoding cp1251
+
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+
+    <u><b>$_('ֲûבונטעו ּֿ'):</b></u>
+    <hr>    
+    #if $varExists('$datalist') and $datalist
+        #for $item in $datalist
+            #if $item.SPCODE == 'STACK'
+                <a href='taskStack?tid=$TID&sid=$item.SID'>$item.SNAME</a>
+            #elif $item.SPCODE == 'S'
+                <a href='taskSlot?tid=$TID&sid=$item.SID'>$item.SNAME</a>
+            #elif $item.SPCODE == 'B'
+                <a href='taskStack?tid=$TID&sid=$item.SID'>$item.SNAME</a>
+            #else
+                $item.SNAME<
+            #end if
+            <br><br>
+        #end for
+    #end if	
+    
+#end def

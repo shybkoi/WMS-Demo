@@ -1,0 +1,154 @@
+td.NoLine
+        {
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+    }
+    
+td.taRight{text-align: right;}
+td.taLeft{text-align: left;}
+td.taCenter{text-align: center;}
+td.vaBottom{vertical-align: bottom;}
+td.vaCenter{vertical-align: middle;}
+td.vaTop{vertical-align: top;}
+td.aCenter{vertical-align: middle;text-align: center;  padding-top: 2px  !important; }
+    
+td.BigName
+        {
+        font-size: 35pt; 
+        font-weight: bold;  
+        font-family:'Arial Black';
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    
+td.PaddingLeft{padding-left: 1px !important;}
+td.PaddingRight{padding-right: 1px !important;}
+td.PaddingBottom{padding-bottom: 1px !important;}
+td.PaddingTop{padding-top: 1px !important;}
+td.PaddingLeftRight{padding-left: 1px !important;padding-right: 1px !important;}
+
+td.PriceCommonCell
+        {
+        margin: 0px;
+        padding: 0px;
+        line-height: 85%;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        page-break-before: avoid;
+    }
+    
+div.DivPrice
+        {
+        border: 1px solid black;
+        position:relative;
+        float: left;   
+        width: 120 !important;
+        height: 120 !important;
+        page-break-after: avoid;   
+    }    
+    
+table.PriceList
+        {
+        padding:0px; 
+        margin:0px;
+        border-spacing: 0px;
+        page-break-after: avoid;
+    }
+    
+table.PriceList td.PriceList
+        {
+        border:0px !important; 
+        padding:0px; 
+        margin:0px;
+        border-spacing: 0px;
+        page-break-after: avoid;
+    }
+    
+table.Price
+        {
+        padding:0px; 
+        margin:0px;
+        border-spacing: 0px;
+        page-break-after: avoid;
+    }
+    
+tr.BigPriceCaption
+        {       
+        font-size: 35pt;
+        text-align: center;
+        vertical-align: center;
+        font-family: "Arial Black";
+        border-top-width: 0px;
+        height: 1.3cm;
+        padding:0px; 
+        margin:0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        width : 100%;
+    }
+    
+tr.BigPriceFooter
+        {
+        text-align: center;
+        vertical-align: top;
+        padding:0px; 
+        margin:0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        font-size:6pt;
+        font-family: "Franklin Gothic Medium";
+        width : 100%;
+        height: 0.3cm;
+    }    
+tr.BigWaresName
+        {
+        height: 1.4cm !important;
+        vertical-align: top;
+        font-size:13.7pt;
+        font-family: "Franklin Gothic Medium";
+        padding:0px; 
+        margin:0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+    } 
+td.BigNum
+        {
+        text-align: center; 
+        font-size: 35pt;
+        border-bottom-width: 0px;
+        font-family: "Impact";
+        padding-top: 2px  !important; 
+        line-height: 85%;
+        padding-bottom: 0px  !important;
+    }
+.tbl_bp{height: 3.2cm; width: 3.2cm;}
+.center{text-align: center;}
+.bp_wares_name
+        {
+        font-size:10pt; 
+        font-family:"Lucida Console";
+        font-weight:300;
+        line-height: 1; 
+        width: 3.2cm !important; 
+        border-top-width: 0px; 
+        vertical-align: top;
+    }
+.bp_wares_code
+        {
+            font-size:12pt; 
+            font-family:'Times New Roman'; 
+            line-height: 1; 
+            width: 3.2cm !important;
+    }

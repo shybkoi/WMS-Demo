@@ -1,0 +1,25 @@
+#encoding cp1251
+#extends rcmain
+#def $system_help = True
+#end def
+
+#def rcFilter
+ 	<form class="buttons">
+		Объект: <select id="selObj"></select> 
+		Зона МП: <select id="selZone"></select>
+        &nbsp;&nbsp;&nbsp;
+        <button type=button id=btnRefresh title=Обновить><img src="$eng_img/actions/refresh.png"></button>
+        <button type=button id=btnInvent title=Инвентаризировать><img src="$eng_img/actions/stop.png"></button>
+	</form> 
+#end def
+
+#def rcData
+    ##Styles
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>        
+    
+    ##Scripts        
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    
+    <script type="text/javascript" src="$sp_js/trashPallet.js"></script>
+#end def

@@ -1,0 +1,30 @@
+<div class="dialog-filter">
+    <div class="width100">
+        <input type = "radio" id="r-warescode" name="r-search" value="warescode" checked /> <label for="r-warescode">Товар (поиск по локальному коду)</label><br>
+        <input type = "radio" id="r-waresname" name="r-search" value="waresname" /> <label for="r-waresname">Товар (поиск по наименованию)</label><br>
+        <input type = "radio" id="r-group" name="r-search" value="group" /> <label for="r-group">Группу (поиск по наименованию)</label><br>
+    </div>
+    <div class="width100 padding-top">        
+        Строка поиска
+        <input type="text" id="t-search" />
+        <a href="#" id="a-search"><img src="/ENGINE/images/actions/find.png" title="Искать" alt="Искать" /></a>
+    </div>
+    <div class="result-table">
+        <table id="t-results">
+            <thead>
+                <tr>
+                    <th class="num">№</th>
+                    <th class="Name">Наименование</th>
+                    <th class="Code">Код</th>
+                    <th class="dlgGroupName">Группа</th>
+                    <th class="Checkbox">Добавлен</th>
+                    <th class="Image"></th>                    
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b>$S_NAME</b>
+    #if $S_MODELID
+        ($S_PALCURCNT / $S_PALMAXCNT) <br>
+        $S_PALNUM <br>
+    #end if
+    <hr>
+    <b><u>($S_WCODE)</u></b> $S_WNAME<br>
+    $TimeStampToDate($S_WPRODUCTDATE) - $TimeStampToDate($S_WBESTBEFOREDATE)
+    <hr>
+    <form action="taskStack">
+        <input type="hidden" name="tid" value="$TID">
+        <input type="hidden" name="sid" value="$S_ID">
+        $_('МП'), $_('Принтер'): <input type='text' name='barcode' id='barcode:scan'>
+    </form>
+#end def

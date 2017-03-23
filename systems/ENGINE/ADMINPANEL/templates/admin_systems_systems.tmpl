@@ -1,0 +1,58 @@
+#encoding cp1251
+<table id="tbl_systems" style="border: 2px ridge #FFE4E1; border-spacing: 0px" class="treetable">
+  <thead>
+      <tr>
+        <th>№</th>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Ссылка</th>
+        <th>Папка</th>
+        <th>Класс</th>
+        <th>Модуль</th>
+        ##<th>Лого</th>
+        ##<th>Родит</th>
+        <th>ID BASE</th>
+        <th>Слать</th>
+        <th>ID MAIL</th>
+        <th>Формат Д/В</th>
+        <th>Формат В</th-->
+        <th>Опции</th>
+        ##<th>Сорт</th>
+        <th>Откл</th>
+        <th>LASTDATE</th>
+      </tr>
+  </thead>
+  <tbody id="tbl_systems_tbody">
+        #set $N=1
+        #for $item in $datalist
+            <tr id='$item.ID_SYSTEM' higher='$item.HIGHER'>
+                <td class="har counter">$N</td>
+                <td class="hac">$item.ID_SYSTEM</td>
+                ##<td nowrap class="show_name">$item.SPACES$item.SHOW_NAME</td>
+                <td nowrap class="show_name">$item.SHOW_NAME</td>
+                <td>$item.REF_NAME</td>
+                <td>$item.FOLDER_NAME</td>
+                <td>$item.CLASS_NAME</td>
+                <td>$item.MODULE_NAME</td>
+                ##<td class="hac">$item.LOGO</td>
+                ##<td class="hac">$item.HIGHER</td>
+                <td class="hac">$item.ID_BASE</td>
+                <td class="hac">$item.SEND_BUG_MAIL</td>
+                <td class="hac">$item.ID_MAIL</td>
+                <td nowrap>$item.DATE_TIME_FORMAT</td>
+                <td nowrap>$item.TIME_FORMAT</td>
+                <td class="hac">
+                    #if $xml_file_exist($item.ID_SYSTEM)
+                        <a class="edit_sys_options" title="Редактировать опции" href="javascript: void(0);"><img border=0 src="$eng_img/actions/edit.png" style="background-color: transparent; vertical-align: middle"/></a>
+                    #else
+                        <a class="add_sys_options" title="Добавить опции" href="javascript: void(0);"><img src="$eng_img/actions/add.png" style="vertical-align: middle"></a>
+                    #end if
+                    </td>
+                ##<td class="har">$item.ORDERBY</td>
+                <td class="hac">$item.DISABLED</td>
+                <td nowrap>#filter LongDateTimeWSecFilter $item.LASTDATE #end filter</td>
+            </tr>
+            #set $N=$N+1
+        #end for
+  </tbody>
+</table>

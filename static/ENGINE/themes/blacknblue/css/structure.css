@@ -1,0 +1,1332 @@
+/*-----------------------------------------
+[Theme Structure Stylesheet]
+Theme name:   blacknblue
+Project:            FirePy Engine
+Version:           0.9 beta
+Last change:    22:23 02.06.2009
+Author:	    Chernyavsky A.E. (che.alexey@gmail.com)
+-----------------------------------------*/
+
+body {
+  color:#285886;
+  background-color: #F8F8F8;
+}
+.container{
+border-color: #e4e4e4;
+background-color: #ffffff;
+}
+.container-bg{
+background-image: url(/ENGINE/images/structure/rounded-bg.gif);
+}
+/*rounded blocks fixes moved to ie6.css only */
+/*
+div.container:before{
+content:url(/ENGINE/images/structure/rounded-tl.gif);
+background:transparent url(/ENGINE/images/structure/rounded-tr.gif) 100% 0 no-repeat;
+}
+div.container:after{
+content:url(/ENGINE/images/structure/rounded-bl.gif);
+background:transparent url(/ENGINE/images/structure/rounded-br.gif) 100% 0 no-repeat;
+}
+*/
+/* FF 3.0.3 flashing border bug fix */
+@-moz-document url-prefix(){
+div.container{
+background-color:#fff;
+border-left:0px;
+border-right:0px;
+margin:0px;
+border-radius:0px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+}
+}
+/*Links*/
+a:link, a:visited
+{
+color: #000;
+}
+a:hover 
+{
+color: #676767;
+text-decoration:underline;
+}
+#addinfo
+{
+ margin-top: 10px;
+}
+#container-head{
+ background-image: url(/ENGINE/themes/blacknblue/images/rounded-bg.gif);
+ border-top:0px;
+ border-bottom:0px;
+ height:80px;
+
+ }
+#container-user-data {
+    color: #a1a6ac;
+	font-family: verdana,sans-serif,arial;
+	}
+
+
+#container-content{
+/*background-image: url(/ENGINE/themes/blacknblue/images/rounded-bg.gif);*/
+
+border:0px;
+/*border-top:1px solid grey;*/
+background-color:transparent;
+margin:4px 0 0;
+ 
+
+}
+
+#parent-sys-name {
+    color: #818181;
+    font-size: 10px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+}
+
+#sys-name{
+color:#253F60;
+font: bold 11px Helvetica,sans-serif,"Trebuchet MS",Verdana,Arial;
+text-align:center;
+margin-top:-15px;
+text-transform: uppercase;
+padding-bottom:0px;
+}
+/*System define menu*/
+#sysmenu {
+
+}
+#sysmenu ul {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 4px;
+  text-align: center;
+}
+#sysmenu ul li {
+  margin-left: -4px;
+}
+#sysmenu ul li a {
+		border:1px solid #798390;
+ 	    background-image: url("../images/menubutt.png");
+  		background-repeat: repeat-x;
+		border-left:none;
+ 		border-right:none;
+		color:#fff;
+		font-size:11px;
+
+}
+#sysmenu ul li a:hover
+ {
+
+  text-decoration:underline;
+}
+.navigation {
+    margin-top: 8px;
+    text-align: center;
+    width: 80%;
+}
+
+/*Focused row style*/
+.rf-focused{background-color:#dbe1e9;}
+.rf-focused td{color:#000;}
+
+/*ALAX loader*/
+#container-busy
+{ background: url(/ENGINE/images/ajax/default-ajax-loader.gif);
+  background-repeat: no-repeat;
+  top: 5px;
+ }
+/*menu*/
+ul.user-menu {
+    margin: 0;
+    padding: 44px 0 0;
+	margin-right: -4px;
+}
+ul.user-menu li {
+    margin: 0 0 0 -5px;
+    padding: 0;
+}
+#container-user-data ul li a {
+ font-family: verdana,sans-serif,arial;
+ font-size: 12px;
+ padding-top:5px;
+ padding-bottom:5px;
+ background-image:url(../images/menubutt.png);
+ color:#fff;
+ background-repeat:repeat-x;
+ border:1px solid #798390;
+ padding-right: 4px;
+ letter-spacing:0;
+}
+
+
+/*----*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*Error notifier*/
+#container-error{
+ border-color: #E6E6E6;
+}
+/*USER-BAR-ACCORDEON*/
+#container-user-bar-accordion{
+/*    background-image: url(/ENGINE/themes/blacknblue/images/rounded-bg.gif);*/
+	background-color:transparent;
+	border:0px;
+  
+    }
+ul.user-bar-accordion {
+    border-color:#e4e4e4;
+	background-color:#FFFFFF;
+	border-top:0px;
+	border-bott:0px;
+
+}
+ul.user-bar-accordion a.head {
+    border-top:1px solid #d9dfe7;
+	border-bottom:1px solid #798390;
+	background-color:#F8F8F8;
+    background: url(/ENGINE/themes/blacknblue/images/collapsed.gif) repeat-x scroll 0px 0px;
+    color: #fff;
+	border-left:1px solid #798390;
+	border-right:1px solid #798390;
+	
+	
+}
+ul.user-bar-accordion a.head:hover {
+	color:#fff;
+	text-decoration:underline;
+}
+ul.user-bar-accordion a.selected {
+	background: url(/ENGINE/themes/blacknblue/images/expanded.gif) repeat-x scroll 0px 0px;
+}
+ul.user-bar-accordion a.current {
+	background-color:#0C353F;
+}
+ul.user-bar-accordion li.accord li a {
+	color:#000000;
+}
+ul.user-bar-accordion li.accord li a:hover, 
+ul.user-bar-accordion li.accord li span:hover{
+	background-color:#F2F2F2;
+	color:#0C353F;
+}
+#systems-tree.treeview ul {
+	background-color: white;
+}
+.navigation a:link,
+.navigation a:visited,
+.navigation a:hover,
+.navigation a:active {color: #636363;border-color:#E6E6E6;}
+.navigation a:hover {border-color:#E6E6E6;}
+
+div.gallery {border-color: #e4e4e4;}
+
+/*TABLES*/
+table
+        {
+        border-left-color: #BFBFBF;
+    }
+th
+        {
+
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #1F2429), color-stop(1, #3B4147));	
+	background-image: -moz-linear-gradient(center bottom , #1F2429 0%, #3B4147 100%);
+    border-right: 1px solid #13161A;
+    border-top: 1px solid #666666;
+    color: #E2E2E2;
+	border-bottom:0px;
+		
+        }
+td
+        {
+        border-right-color:#BFBFBF;
+        border-bottom-color:#BFBFBF;
+        color: #4A6167;
+        }
+		
+table tbody	{
+	background-color:#fff;
+}
+.panel      
+{
+        color: #4f6b72;
+        border-right-color:#e4e4e4;
+        border-bottom-color:#e4e4e4;
+        border-top-color:#e4e4e4;
+        background: #e4e4e4 url(/ENGINE/themes/blacknblue/images/bg_th.gif) repeat-x;
+}  
+
+.panel span{color:#000;}
+.box
+{
+ border-color: #e4e4e4;
+}
+
+/* Alternate row style */
+tr.alt
+        {
+        background: #F9F5EF;
+        color: #797268;
+        }
+/* The current cell */
+table tbody tr td.currentCell,
+table tbody tr td:hover,
+table tbody tr.alt td:hover
+        {
+        background-color:#F2F2F2;
+        }
+/* Normal row hover styles */
+table tr.rowHover td,  /* Internet Explorer < 7 (and 7 in quirks mode) requires a specific class */
+tr:hover td     /* All others can use the :hover pseudo */
+        {
+        background-color:#F8F8F8;
+        }
+/* Alternate row hover styles */
+tr.alt:hover td
+        {
+        background-color:#F8F8F8;
+        }
+/* Column "cell" highlighting */
+table tr td.rowHover
+        {
+        background-color:#FFF5D8;
+        }
+/* Header highlighting */
+table tr th.rowHover
+        {
+        color:#222;
+        }
+tr.rowSelect{
+        background-color:#C7C7C7;
+        color: #fff;
+}
+        
+/* Warning styles */
+th.warning
+        {
+         background: #90B2D9 url(/ENGINE/images/errors/information.png) no-repeat;
+
+        }
+th.error
+        {
+         background: #FBBCA8 url(/ENGINE/images/errors/exclamation.png) no-repeat;
+
+        }
+td.error
+        {
+        color: #FFA8CF;
+    }   
+	
+	#modelname, #objname, span.modelname, span.date, span.objname, span.pricehistory, span.s-name {
+    color: #4089ED !important;
+}     
+/*BUTTONS*/
+.buttons a, .buttons button{
+    
+	background-color:transparent;
+    border-color: #A0A0A0;
+	color:#3e424e;
+	border:0;
+}
+button:hover, .buttons a:hover{
+    background-color:transparent;
+	border-bottom:1px solid grey;
+    color: #000;
+    
+}
+.buttons a:active{
+    background-color:#6299c5;
+    border-color:#6299c5;
+    color:#000;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#F1F1F1),color-stop(1,#D6D6D6));
+	background-image: -moz-linear-gradient(center bottom,#F1F1F1 0%,#D6D6D6 100%);
+	
+	
+	
+}
+.buttons a{
+	padding-bottom:1px;}
+
+
+/*Search bar*/
+#search-wrap {
+	margin-top:5px;
+}
+#search-content, .search-area {
+	background: transparent;
+	border-top:0;
+	border-bottom:0;
+	color:#000;
+	
+}
+.search-header {
+	background-image: url(/ENGINE/themes/blacknblue/images/dropdown-search.gif);
+	margin-top:3px;
+	margin-left:3px;
+
+	
+	
+
+}
+.search-btn {
+	color: #fff !important;
+	margin-left: 5px;
+	text-transform:uppercase;
+	font-size:10px;
+	padding-top: 6px;
+	
+}
+
+optgroup {
+background-color:#D8D6D6;
+font-family:"Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+font-size:11px;
+font-weight:normal;
+padding-left:1px;
+padding-right:1px;
+text-align:center;
+}
+
+option  {
+background-color:#FFFFFF;
+color:black;
+padding-left:2px;
+padding-right:2px;
+text-align:left;
+}
+
+optgroup > option {
+-moz-padding-start:20px;
+font-style:normal;
+font-weight:normal;
+}
+
+option {
+-moz-user-select:none;
+display:block;
+float:none !important;
+line-height:normal !important;
+min-height:1em;
+position:static !important;
+text-indent:0;
+white-space:nowrap !important;
+word-wrap:normal !important;
+}
+
+
+
+#container-footer {
+        color: #fff;
+	    border-top:1px solid #d9dfe7;
+		border-bottom:1px solid #798390;
+		background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #ADB7C5),color-stop(1, #BEC8D3));
+		background-image: -moz-linear-gradient(center bottom,#ADB7C5 0%,#BEC8D3 100%);
+
+}
+
+
+/*==TABS==*/
+
+ul.tabs, ul.ctabs {
+    border-bottom: 0 !important;
+}
+
+ul.tabs a, ul.ctabs a,.tabs-nav li {
+    border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+
+
+}
+ul.tabs li.contracts, ul.ctabs li.ccontracts {
+    float: left;
+    height: 30px;
+    list-style-type: none;
+    margin-left: 90px !important;
+}
+ul.tabs, ul.ctabs, {
+    border-bottom: 1px solid #666666;
+    height: 30px;
+    margin: 0 !important;
+    padding: 0;
+
+}
+ul.tabs a.current, ul.ctabs a.current {
+    background-color:grey !important;
+	background-image: url("../images/menubutt.png") !important;
+    background-repeat: repeat-x;
+    border: 1px solid #798390 !important;
+    color: #FFFFFF !important;
+    font-family: verdana,sans-serif,arial;
+    font-size: 12px;
+	font-weight: normal !important;
+	}
+ul.tabs a, ul.ctabs a {
+	background-image: url("../images/menubuttinact.png");
+	background-color:#646464 !important;
+	border:1px solid #646464 !important;
+	color: #000 !important;
+	font-size:11px !important;
+
+}
+
+ul.tabs li, ul.ctabs li {
+   
+	float: left;
+    height: 30px;
+    list-style-type: none;
+    margin-top: -25px;
+    padding: 0;
+}
+ul.tabs a:hover, ul.ctabs a:hover {
+    color: #fff !important;
+	background-color:#B3B3B3 !important;
+	background-image: url("../images/menubutthover.png") !important;
+	text-decoration: underline;
+}
+
+
+
+.tabs-nav .tabs-selected {
+    background-color:grey !important;
+	background-image: url("../images/menubutt.png") !important;
+	background-position: top;
+    background-repeat: repeat-x;
+    border: 1px solid #798390 !important;
+	padding-top:0px !important;
+}
+
+.tabs-nav .tabs-selected a {
+    color: #fff !important;
+}
+.tabs-nav a {
+    font-size: 11px !important;
+    font-weight: normal !important;
+}
+.tabs-nav li {
+	padding: 0 10px !important;
+	height: 20px !important;
+	background-image: url("../images/menubuttinact.png");
+	background-color:#646464 !important;
+	border:1px solid #646464 !important;
+	font-size:11px !important;
+}
+.tabs-nav li a{
+    color: #000 !important;
+	font-size:11px !important;
+}
+
+.tabs-nav li:hover {
+	background-color:#B3B3B3 !important;
+	background-color:#B3B3B3 !important;
+	background-image: url("../images/menubutthover.png") !important;
+	}
+.tabs-nav li a:hover {
+    text-decoration: underline;
+    color: #fff !important;
+}
+
+span.waresname {
+    color: #4089ED !important;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+#divTblBarcode{
+	border:0px;
+}
+
+
+ td.clear:hover {
+    background-color: #8bbef7 !important;
+}		
+		
+		
+div.panes > div, div.cpanes > div {
+    border: 1px solid #A0A0A0 !important;	
+}
+
+div.errormsg {
+    color: red;
+    font-family: arial,sans-serif;
+    font-size: smaller;
+}
+
+div.required_field {
+    display: inline;
+    color: #CD1010;
+	}
+	
+	
+	
+
+/*-----bidding STYLE----------*/
+#tenderData{
+clear:both;
+}
+.bidding{
+
+	margin-bottom: 20px;
+	position: relative;
+    top: 15px;
+	clear:both;
+}
+.bidding-block {
+    border: 1px solid #6C9ABB;
+	width: 768px;
+	height: 85px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/tend_block_bg.png) left top repeat-x #9bc7e2;
+	-webkit-box-shadow: 0px 2px 3px 0px #939393;
+	-moz-box-shadow: 0px 2px 3px 0px #939393;
+	box-shadow: 0px 2px 3px 0px #939393; 	
+}
+
+.bidding-block-number{
+	background: url("../images/bidding/tend_block_nmbr_act.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    font-size: 10px;
+    height: 32px;
+    margin-left: -15px;
+    padding-top: 11px;
+    position: absolute;
+    text-align: center;
+    top: -15px;
+    vertical-align: middle;
+    width: 32px;
+	font-family:sans-serif,"Trebuchet MS",Arial,Helvetica;
+	font-weight:bold;
+}
+
+.inactive div.bidding-block-number{
+	background: url("../images/bidding/tend_block_nmbr_inact.png") no-repeat scroll left top transparent;
+}
+
+.bidding-date{
+	width:39%;
+	border-right:1px solid #ddf1fc;
+	border-top: 1px solid #ddf1fc;
+	height:100%;
+	float:left;
+
+}
+.bidding-type{
+	width:23%;
+	border-right:1px solid #ddf1fc;
+	border-left: 1px solid #6C9ABB;
+	border-top: 1px solid #ddf1fc;
+	height:100%;
+	float:left;
+	text-align:center;
+	font-size:10px;
+	margin-right:-6px;
+}
+
+.bidding-item-type{
+	padding-top:3px;
+}
+.bidding-type-img-div{
+	border-bottom: 1px solid #6C9ABB;
+	
+}
+.bidding-item-ctegory{
+	border-top: 1px solid #ddf1fc;
+	padding-top:8px;
+	font-size: 11px;
+    font-weight: bold;
+}
+.bidding-type-img{
+	position:relative;
+}
+
+.bidding-details{
+	width:38%;
+	border-left: 1px solid #6C9ABB;
+/*	border-top: 1px solid #ddf1fc;*/
+	height:100%;
+	float:right;
+	background: url(../images/bidding/tend_det_bg.png) left top repeat-x #ebf4fb;
+}
+.bidding-datails-text{
+	height:65%;
+	width:79.5%;
+	border-bottom: 1px solid #b5c8d9;
+	border-top: 1px solid #ddf1fc;
+	border-right:1px solid #b5c8d9;
+	float:left;
+	font-size:11px;
+	text-align:center;
+}
+.bidding-datails-status{
+	height:65%;
+	width:20%;
+	border-top: 1px solid #ddf1fc;
+ 	border-bottom: 1px solid #b5c8d9;
+	float:left;
+}
+.bidding-item-status{
+	position: absolute;
+    width: 60px;
+	font-size:10px;
+	color: #FFFFFF;
+	top: 1px;	
+}
+.bidding-details-panel{
+	width:79.5%;
+	height:32%;
+	border-top:1px solid #ffffff;
+	float:left;
+	border-right:1px solid #b5c8d9;
+}
+.bidding-processed{
+	margin-left: -15px;
+}
+
+.bidding-detail-button{
+	width:20%;
+	height:32%;
+	float:left;
+}
+.bidding-detail-button{
+	width:20%;
+	height:32%;
+	float:left;
+}
+.detail-button{
+	height:100%;
+	width:102%;
+	cursor:pointer;
+	background:  url(../images/bidding/detail_btn.png) left top repeat-x #ebf4fb;
+	border:0px;
+}
+.detail-button:hover{
+	background:  url(../images/bidding/detail_btn_hover.png) left top repeat-x #ebf4fb !important;
+}
+.bidding-status-img{
+	height:100%;
+	width:100%;
+	border:1px solid #808e9b;
+	padding:0px;
+    margin-top: -1px;
+	border-right:1px solid #6C9ABB;
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+.asbutton{
+	cursor:pointer;
+}
+
+.bidding-details-my{
+ margin-left:-6px;
+}
+
+.bidding-date-table{
+	width:100%;
+	height:100%;
+	border:0px;
+	text-align:center;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	border-collapse: separate;
+}
+
+.bidding-details-table{
+	width:100%;
+	height:100%;
+	border:0px;
+	text-align:center;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	vertical-align:middle;	
+}
+
+.bidding-date-table tbody,
+.bidding-date-table tr td:hover,
+.bidding-date-table tr td, 
+.bidding-date-table tr, 
+.bidding-date-table tr:hover,
+.bidding-time-left tr,
+.bidding-time-left td,
+.bidding-time-left tr:hover,
+.bidding-time-left td:hover,
+.bidding-details-table tbody,
+.bidding-details-buttons,
+.bidding-details-buttons:hover,
+.bidding-details-buttons td:hover,
+.bidding-details-buttons tr:hover,
+.bidding-details-table tr,
+.bidding-details-table td{
+	background:none;
+	background-color:transparent !important;
+	border:0px;
+}
+.bidding-details-table tbody tr.bidding-details-buttons:hover{
+
+	
+}
+
+.bidding-date-ddmmyy, .bidding-date-ddmmyy td{
+	font-size:20px;
+	color:#FFFFFF;
+	vertical-align:bottom;
+	font-weight:bold;
+}
+.bidding-time, .bidding-time td {
+	font-size:14px;
+	color:#383838;
+	vertical-align:middle;
+	font-weight:bold;
+	border-bottom: 1px solid #6C9ABB !important;
+}
+.bidding-time-left td{
+	height: 34.4%;
+	font-size:14px;
+	color:#383838;
+	vertical-align:middle;
+	font-weight:bold;
+	border-top: 1px solid #DDF1FC !important;
+
+}
+
+
+/*----detailed description block*/
+.bidding-details-block{
+	width: 768px;
+	margin-bottom: 20px;
+	position: relative;
+	clear:both;
+	top:-1px;
+	border: 1px solid #afb0b2;
+	background-color:#f8f8f8;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	border-top-color:#333;
+
+}
+.bidding-details-head, .bidding-myvote-head, .bidding-members-header, .voting-referee-header{
+    border: 1px solid #afb0b2;
+	width: 100%;
+    height: 23px;
+    padding-top: 6px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/bidding_det_header.png) left top repeat-x #e4e4e4;
+	-webkit-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	-moz-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	box-shadow: 0px 2px 3px 0px #bfbfbf; 
+	text-align:center;
+	font-size:13px;
+	color:#0e0e0e;
+	margin-bottom:10px;
+	font-weight:bold;
+	clear:both;
+}
+
+
+.bidding-members-header{
+    left: -4px;
+    position: relative;
+    width: 101%;
+}
+
+.block-details-controls, .block-member-controls, .block-referee-controls, .block-mybid-controls, .block-myvote-controls{
+    position: relative;
+	float:right;
+	width: 80px;
+	margin-left: -70px;
+}
+.block-details-controls{
+	left:-2px;
+}
+.block-details-controls img, .block-member-controls img, .block-mybid-controls img, .block-myvote-controls img{
+	width: 16px;
+	height:16px;
+	display: inline-block;
+}
+.block-myvote-controls{
+	left:-12px;
+}
+
+.bidding-up{
+	background: url(/ENGINE/images/bidding/block_up.png) no-repeat scroll transparent;
+}
+.bidding-up:hover{
+	background: url(/ENGINE/images/bidding/block_up_hover.png) no-repeat scroll transparent;
+}
+
+.bidding-refresh{
+	background: url(/ENGINE/images/bidding/block_refresh.png) no-repeat scroll transparent;
+}
+.bidding-refresh:hover{
+	background: url(/ENGINE/images/bidding/block_refresh_hover.png) no-repeat scroll transparent;
+}
+.bidding-refresh-anim{
+	background: url(/ENGINE/images/bidding/block_refresh_anim.gif) no-repeat scroll transparent;
+}
+.bidding-min{
+	background: url(/ENGINE/images/bidding/block_minimize.png) no-repeat scroll transparent;
+	
+}
+.bidding-min:hover{
+	background: url(/ENGINE/images/bidding/block_minimize_hover.png) no-repeat scroll transparent;
+	
+}
+.bidding-max{
+	background: url(/ENGINE/images/bidding/block_maximize.png) no-repeat scroll transparent;
+}
+
+.bidding-max:hover{
+	background: url(/ENGINE/images/bidding/block_maximize_hover.png) no-repeat scroll transparent;
+}
+.block-member-controls{
+ 	left: -12px;
+}
+.bidding-expand{
+	background: url(/ENGINE/images/bidding/block_expand.png) no-repeat scroll transparent;
+}
+.bidding-expand:hover{
+	background: url(/ENGINE/images/bidding/block_expand_hover.png) no-repeat scroll transparent;
+}
+.bidding-collapse{
+	background: url(/ENGINE/images/bidding/block_collapse.png) no-repeat scroll transparent;
+}
+.bidding-collapse:hover{
+	background: url(/ENGINE/images/bidding/block_collapse_hover.png) no-repeat scroll transparent;
+}
+
+.bidding-details-description{
+	min-height:90px;
+	height: 100px !important;
+	width:760px;
+	border:0px;
+	color: #5f5f5f;
+	margin-bottom:10px;
+	background-color:transparent;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	font-size:13px;
+}
+
+.bidding-details-all textarea.bidding-details-description{
+	height:100px;
+}
+.bidding-owner-attachments{
+    color: #3366CC;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+ .bidding-owner-attachments a {
+     color: #3366CC;
+ }
+.bidding-members{
+	clear:both;
+	width:99%;
+	margin-bottom:20px;
+}
+.bidding-members-table, .bidding-members-table tbody, .voting-referee-table, .voting-referee-table tbody{
+	width:99%;
+	background:none repeat scroll 0 0 transparent !important;
+	border-collapse:separate;
+	border-left:0px;
+	border-right:0px;
+	border-top: 1px solid #C5C5C5;
+	border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.members-table-div, .referee-table-div{
+    max-height: 246px;
+    overflow-y: auto;
+}
+
+.bidding-members-table tr, .bidding-members-table tr td,
+.bidding-members-table tr:hover, .bidding-members-table tr td:hover,
+.voting-referee-table tr, .voting-referee-table tr td,
+.voting-referee-table tr:hover, .voting-referee-table tr td:hover{
+	background:none repeat scroll 0 0 transparent;
+	text-align:left;
+	font-size:14px;
+	border-top:1px solid #ffffff;
+	border-bottom:1px solid #c5c5c5;
+	border-left:0px;
+	border-right:0px;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	padding-top:3px;
+	padding-bottom:3px;
+	vertical-align:middle;
+}
+.row-detail, .row-detail td{
+	background:#d9d9d9 !important;
+	border-top: 1px solid #2d83c1 !important;
+	border-bottom:0 !important;
+}
+.bidding-member-votes{
+    color: #F1BF26;
+    font-family: arial !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    padding-right: 10px;
+    text-shadow: 0 -1px 0 #7A4521, 0 1px 0 #FFFFFF;
+}
+.row-detail td.bidding-member-position, .row-detail td.voting-referee-position{
+	border-left: 1px solid #2d83c1 !important;	
+}
+
+.row-detail td.bidding-member-detailsbutton, .row-detail td.voting-referee-detailsbutton{
+	border-right: 1px solid #2d83c1 !important;
+}
+
+.bidding-member-details tr, .bidding-member-details td, .voting-referee-details tr, .voting-referee-details td{
+	background:#d9d9d9 !important;
+	border-top: 0 !important;
+	border-bottom: 1px solid #2d83c1 !important;
+	border-left: 1px solid #2d83c1 !important;
+	border-right: 1px solid #2d83c1 !important;
+}
+.member-details{
+	padding-bottom:5px;
+	vertical-align:middle;
+}
+
+.member-details-button, .referee-details-button{
+
+	border:0; 
+	background-image:url(../../../images/bidding/member_detail.png) !important;
+	background-color:transparent !important; 
+	cursor:pointer;	
+	height:16px;
+	width:27px;
+}
+
+.member-details-button:hover, .referee-details-button:hover{
+	background-image:url(../../../images/bidding/member_detail_hover.png) !important;
+	background-color:transparent !important;  
+}
+
+
+.bidding-member-position, .voting-referee-position{
+	width:35px;
+	
+}
+.bidding-member-name{
+	width:150px;	
+}
+.bidding-member-my{
+	width:16px;
+}
+.bidding-member-bid{
+	width:493px;
+}
+.bidding-member-havedetails, .voting-referee-havedetails, .bidding-member-haveattach{
+	width:16px;
+}
+.bidding-member-detailsbutton, .voting-referee-detailsbutton{
+	width:27px;
+}
+
+.member-details-text, .referee-details-text{
+	width:100%;
+	border:1px solid #bcbdbe;
+	color: #5f5f5f;
+	margin-bottom:10px;
+	background-color:#F8F8F8;
+	font-family: sans-serif,"Trebuchet MS", Arial, Helvetica;
+	font-size:13px;
+	height:80px;
+	margin-left:-1px;
+	padding:0px;
+}
+
+.biddign-block-mybid{
+	background-color:#9dc3e0;
+	border:1px solid #6c9abb;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.bidding-mybid-head{
+	border-top:1px solid #ddeffb;
+	height: 23px;
+}
+.bidding-mybid-head, .bidding-mybid-footer{
+	width: 100%;
+    padding-top: 6px;
+	text-align:center;
+	font-size:13px;
+	color:#FFFFFF;
+	font-weight:bold;
+	clear:both;
+}
+.bidding-mybid-footer{
+		height: 0px;
+}
+.bidding-mybid{
+	text-align:left;
+    color: #5F5F5F;
+    margin-bottom: 10px;
+    width: 750px;
+	background-color:#f8f8f8;
+    padding-left: 4px;
+    padding-right: 6px;
+    padding-top: 5px;	
+	border:1px solid #6C9ABB;
+	-webkit-box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+	-moz-box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+	box-shadow: 0px 2px 3px 0px #a5a5a5 inset;
+}
+
+.bidding-myvote{
+	text-align:left;
+}
+
+.bidding-mybid-description{
+	border: 1px solid #BCBDBE;
+    color: #5F5F5F;
+    min-height: 90px;
+	height: 100px;
+    width: 100%;
+	margin-top:5px;
+	background-color:#FCFCFC;
+}
+
+.bidding-mybid-attachments{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.bidding-mybid-footer{
+	margin-bottom:0px;
+}
+.bidding-mybid-buttons, .bidding-myvote-buttons{
+    width: 100%;
+	text-align:center;
+}
+.bidding-mybid button, .bidding-myvote-buttons button{
+    border: 1px solid #BCBDBE;
+	background:url("../images/bidding/bidding_det_header.png") repeat-x scroll left top #E4E4E4;
+    color: #45474e;
+    cursor: pointer;
+    font-family: sans-serif,Lucida Grande,Tahoma,Arial,Verdana;
+    font-size: 14px;
+    height: 26px;
+    margin-bottom: 5px;
+    position: relative;
+    width: 130px;
+	margin-top:10;
+	
+}
+
+/*------------------------------*/
+
+
+
+/* ----inactive block*--------*/
+.inactive, div.inactive div.bidding-details{
+	background: url(../images/bidding/tend_block_inact_bg.png) left top repeat-x #d3d3d3;
+	border-color:#808e99;	
+	color: #6e6e6e;
+}
+div.inactive .detail-button{
+	background:  url(../images/bidding/detail_inact_btn.png) left top repeat-x #ebf4fb;
+	border-left:1px solid #808e99; 
+}
+
+div.inactive .detail-button:hover{
+	background:  url(../images/bidding/detail_inact_btn_hover.png) left top repeat-x #ebf4fb !important;
+	border-left:1px solid #808e99; 
+}
+div.inactive .bidding-time,  div.inactive .bidding-time td {
+    border-bottom: 1px solid #808e99 !important;
+    color: #6e6e6e;
+}
+.inactive div.bidding-type{
+    border-left: 1px solid #808e99;	
+	color: #6e6e6e;
+}
+.inactive div.bidding-type-img-div {
+    border-bottom: 1px solid #808e99;
+}
+.inactive div.bidding-datails-text {
+    border-bottom: 1px solid #808e99;
+}
+div.inactive .bidding-time-left td {
+    color: #6e6e6e;
+}
+/*---------------------------*/
+
+
+
+/*tender manage interface*/
+
+#ui-datepicker-div{z-index:99999;}
+.hasDatepicker{z-index:99999;}
+div.ui-dialog-overlay{z-index:5002 !important;}
+div.ui-dialog{z-index:5003 !important;}
+.hide{display:none;}
+
+div.table table{ width: 100%;}
+div.div-create-tender{
+    width: 700px;
+}
+
+
+
+div.div-create-tender div.title{
+    border: 1px solid #afb0b2;
+    height: 12px;
+    padding-top: 6px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	background: url(../images/bidding/bidding_det_header.png) left top repeat-x #e4e4e4;
+	-webkit-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	-moz-box-shadow: 0px 2px 3px 0px #bfbfbf;
+	box-shadow: 0px 2px 3px 0px #bfbfbf; 
+	text-align:center;
+	font-size:13px;
+	color:#0e0e0e;
+	margin-bottom:10px;
+	font-weight:bold;
+	clear:both;	
+	left: -40px;
+    position: relative;
+    top: -20px;
+    width: 113%;
+}
+div.div-create-tender div.bottomline{
+	padding-bottom:10px;
+}
+
+div.div-create-tender div.row{
+    padding: 5px 0px 5px 0px;
+}
+div.div-create-tender div.block{
+    background-color: #f2f2f2;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 20px;
+	border:1px solid #d5d5d5;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-box-shadow: 0px 2px 2px 0px #d5d5d53;
+	-moz-box-shadow: 0px 2px 2px 0px #d5d5d5;
+	box-shadow: 0px 2px 2px 0px #d5d5d5; 	
+
+
+}
+
+.div-t_anonymity div.title{
+	height:22px !important;
+}
+
+
+div.div-create-tender div.label{
+    width: 100px;
+    position: relative;
+    float: left;
+    text-align: left;
+    padding-right: 30px;
+}
+div.div-create-tender div.block table{width: 100%;}
+div.div-create-tender div.field-bottom-lable{
+	width: 100%; 
+	padding-left:110px;
+	color: #969696;
+	font-size:10px;
+}
+div.div-create-tender div.validation-error{width: 100%; padding-left:100px;color: red;}
+div.div-create-tender textarea{width: 450px; height:150px;}
+div.div-create-tender div.field{
+    text-align: left;
+    padding-left: 20px;
+}
+div.div-create-tender div.label-row, div.div-create-tender div.field-row{
+    width: 100%;
+    text-align: left;
+	padding-bottom:10px;
+}
+
+.t_anonymity-P{
+	padding-bottom:5px;
+	border-bottom:1px solid #d5d5d5;
+}
+
+.t_anonymity-C{
+	padding-bottom:5px;
+	padding-top:5px;
+	border-bottom:1px solid #d5d5d5;
+	border-top:1px solid #ffffff;
+}
+.t_anonymity-F{
+	padding-top:5px;
+	border-top:1px solid #ffffff;
+}
+
+div.div-create-tender div.actions{
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+div.buttons{
+    text-align: center;
+}
+div.cm_t_tender_status_block{
+    width: 20px;
+    height: 20px;
+}
+div.cm_t_tender_status_name{
+    color: #FFFFFF;
+    font-size: 10px;
+    top: 1px;
+    width: 60px;
+    text-align: center;
+    margin-top: -63px;
+}
+img.cm_t_tender_status_img{
+    border-color: #808E9B #82231D #808E9B #808E9B;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 0px;
+    width: 60px;
+    height: 59px;
+    padding: 0;
+}
+
+#frm_profile_select.profile_select div.buttons{
+	margin-top:26px
+}
+
+#cancel-tender{
+    padding-top: 1px;
+	padding-bottom: 2px;
+}
+.validation-error {
+	color:#f91d13;
+}
+
+.bidding-myvote-head{
+	text-align:center;
+	color:#000000;
+	font-weight:bold;
+}
+.bidding-myvote-description{
+
+    font-family: sans-serif,"Trebuchet MS",Arial,Helvetica;
+    font-size: 13px;
+    height: 100px;
+    margin-bottom: 10px;
+    min-height: 90px;
+    width: 760px;
+}
+/*-----------------------*/
+

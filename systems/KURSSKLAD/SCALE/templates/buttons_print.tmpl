@@ -1,0 +1,31 @@
+#encoding cp1251
+##<link rel="stylesheet" type="text/css" media="print" href="$sp_css/bw.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/print.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="$sp_css/buttons_print.css" />
+##<link rel="stylesheet" type="text/css" media="print" href="$sp_css/bw.css" />
+<link rel="stylesheet" type="text/css" media="print" href="$sp_css/print.css" />
+<link rel="stylesheet" type="text/css" media="print" href="$sp_css/buttons_print.css" />
+#set $Num = 0
+#set $td = 0
+<table class="PriceList"><tbody>
+#for $item_dl in $datalist
+    #set global $item = $item_dl
+    #set $Num = $Num + 1
+    #set global $CurrNum = $Num
+    #if $td == 5
+        </tr>
+        #set $td = 0
+    #end if
+    #if $td == 0
+        <tr><td class="PriceList">
+            #include "../systems/KURSSKLAD/MSCALES/SCALESELFSERVICE/templates/button_template.tmpl"        
+        </td>
+        #set $td = $td + 1
+    #else
+        <td class="PriceList">
+            #include "../systems/KURSSKLAD/MSCALES/SCALESELFSERVICE/templates/button_template.tmpl"        
+        </td>
+        #set $td = $td + 1
+    #end if
+#end for
+</tbody></table>

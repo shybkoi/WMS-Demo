@@ -1,0 +1,110 @@
+#encoding cp1251
+#extends systems.engine_main
+#def $system_help = True
+#end def
+
+#def systemNavigation
+     <form id="frmFilter" class="buttons" style="width: 100%">
+            <b>Документы: </b>
+            <input required id=dBegClient type=text size=7 width="40%">
+            <input required id=dEndClient type=text size=7 width="40%">
+            <button type=button id=btnLocateClients><img src=$eng_img/actions/magnifier.png border=0></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Склад: </b>
+            <select id=selectObj>
+          #if $varExists('$datalist') and $datalist
+            #for $item in $datalist
+                <option value=$item.OBJID>$item.OBJNAME</option>
+            #end for
+          #end if
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            <b>Клиент: </b><input type=text id=objName value="" size=30 />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Задания: </b>
+            <input required id=dBegTask type=text size=7 width="40%">
+            <input required id=dEndTask type=text size=7 width="40%">
+            <button type=button id=btnLocateTaskes><img src=$eng_img/actions/magnifier.png border=0></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type=button id=btnWorkers title="Показать список отборщиков"><img src=$eng_img/actions/user.png border=0></button>
+            <button type=button id=btnLocDoc title="Поиск внутренних заказов"><img src=$eng_img/actions/application_view_detail.png border=0></button>
+            <button type=button id=btnPalletTransitList title="Поиск паллетов с транзитным товаром"><img src=$eng_img/actions/pallet.png border=0></button>
+     </form>
+#end def
+
+#def engineData
+
+  ##Styles
+    <link href="$eng_css/contextMenu.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/k.progressbar.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/contextMenuStatus.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/tabs/jquery.tabs-ie.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$eng_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sps_css.KURSSKLAD/inOrderStatIncome.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="$sp_css/SelectTRN.css" rel="stylesheet" type="text/css" media="screen"/>
+
+  ##Scripts
+
+    <script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+    <script type="text/javascript" src="$eng_js/ui.droppable.min.js"></script>
+
+    <script type="text/javascript" src="$eng_js/ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script>
+
+    <script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="$eng_js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="$eng_js/kTblScroll.min.js"></script>
+
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.progressbar.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectAutoComplete.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.tabs.pack.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.tdChk.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/k.Sp.DocTypes.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.doclocate.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.docwares.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.table.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/PALLET/transitList.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/PALLET/transit.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/doc/docConfOrder.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/DOC/clientorder.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.wares.js"></script>
+    <script type="text/javascript" src="$sps_js.KURSSKLAD/wh.selectpreview.js"></script>
+    <script type="text/javascript" src="$sp_js/SelectTRN.js"></script>
+
+    #block adminData
+        <div id=dvWH>
+            <div id=dvShop class=leftrel>
+                <div id=dvShopTop class=leftrel></div>
+                <div id=dvShopBottom class=leftrel>
+                    <div id=divTabs style="text-align:left;">
+                        <ul>
+                            <li><a href="#dvShopOrders"><span>Заказы</span></a></li>
+                            <li><a href="#dvShopPallets"><span>Паллеты</span></a></li>
+                            <li><a href="#dvShopDocs"><span>Документы</span></a></li>
+                            <li><a href="#dvShopTaskes"><span>Задания</span></a></li>
+                        </ul>
+                        <div id=dvShopOrders></div>
+                        <div id=dvShopPallets></div>
+                        <div id=dvShopDocs></div>
+                        <div id=dvShopTaskes></div>
+                    </div>
+                </div>
+            </div>
+            <div id=dvSplitter class=leftrel></div>
+            <div id=dvTask class=leftrel>
+                <div id=dvTaskTop class=leftrel></div>
+                <div id=dvTaskBottom class=leftrel></div>
+            </div>
+        </div>
+    #end block
+#end def

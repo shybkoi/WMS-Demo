@@ -1,0 +1,100 @@
+<div class="taxwaybill-data">
+    <p style="margin-top: 15px; margin-bottom: 5px;">Налоговые накладные:</p>
+    <table id="taxwaybill-master">
+        <thead>
+            <tr>
+                <th style="width: 70px">ШК</th>
+                <th style="width: 70px">Дата</th>
+                <th style="width:70px">Номер</th>
+                <th>От Кого</th>
+                <th style="width:200px">Кому</th>
+                <th style="width:60px">Сумма</th>
+                <th style="width:60px">Сумма НДС</th>
+                <th style="width:25px">Тип</th>
+            </tr>
+        </thead>
+        <tbody id="taxwaybill-body">
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">Итого</th>
+            <th class="DocSum"></th>
+            <th class="NDS"></th>
+            <th></th>          
+        </tr>
+        </tfoot>
+    </table>   
+    <p id="taxwaybill-detail-title" style="margin-top: 15px; margin-bottom: 5px;">Корректировки налоговой накладной:</p>
+    <table id="taxwaybill-detail" style="display: none; width: 100%;" class="flora">
+        <thead>
+            <tr>
+                <th style="width: 70px">ШК</th>
+                <th style="width: 70px">Дата</th>
+                <th style="width:70px">Номер</th>
+                <th>От Кого</th>
+                <th style="width:200px">Кому</th>
+                <th style="width:60px">Сумма</th>
+                <th style="width:60px">Сумма НДС</th>
+                <th style="width:25px">Тип</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">Итого</th>
+            <th class="DocSum DocSumK"></th>
+            <th class="NDS NDSK"></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th colspan="5">Итого по налоговой</th>
+            <th class="DocSum DocSumTotal"></th>
+            <th class="NDS NDSTotal"></th>
+            <th></th>         
+        </tr>
+        </tfoot>
+    </table>
+    
+</div>
+<br>
+<div class="buttons">
+    <button class="add TaxWaybilAdd">Добавить НН</button>
+</div>
+<style>
+    div.flora button.add{
+        padding-left: 16px;
+        background: url(/KURSSKLAD/images/add.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.flora button.cancel{
+        padding-left: 16px;
+        background: url(/KURSSKLAD/images/cancel.png) no-repeat left center;
+        border: 1px solid black;
+    }
+    div.flora .buttons{
+        padding-top: 5px;
+        text-align: center;
+    }
+    div.flora div.label{
+        width: 40%;
+        text-align: left;
+        position: relative;
+        float: left;
+    }
+    div.flora div.input{
+        width: 20px;
+        text-align: center;
+        position: relative;
+        float: left;
+    }
+    div.flora div.widthfull{
+        width: 100%;
+        text-align: left;
+        padding-top: 5px;
+    }
+    div.flora div.title{
+        border-bottom: 2px solid black;
+         margin-bottom: 7px;
+    }
+</style>

@@ -1,0 +1,26 @@
+#encoding cp1251
+#extends reservemain
+
+#def rFilter
+    ##Scripts
+	<link href="$sp_css/fundincome.css" rel="stylesheet" type="text/css" media="screen"/>    
+    <script type="text/javascript" src="$sp_js/fundincome.js"></script>	
+	
+	<script type="text/javascript">
+		docTypeObjects = {};
+		#for $item in $docTypeObjects
+			#if $item.NUMOBJ == '0'
+				docTypeObjects.FROMOBJ = '$item.CAPTION';
+			#elif $item.NUMOBJ == '1'
+				docTypeObjects.THROUGHOBJ = '$item.CAPTION';
+			#elif $item.NUMOBJ == '2'
+				docTypeObjects.TOOBJ = '$item.CAPTION';
+			#end if
+		#end for
+	</script>	
+#end def
+
+#def rData
+	<div id="dvScreen"></div>
+#end def
+

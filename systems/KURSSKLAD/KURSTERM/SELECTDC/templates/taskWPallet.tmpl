@@ -1,0 +1,44 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#def mainData    
+	<form action="taskWPallet">
+        <input type="hidden" name="palletid" value="$PID">
+        $_('ШК'): <input type="text" id=":scan:text" name="barcode" value="" title="$_('Поддон'), $_('Товар')"><br>
+	</form>    
+    <br>
+    Поддон: <b><u>$PNUM</u></b>($SNAME)<br><br>
+    
+    #if $varExists('$datalist')
+        <table>
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Кол-во</th>
+                    <th>Итого</th>
+                <tr>
+            </thead>
+            <tbody>
+            #for $item in $datalist
+                <tr>
+                    <td><a href="taskWPalletWares?palletid=$PID&waresid=$item.WID" title="$item.WNAME.replace('"',"'")">$item.WCODE</a></td>
+                    <td>
+                        #if $item.AMOUNT and float($item.AMOUNT)>0.00001
+                            #if $item.VUAMOUNT and float($item.VUAMOUNT)>0.00001
+                                #filter Quantity $item.VUAMOUNT #end filter# $item.VUCODE
+                            #end if
+                            #if $item.MUAMOUNT and float($item.MUAMOUNT)>0.00001
+                                #filter Quantity $item.MUAMOUNT #end filter# $item.MUCODE
+                            #end if
+                        #else
+                            &nbsp;
+                        #end if
+                    </td>
+                    <td>#filter Quantity $item.AMOUNT #end filter#</td>
+                </tr>
+            #end for
+            </tbody>
+        </table>
+        <br>
+    #end if        
+#end def

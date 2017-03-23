@@ -1,0 +1,44 @@
+
+UPDATE ENGINE_SYSTEMS
+SET REF_NAME = 'SELECT',
+    FOLDER_NAME = 'SELECTDC',
+    CLASS_NAME = 'TSelectU3S',
+    SHOW_NAME = 'Отборка',
+    "MODULE_NAME" = 'select',
+    LOGO = NULL,
+    HIGHER = 22,
+    ID_BASE = NULL,
+    SEND_BUG_MAIL = 0,
+    ID_MAIL = NULL,
+    DATE_TIME_FORMAT = NULL,
+    LASTDATE = '23-OCT-2016 23:09:55',
+    COMMENTS = NULL,
+    ORDERBY = NULL,
+    DISABLED = NULL,
+    NO_MAP = NULL,
+    TIME_FORMAT = NULL
+WHERE (ID_SYSTEM = 41);
+
+
+UPDATE ENGINE_SYSTEMS
+SET REF_NAME = 'SELECT',
+    FOLDER_NAME = 'SELECT',
+    CLASS_NAME = 'SelectU3S',
+    SHOW_NAME = 'Управление отборкой',
+    "MODULE_NAME" = 'select_u3s',
+    LOGO = NULL,
+    HIGHER = 20,
+    ID_BASE = NULL,
+    SEND_BUG_MAIL = 0,
+    ID_MAIL = NULL,
+    DATE_TIME_FORMAT = NULL,
+    LASTDATE = '27-AUG-2016 16:08:39',
+    COMMENTS = NULL,
+    ORDERBY = NULL,
+    DISABLED = NULL,
+    NO_MAP = NULL,
+    TIME_FORMAT = NULL
+WHERE (ID_SYSTEM = 42);
+
+
+

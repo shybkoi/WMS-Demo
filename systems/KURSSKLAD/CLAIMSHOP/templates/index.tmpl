@@ -1,0 +1,70 @@
+#encoding cp1251
+#extends systems.engine_main
+## #def systemNavigation
+## #end def
+
+#def engineData
+
+	<link href="$eng_css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="screen"/>
+	
+	<script type="text/javascript" src="$eng_js/jquery.rightClick.js"></script>
+	<script type="text/javascript" src="$eng_js/ui.datepicker.min.js" ></script>
+	<script type="text/javascript" src="$eng_js/i18n/ui.datepicker-ru.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.maskedinput-1.2.1.pack.js"></script> 
+	<script type="text/javascript" src="$eng_js/jquery.contextMenu.js"></script> 
+	<script type="text/javascript" src="$eng_js/ui.dialog.min.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="$eng_js/kTblScroll.js"></script> 
+	<script type="text/javascript" src="$eng_js/jquery.autocomplete.min.js"></script>
+	<script type="text/javascript" src="$eng_js/jquery.rowFocus.min.js"></script>
+	
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.UpDown.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.form.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.formats.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.messages.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectLocate.js"></script>
+	##<script type="text/javascript" src="$sps_js.KURSSKLAD/k.waresLocate.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.icons.js"></script>
+	<script type="text/javascript" src="$sps_js.KURSSKLAD/k.objectAutoComplete.js"></script>
+	<script type="text/javascript" src="$sp_js/claimshop.js"></script> 
+
+
+	<div id="dvMain" style="width:100%;float:left;position:relative;">
+		<div id="divFilter" style="float:left;position:relative;height:100%;width:13%;">
+			<form id="frmScan">
+				<table>
+					<tr><th>Номер</th></tr>
+                    <tr><td><input type="text" name="barcode" id="barcode" value=""></td></tr>
+				</table>
+			</form>
+            <form id="frmFilter">
+                <table>
+					<tr><th>Магазин</th></tr>
+					<tr><td><select name='toobjid' id='toobjid'></select></td></tr>
+                    <tr><th>Период</th></tr>
+                    <tr><td><input type="text" id="dbeg" name="dbeg" size="8" value="">
+                            <input type="text" id="dend" name="dend" size="8" value=""></td></tr>
+					<tr><th>Склад</th></tr>
+					<tr><td><select name='fromobjid' id='fromobjid'></select></td></tr>
+					#*
+                    <tr><th>Статус</th></tr>
+                    <tr><td><select name='status' id='cmbDocStatus'></select></td></tr>
+					*#
+					
+                    <tr>
+						<td><div class="buttons" style="text-align: right; padding:3px;">
+                                <button type="submit" title="Искать"><img src="$sps_img.KURSSKLAD/magnifier.png" border="0"></button>
+                            </div>
+						</td>
+					</tr>
+                </table>
+            </form>
+        </div>
+        
+        <div id="divTblData" style="float:left;position:relative;height:100%;width:87%;">
+            <div id="divTblMaster" style="float:left;position:relative;height:40%;width:100%;"></div>
+            <div id="divTblDetail" style="float:left;position:relative;height:60%;width:100%;"></div>
+        </div>
+	</div>	
+#end def

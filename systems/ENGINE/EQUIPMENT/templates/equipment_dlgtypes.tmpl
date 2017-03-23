@@ -1,0 +1,33 @@
+#encoding cp1251
+
+<div class="full_height">
+    <table id="tbl_types">
+        <thead>
+            <tr>
+                <th>$_('Вид')</th>
+                <th>$_('Название')</th>
+                <th>$_('Изменён')</th>
+            </tr>
+        </thead>
+        <tbody id='tbl_types_tbody'>
+            #for $item in $datalist
+                <tr id_type="$item.ID_TYPE">
+                    #if $item.IS_MOBILE
+                        <td class="equip_kind" equip_kind="M" title="$_('Мобильное')" style="text-align: center;">
+                            <img src="$eng_img/actions/mobile.png" border="0">
+                        </td>
+                    #else
+                        <td class="equip_kind" equip_kind="T" title="$_('Терминальное')" style="text-align: center;">
+                            <img src="$eng_img/actions/terminal.png" border="0">
+                        </td>
+                    #end if
+                    <td class="type_name">$item.NAME</td>
+                    <td class="lastdate hac">#filter LongDateTimeFilter $item.LASTDATE #end filter</td>
+                </tr>
+            #end for
+        </tbody>
+    </table>
+</div>
+<div class="buttons save footer_btns right_aligned_btns">
+    <button type="button" id="dlgTypes_close_btn"><img src="$eng_img/actions/accept.png" alt=""/>&nbsp;$_('Закрыть')</button>&nbsp;
+</div>

@@ -1,0 +1,41 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+#def mainData
+    <b><u>($WCODE)</u></b>$WNAME <u><b>$UCODE</b></u><br>
+    #if $WUID
+        #if $WUBARCODES
+            <a href='wuBarcodes?wid=$WID&uid=$UID'>
+                #set $bcSplit = $WUBARCODES.split(';')
+                #for $bc in $bcSplit
+                    $bc
+                #end for
+            </a>
+        #else 
+            <a href='wuBarcodes?wid=$WID&uid=$UID'>$_('Добавить ШК')</a>
+        #end if
+    #end if
+    <form action="wuSet" id="frm">
+        <input type=hidden name=wid value=$WID>
+        <input type=hidden name=uid value=$UID>
+        <table>
+            <tr><td>$_('Кратность')</td><td><input size=7 name=factor type="text" value="#filter Quantity$WUFACTOR#end filter#"></td></tr>
+            <tr><td>$_('Длина (м)')</td><td><input size=7 name=l id="l::float" type=text value="#filter Quantity$WUULENGTH#end filter#" onchange="setUnetCapacity()"></td></tr>
+            <tr><td>$_('Ширина (м)')</td><td><input size=7 name=w id="w::float" type=text value="#filter Quantity$WUUWIDTH#end filter#" onchange="setUnetCapacity()"></td></tr>
+            <tr><td>$_('Высота (м)')</td><td><input size=7 name=h id="h::float" type=text value="#filter Quantity$WUUHEIGHT#end filter#" onchange="setUnetCapacity()"></td></tr>
+        	<tr><td>$_('Объем (л)')</td><td><input size=7 name=c id="c::float" type=text value="#filter Quantity$WUUNETCAPACITY#end filter#"></td></tr>
+            <tr><td>$_('Брутто (кг)')</td><td><input size=7 name=b id="b::float" type=text value="#filter Quantity$WUUWEIGHT#end filter#"></td></tr>
+            <tr><td>$_('Нетто (кг)')</td><td><input size=7 name=n id="n::float" type="text" value="#filter Quantity$WUUNETWEIGHT#end filter#"></td></tr>
+        </table>
+        <input type=submit value="$_('Сохранить')">
+    </form>
+    
+    <script type="text/javascript">
+        function setUnetCapacity(){
+            var l = parseFloat( document.getElementById("l::float").value );
+            var w = parseFloat( document.getElementById("w::float").value );
+            var h = parseFloat( document.getElementById("h::float").value );
+            if (!isNaN(l) && !isNaN(w) && !isNaN(h))
+                document.getElementById("c::float").value = (l*w*h*1000).toFixed(3);
+        };        
+    </script>    
+#end def

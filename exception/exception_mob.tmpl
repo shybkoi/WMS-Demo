@@ -1,0 +1,42 @@
+#encoding cp1251
+#extends systems.engine_main_mob
+#def engineData_mob
+#import conf.engine_conf as cfg
+<div class='wrap-exception'>
+    #if $varExists('$title') and $title != ''
+        <p class="text-error">$time<br/>$title</p>
+    #else
+        <p class="text-error">$time</p>
+    #end if
+
+    #if $varExists('$exception_text')
+        <h3 class="text-error">$exception_text</h3>
+    #end if
+
+    #if $varExists('$traceback')
+        #if $traceback!=''
+            <br/>
+            <p class="text-error">$traceback</p>
+        #end if
+    #end if
+
+    <div class="btn-group btn-group-vertical btn-block">
+        #if $varExists('$back')
+            #if $back
+                <a href="javascript:history.back();" class="btn btn-primary btn-block">Назад</a>
+            #end if
+        #end if
+
+        #if $varExists('$url')
+            #if $varExists('$termnum') and $termnum
+                #set $url = $url + '?termnum=' + $termnum
+                #if $varExists('$fmi') and $fmi
+                    #set $url = $url + '&fmi=' + $fmi
+                #end if
+            #end if
+            <a href="$url" class="btn btn-info btn-block">На стартовую страницу</a>
+        #end if
+        <a href="$cfg.MOBILE_link" class="btn btn-info btn-block">К списку систем</a>
+    </div>
+</div>
+#end def

@@ -1,0 +1,23 @@
+#encoding cp1251
+#extends systems.KURSSKLAD.KURSTERM.templates.main
+
+#from systems.KURSSKLAD.cheetahutils import TimeStampToDate
+
+#def mainData
+    <b>$S_NAME</b><br>
+    <hr>
+	#if $varExists('$datalist')
+		#for $item in $datalist
+			<a href="">$item.S_PALNUM</a><br>
+			<b><u>($item.S_WCODE)</u></b> $item.S_WNAME<br>
+			$TimeStampToDate($item.S_WPRODUCTDATE) - $TimeStampToDate($item.S_WBESTBEFOREDATE)
+		#end for
+	#end if
+    <hr>
+    <form action="taskSiteBPallet">
+        <input type="hidden" name="tid" value="$TID">
+        <input type="hidden" name="sid" value="$S_ID">
+        <input type="hidden" name="pid" value="$PALLETID">
+        $_('Отсканируйте принтер для печати'): <input type='text' name='barcode' id='barcode:scan'>
+    </form>
+#end def

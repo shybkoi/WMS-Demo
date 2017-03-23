@@ -1,0 +1,28 @@
+<form id="dlgconfigedit_form">
+
+ <table>
+
+   <tr><th>Тема оформления по-умолчанию</th><td><input id="dlgconfigedit_DEFAULT_THEME" name="dlgconfigedit_DEFAULT_THEME" type="text" value=""></td><td id="theme_err" name="theme_err" type="text" style="color:red; border:0px;"></td></tr>
+   
+   <tr><th>Доступность регистрации</th><td><select id="dlgconfigedit_REGOPEN" name="dlgconfigedit_REGOPEN" value="" style="width: 100%;">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            </p></td><td style="border:0px;"></td></tr>		
+							
+   <tr><th>Captcha</th><td><select id="dlgconfigedit_REGCAPTCHA" name="dlgconfigedit_REGCAPTCHA" value="" style="width: 100%;">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            </p></td><td style="border:0px;"></td></tr>
+   
+   
+   <tr><th>Время истечения ссылки (дни)</th><td><input id="dlgconfigedit_RESETPSWD_EXPIRED_DAYS" name="dlgconfigedit_RESETPSWD_EXPIRED_DAYS" type="text" value=""></p></td><td id="days_err" name="days_err" type="text" style="color:red; border:0px;"></td></tr>
+   
+   
+
+ </table>
+ <br>
+ <div class="buttons save">
+    <button type="button" id="dlgconfigedit_save_btn"><img src="/ENGINE/images/actions/accept.png" alt=""/>&nbsp;Сохранить</button>&nbsp;
+    <button type="button" id="dlgconfigedit_cancel_btn"><img src="/ENGINE/images/actions/cancel.png" alt=""/>&nbsp;Отмена</button>
+ </div>
+</form>

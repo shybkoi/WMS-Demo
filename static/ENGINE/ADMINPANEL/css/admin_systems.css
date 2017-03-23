@@ -1,0 +1,93 @@
+div.buttons {
+/*    bottom: -50px;
+    position: relative;
+    right: -37%;*/
+}
+#dlg-systems.flora div.buttons{
+    margin-left: 36%;
+    padding-top: 10px;
+}
+
+
+button.buttons {
+    font-size: 12px;
+    background: #ffffff;
+    border: 1px solid #808080;
+}
+
+
+button.buttons:hover {
+    background: lightblue;
+}
+
+div#dlg-systems {
+    width: 700px;
+    height: 300px;
+}
+
+div#dlg-systems td {
+    border: none !important;
+}
+
+div#dlg-systems table input {
+    width: 98%;
+    border: 1px solid #000000;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+div#dlg-systems table select {
+    width: 98%;
+}
+
+ul.contextMenu {
+    width: 200px;
+}
+
+div#dlg-systems table span.relative {
+    display: block;
+    position: relative !important;
+}
+
+button.defaultbtn {
+    position: absolute;
+    right: 3px;
+    bottom: 1px;
+    Z-index: 1000;
+
+    padding: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+}
+
+div#dlgfromopts h2.header{
+    margin-bottom: 5px;
+}
+
+div.rewrite_rule_check {
+    color: #FF5500;
+}
+
+
+div#options_mass_delete_dlg div.buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+div#options_mass_delete_dlg {
+
+    position: relative;
+}
+
+select#sel_users {
+    width: 98%;
+}
+
+div#step_descript {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

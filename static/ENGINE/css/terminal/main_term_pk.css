@@ -1,0 +1,81 @@
+html, body{
+    overflow-y: hidden;
+    height: 100%;
+}
+#scan{
+    width: 140px;
+}
+div #container-content{
+   min-height: 100%;
+   border: none;
+}
+div #container-head{
+    background-color: #464646;
+    color: #FFFFFF;
+}
+div #shop_number{
+    float: left;
+    text-indent: 10px;
+    width: 20%;
+    height: inherit;
+    text-align: left;
+    font-size: 14px;
+    margin-top: 5px;
+}
+div #userfio{
+    float: right;
+    width: 20%;
+    text-align: right;
+    font-size: 14px;
+    margin-top: 5px;
+}
+div #icons{
+    display: inline;
+    clear: both;
+    height: inherit;
+    text-align: center;
+}
+div #sys-name{
+    width: 100%;
+    text-align: center;
+    clear: both;
+    font: bold 20px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+}
+#container-footer{
+    background-color: #E0E0E0;
+    height: 15px;
+}
+div #dvStatus, #dvButtons{
+    height: inherit;
+}
+table{
+    width: auto;
+}
+td{
+    color: #202020;
+    font: 13px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif !important;
+    padding: 1px;
+    text-align: center;
+}
+th{
+    background: url("/ENGINE/themes/blacknwhite/images/bg-header.jpg") repeat-x scroll 0 0 #CAE8EA;
+    border-bottom-color: #898989;
+    border-right-color: #898989;
+    border-top-color: #898989;
+    color: #FFFFFF;
+    font: bold 10px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    padding: 2px 1px;
+    vertical-align: middle;
+}
+a{
+    color: #000000;
+}
+.text{
+    text-align: left;    
+}
+.number{
+    text-align: right; 
+}
+
+
+
